@@ -1,0 +1,1215 @@
+{
+ "n_models": 18,
+ "n_scenes": 200,
+ "columns": [
+  "VQA",
+  "Perceptual",
+  "2D Dynamics",
+  "2.5D Geometry",
+  "3D Geometry",
+  "3D Dynamics"
+ ],
+ "summary_of": [
+  "Perceptual",
+  "2D Dynamics",
+  "2.5D Geometry",
+  "3D Geometry",
+  "3D Dynamics"
+ ],
+ "family_notes": {
+  "VQA": "Share of scene-specific yes/no questions a VLM answers correctly from the rendered video (all scenes).",
+  "Perceptual": "How closely the rendered video resembles the reference, in DINOv3 features (all scenes).",
+  "2D Dynamics": "Whether the motion on screen matches: moving-object overlap (all scenes), plus optical flow and point tracks (real videos).",
+  "2.5D Geometry": "Depth error against the reference (real videos).",
+  "3D Geometry": "How close the reconstructed surfaces are to the true ones (simulated scenes).",
+  "3D Dynamics": "Whether matter follows its true 3D motion (simulated scenes)."
+ },
+ "notes": {
+  "score": "Every metric is put on its declared [0,1] scale, never min-maxed over the models, so a column does not move when a model is added. A family score is the unweighted mean of its metrics; the summary score is the mean of the five reconstruction families, equal weight each.",
+  "elo": "VLM Elo is Bradley-Terry over 2221 pairwise comparisons on the 200 tasks, 18 systems, displayed on the conventional 1000 anchor. Ratings normalise to the field's geometric mean, so a rating is a distance from the field's average and the whole scale moves when the field changes; only differences are comparable between two fits. Intervals are a 200-draw bootstrap over tasks.",
+  "coverage": "A scene a model never rendered enters at the declared penalty rather than being dropped, so every column is over all 200 scenes.",
+  "cost": "Mean US dollars and mean tokens per task over each model's 200 runs. Open-weight models are priced at OpenRouter rates.",
+  "families": "VQA is reported and left out of the summary score: it is a semantic judgement rather than a reconstruction measurement."
+ },
+ "models": [
+  {
+   "run": "codex-gpt-6-astra-max",
+   "tag": "astra",
+   "label": "Astra [Max]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 1732.5,
+   "human_elo": 1633.5,
+   "families": {
+    "VQA": 0.87594,
+    "Perceptual": 0.90617,
+    "2D Dynamics": 0.59961,
+    "2.5D Geometry": 0.79113,
+    "3D Geometry": 0.92221,
+    "3D Dynamics": 0.7349
+   },
+   "overall": 0.7908,
+   "vqa": 0.8759,
+   "cost_usd": 11.321,
+   "tokens": 6227528,
+   "out_tokens": 67475,
+   "steps": 66.5,
+   "rendered": 200,
+   "video_key": "codex-gpt-6-astra-max",
+   "rank": 1,
+   "human_elo_ci": [
+    1570.2,
+    1707.8
+   ],
+   "elo_ci": [
+    1630.5,
+    1837.6
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1813.7,
+     "elo_ci": [
+      1640.5,
+      2059.5
+     ],
+     "human_elo": 1702.9,
+     "human_elo_ci": [
+      1608.7,
+      1807.4
+     ],
+     "vqa": 0.8533,
+     "cost_usd": 11.054,
+     "tokens": 6021392
+    },
+    "synthetic": {
+     "elo": 1662.2,
+     "elo_ci": [
+      1539.0,
+      1812.6
+     ],
+     "human_elo": 1565.8,
+     "human_elo_ci": [
+      1470.4,
+      1666.9
+     ],
+     "vqa": 0.8983,
+     "cost_usd": 11.588,
+     "tokens": 6433665
+    }
+   }
+  },
+  {
+   "run": "claude-claude-opus-5-5-high",
+   "tag": "opus55",
+   "label": "Opus 5.5 [High]",
+   "vendor": "anthropic",
+   "harness": "Claude Code",
+   "elo": 1556.0,
+   "human_elo": null,
+   "families": {
+    "VQA": 0.82755,
+    "Perceptual": 0.88214,
+    "2D Dynamics": 0.55597,
+    "2.5D Geometry": 0.77099,
+    "3D Geometry": 0.93709,
+    "3D Dynamics": 0.74586
+   },
+   "overall": 0.7784,
+   "vqa": 0.8276,
+   "cost_usd": 6.269,
+   "tokens": 12366054,
+   "out_tokens": 113408,
+   "steps": 90.5,
+   "rendered": 200,
+   "video_key": "claude-claude-opus-5-5-high",
+   "rank": 2,
+   "human_elo_ci": null,
+   "elo_ci": [
+    1474.5,
+    1656.2
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1480.9,
+     "elo_ci": [
+      1371.9,
+      1638.8
+     ],
+     "human_elo": null,
+     "human_elo_ci": null,
+     "vqa": 0.7751,
+     "cost_usd": 5.457,
+     "tokens": 9983377
+    },
+    "synthetic": {
+     "elo": 1612.1,
+     "elo_ci": [
+      1506.2,
+      1775.2
+     ],
+     "human_elo": null,
+     "human_elo_ci": null,
+     "vqa": 0.8795,
+     "cost_usd": 7.081,
+     "tokens": 14748730
+    }
+   }
+  },
+  {
+   "run": "codex-gpt-6-astra-high",
+   "tag": "astrahigh",
+   "label": "Astra [High]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 1685.1,
+   "human_elo": 1586.1,
+   "families": {
+    "VQA": 0.85014,
+    "Perceptual": 0.89724,
+    "2D Dynamics": 0.55136,
+    "2.5D Geometry": 0.77013,
+    "3D Geometry": 0.91912,
+    "3D Dynamics": 0.68866
+   },
+   "overall": 0.7653,
+   "vqa": 0.8501,
+   "cost_usd": 6.279,
+   "tokens": 3921016,
+   "out_tokens": 29279,
+   "steps": 66.2,
+   "rendered": 200,
+   "video_key": "codex-gpt-6-astra-high",
+   "rank": 3,
+   "human_elo_ci": [
+    1512.9,
+    1649.0
+   ],
+   "elo_ci": [
+    1585.8,
+    1811.1
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1680.6,
+     "elo_ci": [
+      1559.5,
+      1818.7
+     ],
+     "human_elo": 1644.8,
+     "human_elo_ci": [
+      1548.0,
+      1739.8
+     ],
+     "vqa": 0.8279,
+     "cost_usd": 6.092,
+     "tokens": 3745385
+    },
+    "synthetic": {
+     "elo": 1683.6,
+     "elo_ci": [
+      1524.8,
+      1821.0
+     ],
+     "human_elo": 1532.6,
+     "human_elo_ci": [
+      1450.0,
+      1615.4
+     ],
+     "vqa": 0.8722,
+     "cost_usd": 6.465,
+     "tokens": 4096648
+    }
+   }
+  },
+  {
+   "run": "claude-claude-fable-5-1-high",
+   "tag": "fable",
+   "label": "Fable 5.1 [High]",
+   "vendor": "anthropic",
+   "harness": "Claude Code",
+   "elo": 1391.4,
+   "human_elo": 1393.9,
+   "families": {
+    "VQA": 0.78845,
+    "Perceptual": 0.85829,
+    "2D Dynamics": 0.51822,
+    "2.5D Geometry": 0.74193,
+    "3D Geometry": 0.90167,
+    "3D Dynamics": 0.68496
+   },
+   "overall": 0.741,
+   "vqa": 0.7884,
+   "cost_usd": 15.074,
+   "tokens": 11978563,
+   "out_tokens": 140433,
+   "steps": 79.4,
+   "rendered": 200,
+   "video_key": "claude-claude-fable-5-1-high",
+   "rank": 4,
+   "human_elo_ci": [
+    1349.3,
+    1446.3
+   ],
+   "elo_ci": [
+    1333.4,
+    1459.9
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1357.8,
+     "elo_ci": [
+      1230.4,
+      1478.5
+     ],
+     "human_elo": 1443.4,
+     "human_elo_ci": [
+      1365.5,
+      1523.3
+     ],
+     "vqa": 0.7524,
+     "cost_usd": 12.757,
+     "tokens": 8305608
+    },
+    "synthetic": {
+     "elo": 1391.9,
+     "elo_ci": [
+      1312.0,
+      1488.2
+     ],
+     "human_elo": 1367.9,
+     "human_elo_ci": [
+      1300.1,
+      1432.3
+     ],
+     "vqa": 0.8242,
+     "cost_usd": 17.39,
+     "tokens": 15651517
+    }
+   }
+  },
+  {
+   "run": "codex-gpt-6-astra-low",
+   "tag": "astralow",
+   "label": "Astra [Low]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 1432.6,
+   "human_elo": 1393.3,
+   "families": {
+    "VQA": 0.7824,
+    "Perceptual": 0.878,
+    "2D Dynamics": 0.47869,
+    "2.5D Geometry": 0.75085,
+    "3D Geometry": 0.89795,
+    "3D Dynamics": 0.62643
+   },
+   "overall": 0.7264,
+   "vqa": 0.7824,
+   "cost_usd": 3.495,
+   "tokens": 2251703,
+   "out_tokens": 13439,
+   "steps": 55.3,
+   "rendered": 200,
+   "video_key": "codex-gpt-6-astra-low",
+   "rank": 5,
+   "human_elo_ci": [
+    1347.5,
+    1436.1
+   ],
+   "elo_ci": [
+    1368.1,
+    1499.3
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1452.5,
+     "elo_ci": [
+      1376.4,
+      1550.4
+     ],
+     "human_elo": 1439.9,
+     "human_elo_ci": [
+      1369.8,
+      1505.6
+     ],
+     "vqa": 0.7518,
+     "cost_usd": 3.469,
+     "tokens": 2206408
+    },
+    "synthetic": {
+     "elo": 1397.6,
+     "elo_ci": [
+      1307.3,
+      1489.6
+     ],
+     "human_elo": 1366.5,
+     "human_elo_ci": [
+      1305.8,
+      1427.0
+     ],
+     "vqa": 0.8127,
+     "cost_usd": 3.521,
+     "tokens": 2296999
+    }
+   }
+  },
+  {
+   "run": "claude-claude-opus-5-high",
+   "tag": "opus",
+   "label": "Opus 5 [High]",
+   "vendor": "anthropic",
+   "harness": "Claude Code",
+   "elo": 1360.8,
+   "human_elo": 1388.5,
+   "families": {
+    "VQA": 0.76424,
+    "Perceptual": 0.85094,
+    "2D Dynamics": 0.50632,
+    "2.5D Geometry": 0.73178,
+    "3D Geometry": 0.86078,
+    "3D Dynamics": 0.63638
+   },
+   "overall": 0.7172,
+   "vqa": 0.7642,
+   "cost_usd": 17.52,
+   "tokens": 18204136,
+   "out_tokens": 253626,
+   "steps": 75.6,
+   "rendered": 200,
+   "video_key": "claude-claude-opus-5-high",
+   "rank": 6,
+   "human_elo_ci": [
+    1345.1,
+    1434.4
+   ],
+   "elo_ci": [
+    1300.6,
+    1441.8
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1322.8,
+     "elo_ci": [
+      1222.0,
+      1416.5
+     ],
+     "human_elo": 1402.9,
+     "human_elo_ci": [
+      1327.1,
+      1474.9
+     ],
+     "vqa": 0.7172,
+     "cost_usd": 15.443,
+     "tokens": 15643536
+    },
+    "synthetic": {
+     "elo": 1375.5,
+     "elo_ci": [
+      1286.4,
+      1473.5
+     ],
+     "human_elo": 1375.1,
+     "human_elo_ci": [
+      1318.7,
+      1437.4
+     ],
+     "vqa": 0.8108,
+     "cost_usd": 19.598,
+     "tokens": 20764735
+    }
+   }
+  },
+  {
+   "run": "codex-gpt-5.6-luna-max",
+   "tag": "luna",
+   "label": "Luna [Max]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 1223.7,
+   "human_elo": 1071.6,
+   "families": {
+    "VQA": 0.6731,
+    "Perceptual": 0.83376,
+    "2D Dynamics": 0.41967,
+    "2.5D Geometry": 0.70013,
+    "3D Geometry": 0.86128,
+    "3D Dynamics": 0.53254
+   },
+   "overall": 0.6695,
+   "vqa": 0.6731,
+   "cost_usd": 0.673,
+   "tokens": 23278221,
+   "out_tokens": 106404,
+   "steps": 191.1,
+   "rendered": 200,
+   "video_key": "codex-gpt-5.6-luna-max",
+   "rank": 7,
+   "human_elo_ci": [
+    1020.8,
+    1111.3
+   ],
+   "elo_ci": [
+    1162.5,
+    1287.6
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1251.3,
+     "elo_ci": [
+      1156.6,
+      1343.7
+     ],
+     "human_elo": 1111.1,
+     "human_elo_ci": [
+      1043.7,
+      1194.5
+     ],
+     "vqa": 0.6225,
+     "cost_usd": 0.588,
+     "tokens": 20117195
+    },
+    "synthetic": {
+     "elo": 1188.4,
+     "elo_ci": [
+      1099.5,
+      1285.5
+     ],
+     "human_elo": 1034.6,
+     "human_elo_ci": [
+      974.9,
+      1088.6
+     ],
+     "vqa": 0.7232,
+     "cost_usd": 0.759,
+     "tokens": 26439246
+    }
+   }
+  },
+  {
+   "run": "codex-gpt-5.6-sol-high",
+   "tag": "sol",
+   "label": "Sol [High]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 1171.1,
+   "human_elo": 1118.6,
+   "families": {
+    "VQA": 0.67431,
+    "Perceptual": 0.83343,
+    "2D Dynamics": 0.35659,
+    "2.5D Geometry": 0.63128,
+    "3D Geometry": 0.8455,
+    "3D Dynamics": 0.56032
+   },
+   "overall": 0.6454,
+   "vqa": 0.6743,
+   "cost_usd": 2.471,
+   "tokens": 2603171,
+   "out_tokens": 26032,
+   "steps": 51.0,
+   "rendered": 200,
+   "video_key": "codex-gpt-5.6-sol-high",
+   "rank": 8,
+   "human_elo_ci": [
+    1079.7,
+    1154.4
+   ],
+   "elo_ci": [
+    1105.1,
+    1245.7
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1130.8,
+     "elo_ci": [
+      1029.4,
+      1234.9
+     ],
+     "human_elo": 1109.6,
+     "human_elo_ci": [
+      1056.9,
+      1156.0
+     ],
+     "vqa": 0.6341,
+     "cost_usd": 2.245,
+     "tokens": 2267877
+    },
+    "synthetic": {
+     "elo": 1196.0,
+     "elo_ci": [
+      1105.6,
+      1299.4
+     ],
+     "human_elo": 1124.1,
+     "human_elo_ci": [
+      1076.6,
+      1170.3
+     ],
+     "vqa": 0.7141,
+     "cost_usd": 2.697,
+     "tokens": 2938465
+    }
+   }
+  },
+  {
+   "run": "antigravity-gemini-3.8-flash-high",
+   "tag": "geminif",
+   "label": "Gemini 3.8 [High]",
+   "vendor": "google",
+   "harness": "Antigravity",
+   "elo": 1037.3,
+   "human_elo": 1071.7,
+   "families": {
+    "VQA": 0.62651,
+    "Perceptual": 0.80942,
+    "2D Dynamics": 0.36298,
+    "2.5D Geometry": 0.62684,
+    "3D Geometry": 0.84046,
+    "3D Dynamics": 0.55726
+   },
+   "overall": 0.6394,
+   "vqa": 0.6265,
+   "cost_usd": 2.721,
+   "tokens": 35974229,
+   "out_tokens": 206201,
+   "steps": 292.7,
+   "rendered": 200,
+   "video_key": "antigravity-gemini-3.8-flash-high",
+   "rank": 9,
+   "human_elo_ci": [
+    1035.6,
+    1110.3
+   ],
+   "elo_ci": [
+    970.2,
+    1108.5
+   ],
+   "by_split": {
+    "real": {
+     "elo": 988.0,
+     "elo_ci": [
+      894.5,
+      1075.7
+     ],
+     "human_elo": 980.0,
+     "human_elo_ci": [
+      912.3,
+      1036.3
+     ],
+     "vqa": 0.5089,
+     "cost_usd": 2.448,
+     "tokens": 29865134
+    },
+    "synthetic": {
+     "elo": 1080.8,
+     "elo_ci": [
+      994.3,
+      1178.7
+     ],
+     "human_elo": 1132.4,
+     "human_elo_ci": [
+      1085.9,
+      1183.7
+     ],
+     "vqa": 0.7429,
+     "cost_usd": 2.998,
+     "tokens": 42208000
+    }
+   }
+  },
+  {
+   "run": "stirrup-deepseek-v4.1-flash-default",
+   "tag": "deepseek",
+   "label": "DeepSeek V4.1",
+   "vendor": "deepseek",
+   "harness": "Stirrup",
+   "elo": 886.0,
+   "human_elo": 912.5,
+   "families": {
+    "VQA": 0.50029,
+    "Perceptual": 0.77898,
+    "2D Dynamics": 0.338,
+    "2.5D Geometry": 0.61722,
+    "3D Geometry": 0.76942,
+    "3D Dynamics": 0.47873
+   },
+   "overall": 0.5965,
+   "vqa": 0.5003,
+   "cost_usd": 0.442,
+   "tokens": 32048244,
+   "out_tokens": 134310,
+   "steps": 257.8,
+   "rendered": 199,
+   "video_key": "stirrup-deepseek-v4.1-flash-default",
+   "rank": 10,
+   "human_elo_ci": [
+    869.7,
+    948.4
+   ],
+   "elo_ci": [
+    812.1,
+    942.4
+   ],
+   "by_split": {
+    "real": {
+     "elo": 847.4,
+     "elo_ci": [
+      759.2,
+      923.5
+     ],
+     "human_elo": 881.6,
+     "human_elo_ci": [
+      824.2,
+      940.9
+     ],
+     "vqa": 0.4057,
+     "cost_usd": 0.397,
+     "tokens": 28484534
+    },
+    "synthetic": {
+     "elo": 929.4,
+     "elo_ci": [
+      835.0,
+      1031.2
+     ],
+     "human_elo": 944.1,
+     "human_elo_ci": [
+      882.1,
+      1017.2
+     ],
+     "vqa": 0.5939,
+     "cost_usd": 0.487,
+     "tokens": 35611954
+    }
+   }
+  },
+  {
+   "run": "stirrup-qwen3.8-flash-next-default",
+   "tag": "qwen",
+   "label": "Qwen3.8",
+   "vendor": "alibaba",
+   "harness": "Stirrup",
+   "elo": 1061.1,
+   "human_elo": 1091.7,
+   "families": {
+    "VQA": 0.58012,
+    "Perceptual": 0.7073,
+    "2D Dynamics": 0.34349,
+    "2.5D Geometry": 0.55364,
+    "3D Geometry": 0.71359,
+    "3D Dynamics": 0.4955
+   },
+   "overall": 0.5627,
+   "vqa": 0.5801,
+   "cost_usd": 2.771,
+   "tokens": 69246813,
+   "out_tokens": 1505896,
+   "steps": 752.4,
+   "rendered": 181,
+   "video_key": "stirrup-qwen3.8-flash-next-default",
+   "rank": 11,
+   "human_elo_ci": [
+    1047.2,
+    1135.9
+   ],
+   "elo_ci": [
+    992.6,
+    1126.2
+   ],
+   "by_split": {
+    "real": {
+     "elo": 1062.4,
+     "elo_ci": [
+      961.2,
+      1166.6
+     ],
+     "human_elo": 1004.7,
+     "human_elo_ci": [
+      945.3,
+      1059.8
+     ],
+     "vqa": 0.4866,
+     "cost_usd": 2.704,
+     "tokens": 68209015
+    },
+    "synthetic": {
+     "elo": 1049.5,
+     "elo_ci": [
+      947.5,
+      1149.9
+     ],
+     "human_elo": 1161.0,
+     "human_elo_ci": [
+      1109.1,
+      1214.5
+     ],
+     "vqa": 0.6727,
+     "cost_usd": 2.837,
+     "tokens": 70284611
+    }
+   }
+  },
+  {
+   "run": "codex-gpt-5.6-terra-high",
+   "tag": "terra",
+   "label": "Terra [High]",
+   "vendor": "openai",
+   "harness": "Codex",
+   "elo": 911.1,
+   "human_elo": 916.9,
+   "families": {
+    "VQA": 0.4843,
+    "Perceptual": 0.79399,
+    "2D Dynamics": 0.22905,
+    "2.5D Geometry": 0.52294,
+    "3D Geometry": 0.77157,
+    "3D Dynamics": 0.43488
+   },
+   "overall": 0.5505,
+   "vqa": 0.4843,
+   "cost_usd": 0.621,
+   "tokens": 1448734,
+   "out_tokens": 17283,
+   "steps": 37.5,
+   "rendered": 200,
+   "video_key": "codex-gpt-5.6-terra-high",
+   "rank": 12,
+   "human_elo_ci": [
+    870.8,
+    956.2
+   ],
+   "elo_ci": [
+    847.8,
+    969.5
+   ],
+   "by_split": {
+    "real": {
+     "elo": 910.0,
+     "elo_ci": [
+      821.7,
+      1007.1
+     ],
+     "human_elo": 945.4,
+     "human_elo_ci": [
+      896.5,
+      997.2
+     ],
+     "vqa": 0.4082,
+     "cost_usd": 0.575,
+     "tokens": 1285398
+    },
+    "synthetic": {
+     "elo": 906.1,
+     "elo_ci": [
+      791.2,
+      1023.0
+     ],
+     "human_elo": 891.0,
+     "human_elo_ci": [
+      840.6,
+      942.6
+     ],
+     "vqa": 0.5596,
+     "cost_usd": 0.667,
+     "tokens": 1612070
+    }
+   }
+  },
+  {
+   "run": "stirrup-glm-5.3-flash-default",
+   "tag": "glm",
+   "label": "GLM 5.3",
+   "vendor": "zhipu",
+   "harness": "Stirrup",
+   "elo": 669.8,
+   "human_elo": 732.5,
+   "families": {
+    "VQA": 0.29528,
+    "Perceptual": 0.69128,
+    "2D Dynamics": 0.19626,
+    "2.5D Geometry": 0.51355,
+    "3D Geometry": 0.60062,
+    "3D Dynamics": 0.36448
+   },
+   "overall": 0.4732,
+   "vqa": 0.2953,
+   "cost_usd": 6.278,
+   "tokens": 166449595,
+   "out_tokens": 451636,
+   "steps": 450.8,
+   "rendered": 196,
+   "video_key": "stirrup-glm-5.3-flash-default",
+   "rank": 13,
+   "human_elo_ci": [
+    680.5,
+    779.8
+   ],
+   "elo_ci": [
+    567.3,
+    767.5
+   ],
+   "by_split": {
+    "real": {
+     "elo": 733.8,
+     "elo_ci": [
+      604.6,
+      840.4
+     ],
+     "human_elo": 711.6,
+     "human_elo_ci": [
+      648.0,
+      774.6
+     ],
+     "vqa": 0.2986,
+     "cost_usd": 6.33,
+     "tokens": 167848526
+    },
+    "synthetic": {
+     "elo": 625.0,
+     "elo_ci": [
+      498.9,
+      750.4
+     ],
+     "human_elo": 749.7,
+     "human_elo_ci": [
+      682.5,
+      811.8
+     ],
+     "vqa": 0.292,
+     "cost_usd": 6.226,
+     "tokens": 165050664
+    }
+   }
+  },
+  {
+   "run": "stirrup-muse-glimmer-high",
+   "tag": "muse",
+   "label": "Muse [High]",
+   "vendor": "muse",
+   "harness": "Stirrup",
+   "elo": 345.1,
+   "human_elo": 504.6,
+   "families": {
+    "VQA": 0.10957,
+    "Perceptual": 0.61123,
+    "2D Dynamics": 0.11254,
+    "2.5D Geometry": 0.47331,
+    "3D Geometry": 0.68392,
+    "3D Dynamics": 0.32825
+   },
+   "overall": 0.4419,
+   "vqa": 0.1096,
+   "cost_usd": 0.288,
+   "tokens": 4052501,
+   "out_tokens": 45242,
+   "steps": 95.9,
+   "rendered": 199,
+   "video_key": "stirrup-muse-glimmer-high",
+   "rank": 14,
+   "human_elo_ci": [
+    458.3,
+    555.4
+   ],
+   "elo_ci": [
+    238.3,
+    417.7
+   ],
+   "by_split": {
+    "real": {
+     "elo": 424.0,
+     "elo_ci": [
+      280.7,
+      541.9
+     ],
+     "human_elo": 475.6,
+     "human_elo_ci": [
+      388.6,
+      560.2
+     ],
+     "vqa": 0.0676,
+     "cost_usd": 0.229,
+     "tokens": 3133331
+    },
+    "synthetic": {
+     "elo": 301.9,
+     "elo_ci": [
+      170.7,
+      423.8
+     ],
+     "human_elo": 536.1,
+     "human_elo_ci": [
+      467.7,
+      588.0
+     ],
+     "vqa": 0.1511,
+     "cost_usd": 0.346,
+     "tokens": 4971671
+    }
+   }
+  },
+  {
+   "run": "stirrup-mimo-v2.5-default",
+   "tag": "mimo",
+   "label": "MiMo V2.5",
+   "vendor": "xiaomi",
+   "harness": "Stirrup",
+   "elo": 568.9,
+   "human_elo": 675.6,
+   "families": {
+    "VQA": 0.24636,
+    "Perceptual": 0.68953,
+    "2D Dynamics": 0.11561,
+    "2.5D Geometry": 0.48298,
+    "3D Geometry": 0.57108,
+    "3D Dynamics": 0.31459
+   },
+   "overall": 0.4348,
+   "vqa": 0.2464,
+   "cost_usd": 0.163,
+   "tokens": 9871911,
+   "out_tokens": 153926,
+   "steps": 80.8,
+   "rendered": 196,
+   "video_key": "stirrup-mimo-v2.5-default",
+   "rank": 15,
+   "human_elo_ci": [
+    634.6,
+    717.3
+   ],
+   "elo_ci": [
+    469.6,
+    639.8
+   ],
+   "by_split": {
+    "real": {
+     "elo": 579.3,
+     "elo_ci": [
+      459.6,
+      694.2
+     ],
+     "human_elo": 667.2,
+     "human_elo_ci": [
+      610.4,
+      714.6
+     ],
+     "vqa": 0.1826,
+     "cost_usd": 0.159,
+     "tokens": 9447256
+    },
+    "synthetic": {
+     "elo": 581.4,
+     "elo_ci": [
+      453.3,
+      685.2
+     ],
+     "human_elo": 676.8,
+     "human_elo_ci": [
+      604.8,
+      751.8
+     ],
+     "vqa": 0.3095,
+     "cost_usd": 0.167,
+     "tokens": 10296567
+    }
+   }
+  },
+  {
+   "run": "stirrup-minimax-m3-default",
+   "tag": "minimax",
+   "label": "MiniMax M3",
+   "vendor": "minimax",
+   "harness": "Stirrup",
+   "elo": 554.3,
+   "human_elo": 725.4,
+   "families": {
+    "VQA": 0.17852,
+    "Perceptual": 0.5247,
+    "2D Dynamics": 0.11381,
+    "2.5D Geometry": 0.35493,
+    "3D Geometry": 0.44452,
+    "3D Dynamics": 0.25882
+   },
+   "overall": 0.3394,
+   "vqa": 0.1785,
+   "cost_usd": 2.472,
+   "tokens": 31271178,
+   "out_tokens": 144665,
+   "steps": 244.3,
+   "rendered": 160,
+   "video_key": "stirrup-minimax-m3-default",
+   "rank": 16,
+   "human_elo_ci": [
+    679.3,
+    768.1
+   ],
+   "elo_ci": [
+    458.1,
+    627.9
+   ],
+   "by_split": {
+    "real": {
+     "elo": 588.7,
+     "elo_ci": [
+      491.5,
+      689.8
+     ],
+     "human_elo": 718.6,
+     "human_elo_ci": [
+      665.7,
+      774.3
+     ],
+     "vqa": 0.1445,
+     "cost_usd": 2.465,
+     "tokens": 31156577
+    },
+    "synthetic": {
+     "elo": 540.4,
+     "elo_ci": [
+      411.7,
+      672.6
+     ],
+     "human_elo": 721.1,
+     "human_elo_ci": [
+      661.3,
+      789.1
+     ],
+     "vqa": 0.2122,
+     "cost_usd": 2.479,
+     "tokens": 31385779
+    }
+   }
+  },
+  {
+   "run": "stirrup-mistral-medium-3.5-default",
+   "tag": "mistral",
+   "label": "Mistral 3.5",
+   "vendor": "mistral",
+   "harness": "Stirrup",
+   "elo": 138.0,
+   "human_elo": 361.2,
+   "families": {
+    "VQA": 0.01278,
+    "Perceptual": 0.46069,
+    "2D Dynamics": 0.02382,
+    "2.5D Geometry": 0.411,
+    "3D Geometry": 0.42193,
+    "3D Dynamics": 0.25858
+   },
+   "overall": 0.3152,
+   "vqa": 0.0128,
+   "cost_usd": 3.568,
+   "tokens": 2232616,
+   "out_tokens": 36589,
+   "steps": 62.8,
+   "rendered": 183,
+   "video_key": "stirrup-mistral-medium-3.5-default",
+   "rank": 17,
+   "human_elo_ci": [
+    309.8,
+    414.8
+   ],
+   "elo_ci": [
+    1.3,
+    249.0
+   ],
+   "by_split": {
+    "real": {
+     "elo": 137.7,
+     "elo_ci": [
+      -135.5,
+      313.1
+     ],
+     "human_elo": 336.1,
+     "human_elo_ci": [
+      245.2,
+      409.6
+     ],
+     "vqa": 0.0067,
+     "cost_usd": 3.508,
+     "tokens": 2196149
+    },
+    "synthetic": {
+     "elo": 160.3,
+     "elo_ci": [
+      -3.2,
+      271.8
+     ],
+     "human_elo": 399.0,
+     "human_elo_ci": [
+      303.0,
+      477.9
+     ],
+     "vqa": 0.0188,
+     "cost_usd": 3.628,
+     "tokens": 2269083
+    }
+   }
+  },
+  {
+   "run": "stirrup-gemma-4-31b-default",
+   "tag": "gemma",
+   "label": "Gemma 4 31B",
+   "vendor": "google",
+   "harness": "Stirrup",
+   "elo": 275.3,
+   "human_elo": 422.2,
+   "families": {
+    "VQA": 0.05645,
+    "Perceptual": 0.51207,
+    "2D Dynamics": 0.00436,
+    "2.5D Geometry": 0.13196,
+    "3D Geometry": 0.1663,
+    "3D Dynamics": 0.12604
+   },
+   "overall": 0.1881,
+   "vqa": 0.0564,
+   "cost_usd": 0.078,
+   "tokens": 1332711,
+   "out_tokens": 19330,
+   "steps": 32.3,
+   "rendered": 200,
+   "video_key": "stirrup-gemma-4-31b-default",
+   "rank": 18,
+   "human_elo_ci": [
+    364.2,
+    475.2
+   ],
+   "elo_ci": [
+    172.1,
+    365.6
+   ],
+   "by_split": {
+    "real": {
+     "elo": 238.2,
+     "elo_ci": [
+      102.9,
+      351.3
+     ],
+     "human_elo": 424.6,
+     "human_elo_ci": [
+      344.5,
+      499.5
+     ],
+     "vqa": 0.0327,
+     "cost_usd": 0.071,
+     "tokens": 1204864
+    },
+    "synthetic": {
+     "elo": 317.8,
+     "elo_ci": [
+      189.5,
+      436.0
+     ],
+     "human_elo": 422.2,
+     "human_elo_ci": [
+      346.2,
+      487.9
+     ],
+     "vqa": 0.08,
+     "cost_usd": 0.086,
+     "tokens": 1460557
+    }
+   }
+  }
+ ]
+}

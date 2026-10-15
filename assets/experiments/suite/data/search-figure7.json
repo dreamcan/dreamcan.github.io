@@ -1,0 +1,180 @@
+{
+  "source": "DreamCan_ICRA.pdf, Figure 7",
+  "plotting_script": "/data/gck/svl_project/docs/paper/fig_tts_search.py",
+  "measurement_source": "/data/gck/svl_project/outputs/line_value_search_summary/figures/tts_single_window_data.json",
+  "reproduction_note": "Reproduces published figure values and labels, including plotting-script adjustments; these are not newly measured results. The underlying archived sweep is the separate 10-observation cohort; the manuscript caption states 100 testing episodes per point.",
+  "series": {
+    "seq": {
+      "label": "Ours: subgoal, best-of-N",
+      "color": "#8C1515",
+      "marker": "o",
+      "linestyle": "-",
+      "points": [
+        {
+          "calls": 1,
+          "recorded_mean": 0.8252130389089454,
+          "figure_adjustment": 0,
+          "mean": 0.8252130389089454,
+          "sem": 0.026882014839601856
+        },
+        {
+          "calls": 2,
+          "recorded_mean": 0.8273510988401819,
+          "figure_adjustment": 0,
+          "mean": 0.8273510988401819,
+          "sem": 0.02653703302038701
+        },
+        {
+          "calls": 4,
+          "recorded_mean": 0.8280531161421244,
+          "figure_adjustment": 0,
+          "mean": 0.8280531161421244,
+          "sem": 0.02594202276030717
+        },
+        {
+          "calls": 8,
+          "recorded_mean": 0.8309899445968633,
+          "figure_adjustment": 0,
+          "mean": 0.8309899445968633,
+          "sem": 0.027146083764896595
+        },
+        {
+          "calls": 16,
+          "recorded_mean": 0.8327138806931815,
+          "figure_adjustment": 0,
+          "mean": 0.8327138806931815,
+          "sem": 0.027621569021368853
+        },
+        {
+          "calls": 32,
+          "recorded_mean": 0.8353599591884956,
+          "figure_adjustment": 0,
+          "mean": 0.8353599591884956,
+          "sem": 0.028101484845436096
+        }
+      ]
+    },
+    "subL8": {
+      "label": "Ours: subgoal, anchored search",
+      "color": "#1565C0",
+      "marker": "^",
+      "linestyle": "-",
+      "points": [
+        {
+          "calls": 2,
+          "recorded_mean": 0.8188091508066861,
+          "figure_adjustment": 0,
+          "mean": 0.8188091508066861,
+          "sem": 0.026758493400128393
+        },
+        {
+          "calls": 4,
+          "recorded_mean": 0.8347702651007815,
+          "figure_adjustment": 0,
+          "mean": 0.8347702651007815,
+          "sem": 0.02767012113308143
+        },
+        {
+          "calls": 8,
+          "recorded_mean": 0.8476657860366945,
+          "figure_adjustment": 0,
+          "mean": 0.8476657860366945,
+          "sem": 0.025492866558464992
+        },
+        {
+          "calls": 16,
+          "recorded_mean": 0.8376545209652569,
+          "figure_adjustment": 0.03,
+          "mean": 0.867654520965257,
+          "sem": 0.028014175293250135
+        }
+      ]
+    },
+    "dense": {
+      "label": "Dense video",
+      "color": "#202020",
+      "marker": "s",
+      "linestyle": "--",
+      "points": [
+        {
+          "calls": 1,
+          "recorded_mean": 0.5626202206690967,
+          "figure_adjustment": 0.1,
+          "mean": 0.6626202206690966,
+          "sem": 0.042830990835094826
+        },
+        {
+          "calls": 2,
+          "recorded_mean": 0.6466034167202007,
+          "figure_adjustment": 0,
+          "mean": 0.6466034167202007,
+          "sem": 0.04439135204783086
+        },
+        {
+          "calls": 4,
+          "recorded_mean": 0.6631057774878577,
+          "figure_adjustment": 0,
+          "mean": 0.6631057774878577,
+          "sem": 0.03862781525479772
+        },
+        {
+          "calls": 8,
+          "recorded_mean": 0.6828030437881843,
+          "figure_adjustment": 0,
+          "mean": 0.6828030437881843,
+          "sem": 0.03498893313576088
+        },
+        {
+          "calls": 16,
+          "recorded_mean": 0.7188275516758413,
+          "figure_adjustment": -0.05,
+          "mean": 0.6688275516758413,
+          "sem": 0.03955581874016215
+        }
+      ]
+    },
+    "dense3": {
+      "label": "Uniform subgoal",
+      "color": "#737373",
+      "marker": "D",
+      "linestyle": "--",
+      "points": [
+        {
+          "calls": 3,
+          "recorded_mean": 0.7466195408756938,
+          "figure_adjustment": -0.1,
+          "mean": 0.6466195408756938,
+          "sem": 0.03906868077550739
+        },
+        {
+          "calls": 6,
+          "recorded_mean": 0.7687986502956193,
+          "figure_adjustment": -0.1,
+          "mean": 0.6687986502956194,
+          "sem": 0.03231635404054045
+        },
+        {
+          "calls": 12,
+          "recorded_mean": 0.8154162134881249,
+          "figure_adjustment": -0.1,
+          "mean": 0.7154162134881249,
+          "sem": 0.03629298738253358
+        },
+        {
+          "calls": 24,
+          "recorded_mean": 0.8182915329702805,
+          "figure_adjustment": -0.1,
+          "mean": 0.7182915329702805,
+          "sem": 0.023813669342307123
+        },
+        {
+          "calls": 48,
+          "recorded_mean": 0.811294410374645,
+          "figure_adjustment": -0.1,
+          "mean": 0.711294410374645,
+          "sem": 0.033276661315999635
+        }
+      ]
+    }
+  }
+}

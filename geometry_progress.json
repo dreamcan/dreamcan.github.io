@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>4DCodeBench</title>
+<meta name="description" content="Can a coding agent watch a video of a physical event and write the program that rebuilds it? 200 tasks, 100 real videos and 100 simulated.">
+<link rel="icon" type="image/png" sizes="32x32" href="logos/bunny/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="logos/bunny/icon-512.png">
+<link rel="apple-touch-icon" href="logos/bunny/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="release.css">
+</head>
+<body>
+
+<a id="top"></a>
+
+<main>
+
+<!-- =====================================================================
+     lockup: the name, the question, who made it, where to get it
+     ================================================================== -->
+<div class="container grid">
+  <header class="lockup hero release-hero">
+
+    <!-- the project logo: a soft bunny thrown at the ground, drawn as code, then geometry, then render -->
+    <figure class="projlogo">
+      <img src="logos/bunny/logo_a.png" alt="4DCodeBench logo: a bunny that goes from code to geometry to a rendered bounce">
+    </figure>
+
+
+    <h1 class="title"><span class="wordmark">4DCodeBench</span><span class="tsub">: Benchmarking Agents on Inverse Graphics of Dynamic Scenes</span></h1>
+
+    <p class="authors">
+      <span class="au first"><a href="https://ruihong04.github.io/">Ruihong Shen</a><sup>1&#8727;&#8224;</sup></span>
+      <span class="au first"><a href="https://zzigak.github.io/">&#381;iga Kova&#269;i&#269;</a><sup>2&#8727;</sup></span>
+      <span class="au first"><a href="https://kulits.github.io/">Peter Kulits</a><sup>2,3&#8727;</sup></span>
+      <span class="au"><a href="https://xingruiwang.github.io/">Xingrui Wang</a><sup>1</sup></span>
+      <span class="au"><a href="https://kyleleey.github.io/">Zizhang Li</a><sup>2</sup></span>
+      <span class="au"><a href="https://cocosci.mit.edu/josh-tenenbaum/">Joshua B. Tenenbaum</a><sup>4</sup></span>
+      <span class="au"><a href="https://www.cs.jhu.edu/~ayuille/">Alan Yuille</a><sup>1</sup></span>
+      <span class="au"><a href="https://beckschen.github.io/">Jieneng Chen</a><sup>2&#8225;</sup></span>
+      <span class="au"><a href="https://jiajunwu.com/">Jiajun Wu</a><sup>2&#8225;</sup></span>
+    </p>
+    <p class="equal"><span class="eq-note"><sup>&#8727;</sup>Equal contribution, listed in random order.</span>&#8195;<sup>&#8225;</sup>Equal co-advising.&#8195;<sup>&#8224;</sup>Work done during a summer internship.</p>
+
+    <!-- the institutions, under the authors. A file under logos/ is used where there is
+         one; the rest are set in the page's own type. -->
+    <p class="orgs">
+      <span class="org"><sup class="orgnum">1</sup><img src="logos/jhu.svg" alt="Johns Hopkins University"></span>
+      <span class="org"><sup class="orgnum">2</sup><img src="logos/stanford.svg" alt="Stanford University"></span>
+      <span class="org"><sup class="orgnum">3</sup><img src="logos/mpi.svg" alt="Max Planck Institute for Intelligent Systems"></span>
+      <span class="org"><sup class="orgnum">4</sup><img src="logos/mit.svg" alt="MIT"></span>
+    </p>
+
+    <p class="hero-links">
+      <a class="btn btn-solid" href="https://arxiv.org/pdf/2610.03715" data-link="paper"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" stroke-linejoin="round"./><path d="M14 3v5h5M9 13h6M9 17h4" stroke-linecap="round"./></svg>Paper</a>
+      <a class="btn" href="#cite"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5v14M10 8h9M10 12h9M10 16h5" stroke-linecap="round"./></svg>Citation</a>
+      <a class="btn" href="#leaderboard"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 20v-7M12 20V5M19 20v-4" stroke-linecap="round"./></svg>Leaderboard</a>
+      <a class="btn" href="https://huggingface.co/4DCodeBench"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.8"./><path d="M5 6v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-6"./></svg>Data</a>
+      <a class="btn" href="https://github.com/4DCodeBench/4DCodeBench"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"./></svg>Code</a>
+    </p>
+
+    <p class="lede">Can a coding agent watch a <span class="kw-in">video</span> of a physical
+      event and write, <em>from scratch</em>, the <span class="kw-out">graphics program</span>
+      that reconstructs it?</p>
+    <p class="hero-body">We introduce <strong>4DCodeBench</strong>, a benchmark that
+      evaluates coding agents on reconstructing dynamic scenes from video. Given a
+      reference video, agents write executable graphics code that defines the
+      <span class="k3">scene&rsquo;s 3D geometry</span>, <span class="k3">its motion over
+      time</span>, and <span class="k3">the rendering</span> that turns both back into
+      video.</p>
+    <p class="hero-meta">
+      <span><b>18</b> agents ranked</span>
+      <span><b>200</b> tasks</span>
+      <i class="hm-break" aria-hidden="true"></i>
+      <span><b class="hl-real">100</b> real videos</span>
+      <span><b class="hl-synth">100</b> simulated videos</span>
+    </p>
+  </header>
+</div>
+
+<!-- =====================================================================
+     the task, as an animation. Plays on request; the page scrolls past it.
+     ================================================================== -->
+<section class="demo" id="top-demo" aria-label="What one task looks like">
+  <h2 class="part-head">The task</h2>
+  <div class="demo-box" id="demo-box">
+    <button type="button" class="demo-cover" id="demo-play" aria-label="Play the task illustration">
+      <!-- a phone plays the demo standing up, so its cover is the same moment of that layout -->
+      <picture><source media="(max-width:640px)" srcset="demo-pasta/cover-portrait.jpg"><img src="demo-pasta/cover.jpg" alt=""></picture>
+      <span class="demo-dim"></span>
+      <span class="demo-cta">
+        <span class="demo-btn"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.5 3.6v8.8L12 8z"./></svg>Watch one task</span>
+        <span class="demo-note">about 35 seconds</span>
+      </span>
+    </button>
+    <iframe id="demo" title="Animation: a coding agent turns a video into 4D code, geometry and a render, then the gallery of results" hidden></iframe>
+  </div>
+  <div class="scroll-hint"><a href="#leaderboard">or go straight to the leaderboard
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"./></svg></a></div>
+</section>
+
+<section class="container sec" id="takeaways" aria-label="Key takeaways">
+  <h2 class="part-head">Key takeaways</h2>
+  <aside class="takeaways" aria-label="Key takeaways">
+    <ul>
+      <li><span><b>Motion is the bottleneck.</b> Every model recovers appearance and geometry far better than how the scene moves, the strongest included.</span></li>
+      <li><span><b>Agents describe motion instead of simulating it.</b> Most solutions write motion as hand-tuned curves and few build a simulation: models do not yet truly understand physics.</span></li>
+      <li><span><b>More reasoning, more simulation.</b> <span class="mref"><img class="mono" src="logos/gpt.svg" alt="">GPT-6 Astra</span> leads the Pareto frontier, and as its reasoning effort rises, it simulates more often and reconstructs motion better.</span></li>
+      <li><span><b>Real-world footage remains the hard case.</b> Models that reconstruct simulated scenes well fall short on real videos.</span></li>
+      <li><span><b>Open-weight models still lag.</b> Even the best open-weight model trails the leading proprietary ones by a wide margin.</span></li>
+    </ul>
+  </aside>
+</section>
+
+<!-- =====================================================================
+     leaderboard: three views of the same 18 runs
+     ================================================================== -->
+<section class="container sec" id="leaderboard" aria-label="Leaderboard">
+  <h2 class="part-head">Leaderboard</h2>
+  <p class="sec-lede"><span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> leads the overall ranking,
+    followed closely by <span class="mref"><img src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span>.<br>
+    Open-weight models generally trail proprietary models.</p>
+  <p class="sec-lede">We evaluate each reconstruction&rsquo;s <span class="k3">appearance</span>,
+    <span class="k3">geometry</span> and <span class="k3">motion</span>. Models are ranked by
+    an <span class="k3">Overall</span> score that averages five metric families; the
+    individual scores help identify where each model succeeds or struggles, which
+    <a href="#findings">Discussion</a> lays out column by column.</p>
+
+  <div class="lbview" id="lbv-table">
+    <div class="table-wrap">
+      <table class="lb" id="lb-table"><thead></thead><tbody></tbody></table>
+    </div>
+    <details class="drop"><summary>How the scores are computed</summary>
+      <div class="drop-body"><ul class="mlist" id="lb-note"></ul></div></details>
+  </div>
+
+</section>
+
+<!-- =====================================================================
+     what a score costs: the same models against tokens or dollars per task
+     ================================================================== -->
+<section class="container sec" id="quality-compute" aria-label="Reconstruction quality against compute">
+  <h3 class="sub-head">Reconstruction quality vs.&nbsp;compute</h3>
+  <p class="sec-lede">We use <span class="k3">VLM-as-judge</span> to obtain pairwise
+    preferences between reconstructions based on how closely they match the reference
+    video. We aggregate these preferences into <span class="k3">Elo</span> ratings and
+    plot them against average token use or cost per task.</p>
+  <p class="sec-lede">Across models, greater token use does not consistently yield
+    higher Elo. Within <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra</span>, increasing reasoning effort improves
+    reconstruction quality while using more tokens.</p>
+  <div class="lbview" id="lbv-usage">
+    <div class="use-bar">
+      <label class="use-sel">Score <select id="usage-y"></select></label>
+      <span class="use-seg" role="group" aria-label="Usage per task">
+        <button type="button" class="btn btn-small is-on" data-x="tokens" aria-pressed="true">Tokens</button>
+        <button type="button" class="btn btn-small" data-x="cost" aria-pressed="false">Cost</button>
+      </span>
+      <span class="align-key use-key">
+        <button type="button" class="use-lic" data-split="real" aria-pressed="true"><i class="k-sq" style="background:var(--orange)"></i>Real</button>
+        <button type="button" class="use-lic" data-split="synthetic" aria-pressed="true"><i class="k-sq" style="background:var(--peri)"></i>Synthetic</button>
+        <button type="button" class="use-lic" data-lic="prop" aria-pressed="true"><i class="k-ring" style="border-color:#7b90e1"></i>Proprietary</button>
+        <button type="button" class="use-lic" data-lic="open" aria-pressed="true"><i class="k-ring" style="border-color:#ec6b14"></i>Open-weight</button>
+        <span><i class="k-bar"></i>95% CI</span>
+        <span><i class="k-front"></i>Pareto frontier</span>
+      </span>
+    </div>
+    <div class="aplot uplot" id="usage-plot"></div>
+    <details class="drop"><summary>How to read this plot</summary>
+      <div class="drop-body"><ul class="mlist">
+        <li><span class="mfam">The axes</span><span class="mwhat">The selected score against average tokens or cost per task, on a log scale.</span></li>
+        <li><span class="mfam">The line</span><span class="mwhat">The Pareto frontier: no other model both spends less and scores higher than a model on it.</span></li>
+        <li><span class="mfam">The bars</span><span class="mwhat">The 95% bootstrap intervals for Elo and Human Elo.</span></li>
+      </ul></div></details>
+  </div>
+</section>
+
+<!-- =====================================================================
+     the benchmark itself, in three views: one strip switches them, and the
+     hash keeps each one linkable
+     ================================================================== -->
+<div class="container grid">
+  <h2 class="part-head">The benchmark</h2>
+  <div class="switch" id="gallery" role="tablist" aria-label="Browse the benchmark">
+    <button type="button" class="sw" data-tab="tasks" role="tab" aria-selected="true">
+      <span class="sw-title">Tasks and results</span>
+      <span class="sw-sub" id="summary">Loading&#8230;</span>
+    </button>
+    <button type="button" class="sw" data-tab="dataset" role="tab" aria-selected="false">
+      <span class="sw-title">Statistics</span>
+      <span class="sw-sub">What the 200 tasks are made of. Every task is labelled by the
+        matter in it, and carries each type it contains, so the counts sum past 200.</span>
+    </button>
+    <button type="button" class="sw" data-tab="metrics-sec" role="tab" aria-selected="false">
+      <span class="sw-title">Metrics</span>
+      <span class="sw-sub">Each metric, step by step, on a good and a poor run of the same
+        case. The reference is drawn in blue and the submission in red.</span>
+    </button>
+  </div>
+</div>
+
+<!-- =====================================================================
+     task instances: the gallery. Every id here belongs to app.js.
+     ================================================================== -->
+<section class="container sec" id="tasks" aria-label="Tasks and results">
+  <div class="pane-gallery" id="pane-gallery">
+
+    <section class="stage" id="stage" aria-label="Selected task" hidden>
+      <div class="stage-head">
+        <h3 id="st-title"></h3>
+      </div>
+      <div class="controls">
+        <button type="button" class="btn btn-small back-btn" id="st-close" aria-label="Back to all tasks" title="Back to all tasks (Esc)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5" stroke-linecap="round" stroke-linejoin="round"./></svg>All tasks</button>
+        <button type="button" class="btn btn-round" id="play" aria-label="Pause">
+          <svg id="ico-pause" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"./></svg>
+          <svg id="ico-play" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="display:none"><path d="M5.5 3.6v8.8L12 8z"./></svg>
+        </button>
+        <input type="range" id="scrub" min="0" max="1000" step="1" value="0" aria-label="Time">
+        <span class="fnum" id="fnum">0.00 s</span>
+        <span class="wipe-set" id="wipe-set" role="group" aria-label="Geometry colours" hidden></span>
+      </div>
+      <div class="cmp">
+        <div class="stage-top">
+          <div class="ref">
+            <div class="mhead"><h3>Input video</h3></div>
+            <figure class="pane">
+              <div class="frame media" id="ref-frame"><video id="clock" muted playsinline preload="auto" loop></video>
+                <div class="wipe" id="wipe" hidden><video id="wipev" muted playsinline preload="auto"></video>
+                  <span class="wipe-rule" id="wipe-rule"><span class="wipe-grip"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 4L2 8l4 4M10 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"./></svg></span></span></div></div>
+              <figcaption><span class="lbl" id="ref-note"></span></figcaption>
+            </figure>
+            <figure class="pane" id="geo-pane" hidden>
+              <div class="frame media"><video id="geo" muted playsinline preload="auto"></video></div>
+              <figcaption><span class="lbl">Reference geometry</span><span>the camera circling a little, to show depth</span></figcaption>
+            </figure>
+          </div>
+          <div class="info" id="info"></div>
+        </div>
+        <div class="mcol">
+          <div class="mhead">
+            <h3>Agent reconstructions</h3>
+            <span class="geo-hint" id="geo-hint" hidden>Drag across any render to compare</span>
+          </div>
+          <div class="mgrid" id="mgrid"></div>
+      <div class="mgrid-more-row">
+        <button type="button" class="btn btn-small" id="mgrid-more" hidden></button>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="compstrip" id="compstrip">
+      <p class="cs-head"><span class="cs-title">What materials are present in the scenes</span>
+        <span class="cs-key"><i class="real"></i>real<i class="synth"></i>simulated</span>
+        <button type="button" class="btn btn-small geo-filter" id="geo-only" aria-pressed="false">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z M4 7.5 12 12l8-4.5M12 12v9" stroke-linejoin="round"./></svg>
+          Geometry visualized</button></p>
+      <div class="cs-row" id="cs-row" role="group" aria-label="Filter by matter family"></div>
+    </div>
+
+    <div class="grid-row">
+      <p class="grid-hint" id="grid-nudge">
+        <span class="gn-text">Click any task to see every model&rsquo;s result</span>
+        <svg class="gn-arrow" width="46" height="34" viewBox="0 0 46 34" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true"><path d="M3 4c1.6 8.6 6.8 14.8 15.4 18.6C24 25 31 26.4 40 26.8"./><path d="M33.5 21 41 27l-7 5"./></svg>
+      </p>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+    <div class="more-row" id="more-row" hidden>
+      <button type="button" class="btn btn-small" id="show-more"></button>
+    </div>
+    <div class="curate-bar" id="curate-bar" hidden>
+      <span><strong id="cur-n">0</strong> scenes selected for geometry</span>
+      <span class="cur-note" id="cur-note"></span>
+      <button type="button" class="btn btn-small btn-solid" id="cur-save">Save</button>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     what the 200 tasks are made of
+     ================================================================== -->
+<section class="container sec" id="dataset" aria-label="Benchmark composition" hidden>
+  <div class="onto" id="onto"></div>
+</section>
+
+<!-- =====================================================================
+     metrics: the explorer, embedded
+     ================================================================== -->
+<section class="container sec" id="metrics-sec" aria-label="Metrics" hidden>
+  <div class="pane-metrics" id="pane-metrics">
+    <iframe id="metrics-frame" title="How each metric reads a reconstruction, step by step" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- =====================================================================
+     discussion: the capability breakdown, referred to from the leaderboard
+     ================================================================== -->
+<section class="container sec" id="findings" aria-label="Discussion">
+  <h2 class="part-head">Discussion</h2>
+
+  <div class="find">
+    <h3>Overall results</h3>
+    <p>We evaluate appearance, geometry and dynamics separately, combining five metric
+      families into the Overall score. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> leads the ranking,
+      followed by <span class="mref"><img src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span>. Open-weight models generally trail
+      proprietary models, with substantial differences in reconstruction quality across
+      models.</p>
+    <div class="lbview" id="lbv-caps">
+      <div class="cap-wrap"><div class="capfig">
+        <div class="cap-heads" id="cap-heads"></div>
+        <div class="cap-names" id="cap-names"></div>
+        <div class="cap-box" id="cap-box"></div>
+        <div class="cap-keys" id="cap-keys"></div>
+      </div></div>
+      <details class="drop"><summary>What each column measures</summary>
+        <div class="drop-body"><ul class="mlist" id="caps-note"></ul></div></details>
+    </div>
+  </div>
+
+  <div class="find find-duo">
+    <div class="find-t">
+      <h3>Reconstructing dynamics remains harder</h3>
+      <p>Across all 18 models, reconstruction of motion consistently lags behind
+        appearance and static geometry. Even <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> scores
+        <strong>0.91 on the static families against 0.67 on the dynamic ones</strong>.
+        Recovering what a scene looks like does not yet translate into reliably
+        reconstructing how it evolves.</p>
+    </div>
+    <div class="find-f"><div class="gapfig" id="gap-fig"></div></div>
+  </div>
+
+  <div class="find find-duo">
+    <div class="find-t">
+      <h3>What makes a scene hard to reconstruct?</h3>
+      <p>Different scene properties expose different weaknesses.
+        <strong>Real scenes, and scenes containing multiple materials</strong>, receive
+        lower perceptual and VQA scores. <strong>Co-dimensional structures, such as
+        cloth and rope</strong>, are particularly hard for 2D motion and depth.
+        Rigid and articulated scenes differ little from the dataset-wide average.</p>
+    </div>
+    <div class="find-f find-static"><div class="effects" id="eff-fig"></div></div>
+  </div>
+
+  <div class="find">
+    <h3>How do agents reconstruct dynamics?</h3>
+    <p>Agents can <span class="sim">write their own solvers</span>,
+      <span class="sim">use Blender&rsquo;s physics tools</span>, or
+      <span class="pre">prescribe how geometry moves and deforms over time</span>.</p>
+    <ul class="how-points">
+      <li><strong><span class="pre">Analytic motion</span> is the most common
+        strategy:</strong> across 18 models, 67% of solutions use analytic motion,
+        followed by <span class="sim">custom simulation</span> (19%),
+        <span class="sim">Blender physics</span> (10%) and
+        <span class="pre">keyframing</span> (3%).</li>
+      <li><strong>Opus simulates far more often than the overall average:</strong>
+        <span class="sim">custom or Blender simulation</span> accounts for 76% of
+        Opus&nbsp;5.5&rsquo;s solutions and 67% of Opus&nbsp;5&rsquo;s, compared with
+        29% across all models.</li>
+      <li><strong>Astra favours <span class="pre">analytic motion</span>, but simulates
+        more at higher reasoning effort:</strong> simulation use rises from 13% at Low
+        to 22% at High and 32% at Max.</li>
+    </ul>
+    <p>The examples below show how these choices play out in specific scenes.</p>
+    <div class="howlist">
+      <div class="howcase">
+        <h4>Rigid bodies</h4>
+        <p>All six configurations use Blender&rsquo;s <span class="sim">Bullet rigid-body solver</span>, but tune the collapse differently. <span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Fable&nbsp;5.1 [High]</span> lowers <span class="sim">solver iterations</span> so the stack crumbles; <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [High]</span> prescribes <span class="pre">progressive support failure</span> before Bullet handles the falling blocks. Five configurations reconstruct the 8&thinsp;&times;&thinsp;8&thinsp;&times;&thinsp;30 tower, while Astra [Low] builds only half its depth.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/B_15/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/B_15/claude-claude-fable-5-1-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Fable&nbsp;5.1 [High]</span><span class="hv-what">fewer solver iterations</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/B_15/codex-gpt-6-astra-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [High]</span><span class="hv-what">prescribed support failure, then Bullet</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/B_15/codex-gpt-6-astra-low.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Low]</span><span class="hv-what">half the tower&rsquo;s depth</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="howcase">
+        <h4>Deformable solids</h4>
+        <p><span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> implements an <span class="sim">MLS-MPM simulation of an elastic solid</span>. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> instead constructs the shape procedurally and prescribes its deformation using <span class="pre">an interpolated squeeze trajectory</span>.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/LI_07/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/LI_07/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">an MLS-MPM simulation</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/LI_07/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">a procedural shape on a prescribed squeeze</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="howcase">
+        <h4>Cloth and rope</h4>
+        <p><span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> writes a <span class="sim">PBD cloth simulation</span> with graph-coloured distance constraints and kd-tree self-contact. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> scripts the fold from <span class="pre">a table of chosen poses</span>, computing the cloth&rsquo;s shape directly while preserving its length.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/real/abc_130k_01_dual_arm_robotic/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/abc_130k_01_dual_arm_robotic/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">PBD cloth with self-contact</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/abc_130k_01_dual_arm_robotic/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">a scripted table of poses</span></figcaption></figure>
+        </div>
+        <p><span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> writes a <span class="sim">PBD rope simulation</span> with stretch and bending constraints, self-contact, and friction against the table and basket. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> implements a <span class="sim">discrete elastic-rod simulation</span> driven by the robot&rsquo;s grasps. Astra [High] instead fits the rope&rsquo;s shape with <span class="pre">a smoothed curve</span>, while Astra [Low] writes a simpler solver with self-contact.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/real/robo360_02_robotic_arm_gathering/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/robo360_02_robotic_arm_gathering/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">a PBD rope with friction</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/robo360_02_robotic_arm_gathering/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">a discrete elastic rod</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/robo360_02_robotic_arm_gathering/codex-gpt-6-astra-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [High]</span><span class="hv-what">a smoothed curve</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/real/robo360_02_robotic_arm_gathering/codex-gpt-6-astra-low.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Low]</span><span class="hv-what">a simpler solver with self-contact</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="howcase">
+        <h4>Flowing materials</h4>
+        <p><span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> writes a <span class="sim">two-phase MLS-MPM simulation</span> for water and sand, but the sand piles up like dough and the water fails to reproduce the splashing seen in the reference. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> prescribes <span class="pre">ballistic jet trajectories</span> and redistributes momentum at their intersection through explicit formulas. Recognisable geometry and convincing rendering mask a poor reconstruction of the flow: the prescribed motion fails to capture how the materials interact and evolve after collision.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/ML_01/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/ML_01/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">two-phase MLS-MPM</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/ML_01/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">prescribed ballistic trajectories</span></figcaption></figure>
+        </div>
+        <p>For the dam break, <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> uses Blender&rsquo;s <span class="sim">Mantaflow fluid solver</span>, while <span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> implements a custom <span class="sim">MLS-MPM simulation in taichi</span>. Models switch strategies as the dynamics grow more complex.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_06/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_06/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">Blender&rsquo;s Mantaflow</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_06/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">MLS-MPM in taichi</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="howcase">
+        <h4>Fracture</h4>
+        <p><span class="mref"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span> writes an <span class="sim">MLS-MPM simulation with a particle-level fracture threshold</span>, allowing the material to separate as it stretches. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> instead scripts the loaf&rsquo;s stretching and tearing, moving <span class="pre">a fracture front</span> along its length. The tear follows an authored progression rather than emerging from simulated material failure.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_04/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_04/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what"></span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/Z_04/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">an authored fracture front</span></figcaption></figure>
+        </div>
+        <p>Four foam bars are clamped at the feet; the top platen counter-rotates
+          300&deg; over 72 frames and lifts, the bars braid, and each one tears near
+          the top grip. <span class="mref"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span> leads on dynamics by 31% over the
+          next-best model, <strong>with no solver at all</strong>: <span class="pre">a reduced beam model</span>
+          carrying four per-bar break frames fitted to hundredths of a frame. <span class="mref"><img src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span>
+          writes <span class="sim">MLS-MPM with a yield threshold</span> on a marked band of particles, and lets
+          the tear emerge from it.</p>
+        <div class="hv-row">
+          <figure class="hv ref"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/HM_07/gt.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who">Reference</span><span class="hv-what">the video the agents were given</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/HM_07/codex-gpt-6-astra-max.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">GPT-6 Astra [Max]</span><span class="hv-what">analytic, no solver</span></figcaption></figure>
+          <figure class="hv"><div class="frame media"><video class="hv-v" data-src="videos/synthetic/HM_07/claude-claude-opus-5-5-high.mp4" muted loop playsinline preload="none"></video></div><figcaption><span class="hv-who"><img class="" src="logos/claude.svg" alt="" loading="lazy">Claude Opus&nbsp;5.5 [High]</span><span class="hv-what">MLS-MPM with a yield threshold</span></figcaption></figure>
+        </div>
+        <!-- off for now: the per-model notes on the foam-bar case
+        <details class="drop"><summary>What each one actually wrote</summary>
+          <div class="drop-body"><ul class="mlist"><li><span class="mfam"><img class="" src="logos/claude.svg" alt="" loading="lazy">Opus&nbsp;5.5</span><span class="mwhat">MLS-MPM of four foam bars and four soft balls in the twisting rig: the bottom disc clamps the feet, the top plate is a kinematic collider that grips the heads, rises and rotates. Fracture is a von-Mises-style yield with hardening applied to a marked bond band of particles between the base and the glue line. It ships a calibration mode that runs without fracture just to log bond stretch.</span></li><li><span class="mfam"><img class="" src="logos/claude.svg" alt="" loading="lazy">Opus&nbsp;5</span><span class="mwhat">An explicit two-phase hybrid, and the most honest structure of the six. Phase A is analytic counter-rotating-platen kinematics; phase B is XPBD, entered per bar at a hard-coded tear frame, with the break at 0.91 along the bar. Below the tear the material is free and integrated, the stub above stays kinematic, and it releases the stored torsional energy at the tear.</span></li><li><span class="mfam"><img class="" src="logos/claude.svg" alt="" loading="lazy">Fable&nbsp;5.1</span><span class="mwhat">PBD over the whole rig, the base disc rotating and the bars as particle chains: one solver for the whole take.</span></li><li><span class="mfam"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">Astra [Max]</span><span class="mwhat">A reduced beam reconstruction: a driven torsion and extension branch until the break, then calibrated bending modes. It carries per-bar phase angles, a break at 0.955 of the bar length, and four per-bar break frames fitted to hundredths of a frame. Post-break shapes are splines through keyed poses, in its own words &ldquo;including the large elastic recoil and damped contact response&rdquo;.</span></li><li><span class="mfam"><img class="mono" src="logos/gpt.svg" alt="" loading="lazy">Astra [Low]</span><span class="mwhat">Writes a solver here, 230 lines, and beats both Opus&nbsp;5 and Fable on dynamic IoU.</span></li></ul></div>
+        </details>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <div class="find find-duo find-alignment">
+    <div class="find-t">
+      <h3>Do the metrics align with human preferences?</h3>
+      <p><strong>Model rankings closely track human judgements.</strong> Across 3,587
+        pairwise judgements from 76 participants, human and VLM Elo have a Spearman
+        correlation of <strong>&rho;&nbsp;=&nbsp;0.98</strong>. The Overall score also
+        correlates strongly with human Elo (<strong>&rho;&nbsp;=&nbsp;0.96</strong>).</p>
+      <p>This agreement supports automated model comparison, though individual VLM
+        preferences are less reliable when two models are closely matched.</p>
+    </div>
+    <div class="find-f find-static"><div class="lbview" id="lbv-align">
+      <div class="align-key">
+        <span><i class="k-dot" style="background:#7b90e1"></i>Proprietary</span>
+        <span><i class="k-dot" style="background:#ec6b14"></i>Open-weight</span>
+        <span><i class="k-bar"></i>95% CI</span>
+        <span><i class="k-fit"></i>Least squares</span>
+        <span><i class="k-diag"></i>y = x</span>
+      </div>
+      <div class="aplot" id="align-scatter"></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     run it
+     ================================================================== -->
+<!-- the run instructions, off for now
+<div class="container grid">
+  <section class="rail sec" id="run">
+    <h2>Run the benchmark</h2>
+    <p>A typical run consists of two main stages. First, the agent reconstructs the input
+      video's scene into code within an isolated container, which holds nothing from the case
+      except that video. Second, the generated output is evaluated against the reference in a
+      separate scoring container.</p>
+    <p>For configuration formats, agent credentials, and a complete list of options, please
+      refer to the <a class="a-body" href="https://github.com/4DCodeBench/4DCodeBench">README</a>.</p>
+
+    <h3>1. Setup</h3>
+    <p>Download the data and the checkpoints, and build the three images:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>git clone https://github.com/4DCodeBench/4DCodeBench && cd 4DCodeBench
+python scripts/download_data.py     # benchmark videos, masks and reference worlds
+scripts/download_checkpoints.sh     # the models the scorer measures with
+docker build -t 4dcb/sim-base:dev -f harness/base/Dockerfile .
+docker build -t 4dcb/agent:dev    -f harness/agent/Dockerfile .
+docker build -t 4dcb/scorer:dev   -f harness/scorer/Dockerfile .</code></pre>
+    </div>
+    <p class="note">Without Docker, for example on a cluster, Apptainer or SingularityCE
+      works too: convert each image to a SIF file and set <code>backend = "sif"</code> in
+      the runtime file. Agents always run in a container, but scoring can also run directly
+      in the conda environment.</p>
+
+    <h3>2. Run an agent</h3>
+    <p>Choose the cases, the agent and the model in the jobs file, and set paths, images
+      and credentials in the runtime file:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>mkdir -p .local
+cp harness/runtime/templates/jobs.example.toml    .local/jobs.toml      # cases, agent, model
+cp harness/runtime/templates/runtime.example.toml .local/runtime.toml   # paths, images, credentials
+python harness/runtime/infer.py --jobs .local/jobs.toml --runtime .local/runtime.toml</code></pre>
+    </div>
+    <ul class="note">
+      <li>Claude, GPT and Gemini models run through their own CLIs, signed in with a credential
+        file in <code>.auth/</code>. Any other model with an OpenAI-compatible endpoint runs
+        through Artificial Analysis' Stirrup harness, with the endpoint's URL and key set in
+        the runtime file.</li>
+      <li>Each run has a wall-clock limit of six hours by default.</li>
+    </ul>
+
+    <h3>3. Score</h3>
+    <p>Score what the agent delivered against the reference:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>python harness/runtime/score.py --jobs .local/jobs.toml --runtime .local/runtime.toml --stage prepare,score</code></pre>
+    </div>
+    <ul class="note">
+      <li><code>prepare</code> computes each case's reference estimates, once per case.</li>
+      <li><code>score</code> computes the metrics of each run and writes them to the run's
+        <code>results/</code>.</li>
+    </ul>
+
+    <h3>4. VLM judge</h3>
+    <p>Two judged evaluations complement the metrics: VQA, which asks questions about one
+      agent's renders, and a pairwise preference between two agents, fitted to an Elo
+      rating. Both need an OpenRouter key.</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>export OPENROUTER_API_KEY=...
+python vlm_judge/judge.py vqa   --system &lt;agent&gt;-&lt;model&gt;-&lt;effort&gt; --out answers.jsonl
+python vlm_judge/judge.py score answers.jsonl</code></pre>
+    </div>
+    <p>To rate a new agent against the agents in the paper, place their renders under
+      <code>runs/</code> first:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>hf download 4DCodeBench/Results --repo-type dataset --local-dir results
+python scripts/place_renders.py results
+python vlm_judge/judge.py pairwise --out pairs.jsonl
+python vlm_judge/judge.py elo      pairs.jsonl</code></pre>
+    </div>
+  </section>
+</div> -->
+
+<!-- =====================================================================
+     FAQ: what the benchmark is, then the questions
+     ================================================================== -->
+<div class="container grid">
+  <section class="rail sec" id="faq">
+    <h2 class="part-head">FAQ</h2>
+    <details class="qa">
+      <summary>What is 4DCodeBench?</summary>
+      <div class="qa-body">
+        <p>4DCodeBench asks for a program rather than a prediction. Each of its
+          <strong>200 tasks</strong> hands an agent one video of something physical
+          happening, and the agent writes code that reconstructs the event as a 4D world it
+          can render. <span class="hl-real">100 videos are real recordings</span> and
+          <span class="hl-synth">100 come from a physics simulator</span>, so a submission
+          can be checked against a measured scene as well as a known one. Nothing tells the
+          agent what the objects are made of, how many there are, or where the camera sits:
+          it reads that off the video and commits to it in code that runs.</p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>What does an agent have to produce?</summary>
+      <div class="qa-body">
+        <p>The agent writes a program and submits it together
+          with the 4D world it generates: the rendered video,
+          the camera, and the geometry at every frame. Running the program must regenerate
+          everything without access to the reference video. We
+          place no restrictions on how the motion is made; agents keyframe it, simulate it
+          in Blender, Taichi or Warp, or write their own solvers.</p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>Why mix real and simulated videos?</summary>
+      <div class="qa-body">
+        <p>The two kinds of video let us evaluate different things.
+          <span class="hl-real">Real videos</span> show realistic appearance and physical
+          behaviour, but have no 4D ground truth, so we can only compare reconstructions of
+          them in the image. For <span class="hl-synth">simulated scenes</span> we know the
+          exact 3D geometry and motion at every frame, so we can also compare reconstructions
+          in 3D and over time. Both halves cover the same four families of matter: rigid
+          and articulated bodies, deformable solids, co-dimensional structures such as cloth
+          and rope,
+          and flowing matter such as grains and fluids.</p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>What does the agent get to work with?</summary>
+      <div class="qa-body">
+        <p>Only the video and a fixed task prompt. We provide no scene metadata, object
+          lists or descriptions, so the agent has to work out what is in the video before
+          writing any code. Each run takes place in an isolated container with a GPU,
+          Blender and common simulation libraries, and <strong>nothing else</strong>: no
+          physics engine, tracker, pose estimator or reconstruction tool is provided
+          beyond those libraries, and the scorer is not in the container. Each model gets
+          <strong>one attempt</strong> per scene.</p>
+        <p><strong>90.1%</strong> of submissions run end to end. More reasoning improves
+          results within a model: raising GPT-6 Astra&rsquo;s reasoning effort from Low to
+          Max lifts its Overall score from <strong>0.73</strong> to <strong>0.79</strong>.
+          Across different models, the number of steps or tokens used is a poor
+          predictor of the score.</p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>How is a reconstruction scored?</summary>
+      <div class="qa-body">
+        <p>We compare each reconstruction with the reference video, and for
+          <span class="hl-synth">simulated scenes</span> also with the true 4D world. The metrics fall into five
+          families, and the <strong>Overall</strong> score is their unweighted average. VQA
+          and the two Elo ratings are reported separately.</p>
+        <ul class="mlist" id="metric-list"></ul>
+        <p>The <a class="a-body" href="#metrics-sec">Metrics</a> tab shows each metric on
+          a strong and a weak run of the same scene.</p>
+      </div>
+    </details>
+
+
+    <details class="qa">
+      <summary>How are the Elo ratings produced, and can the VLM judge be trusted?</summary>
+      <div class="qa-body">
+        <p>Both ratings come from pairwise comparisons. The judge sees the reference video
+          and two anonymised reconstructions and picks the one that matches it better. For
+          VLM Elo the judge is a vision-language model; for human Elo, 76 participants made
+          3,587 such judgments across all 200 scenes.</p>
+        <p>The VLM&rsquo;s judgments are close to human judgments. The two rankings are
+          nearly identical (Spearman &rho;&nbsp;=&nbsp;<strong>0.98</strong>), and on
+          individual comparisons the VLM agrees with humans almost as often as humans agree
+          with each other (<strong>89.3%</strong> vs. <strong>92.1%</strong>). Individual VLM
+          judgments are close to chance for models within about 50 Elo points of each other,
+          and become more reliable as the gap widens. The
+          <a class="a-body" href="#leaderboard">Human agreement</a> tab plots the two
+          ratings against each other.</p>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>How do I run my own model on the benchmark?</summary>
+      <div class="qa-body">
+        <p>Running a model takes four steps. The agent works in an isolated container
+          that holds only the input video; scoring runs in a separate one.</p>
+        <ul class="mlist">
+          <li><span class="mfam">1. Setup</span><span class="mwhat">Download the data and
+            checkpoints and build the images, with Docker or, on a cluster, Apptainer or
+            SingularityCE.</span></li>
+          <li><span class="mfam">2. Run an agent</span><span class="mwhat">Choose the cases,
+            agent and model in the jobs file. Claude, GPT and Gemini run through their own
+            CLIs; any model with an OpenAI-compatible endpoint runs through Stirrup.</span></li>
+          <li><span class="mfam">3. Score</span><span class="mwhat">Compute each case&rsquo;s
+            reference estimates once, then the metrics of every run.</span></li>
+          <li><span class="mfam">4. VLM judge</span><span class="mwhat">VQA and the pairwise
+            Elo, with an OpenRouter key. Download our agents&rsquo; renders to rate a new
+            model against them.</span></li>
+        </ul>
+        <p>Commands, configuration formats and credentials are in the
+          <a class="a-body" href="https://github.com/4DCodeBench/4DCodeBench">README</a>.</p>
+      </div>
+    </details>
+
+  </section>
+</div>
+
+<!-- =====================================================================
+     citation
+     ================================================================== -->
+<div class="container grid">
+  <section class="rail sec" id="cite">
+    <h2 class="part-head">Citation</h2>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bibtex</span></div>
+<pre><code id="bib">@article{shen20264dcodebench,
+  title={{4DCodeBench}: Benchmarking Agents on Inverse Graphics of Dynamic Scenes},
+  author={Shen, Ruihong and Kova{\v{c}}i{\v{c}}, {\v{Z}}iga and Kulits, Peter and Wang, Xingrui and Li, Zizhang and Tenenbaum, Joshua B. and Yuille, Alan and Chen, Jieneng and Wu, Jiajun},
+  journal={arXiv preprint arXiv:2610.03715},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="container fbottom">
+  <span>&copy; 2026 The 4DCodeBench authors</span>
+</footer>
+
+<!-- where the reader is, down the left edge; each stop scrolls to its section -->
+<nav class="pnav" id="pnav" aria-label="Sections">
+  <span class="pnav-track"><i class="pnav-fill"></i></span>
+  <a href="#top" data-sec="top"><b></b><span>Overview</span></a>
+  <a href="#top-demo" data-sec="top-demo"><b></b><span>The task</span></a>
+  <a href="#takeaways" data-sec="takeaways"><b></b><span>Key takeaways</span></a>
+  <a href="#leaderboard" data-sec="leaderboard"><b></b><span>Leaderboard</span></a>
+  <a href="#gallery" data-sec="gallery"><b></b><span>The benchmark</span></a>
+  <a href="#findings" data-sec="findings"><b></b><span>Discussion</span></a>
+  <!-- <a href="#run" data-sec="run"><b></b><span>Run the benchmark</span></a> -->
+  <a href="#faq" data-sec="faq"><b></b><span>FAQ</span></a>
+  <a href="#cite" data-sec="cite"><b></b><span>Citation</span></a>
+</nav>
+
+<!-- the floating "Tasks and results" pill, off for now; its observer in app.js is off with it
+<a class="to-gallery" id="to-gallery" href="#tasks">Tasks and results
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"./></svg></a>
+-->
+
+<script>window.__BUILD="1790625233";</script>
+<script src="release.js"></script>
+<script src="app.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"6c80dc98aaa24005a1863d3d7edabb3f","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

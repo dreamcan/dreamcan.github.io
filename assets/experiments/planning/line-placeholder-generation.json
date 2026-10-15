@@ -1,0 +1,63 @@
+{
+  "task": "line",
+  "actualMethod": "Dense planning",
+  "temporarySlot": "VLP",
+  "checkpoint": "/mnt2/gck/checkpoints/wan_language_table_line_dense_ar_lora/lora_step_0054000.safetensors",
+  "checkpointSha256": "21ec1d34c9e8970b625d9cd50620ffb09e3b06be81d482ca0c792fb501e7fff0",
+  "numFramesPerCall": 65,
+  "numRounds": 3,
+  "numInferenceSteps": 40,
+  "cfgScale": 1.0,
+  "baseSeed": 0,
+  "fps": 10,
+  "width": 320,
+  "height": 192,
+  "testTimeSearch": false,
+  "examples": [
+    {
+      "episode": "w100_e43",
+      "condition": "/mnt4/gck_line_success/gen100/ours/w100_e43/condition.png",
+      "instructionFile": "/mnt4/gck_line_success/gen100/ours/w100_e43/instruction.txt",
+      "sourceInstruction": "put all the blocks in a vertical line on the right of the board",
+      "video": "line/w100_e43/vlp.mp4",
+      "poster": "line/w100_e43/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/line/w100_e43/vlp.mp4",
+      "sha256": "00297ef7ed881df7c0aca71f258b886634bbfbd4400c981cdb104f1a40934662",
+      "conditionSha256": "cc9cfef5f323af17c57d5ccb7db3a70d53668795a13fcfac3d4db89d02ff0334",
+      "conditionPixelsSha256": "a5ec910f44cc8822eca52f0f67201e1388190201f6e77315dc5ed8a37aaaa303",
+      "frameCount": 193,
+      "duration": 19.3,
+      "secondsToGenerate": 17.31
+    },
+    {
+      "episode": "w131_e11",
+      "condition": "/mnt4/gck_line_success/gen100/ours/w131_e11/condition.png",
+      "instructionFile": "/mnt4/gck_line_success/gen100/ours/w131_e11/instruction.txt",
+      "sourceInstruction": "put all the blocks in a horizontal line on the bottom of the board",
+      "video": "line/w131_e11/vlp.mp4",
+      "poster": "line/w131_e11/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/line/w131_e11/vlp.mp4",
+      "sha256": "cc8bec9d47440017004e1e019961375ad4776cc71ef415a9048726d050259be9",
+      "conditionSha256": "d6a8cd5a97409c413e10de43a10d39a98794a0a13217232811ddd59a0cc56608",
+      "conditionPixelsSha256": "58a8d77a0c393d058b192034990120150cbd889c9ce67a4d6b8a5aee566f0660",
+      "frameCount": 193,
+      "duration": 19.3,
+      "secondsToGenerate": 11.48
+    },
+    {
+      "episode": "w205_e30",
+      "condition": "/mnt4/gck_line_success/gen100/ours/w205_e30/condition.png",
+      "instructionFile": "/mnt4/gck_line_success/gen100/ours/w205_e30/instruction.txt",
+      "sourceInstruction": "put the blocks in a diagonal line from the top left to bottom right",
+      "video": "line/w205_e30/vlp.mp4",
+      "poster": "line/w205_e30/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/line/w205_e30/vlp.mp4",
+      "sha256": "2e4dfbd185d1446cca2b2f8aac42aa2230a348e99d7eefb538f456807d2efd01",
+      "conditionSha256": "e6675e4f9a121859023a172fb7d529729ec0abed9dc7b4c431ccd8e30223bdf9",
+      "conditionPixelsSha256": "650e5ffa0d922dd223f3135fff630c653fef94b3b071796b7a87ef4b48f717bf",
+      "frameCount": 193,
+      "duration": 19.3,
+      "secondsToGenerate": 11.54
+    }
+  ]
+}

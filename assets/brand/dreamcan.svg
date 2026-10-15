@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">DreamCan</title>
+  <desc id="desc">A Cardinal red D containing three visual keyframes progressing toward an orange goal.</desc>
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <path fill="#8C1515" fill-rule="evenodd" d="M10 8h18c18 0 28 10 28 24S46 56 28 56H10V8zm10 10v28h8c11 0 18-5 18-14s-7-14-18-14h-8z"/>
+  <rect x="23" y="21" width="7" height="7" rx="1.5" fill="#4a5fb0"/>
+  <rect x="30" y="28" width="7" height="7" rx="1.5" fill="#7b90e1"/>
+  <rect x="36" y="35" width="7" height="7" rx="1.5" fill="#ec6b14"/>
+</svg>

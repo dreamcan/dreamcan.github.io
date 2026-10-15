@@ -1,0 +1,54 @@
+{
+  "presentation": "/home/gck/Desktop/video_dreamcan.pptx",
+  "slides": [
+    14,
+    15,
+    16
+  ],
+  "video": "ppt/media/media15.mp4",
+  "videoFrames": 364,
+  "sampledVideoFrames": [
+    0,
+    45,
+    91,
+    136,
+    182,
+    227,
+    272,
+    318,
+    363
+  ],
+  "curves": [
+    {
+      "asset": "image72.png",
+      "stage": "J4(0)"
+    },
+    {
+      "asset": "image73.png",
+      "stage": "J3(47)"
+    },
+    {
+      "asset": "image74.png",
+      "stage": "J2(94)"
+    },
+    {
+      "asset": "image71.png",
+      "stage": "J1(149)"
+    }
+  ],
+  "sha256": {
+    "frame-0.jpg": "c83f99d07086f2932424ee5d9662153860b9dd79135ae571b09ae39e2d998dd5",
+    "frame-1.jpg": "ab5df73a68e14c383d2cfb9d06d31bdb21420e390d754869e967518a8c9fcba3",
+    "frame-2.jpg": "3f9e580e43c25551f192b668a6f0a1ffdffd912f6f01bb0126084c70e8a312f4",
+    "frame-3.jpg": "c6d4fd3bb29a40034a3c2b0bb5fcaa52a646ff732986033e06aaf0956ef32e7f",
+    "frame-4.jpg": "89939b0eeb6cdcf633f3ab19d9772b2e3d08a855686834853c2b1765a25a3a5c",
+    "frame-5.jpg": "ec621a2d6aafacb3d0d85df66f24fe8de1f017b74db49694ce0bfe199f833b59",
+    "frame-6.jpg": "ac0c507c3aa1ebf4ddfa9619924b6e284e59f73b1dc87b69f57f07da33d1a130",
+    "frame-7.jpg": "1e217351186bf341d882ca804d036ad26efa3fb0f71685f60f0e65da156e510f",
+    "frame-8.jpg": "bd1d3207e10c8ca7fb12a5c4d9811b07bd6ff04ca6ab3107c1f50383c5dc838d",
+    "image71.png": "42279ad24e042aaa0d9396af3ed738b6dfb3d8b0949e19075226c6d1f2de4a0c",
+    "image72.png": "08113127167a09b3d38c809d23b8f1714d8a3f78dafd36e75fe16b1c543f447e",
+    "image73.png": "daefc42bf06519a2bb096651922d4d330abe3dee4511b23fff463419179abe75",
+    "image74.png": "c11154a58a23b5fcc3429dd8d2fe30d3c76480ddb61201d6e07aa01a378d2031"
+  }
+}

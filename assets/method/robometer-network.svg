@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified RoboMeter progress network</title>
+  <desc id="desc">Video-prefix frames and a language instruction become visual and text tokens. A causal vision-language backbone, with optional LoRA adaptation, produces progress-token features that an MLP maps to raw task progress.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 7 3.5 0 7Z" fill="#1565c0"/></marker>
+    <marker id="out-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 7 3.5 0 7Z" fill="#8c1515"/></marker>
+    <style>text{font-family:Arial,Helvetica,sans-serif;fill:#202020;text-anchor:middle}.label{font-size:18px;font-weight:600;fill:#202020}.small{font-size:15px;fill:#585858}.math{font-family:"Times New Roman","STIX Two Math",serif;font-size:21px}.input{fill:#fff;stroke:#909090;stroke-width:1.1}.model{fill:#E8F0F9;stroke:#737373;stroke-width:1.1}.wire{fill:none;stroke:#1565c0;stroke-width:1.15;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect class="input" x="16" y="16" width="164" height="58" rx="1"/>
+  <text class="label" x="98" y="40">Video prefix</text><text class="math" x="98" y="64">o₀ … oₜ</text>
+  <rect class="input" x="16" y="101" width="164" height="58" rx="1"/>
+  <text class="label" x="98" y="126">Instruction</text><text class="math" x="98" y="150">ℓ</text>
+  <path class="wire" d="M180 45H208"/><path class="wire" d="M180 130H208"/>
+  <rect class="model" x="210" y="16" width="164" height="58" rx="1"/>
+  <text class="label" x="292" y="40">Visual encoder</text><text class="small" x="292" y="63">visual tokens</text>
+  <rect class="model" x="210" y="101" width="164" height="58" rx="1"/>
+  <text class="label" x="292" y="126">Text tokenizer</text><text class="small" x="292" y="150">language tokens</text>
+  <path class="wire" d="M374 45H401"/><path class="wire" d="M374 130H401"/>
+  <rect class="model" x="403" y="16" width="221" height="143" rx="1"/>
+  <text class="label" x="513" y="44">Causal VLM</text><text class="small" x="513" y="68">Qwen3-VL backbone</text>
+  <rect x="446" y="80" width="134" height="28" rx="1" fill="#F6ECEC" stroke="#8c1515"/>
+  <text x="513" y="99" style="font-size:15px;fill:#202020">LoRA adaptation</text>
+  <text class="small" x="513" y="138">progress-token features</text>
+  <path class="wire" d="M513 159V205H329V233"/>
+  <rect class="model" x="205" y="234" width="247" height="64" rx="1"/>
+  <text class="label" x="329" y="261">Progress MLP</text><text class="small" x="329" y="285">dense task progress</text>
+  <path d="M452 266H485" fill="none" stroke="#8c1515" stroke-width="1.8" marker-end="url(#out-arrow)"/>
+  <rect x="487" y="234" width="137" height="64" rx="1" fill="#F6ECEC" stroke="#8c1515" stroke-width="1.2"/>
+  <text x="555" y="260" style="font-size:18px;font-weight:600;fill:#202020">Raw progress</text><text class="math" x="555" y="286" style="fill:#202020">uₜ</text>
+</svg>

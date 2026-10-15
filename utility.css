@@ -1,0 +1,23 @@
+/* Task utility shares the reachability explorer's layout and controls. */
+.utility-method-layout{row-gap:1.25rem}
+.utility-method-intro{grid-column:1/-1}
+.method-panel .utility-method-intro .reach-method-intro{margin-bottom:0}
+.utility-method-copy a{color:inherit;text-decoration-color:var(--ink-24);text-underline-offset:3px}
+.utility-math-inline{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem}
+.utility-math-inline math{margin:0}
+.utility-line-math{gap:.55rem}
+.utility-visual-card{display:flex;flex-direction:column;justify-content:center;margin:0;padding:1rem;border:1px solid var(--ink-12);border-radius:.75rem;background:color-mix(in srgb,var(--ink) 2%,var(--paper))}
+.utility-visual-card h4{margin:0 0 .85rem;font-size:1rem;font-weight:600;line-height:1.4;color:var(--ink)}
+.utility-visual-card img{display:block;width:100%;height:auto}
+.utility-visual-card video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:.4rem;background:#141418}
+.utility-explorer{--reach-initial:#b64d06;--reach-goal:#b64d06}
+.utility-explorer .reach-sliders{grid-template-columns:1fr}
+.utility-explorer .reach-thumb.is-initial .reach-thumb-caption{background:#fff2e8}
+.utility-selection-label{padding:.45rem .6rem;border-radius:.35rem;background:#fff2e8;color:var(--reach-initial);font-size:.75rem;line-height:1.4}
+#utility-chart{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:visible;cursor:crosshair;touch-action:pan-y}
+#utility-chart text{font-family:var(--text-sans);font-size:13px;fill:#514d5c;user-select:none}
+#utility-chart .utility-curve{stroke:var(--reach-initial)}
+#utility-chart .utility-focus-line{stroke:var(--reach-initial);stroke-width:1;stroke-dasharray:4 4;opacity:.65;vector-effect:non-scaling-stroke}
+#utility-chart .utility-focus-point{fill:var(--paper);stroke:var(--reach-initial);stroke-width:2;vector-effect:non-scaling-stroke}
+@media(max-width:1100px){.utility-visual-card{max-width:620px;width:100%;margin-inline:auto}}
+@media(max-width:580px){#utility-chart text{font-size:11px}.utility-visual-card{padding:.85rem}.utility-math-inline{gap:.5rem 1rem}}

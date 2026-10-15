@@ -1,0 +1,16 @@
+[
+ {"key": "rigid", "label": "Rigid", "group": "material", "def": "Objects that move without visibly deforming: blocks, balls, tools, containers."},
+ {"key": "articulated", "label": "Articulated", "group": "material", "def": "Bodies linked by joints or hinges: robot arms and grippers, chains, gears and linkages, pendulums, wheels on axles."},
+ {"key": "elastic", "label": "Elastic", "group": "material", "def": "Soft matter that deforms and springs back: rubber, jelly, springs, soft toys, inflatables."},
+ {"key": "plastic", "label": "Plastic", "group": "material", "def": "Matter that keeps its new shape: dough, clay, crushed metal, cream, putty, snow."},
+ {"key": "granular", "label": "Granular", "group": "material", "def": "Many small grains flowing as a bulk: sand, rice, beans, cereal, coffee beans."},
+ {"key": "liquid", "label": "Liquid", "group": "material", "def": "Flowing fluid, thick ones included: water, honey, syrup, wine, milk, melted chocolate."},
+ {"key": "codim", "label": "Co-dimensional", "group": "material", "def": "Thin sheets and strands: cloth, paper, rope, string, hair, noodles, thin shells."},
+ {"key": "single", "label": "Single “matter”", "group": "composition", "def": "The dynamics involve one body of one material (static scenery aside)."},
+ {"key": "many_single", "label": "Many single “matter”", "group": "composition", "def": "Many separate bodies, all of the same material: dominoes, marbles, pins, stacked blocks."},
+ {"key": "multi", "label": "Multi-“matter”", "group": "composition", "def": "Two or more materials interact: liquid in a rigid cup, cloth handled by a robot, a ball hitting sand."},
+ {"key": "fracture", "label": "Fracture", "group": "phenomena", "def": "Something breaks, tears, is cut, splits or shatters."},
+ {"key": "scripted", "label": "Scripted", "group": "phenomena", "def": "Some motion is prescribed rather than physical: a hand, robot, press or tool moving along a set path."},
+ {"key": "large_deformation", "label": "Large deformation", "group": "phenomena", "def": "Shapes change a lot: folding, squashing, stretching, pouring, collapsing heaps."},
+ {"key": "transient", "label": "Transient", "group": "phenomena", "def": "A short, fast event such as an impact, splash, collapse or snap, rather than a steady or slow process."}
+]

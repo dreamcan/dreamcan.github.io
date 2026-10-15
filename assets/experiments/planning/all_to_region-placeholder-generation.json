@@ -1,0 +1,63 @@
+{
+  "task": "all_to_region",
+  "actualMethod": "Dense planning",
+  "temporarySlot": "VLP",
+  "checkpoint": "/mnt2/gck/gck_wan_all_to_region_dense_ar/checkpoints/wan_language_table_all_to_region_dense_ar_lora/lora_step_0042000.safetensors",
+  "checkpointSha256": "e54d788388c7d5d2c326b36489738b4192d634fe5507f96adb9590978ab341c2",
+  "numFramesPerCall": 65,
+  "numRounds": 6,
+  "numInferenceSteps": 40,
+  "cfgScale": 1.0,
+  "baseSeed": 0,
+  "fps": 10,
+  "width": 320,
+  "height": 192,
+  "testTimeSearch": false,
+  "examples": [
+    {
+      "episode": "w14_e0",
+      "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/condition.png",
+      "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/instruction.txt",
+      "sourceInstruction": "put all the blocks in the bottom left corner",
+      "video": "all_to_region/w14_e0/vlp.mp4",
+      "poster": "all_to_region/w14_e0/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/all_to_region/w14_e0/vlp.mp4",
+      "sha256": "753021ecfe2a3d7575b22c28dfa2ffb280bac1c61679a12854a1ee3473d5a367",
+      "conditionSha256": "d224d32b1df48580efa18ed86565c22dc39ede4ec2372215b31323d73c1a3990",
+      "conditionPixelsSha256": "57ecccb2a332fb0b66e9255cf7912791d9ff0b7e1bcf53e2ab963c7f1ac71307",
+      "frameCount": 385,
+      "duration": 38.5,
+      "secondsToGenerate": 26.31
+    },
+    {
+      "episode": "w39_e34",
+      "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/condition.png",
+      "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/instruction.txt",
+      "sourceInstruction": "put all the blocks in the bottom right corner",
+      "video": "all_to_region/w39_e34/vlp.mp4",
+      "poster": "all_to_region/w39_e34/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/all_to_region/w39_e34/vlp.mp4",
+      "sha256": "5046aa1e479fc3141db20bd66fddf722c0c24bd9aa18aceff827eac6e97e321e",
+      "conditionSha256": "796f6929c9b9ffed1644efda80a9d05a67fb650512c44bdccdcccaacd2f9dfcb",
+      "conditionPixelsSha256": "a0fefd856fafdfbf4e8a64d13bd5154f20a28f8956a5ca9d122e0fd4d192332a",
+      "frameCount": 385,
+      "duration": 38.5,
+      "secondsToGenerate": 23.38
+    },
+    {
+      "episode": "w188_e43",
+      "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/condition.png",
+      "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/instruction.txt",
+      "sourceInstruction": "put all the blocks in the top left corner",
+      "video": "all_to_region/w188_e43/vlp.mp4",
+      "poster": "all_to_region/w188_e43/vlp.webp",
+      "source": "/mnt2/gck/newwebsite_planning_placeholders_20261011/all_to_region/w188_e43/vlp.mp4",
+      "sha256": "8168e5d76cb440f50e0518b05df80eb470edcfab926050a804fd23e729620628",
+      "conditionSha256": "48d21b4220d3a1c05555e13029f012390cad0ec068f172e92086a3946a5890a4",
+      "conditionPixelsSha256": "8b949c873a8a303ca166edfe84b0068a26fa20d05a9da8857104e38809982515",
+      "frameCount": 385,
+      "duration": 38.5,
+      "secondsToGenerate": 22.82
+    }
+  ]
+}

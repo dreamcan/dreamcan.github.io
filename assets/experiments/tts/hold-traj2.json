@@ -1,0 +1,27 @@
+{
+  "trajectory": 2,
+  "source": "videos/tts/bad_2.mp4",
+  "output": "assets/experiments/tts/bad_2_hold.mp4",
+  "source_frame_count": 17,
+  "output_frame_count": 29,
+  "fps": 4,
+  "duration_seconds": 7.25,
+  "extra_hold_seconds": 3,
+  "holds": [
+    {
+      "source_frame": 1,
+      "start_seconds": 0.25,
+      "end_seconds": 2
+    },
+    {
+      "source_frame": 2,
+      "start_seconds": 2,
+      "end_seconds": 3.75
+    }
+  ],
+  "annotations_end_seconds": 3.75,
+  "resume_source_frame": 3,
+  "notes": "Each problem frame receives 1.5 extra seconds; annotations appear only while held, and are removed for all continuing frames. Original later frames retain original order and speed.",
+  "source_sha256": "1401f50fca7e1fef300c1e8235748e83bb80d58e73b308533525bb8829ad160d",
+  "output_sha256": "634b6cb6af70da2945009d3b932ead1e2e71e0617f027ea4c5a3c6729a200fe4"
+}

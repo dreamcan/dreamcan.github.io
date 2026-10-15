@@ -1,0 +1,78 @@
+/* Experimental Results shares the opening sections' four-color palette. */
+#experiments{--front-red:#8c1515;--front-blue:#1565c0;--front-ink:#202020;--front-white:#fff;--front-muted:color-mix(in srgb,#202020 75%,white);--front-border:color-mix(in srgb,#202020 20%,white);--front-blue-tint:color-mix(in srgb,#1565c0 10%,white);--front-red-tint:color-mix(in srgb,#8c1515 8%,white);--ink:var(--front-ink);--paper:var(--front-white);--ink-60:var(--front-muted);--ink-44:var(--front-muted);--ink-read:var(--front-ink);--text-muted:var(--front-muted);--ink-12:var(--front-border);--ink-4:color-mix(in srgb,#202020 4%,white);--peri:var(--front-blue);--peri-ink:var(--front-blue);--orange:var(--front-red);--orange-ink:var(--front-red);--accent:var(--front-red)}
+#experiments .part-head{color:var(--front-red)}
+#experiments .method-tabs button{box-shadow:none}
+#experiments .method-tabs button[aria-selected=true]{background:var(--front-blue);border-color:var(--front-blue);color:white}
+#experiments .method-number{background:var(--front-blue-tint);color:var(--front-blue)}
+#experiments .method-tabs button[aria-selected=true] .method-number{background:white;color:var(--front-blue)}
+#experiments .stage-io dt{color:var(--front-blue)}
+#experiments .stage-io>div:last-child dt{color:var(--front-red)}
+#experiments .stage-io dd,#experiments .method-panel>p{color:var(--front-ink)}
+#experiments a{color:var(--front-blue)}
+#experiments :focus-visible{outline-color:var(--front-blue)}
+#experiments .exp-content,#experiments .planning-explorer{margin-left:0}
+#experiments .exp-content{margin-top:1.5rem}
+#experiments .exp-content p,#experiments .exp-copy ul,#experiments .exp-copy ol{font-family:var(--text-sans);font-size:1rem;font-weight:400;line-height:1.55;color:var(--front-ink);text-wrap:pretty}
+#experiments .exp-copy ul,#experiments .exp-copy ol{margin:.5rem 0 1rem;padding-left:1.2rem}
+#experiments .exp-copy li+li{margin-top:.45rem}
+#experiments .exp-copy li::marker{color:var(--front-blue)}
+#experiments .exp-copy strong{font-family:inherit;font-weight:600}
+#experiments .exp-content h3{font-family:var(--text-sans);font-size:1.125rem;line-height:1.45;letter-spacing:0;margin:0 0 .65rem;color:var(--front-ink)}
+#experiments .exp-content h4{font-family:var(--text-sans);font-size:1rem;line-height:1.45;letter-spacing:0;margin:0 0 .5rem;color:var(--front-ink)}
+#experiments .exp-copy h3,#experiments .exp-copy h4{color:var(--front-blue)}
+#experiments .exp-copy h3:not(:first-child),#experiments .exp-copy h4:not(:first-child){margin-top:1.1rem}
+#experiments .exp-grid{gap:1.75rem;align-items:stretch}
+#experiments .exp-grid>.exp-chart{display:flex;flex-direction:column;justify-content:center}
+#experiments .exp-chart img{padding:0;border:0;border-radius:0;box-shadow:none;width:100%;height:auto}
+#experiments .exp-figure figcaption,#experiments .exp-note,#experiments .exp-reach-criterion{font-family:var(--text-sans);font-size:.875rem;line-height:1.5;color:var(--front-muted)}
+#experiments .exp-figure figcaption{margin-top:.55rem}
+#experiments .exp-tabs button,#experiments .exp-choices button,#experiments .planning-task-tabs button,#experiments .planning-examples button{border-radius:.25rem;box-shadow:none}
+#experiments .exp-tabs button[aria-selected=true],#experiments .planning-task-tabs button[aria-selected=true]{color:var(--front-blue);background:var(--front-blue-tint);border-color:var(--front-blue)}
+#experiments .exp-choices button[aria-pressed=true],#experiments .planning-examples button[aria-pressed=true]{background:var(--front-blue);border-color:var(--front-blue);color:white}
+#experiments .exp-video,#experiments .planning-video-card video,#experiments .planning-video-empty{border-radius:.25rem;border-color:var(--front-border);background-color:var(--front-ink)}
+#experiments .planning-video-empty{background:var(--paper)}
+#experiments .planning-video-ours figcaption strong,#experiments .planning-result-ours th,#experiments .planning-result-ours td{color:var(--front-red)}
+#experiments .exp-instruction strong{color:var(--front-blue)}
+#experiments .exp-table-wrap{border-radius:0}
+#experiments .exp-table,#experiments .exp-policy-result-table,#experiments .exp-real-success-table{font-family:var(--text-sans);font-size:.9375rem;line-height:1.5;border-top:1.5px solid var(--front-ink);border-bottom:1.5px solid var(--front-ink)}
+#experiments .exp-table caption{font-size:1rem;color:var(--front-ink)}
+#experiments .exp-table thead th{border-top:0;border-bottom:1px solid var(--front-ink);font-size:.875rem;color:var(--front-ink)}
+#experiments .exp-table td{color:var(--front-ink)}
+#experiments .exp-table th,#experiments .exp-table td{padding:.65rem .75rem;border-bottom:0}
+#experiments .exp-table .exp-ours{background:transparent;border-top:1px solid var(--front-border)}
+#experiments .exp-table .exp-ours th,#experiments .exp-table .exp-ours td,#experiments .exp-policy-ours th,#experiments .exp-policy-ours td{color:var(--front-red);font-weight:600}
+#experiments .sim-outcome{color:var(--front-blue)}
+#experiments .sim-outcome[data-result=failure]{color:var(--front-red)}
+#experiments .exp-task-readout>div{box-shadow:none;border-radius:.25rem}
+#experiments .exp-task-readout strong,#experiments .exp-metric strong{color:var(--front-red)}
+#experiments .exp-source-note{font-size:.875rem;border-color:var(--front-border)}
+#experiments .exp-source-note summary{color:var(--front-blue)}
+#experiments .exp-source-note p{font-size:.875rem}
+#experiments .exp-axis-description{font-size:1rem}
+#experiments .exp-axis-description ul{margin:.5rem 0 1rem}
+#exp-search-panel>.exp-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+#experiments #exp-reach-panel .exp-reach-study-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+#experiments #exp-reach-panel .exp-reach-criterion{font-size:.875rem;color:var(--front-muted)}
+#experiments #exp-detour-panel>.exp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#experiments .exp-real-results-grid{align-items:stretch}
+#experiments .exp-real-success{display:flex;flex-direction:column}
+#experiments .exp-real-success-table{height:100%;font-size:.875rem}
+#experiments .exp-real-success-table th,#experiments .exp-real-success-table td{padding:.3rem .35rem}
+#experiments .exp-real-task h3{font-size:1.125rem;margin-bottom:.85rem}
+#experiments .suboptimal-summary{margin-top:1rem;padding-top:.875rem}
+#experiments .suboptimal-summary ul{font-size:1rem;line-height:1.55}
+#experiments .sim-planner-strip{border-radius:0}
+#pnav a[data-sec=experiments]{--c:#1565c0!important}
+body:has(#pnav a.on[data-sec=experiments]) #pnav .pnav-fill{background:#1565c0}
+html:has(#pnav a.on[data-sec=experiments]){scrollbar-color:#1565c0 #f3f3f3}
+html:has(#pnav a.on[data-sec=experiments])::-webkit-scrollbar-thumb{background:#1565c0}
+@media(min-width:1360px) and (max-width:1699px){#experiments{padding-left:max(2rem,calc(54rem - 50vw))}}
+@media(max-width:1000px){#experiments .suboptimal-layout{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:800px){#exp-search-panel>.exp-grid,#experiments #exp-reach-panel .exp-reach-study-grid,#experiments #exp-detour-panel>.exp-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:540px){#experiments .exp-content h3{font-size:1.0625rem}#experiments .exp-table{font-size:.875rem}#experiments .exp-table th,#experiments .exp-table td{padding:.55rem .5rem}}
+
+#exp-search-panel>.exp-grid>.exp-copy{display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+#experiments #exp-search-panel .exp-reading-block h3,#experiments #exp-search-panel .exp-reading-block h4{margin-top:0}
+#experiments #exp-search-panel .exp-reading-block ol{margin-bottom:0}
+#experiments .suboptimal-context{justify-content:flex-start}
+#experiments .suboptimal-summary{margin-top:.75rem;padding-top:.75rem}

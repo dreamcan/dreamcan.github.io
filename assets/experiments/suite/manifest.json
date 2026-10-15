@@ -1,0 +1,730 @@
+{
+  "version": 1,
+  "sourceHost": "lyg2080",
+  "numericalPolicy": "Suboptimal Figure 5 reproduces the published curves and uncertainty with full plotting-script provenance; other standalone figures use unshifted archived reports. Paper-only tables are explicitly identified in HTML.",
+  "assets": {
+    "real-folding": {
+      "id": "real-folding",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/folding.mp4",
+      "type": "real robot execution",
+      "instruction": "Fold the cardboard box.",
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "duration_seconds": 9.234,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media1.mp4",
+      "notes": [
+        "Deck slide 25 labels playback 4×. No per-video task instruction is shown; caption above is task-level description."
+      ],
+      "video": "videos/real-folding.mp4",
+      "poster": "images/real-folding.webp",
+      "sha256": "e70a02333a5893e43b485731f01433e036370ca2fe56a9f6d0047e45cdea4598",
+      "frameCount": 277,
+      "duration": 9.234
+    },
+    "real-packing": {
+      "id": "real-packing",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/packing.mp4",
+      "type": "real robot execution",
+      "instruction": null,
+      "width": 640,
+      "height": 360,
+      "fps": 10.0,
+      "duration_seconds": 9.2,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media5.mp4",
+      "notes": [
+        "Deck slide 27 labels playback 3×. The particular object instruction for this clip is not written on the slide."
+      ],
+      "video": "videos/real-packing.mp4",
+      "poster": "images/real-packing.webp",
+      "sha256": "bc5a9bc98082698e96c6985f2033a881a61655922467eb8a46dccc0c04db065a",
+      "frameCount": 92,
+      "duration": 9.2
+    },
+    "real-line": {
+      "id": "real-line",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/line.mp4",
+      "type": "real robot execution",
+      "instruction": "Make a vertical line.",
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "duration_seconds": 9.867,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media3.mp4",
+      "notes": [
+        "Instruction verified by horizontal shape position on deck slide 29; media4 is horizontal top, media39 horizontal bottom. Playback 4×."
+      ],
+      "video": "videos/real-line.mp4",
+      "poster": "images/real-line.webp",
+      "sha256": "769ecb1834bfa1b684e4616969802c1738960190c0e607e1e001f8ffe70753cc",
+      "frameCount": 296,
+      "duration": 9.867
+    },
+    "pusht-ours-trial0": {
+      "id": "pusht-ours-trial0",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial000_success_peak0.91_final0.91.mp4",
+      "type": "simulation execution plus generated sparse subgoals",
+      "instruction": null,
+      "width": 912,
+      "height": 224,
+      "fps": 10.0,
+      "duration_seconds": 19.8,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media32.mp4",
+      "notes": [
+        "Four side-by-side panes: left is actual pusher execution; right are the first three generated sparse subgoals.",
+        "Deck uses a 2932×720 upscaled copy; complete video SSIM after downscale is 0.9949/0.9950 respectively.",
+        "Associated config flow_goal_resnet_radio_pusht_wan_dp3_k4_v2a.yaml explicitly uses K=4 DP-subgoal WAN2.2 LoRA and consumes first 3 subgoals.",
+        "Representatives come from an archived 84% run; manuscript Table III reports aggregate Ours 86%. Do not say these clips are from the 86% run."
+      ],
+      "video": "videos/pusht-ours-trial0.mp4",
+      "poster": "images/pusht-ours-trial0.webp",
+      "sha256": "16621f11abf1dcb91dc56d471fda5f837e3f6b500a1722ce89c2210dd6870de9",
+      "frameCount": 198,
+      "duration": 19.8
+    },
+    "libero-stove": {
+      "id": "libero-stove",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/libero-stove.mp4",
+      "type": "simulation execution plus generated subgoal grid",
+      "instruction": "Turn on the stove and put the moka pot on it.",
+      "width": 1280,
+      "height": 480,
+      "fps": 10.0,
+      "duration_seconds": 23.9,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media30.mp4",
+      "notes": [
+        "Prepared website video is 1280×480; original deck composite is 1920×720.",
+        "Left roughly 37.5% is live agentview; right roughly 62.5% is a 2×5 generated subgoal grid. Grid is black briefly at rollout start.",
+        "Same-task trial0/1/2 raw agentview and obs_plus_wan_subgoals videos exist under ppt_materials/04_libero_long_obs_plus_subgoals; manifest says 3/3 successes for each task, WAN generates 10 subgoals and policy consumes 3."
+      ],
+      "video": "videos/libero-stove.mp4",
+      "poster": "images/libero-stove.webp",
+      "sha256": "1ca3f493ac9794e6e6d47bd1f9d168726513c28104b5be8534a1d38f8d48ab86",
+      "frameCount": 239,
+      "duration": 23.9
+    },
+    "libero-microwave": {
+      "id": "libero-microwave",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/libero-microwave.mp4",
+      "type": "simulation execution plus generated subgoal grid",
+      "instruction": "Put the yellow and white mug in the microwave and close it.",
+      "width": 1280,
+      "height": 480,
+      "fps": 10.0,
+      "duration_seconds": 24.8,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media31.mp4",
+      "notes": [
+        "Prepared website video is 1280×480; original deck composite is 1920×720.",
+        "Left roughly 37.5% is live agentview; right roughly 62.5% is a 2×5 generated subgoal grid. Grid is black briefly at rollout start.",
+        "Same-task trial0/1/2 raw agentview and obs_plus_wan_subgoals videos exist under ppt_materials/04_libero_long_obs_plus_subgoals; manifest says 3/3 successes for each task, WAN generates 10 subgoals and policy consumes 3."
+      ],
+      "video": "videos/libero-microwave.mp4",
+      "poster": "images/libero-microwave.webp",
+      "sha256": "78207dc5c4e6303993fcda617f6870108de97f0392dd36a96b5f326e15ad135a",
+      "frameCount": 248,
+      "duration": 24.8
+    },
+    "search-calls-1": {
+      "id": "search-calls-1",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/search-1.mp4",
+      "type": "generated visual plan",
+      "instruction": null,
+      "width": 1280,
+      "height": 768,
+      "fps": 3.0,
+      "duration_seconds": 7,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media21.mp4",
+      "notes": [
+        "Deck slide 19 both visible label and media shape name calls001_n01 identify 1 generator calls.",
+        "This clip demonstrates generated planning rather than low-level execution. Exact whole-sequence vs anchored protocol of this deck clip is not established."
+      ],
+      "video": "videos/search-calls-1.mp4",
+      "poster": "images/search-calls-1.webp",
+      "sha256": "1fceacdfa22a6c303bcd2e81203dae916a363ac43f73ad5c21aaf69f1fa9016f",
+      "frameCount": 21,
+      "duration": 7.0
+    },
+    "search-calls-2": {
+      "id": "search-calls-2",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/search-2.mp4",
+      "type": "generated visual plan",
+      "instruction": null,
+      "width": 1280,
+      "height": 768,
+      "fps": 3.0,
+      "duration_seconds": 7,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media22.mp4",
+      "notes": [
+        "Deck slide 19 both visible label and media shape name calls002_n02 identify 2 generator calls.",
+        "This clip demonstrates generated planning rather than low-level execution. Exact whole-sequence vs anchored protocol of this deck clip is not established."
+      ],
+      "video": "videos/search-calls-2.mp4",
+      "poster": "images/search-calls-2.webp",
+      "sha256": "87ae2bd44c6604e0830c6b96bd30cc37c463e4c82e642915e257bcd8150a3f3c",
+      "frameCount": 21,
+      "duration": 7.0
+    },
+    "search-calls-4": {
+      "id": "search-calls-4",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/search-4.mp4",
+      "type": "generated visual plan",
+      "instruction": null,
+      "width": 1280,
+      "height": 768,
+      "fps": 3.0,
+      "duration_seconds": 7,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media23.mp4",
+      "notes": [
+        "Deck slide 19 both visible label and media shape name calls004_n04 identify 4 generator calls.",
+        "This clip demonstrates generated planning rather than low-level execution. Exact whole-sequence vs anchored protocol of this deck clip is not established."
+      ],
+      "video": "videos/search-calls-4.mp4",
+      "poster": "images/search-calls-4.webp",
+      "sha256": "27a24bfa338db3a502978152ab2a1239abcfc5a5378846bd2b147057c941bebe",
+      "frameCount": 21,
+      "duration": 7.0
+    },
+    "language-table-steer-25": {
+      "id": "language-table-steer-25",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/video.pptx",
+      "type": "generated visual plan",
+      "instruction": "Make a vertical line at the center of the board.",
+      "width": 320,
+      "height": 192,
+      "fps": 4.0,
+      "duration_seconds": 8.25,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media25.mp4",
+      "notes": [
+        "Extract this ZIP member from video.pptx; no prepared website copy exists.",
+        "Deck slide 20 instruction was mapped using shape x coordinates. Three initial frames visually show the same block configuration; pixel data differ slightly due to encoding.",
+        "These deck instructions differ from manuscript Figure 9; use the deck instructions for these clips."
+      ],
+      "video": "videos/language-table-steer-25.mp4",
+      "poster": "images/language-table-steer-25.webp",
+      "sha256": "447ef76e9ef762f966c7b8913a37fb23e8aa8026bb0c38ca8ee1abd2074316c0",
+      "frameCount": 33,
+      "duration": 8.25
+    },
+    "language-table-steer-26": {
+      "id": "language-table-steer-26",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/video.pptx",
+      "type": "generated visual plan",
+      "instruction": "Make a vertical line at the right of the board.",
+      "width": 320,
+      "height": 192,
+      "fps": 4.0,
+      "duration_seconds": 8.25,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media26.mp4",
+      "notes": [
+        "Extract this ZIP member from video.pptx; no prepared website copy exists.",
+        "Deck slide 20 instruction was mapped using shape x coordinates. Three initial frames visually show the same block configuration; pixel data differ slightly due to encoding.",
+        "These deck instructions differ from manuscript Figure 9; use the deck instructions for these clips."
+      ],
+      "video": "videos/language-table-steer-26.mp4",
+      "poster": "images/language-table-steer-26.webp",
+      "sha256": "cc29c50c09b64f48d4d85d7d50ff5e494c3ab3bafdd93d4429463fed019c3b71",
+      "frameCount": 33,
+      "duration": 8.25
+    },
+    "language-table-steer-27": {
+      "id": "language-table-steer-27",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/video.pptx",
+      "type": "generated visual plan",
+      "instruction": "Make a diagonal line from the top right to bottom left.",
+      "width": 320,
+      "height": 192,
+      "fps": 4.0,
+      "duration_seconds": 8.25,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media27.mp4",
+      "notes": [
+        "Extract this ZIP member from video.pptx; no prepared website copy exists.",
+        "Deck slide 20 instruction was mapped using shape x coordinates. Three initial frames visually show the same block configuration; pixel data differ slightly due to encoding.",
+        "These deck instructions differ from manuscript Figure 9; use the deck instructions for these clips."
+      ],
+      "video": "videos/language-table-steer-27.mp4",
+      "poster": "images/language-table-steer-27.webp",
+      "sha256": "89d94a9e7050236e0e024079ac039717a3cee52cbfc8e71487f4ceb089e5b91d",
+      "frameCount": 33,
+      "duration": 8.25
+    },
+    "packing-steer-left": {
+      "id": "packing-steer-left",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/steer-left.mp4",
+      "type": "VLM-steered generated visual plan",
+      "instruction": "Pack the bread, blue cube, and the bear into the box.",
+      "width": 1024,
+      "height": 574,
+      "fps": 30.0,
+      "duration_seconds": 2.5,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media36.mp4",
+      "notes": [
+        "Additional VLM scorer instruction: Bread down, blue cube top left, and the bear top right.",
+        "Deck slide 28 uses the same common planner instruction; blue spatial instructions go to VLM for selection of subgoal prefixes, followed by regeneration of remaining subgoals.",
+        "The clips show a shared object scene. Generated first frames have slight object-position differences, so avoid claiming a pixel-identical initial observation.",
+        "These are generated subgoal sequences rather than robot execution."
+      ],
+      "video": "videos/packing-steer-left.mp4",
+      "poster": "images/packing-steer-left.webp",
+      "sha256": "6c8bb2f227e8319e2d8b168dff89c909d534089e8e8b7880deaefd96a84c8ce7",
+      "frameCount": 75,
+      "duration": 2.5
+    },
+    "packing-steer-up": {
+      "id": "packing-steer-up",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/steer-up.mp4",
+      "type": "VLM-steered generated visual plan",
+      "instruction": "Pack the bread, blue cube, and the bear into the box.",
+      "width": 1024,
+      "height": 574,
+      "fps": 30.0,
+      "duration_seconds": 2.5,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media38.mp4",
+      "notes": [
+        "Additional VLM scorer instruction: Bread up, blue cube down left, and the bear down right.",
+        "Deck slide 28 uses the same common planner instruction; blue spatial instructions go to VLM for selection of subgoal prefixes, followed by regeneration of remaining subgoals.",
+        "The clips show a shared object scene. Generated first frames have slight object-position differences, so avoid claiming a pixel-identical initial observation.",
+        "These are generated subgoal sequences rather than robot execution."
+      ],
+      "video": "videos/packing-steer-up.mp4",
+      "poster": "images/packing-steer-up.webp",
+      "sha256": "5e8c5a0fb695574b72abf7425ba3cabde408b3f62ba55cf248919e0da8096680",
+      "frameCount": 75,
+      "duration": 2.5
+    },
+    "packing-steer-right": {
+      "id": "packing-steer-right",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/steer-right.mp4",
+      "type": "VLM-steered generated visual plan",
+      "instruction": "Pack the bread, blue cube, and the bear into the box.",
+      "width": 1024,
+      "height": 574,
+      "fps": 30.0,
+      "duration_seconds": 2.5,
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media37.mp4",
+      "notes": [
+        "Additional VLM scorer instruction: Bread down, bear top left, and the blue cube top right.",
+        "Deck slide 28 uses the same common planner instruction; blue spatial instructions go to VLM for selection of subgoal prefixes, followed by regeneration of remaining subgoals.",
+        "The clips show a shared object scene. Generated first frames have slight object-position differences, so avoid claiming a pixel-identical initial observation.",
+        "These are generated subgoal sequences rather than robot execution."
+      ],
+      "video": "videos/packing-steer-right.mp4",
+      "poster": "images/packing-steer-right.webp",
+      "sha256": "7fabad47a54d22aed39469abf44d360628b81c2a9876c58daa10269e7f7a12e2",
+      "frameCount": 75,
+      "duration": 2.5
+    },
+    "square-suboptimal-56": {
+      "id": "square-suboptimal-56",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000056_worse_len1051.mp4",
+      "type": "suboptimal simulation demonstration",
+      "instruction": null,
+      "width": 256,
+      "height": 256,
+      "fps": 20.0,
+      "duration_seconds": 52.55,
+      "notes": [
+        "Robomimic-MH Square demonstration; filename records worse skill cohort. Raw demonstration, not generated plan."
+      ],
+      "video": "videos/square-suboptimal-56.mp4",
+      "poster": "images/square-suboptimal-56.webp",
+      "sha256": "a8cf3279e893430833079b10b0a7b5bf168bc940e31be39ead335ec6c3e1314d",
+      "frameCount": 1051,
+      "duration": 52.55
+    },
+    "square-suboptimal-64": {
+      "id": "square-suboptimal-64",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000064_worse_len936.mp4",
+      "type": "suboptimal simulation demonstration",
+      "instruction": null,
+      "width": 256,
+      "height": 256,
+      "fps": 20.0,
+      "duration_seconds": 46.8,
+      "notes": [
+        "Robomimic-MH Square demonstration; filename records worse skill cohort. Raw demonstration, not generated plan."
+      ],
+      "video": "videos/square-suboptimal-64.mp4",
+      "poster": "images/square-suboptimal-64.webp",
+      "sha256": "50a430c3ec71c23b88eb045d4ca3dd5deaa23b1da9d4d04b44c8a26210d73041",
+      "frameCount": 936,
+      "duration": 46.8
+    },
+    "square-suboptimal-226": {
+      "id": "square-suboptimal-226",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000226_worse_len775.mp4",
+      "type": "suboptimal simulation demonstration",
+      "instruction": null,
+      "width": 256,
+      "height": 256,
+      "fps": 20.0,
+      "duration_seconds": 38.75,
+      "notes": [
+        "Robomimic-MH Square demonstration; filename records worse skill cohort. Raw demonstration, not generated plan."
+      ],
+      "video": "videos/square-suboptimal-226.mp4",
+      "poster": "images/square-suboptimal-226.webp",
+      "sha256": "3d4ece819dc3f40a8ecd7be23fad602a9829b44b57b66bd98234d3f2cd5eeca7",
+      "frameCount": 775,
+      "duration": 38.75
+    },
+    "square-regrasp": {
+      "id": "square-regrasp",
+      "remote_path": "/data/gck/svl_project/docs/paper/figures/square_reach_skip_ep000103_framenum.mp4",
+      "type": "simulation demonstration with original frame numbers",
+      "notes": [
+        "Original Figure 10 example ep_000103; no synthetic frames."
+      ],
+      "video": "videos/square-regrasp.mp4",
+      "poster": "images/square-regrasp.webp",
+      "sha256": "b7b5c5803bad70428a8780b00fe85f9a734f68c9426ae8b18cd97726e69dbe0b",
+      "width": 256,
+      "height": 256,
+      "frameCount": 340,
+      "fps": 20.0,
+      "duration": 17.0
+    },
+    "square-better-0": {
+      "id": "square-better-0",
+      "remote_host": "lyg2080",
+      "remote_path": "/mnt2/gck/newwebsite_suboptimal_panel_20261011/videos/square-better-0.mp4",
+      "type": "proficient simulation demonstration",
+      "quality": "better",
+      "instruction": "pick up the square nut and place it on the square peg",
+      "episode": "ep_000000",
+      "sourceDemo": "demo_0",
+      "video": "videos/square-better-0.mp4",
+      "poster": "images/square-better-0.webp",
+      "width": 256,
+      "height": 256,
+      "fps": 20,
+      "frameCount": 127,
+      "duration": 6.35,
+      "sha256": "8f4d6226cb46942f6a7c77a0c0aea55d03d7d9cc1d82a0a1a875ac50fc6c1e10",
+      "sourcePixelsSha256": "41a15d3268325825e62995b3a66ac288179339506019f22e41773f51cfa230c0",
+      "notes": [
+        "Source operator_quality is better; preserves all frames.",
+        "20 fps matches the existing worse demonstration presentation."
+      ],
+      "sourceFrames": "/data/gck/svl_project/robomimic/hdf5/Square.h5::episodes/ep_000000/image"
+    },
+    "search-calls-8": {
+      "id": "search-calls-8",
+      "remote_host": "lyg2080",
+      "remote_path": "/data/gck/svl_project/video_dreamcan.pptx",
+      "type": "generated visual plan",
+      "width": 1280,
+      "height": 768,
+      "duration": 7,
+      "deck_source": "video_dreamcan.pptx:ppt/media/media24.mp4 (slide 19)",
+      "notes": [
+        "Displayed budget follows the visible Call = 8 slide label. Internal object name calls032_n32 conflicts; actual call budget is unverified.",
+        "Original embedded video bytes preserved."
+      ],
+      "video": "videos/search-calls-8.mp4",
+      "poster": "images/search-calls-8.png",
+      "sha256": "7e2f02bc97f85e2d88574a07527de5f11efe3931ec03b6ce41c8df240d4dafe1"
+    }
+  },
+  "strips": {
+    "000056": {
+      "image": "images/square-dp-000056.png",
+      "source": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000056_worse_len1051_dp_subgoals.png",
+      "sha256": "74d89804b73f679e75186c828ad9ce92a0ffd836bc54ec4f0af48a1b24b5113d"
+    },
+    "000064": {
+      "image": "images/square-dp-000064.png",
+      "source": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000064_worse_len936_dp_subgoals.png",
+      "sha256": "8d2f6251b4f31cb74c2940c4d179d402eb312ebcd49597e638858ae5518b071d"
+    },
+    "000226": {
+      "image": "images/square-dp-000226.png",
+      "source": "/data/gck/svl_project/ppt_materials/08_square_worse_demos_dp/ep_000226_worse_len775_dp_subgoals.png",
+      "sha256": "06e533a135116444bfffb9086b881be03bad03fcf2de3b98711f24d4ce84f539"
+    }
+  },
+  "excluded": [
+    {
+      "id": "search-8",
+      "remote_path": "/data/gck/svl_project/dreamcan-website/assets/videos/search-8.mp4",
+      "deck_source": "/data/gck/svl_project/video.pptx:ppt/media/media24.mp4",
+      "reason": "Slide 19 visible text says Call = 8 but media shape name is calls032_n32. Old prepared website manifest says 8. The actual budget is unresolved; exclude this clip rather than assign 8."
+    }
+  ],
+  "reachability": {
+    "criterion": "objects_only",
+    "threshold_cm": 5,
+    "trials_per_stage": 50,
+    "tasks": [
+      {
+        "id": 1,
+        "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+        "ours": 0.9955555555555556,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.9466666666666667,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 2,
+        "instruction": "put both the cream cheese box and the butter in the basket",
+        "ours": 1.0,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.948888888888889,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 3,
+        "instruction": "turn on the stove and put the moka pot on it",
+        "ours": 0.985,
+        "oursStages": 8,
+        "oursTrials": 400,
+        "uniform": 0.9622222222222222,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 4,
+        "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "ours": 0.9942857142857144,
+        "oursStages": 7,
+        "oursTrials": 350,
+        "uniform": 0.9771428571428571,
+        "uniformStages": 7,
+        "uniformTrials": 350
+      },
+      {
+        "id": 5,
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "ours": 1.0,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.9733333333333333,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 6,
+        "instruction": "pick up the book and place it in the back compartment of the caddy",
+        "ours": 0.9533333333333333,
+        "oursStages": 6,
+        "oursTrials": 300,
+        "uniform": 0.9700000000000001,
+        "uniformStages": 6,
+        "uniformTrials": 300
+      },
+      {
+        "id": 7,
+        "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "ours": 1.0,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.9711111111111111,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 8,
+        "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+        "ours": 0.9777777777777779,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.8888888888888888,
+        "uniformStages": 9,
+        "uniformTrials": 450
+      },
+      {
+        "id": 9,
+        "instruction": "put both moka pots on the stove",
+        "ours": 0.9600000000000001,
+        "oursStages": 9,
+        "oursTrials": 450,
+        "uniform": 0.9480000000000001,
+        "uniformStages": 5,
+        "uniformTrials": 250
+      },
+      {
+        "id": 10,
+        "instruction": "put the yellow and white mug in the microwave and close it",
+        "ours": 0.9057142857142857,
+        "oursStages": 7,
+        "oursTrials": 350,
+        "uniform": 0.8885714285714286,
+        "uniformStages": 7,
+        "uniformTrials": 350
+      }
+    ],
+    "oursMean": 0.9771666666666668,
+    "uniformMean": 0.9474825396825397,
+    "oursTrials": 4100,
+    "uniformTrials": 3950
+  },
+  "paperNumbers": {
+    "hierarchical_training_demos": {
+      "PushT": 206,
+      "LIBERO-Long": 379
+    },
+    "table_III_success_percent": {
+      "End-to-End Policy": {
+        "PushT": 58.0,
+        "LIBERO-Long": 79.2
+      },
+      "Language Planning": {
+        "PushT": 62.0,
+        "LIBERO-Long": 75.6
+      },
+      "Dense Visual Planning": {
+        "PushT": 70.0,
+        "LIBERO-Long": 84.0
+      },
+      "Uniform Subgoal Planning": {
+        "PushT": 72.0,
+        "LIBERO-Long": 82.4
+      },
+      "Ours": {
+        "PushT": 86.0,
+        "LIBERO-Long": 91.2
+      }
+    },
+    "low_level_policy_parameters": "0.1B; non-pretrained policy",
+    "square_scaling": {
+      "total_demos": 300,
+      "proficient_policy_training_demos": 100,
+      "suboptimal_pool": 200,
+      "nested_suboptimal_subsets": [
+        5,
+        10,
+        20,
+        40,
+        80,
+        120,
+        160,
+        200
+      ],
+      "protocol": "Goal-conditioned low-level policy trained once with 100 proficient demonstrations. Planner trained per nested suboptimal subset; same frozen low-level policy used to measure hierarchical success."
+    },
+    "search": {
+      "task": "Language Table make a line",
+      "eval_episodes_per_point": 100,
+      "compute_measure": "Generator calls per episode",
+      "metric": "Final task progress",
+      "whole_sequence": "Whole-sequence best-of-N",
+      "anchored": "Sample candidates for remaining subgoals, commit the best c, pin them as clean latents, and regenerate the tail.",
+      "scorer": "The same scripted, detection-based task progress value function used during training; dense best-of-N uses identical scorer at matched compute."
+    },
+    "real_world": {
+      "robot": "dual-arm YAM",
+      "cameras": "RealSense D435 top view and two D405 wrist cameras",
+      "training_demos": {
+        "box_folding": 100,
+        "box_packing": 550,
+        "make_a_line": 90
+      },
+      "packing_objects": {
+        "big": 2,
+        "medium": 3,
+        "small": 6
+      },
+      "packing_combinations": {
+        "feasible": 205,
+        "training": 110,
+        "demos_per_training_combination": 5,
+        "held_out_zero_shot": 95
+      },
+      "line_training_target_shapes": 3,
+      "eval_episodes_per_task": 20,
+      "table_V_success_percent": {
+        "End-to-End Policy": [
+          5,
+          0,
+          10
+        ],
+        "Dense Video Planning": [
+          0,
+          5,
+          0
+        ],
+        "Uniform Subgoal Planning": [
+          10,
+          20,
+          25
+        ],
+        "Ours": [
+          40,
+          65,
+          55
+        ]
+      },
+      "table_V_column_order": [
+        "Box Folding",
+        "Box Packing (Unseen)",
+        "Make a Line"
+      ]
+    },
+    "reachability": {
+      "LIBERO_segment_success_mean": {
+        "ours": 0.98,
+        "uniform": 0.88
+      },
+      "segment_success_definition": "Reset simulator and replay to ground-truth subgoal si; segment succeeds if task-relevant objects reach next subgoal configuration within 5 cm.",
+      "table_IV_percent": {
+        "S": 81.8,
+        "RS": 74.2,
+        "US": 78.0,
+        "RU": 83.8,
+        "RUS (Ours)": 91.2
+      },
+      "figure_10_example": "Square nut grasp t=101, drop t=107, regrasp t=208. Learned reachability rebounds to 0.80 at regrasp, within 1.4 cm of anchor; pure time decay is 0.004."
+    }
+  },
+  "figureSources": {
+    "suboptimal": {
+      "data": "data/suboptimal-figure5.json",
+      "sourceScript": "data/figure5-source-script.py",
+      "figure": "figures/suboptimal-figure5.svg",
+      "mode": "published Figure 5 reproduction"
+    },
+    "lowLevelPolicy": {
+      "figure": "architecture/low-level-policy.svg",
+      "data": "data/low-level-policy-architecture-source.json",
+      "mode": "implementation-derived vector architecture"
+    },
+    "lowLevelResults": {
+      "source": "DreamCan_ICRA.pdf, Table III",
+      "format": "Figure 1 top-right scatter plot",
+      "data": "data/low-level-results.json",
+      "figures": [
+        "figures/policy-pusht-scaling.svg",
+        "figures/policy-libero-long-scaling.svg"
+      ],
+      "mode": "reported manuscript results, newly drawn"
+    }
+  },
+  "simulation": {
+    "manifest": "simulation/manifest.json",
+    "pushtTrajectories": 3,
+    "liberoTasks": 10,
+    "pairedPlayback": true,
+    "layout": "Execution and planner streams separated; LIBERO planner tiles kept in one horizontal row"
+  }
+}

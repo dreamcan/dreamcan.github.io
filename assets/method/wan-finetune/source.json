@@ -1,0 +1,25 @@
+{
+  "episode": "ep_000002",
+  "frameIndices": {
+    "observation": 0,
+    "subgoal-1": 36,
+    "subgoal-2": 70,
+    "subgoal-last": 344
+  },
+  "purpose": "Illustrative frames for sparse target packing; ellipsis denotes omitted intermediate targets.",
+  "paper": "/home/gck/Desktop/DreamCan_ICRA.pdf \u00a7IV-D Eq6",
+  "ppt": "/home/gck/Desktop/video_dreamcan.pptx slide16",
+  "code": [
+    "planning/dataset/wan_libero_subgoal_dataset.py",
+    "scripts/train_wan_libero_subgoal_lora.py",
+    "scripts/train_wan_language_table_line_subgoal_multianchor_lora.py",
+    "/data/gck/DiffSynth-Studio/diffsynth/diffusion/loss.py"
+  ],
+  "assetSha256": {
+    "observation.jpg": "da986aa58f7b21fcb061eede36df365948ff7efa2443eae6bdf724c47444ba96",
+    "subgoal-1.jpg": "40390d76193ab2eb7c252df3f6cff2c8a466245f90656b59feb02c5699c13c75",
+    "wan-finetune.svg": "79d8b37549acf15c6e0de5d931928a8be6ba607142064c8a6c6cede5cef9b128",
+    "subgoal-2.jpg": "f23452bfa54570849c71efac29fe7cb0601b4182ee1c791cd60e4c67411fec8a",
+    "subgoal-last.jpg": "d7b4fd54c2208cb2661d977b7dc196e614eb878716d4274840b00e87fbd04cec"
+  }
+}

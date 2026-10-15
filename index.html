@@ -1,11 +1,838 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <title>My Homepage</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dream What I Can: Sparse Visual Planning for Long-Horizon Robot Manipulation</title>
+<meta name="description" content="DreamCan: sparse visual planning for long-horizon robot manipulation with reachable, useful visual subgoals.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png?v=20261009-dreamcan">
+<link rel="icon" type="image/svg+xml" sizes="any" href="assets/brand/dreamcan.svg?v=20261009-dreamcan">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png?v=20261009-dreamcan">
+<link rel="stylesheet" href="fonts.css?v=20261009-i3l">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css?v=20261011-math-commas">
+<link rel="stylesheet" href="release.css?v=20261009-experiment-details">
+<link rel="stylesheet" href="reachability.css?v=20261010-instruction-complete">
+<link rel="stylesheet" href="utility.css?v=20261010-paired-method">
+<link rel="stylesheet" href="wan-finetune.css?v=20261011-prefix-mask">
+<link rel="stylesheet" href="dp.css?v=20261012-thicker-curves">
+<link rel="stylesheet" href="planning.css?v=20261010-baseline-no-bars">
+<link rel="stylesheet" href="experiments.css?v=20261012-reachability-figure8">
+<link rel="stylesheet" href="method-figures.css?v=20261011-paper-style">
+<link rel="stylesheet" href="front-palette.css?v=20261014-numbered-logos">
+<link rel="stylesheet" href="method-readability.css?v=20261011-readable">
+<link rel="stylesheet" href="experiments-presentation.css?v=20261012-compact-findings">
+<link rel="stylesheet" href="real-world-subgoals.css?v=20261012-dp">
 </head>
 <body>
-    <h1>Hello!</h1>
-    <p>This is my personal website.</p>
+
+<a id="top"></a>
+
+<main>
+
+<!-- =====================================================================
+     lockup: the name, the question, who made it, where to get it
+     ================================================================== -->
+<div class="container grid">
+  <header class="lockup hero release-hero">
+
+    <h1 class="title"><span class="wordmark">Dream What I Can:</span> <span class="tsub">Sparse Visual Planning for<br>Long-Horizon Robot Manipulation</span></h1>
+
+    <p class="authors" aria-label="Authors">
+      <span class="au">Chongkai Gao<sup>1,2</sup></span>
+      <span class="au">Wenlong Huang<sup>1</sup></span>
+      <span class="au">Haonan Chen<sup>1,3</sup></span>
+      <span class="au">Lin Shao<sup>2</sup></span>
+      <span class="au">Yilun Du<sup>3</sup></span>
+      <span class="au">Jiajun Wu<sup>1</sup></span>
+      <span class="au">Ruohan Zhang<sup>4</sup></span>
+      <span class="au">Li Fei-Fei<sup>1</sup></span>
+    </p>
+    <p class="orgs" aria-label="Author affiliations">
+      <span class="org"><span class="org-logo"><sup class="orgnum">1</sup><img src="logos/stanford.svg" alt="Stanford University logo"></span></span>
+      <span class="org"><span class="org-logo"><sup class="orgnum">2</sup><img src="logos/nus.svg" alt="National University of Singapore logo"></span></span>
+      <span class="org"><span class="org-logo"><sup class="orgnum">3</sup><img src="logos/harvard.svg" alt="Harvard University logo"></span></span>
+      <span class="org"><span class="org-logo"><sup class="orgnum">4</sup><img src="logos/northwestern.svg" alt="Northwestern University logo"></span></span>
+    </p>
+
+    <p class="lede">The world is not made of words</p>
+    <p class="hero-body">We introduce <strong class="intro-brand">DreamCan</strong>, a sparse visual planner that can generate a sequence of sparse keyframes for robot manipulation task planning. Rather than generating dense frames, <strong class="intro-brand">DreamCan</strong> generates visual subgoals that balance <strong class="intro-concept">reachability</strong>—what the robot can achieve—and <strong class="intro-concept">task utility</strong>—what moves the task forward.</p>
+  </header>
+</div>
+
+<section class="demo" id="top-demo" aria-label="Video">
+  <h2 class="part-head">Video</h2>
+  <div class="demo-box" id="demo-box">
+    <video id="demo" class="demo-main-video" src="videos/DreamCan_v6.mp4" controls autoplay muted playsinline preload="metadata" aria-label="DreamCan project video"></video>
+  </div>
+</section>
+
+<section class="container sec" id="takeaways" aria-label="Key Results">
+  <h2 class="part-head">Key Results</h2>
+  <aside class="takeaways" aria-label="Key Results">
+    <ul>
+      <li><span><b>Sparse visual planning enables long-horizon planning.</b> We achieve substantially higher planning success rates than the prior methods on Language-Table long-horizon tasks.</span></li>
+      <li><span><b>Sparse visual planning enables learning from suboptimal data.</b> We demonstrate that DreamCan benefits from scaling suboptimal action-free video data on RoboMimic-MH Square, without additional policy training.</span></li>
+      <li><span><b>Sparse visual planning enables test-time search and language steering.</b> We show that DreamCan benefits from increased test-time compute and can be steered with language on Language-Table tasks.</span></li>
+      <li><span><b>Sparse visual planning can effectively guide a goal-conditioned low-level policy.</b> We show that our planner can guide a small goal-conditioned flow-matching policy and achieve comparable results with large VLA/WAMs on LIBERO-Long, with no gradient or shared features between the planner and policy.</span></li>
+      <li><span><b>Sparse visual planning is effective on real-world tasks.</b> We show that our method can deal with different real-world tasks including cardboard box folding (contact-rich task), box packing (compositional generalization task), and make-a-line (long-horizon symbolic planning task).</span></li>
+    </ul>
+  </aside>
+</section>
+
+<!-- Method: introduction, followed by four selectable explanations. -->
+<section class="container sec method" id="method" aria-label="Method">
+  <h2 class="part-head">Method</h2>
+  <p class="method-lede">DreamCan first employs an unsupervised approach to discover sparse visual subgoal sequences from robot video datasets that balance subgoal reachability and utility, then fine-tunes a pretrained video generation model (WAN 2.2 TI2V-5B) to generate the full sequence of subgoals.</p>
+
+  <p class="method-instruction">Select a stage to view its details.</p>
+  <div class="method-tabs" role="tablist" aria-label="Explore DreamCan">
+    <button type="button" id="method-tab-planning" role="tab" aria-selected="true" aria-controls="method-panel-planning" tabindex="0"><span class="method-number" aria-hidden="true">1</span><span>Reachability Value Function</span></button>
+    <button type="button" id="method-tab-learning" role="tab" aria-selected="false" aria-controls="method-panel-learning" tabindex="-1"><span class="method-number" aria-hidden="true">2</span><span>Task Utility Value Function</span></button>
+    <button type="button" id="method-tab-search" role="tab" aria-selected="false" aria-controls="method-panel-search" tabindex="-1"><span class="method-number" aria-hidden="true">3</span><span>Dynamic Programming for Subgoal Discovery</span></button>
+    <button type="button" id="method-tab-language" role="tab" aria-selected="false" aria-controls="method-panel-language" tabindex="-1"><span class="method-number" aria-hidden="true">4</span><span>Finetune Video Generation Model</span></button>
+  </div>
+
+  <div class="method-navigation">
+    <p id="method-progress" role="status" aria-live="polite" aria-atomic="true">Step 1 of 4</p>
+    <div>
+      <button type="button" id="method-previous" disabled>Previous</button>
+      <button type="button" id="method-next">Next: Task Utility Value Function →</button>
+    </div>
+  </div>
+
+  <div class="method-panel" id="method-panel-planning" role="tabpanel" aria-labelledby="method-tab-planning" tabindex="0">
+    <dl class="stage-io">
+      <div><dt>Input</dt><dd>Robot video datasets.</dd></div>
+      <div><dt>Output</dt><dd>A reachability value network that estimates the reachability <math><mi>R</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mn>1</mn><mo>]</mo></math> between two states.</dd></div>
+    </dl>
+    <div class="reach-method-layout">
+      <div class="reach-method-copy method-readable-copy">
+<p class="reach-method-intro">DreamCan first learns a <strong>Reachability Value Function</strong> from action-free videos to measure transition difficulty between two frames.</p><h4 class="method-copy-heading">What does reachability measure?</h4><ul class="method-points"><li><strong>An RL value.</strong> In an MDP, <math><msubsup><mi>V</mi><mi>R</mi><mi>π</mi></msubsup></math> is the expected discounted return for reaching frame <math><msub><mi>s</mi><mi>j</mi></msub></math> from frame <math><msub><mi>s</mi><mi>i</mi></msub></math>: −1 per step until arrival, then 0.</li><li><strong>A score between 0 and 1.</strong> Normalizing this value gives reachability. Earlier arrival means a higher score; <math><msub><mi>τ</mi><mi>ij</mi></msub></math> is the first hitting time.</li></ul><div class="reach-math reach-math-normalization">
+          <math display="block" aria-label="Reachability from state i to state j equals expected gamma to the first hitting time"><mrow><msup><mi>R</mi><mi>π</mi></msup><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo><mo>=</mo><msub><mi mathvariant="double-struck">E</mi><mi>π</mi></msub><mo>[</mo><msup><mi>γ</mi><msub><mi>τ</mi><mi>ij</mi></msub></msup><mo>]</mo></mrow></math>
+          <math display="block" aria-label="Equals one plus one minus gamma times the value, in zero to one"><mrow><mo>=</mo><mn>1</mn><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>γ</mi><mo>)</mo><msubsup><mi>V</mi><mi>R</mi><mi>π</mi></msubsup><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo><mo>∈</mo><mo>[</mo><mn>0</mn><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mn>1</mn><mo>]</mo></mrow></math>
+        </div><h4 class="method-copy-heading">How is it learned?</h4><ul class="method-points"><li><strong>Learn from video transitions.</strong> Fit <math><msubsup><mi>V</mi><mi>R</mi><mi>θ</mi></msubsup></math> using an action-free, goal-conditioned variant of Implicit Q-Learning (IQL), an offline RL method.</li><li><strong>Favor higher returns.</strong> An upper-expectile loss emphasizes transitions that reach the conditioning frame more efficiently.</li></ul><details class="method-details"><summary>Training objective & sampling</summary><div class="method-details-body"><p>For video transitions <math><mi mathvariant="script">D</mi></math>, termination flag <math><msub><mi>d</mi><mi>i</mi></msub></math> and target head <math><mover><mi>θ</mi><mo>¯</mo></mover></math>, the TD target and expectile loss are:</p><div class="reach-math reach-math-training">
+          <math display="block"><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>=</mo><msub><mi>r</mi><mi>i</mi></msub><mo>+</mo><mi>γ</mi><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>d</mi><mi>i</mi></msub><mo>)</mo><msubsup><mi>V</mi><mi>R</mi><mover><mi>θ</mi><mo>¯</mo></mover></msubsup><mo>(</mo><msub><mi>s</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo></mrow></math>
+          <math display="block"><mrow><msub><mi>δ</mi><mi>i</mi></msub><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msubsup><mi>V</mi><mi>R</mi><mi>θ</mi></msubsup><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo></mrow></math>
+          <math display="block" aria-label="Upper expectile loss on the temporal difference residual"><mrow><msub><mi mathvariant="script">L</mi><mi>α</mi></msub><mo>=</mo><msub><mi mathvariant="double-struck">E</mi><mi mathvariant="script">D</mi></msub><mo>[</mo><mo>|</mo><mi>α</mi><mo>−</mo><msub><mn>1</mn><mrow><msub><mi>δ</mi><mi>i</mi></msub><mo>&lt;</mo><mn>0</mn></mrow></msub><mo>|</mo><msubsup><mi>δ</mi><mi>i</mi><mn>2</mn></msubsup><mo>]</mo></mrow></math>
+        </div><p>The upper expectile favors higher-return transitions. We use <math><mi>α</mi><mo>=</mo><mn>0.75</mn></math>, <math><mi>γ</mi><mo>=</mo><mn>0.95</mn></math> and Polyak rate <math><mi>ρ</mi><mo>=</mo><mn>0.005</mn></math>, with <math><msub><mi>V</mi><mi>R</mi></msub><mo>(</mo><msub><mi>s</mi><mi>j</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo><mo>=</mo><mn>0</mn></math>. Second frames are sampled equally from future frames with geometric offsets and other trajectories.</p></div></details>
+      </div>
+      <figure class="reach-network-diagram">
+        <h4>Reachability value network</h4>
+        <img src="assets/method/reachability-network.svg?v=20261011-cardinal-blue" width="640" height="590" alt="Frame i observation history and frame j pass through a shared frozen RADIO encoder. A temporal Transformer encodes the history, an MLP encodes frame j, and a language encoder provides instruction context. Their features are fused by a value MLP to predict V R of state i and state j, then normalized to reachability R in zero to one.">
+      </figure>
+    </div>
+
+    <figure class="reach-explorer" id="reachability-explorer" aria-labelledby="reach-explorer-title" aria-busy="true">
+      <div class="reach-explorer-head">
+        <span class="reach-eyebrow" id="reach-explorer-title">Explore the learned value</span>
+      </div>
+      <div class="reach-toolbar">
+        <div class="reach-task-buttons" role="group" aria-label="Task">
+          <button type="button" data-reach-task="libero-long" aria-pressed="true">LIBERO-Long</button>
+          <button type="button" data-reach-task="pusht" aria-pressed="false">PushT</button>
+          <button type="button" data-reach-task="language-table" aria-pressed="false">Language Table</button>
+          <button type="button" data-reach-task="square" aria-pressed="false">Square</button>
+        </div>
+        <label class="reach-trajectory-label" for="reach-trajectory"><span id="reach-trajectory-label">Trajectory</span><select id="reach-trajectory" disabled><option>Loading trajectories…</option></select></label>
+      </div>
+      <p class="reach-instruction">Language Instruction: <span id="reach-task-instruction"></span></p>
+      <p id="reach-load-status" class="reach-load-status" role="status" aria-live="polite">Loading learned reachability data…</p>
+      <button type="button" id="reach-retry" class="reach-retry" hidden>Retry loading</button>
+      <div class="reach-workspace" id="reach-workspace" hidden>
+        <div class="reach-frames-pane">
+          <div class="reach-pane-heading"><h4>Trajectory frames</h4><span id="reach-frame-count"></span></div>
+          <div class="reach-frame-toolbar">
+            <div role="group" aria-label="Choose which frame to set" class="reach-selection-mode">
+              <button type="button" data-reach-mode="initial" aria-pressed="true">Set frame i</button>
+              <button type="button" data-reach-mode="goal" aria-pressed="false">Set frame j</button>
+            </div>
+            <button type="button" id="reach-reset">Reset</button>
+          </div>
+          <p class="reach-frame-hint">Choose a role, then click a frame. Use the sliders for any frame in between.</p>
+          <div id="reach-frame-grid" class="reach-frame-grid" role="group" aria-label="Evenly sampled trajectory frames"></div>
+          <div class="reach-sliders">
+            <label for="reach-initial-range"><span>Frame i <output id="reach-initial-index" for="reach-initial-range">0</output></span><input type="range" id="reach-initial-range" min="0" max="1" value="0" step="1"></label>
+            <label for="reach-goal-range"><span>Frame j <output id="reach-goal-index" for="reach-goal-range">1</output></span><input type="range" id="reach-goal-range" min="1" max="2" value="1" step="1"></label>
+          </div>
+        </div>
+        <div class="reach-curves-pane">
+          <div class="reach-pane-heading"><h4>Reachability curve</h4><span><math><mi>R</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mn>1</mn><mo>]</mo></math></span></div>
+          <div class="reach-chart-wrap">
+            <svg id="reach-chart" viewBox="0 0 600 400" role="img" aria-labelledby="reach-chart-title reach-chart-description"><title id="reach-chart-title">Learned reachability across trajectory frames</title><desc id="reach-chart-description">Choose frame i to update the reachability curve and frame j to select a point on it.</desc></svg>
+            <div class="reach-chart-tooltip" id="reach-chart-tooltip" hidden></div>
+          </div>
+        </div>
+      </div>
+      <noscript><p>Enable JavaScript to select trajectories and explore the learned reachability curves.</p></noscript>
+    </figure>
+  </div>
+  <div class="method-panel" id="method-panel-learning" role="tabpanel" aria-labelledby="method-tab-learning" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Input</dt><dd>Robot videos and language instructions.</dd></div>
+      <div><dt>Output</dt><dd>A task-conditioned utility <math><mi>U</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mn>1</mn><mo>]</mo></math> that measures progress toward task completion.</dd></div>
+    </dl>
+    <div class="reach-method-layout utility-method-layout">
+      <div class="reach-method-copy utility-method-intro">
+        <p class="reach-method-intro">DreamCan uses a <strong>Task Utility Value Function</strong> to measure progress toward the instruction <math><mi>ℓ</mi></math>.</p>
+      </div>
+      <div class="reach-method-copy utility-method-copy method-readable-copy" id="utility-robometer-method"><h4 class="method-copy-heading">RoboMeter · clear, simple tasks</h4><p>A video prefix and instruction are enough for <a href="https://arxiv.org/html/2603.02115v1" target="_blank" rel="noopener">RoboMeter</a> to estimate task progress.</p><ul class="method-points"><li><strong>Build supervision.</strong> Pair demonstration clips with instructions; derive progress labels from relative frame positions. Add reversed, rewound and mismatched-instruction clips.</li><li><strong>Fine-tune where needed.</strong> Freeze the backbone and visual encoder; train LoRA adapters and progress/success heads.</li></ul><div class="reach-math"><math display="block"><mrow><msub><mi>ℒ</mi><mtext>FT</mtext></msub><mo>=</mo><msubsup><mi>ℒ</mi><mtext>progress</mtext><mtext>CE</mtext></msubsup><mo>+</mo><msubsup><mi>ℒ</mi><mtext>success</mtext><mtext>BCE</mtext></msubsup></mrow></math></div><details class="method-details"><summary>Prediction & loss details</summary><div class="method-details-body"><div class="reach-math utility-math-inline"><math display="block"><mrow><msub><mi>u</mi><mi>t</mi></msub><mo>=</mo><msub><mi>f</mi><mi>ϕ</mi></msub><mo>(</mo><msub><mi>o</mi><mrow><mn>0</mn><mo>:</mo><mi>t</mi></mrow></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>ℓ</mi><mo>)</mo></mrow></math><math display="block"><mrow><mi>W</mi><mo>=</mo><msub><mi>W</mi><mn>0</mn></msub><mo>+</mo><mi>B</mi><mi>A</mi></mrow></math></div><p>Progress uses ten-bin soft-target cross-entropy (CE); the success head uses binary cross-entropy (BCE). In the LoRA update, <math><msub><mi>W</mi><mn>0</mn></msub></math> stays frozen while <math><mi>A</mi></math> and <math><mi>B</mi></math> are trained.</p></div></details></div>
+      <figure class="utility-visual-card" id="utility-robometer-visual">
+        <h4>RoboMeter · progress prediction</h4>
+        <img src="assets/method/robometer-network.svg?v=20261011-cardinal-blue" width="640" height="320" alt="Video-prefix frames pass through a visual encoder; the instruction passes through a text tokenizer. A causal RoboMeter vision-language backbone, optionally adapted with LoRA, produces progress-token features for a progress MLP to predict raw task progress.">
+      </figure>
+      <div class="reach-method-copy utility-method-copy method-readable-copy" id="utility-spatial-method"><h4 class="method-copy-heading">VLM + SAM · complex, long-horizon tasks</h4><p>For tasks needing explicit spatial reasoning, score the arrangement of detected objects.</p><ul class="method-points"><li><strong>Define and detect.</strong> A VLM defines task criteria; SAM extracts object masks from each frame.</li><li><strong>Measure progress.</strong> A task-specific scorer evaluates those masks. For make-a-line, it rewards alignment and even spacing.</li></ul><div class="reach-math"><math display="block"><mrow><msub><mi>u</mi><mi>t</mi></msub><mo>=</mo><msub><mi>f</mi><mi>ℓ</mi></msub><mo>(</mo><msub><mi mathvariant="script">M</mi><mi>t</mi></msub><mo>)</mo></mrow></math></div><details class="method-details"><summary>Make-a-line scoring example</summary><div class="method-details-body"><div class="reach-math"><math display="block"><mrow><msub><mi mathvariant="script">M</mi><mi>t</mi></msub><mo>=</mo><mi mathvariant="normal">SAM</mi><mo>(</mo><msub><mi>o</mi><mi>t</mi></msub><mo>)</mo></mrow></math></div><p>Alignment depends on distance <math><msub><mi>d</mi><mi>k</mi></msub></math> to the line, tolerance <math><mi>τ</mi></math> and softness <math><mi>β</mi></math>. <math><msub><mi>S</mi><mi>t</mi></msub></math> scores even spacing among <math><mi>N</mi><mo>=</mo><mn>8</mn></math> blocks; <math><msub><mi mathvariant="script">M</mi><mi>t</mi></msub></math> denotes their masks.</p><div class="reach-math"><math display="block"><mrow><msub><mi>a</mi><mi>k</mi></msub><mo>=</mo><mi>σ</mi><mo>(</mo><mfrac><mrow><mi>τ</mi><mo>−</mo><msub><mi>d</mi><mi>k</mi></msub></mrow><mi>β</mi></mfrac><mo>)</mo></mrow></math><math display="block"><mrow><msub><mi>u</mi><mi>t</mi></msub><mo>=</mo><msqrt><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><msub><mi>a</mi><mi>k</mi></msub></msqrt><mo>(</mo><mn>0.8</mn><mo>+</mo><mn>0.2</mn><msub><mi>S</mi><mi>t</mi></msub><mo>)</mo></mrow></math></div></div></details></div>
+      <figure class="utility-visual-card utility-video-card" id="utility-spatial-visual">
+        <h4>VLM + SAM · Make a line</h4>
+        <video id="utility-detection-video" data-src="assets/utility/line-detection.mp4" poster="assets/utility/line-detection-poster.webp" muted autoplay loop playsinline controls preload="none" aria-label="SAM object-detection visualization: eight blocks are arranged into a diagonal line, with masks, centroids, target line and spatial progress displayed."></video>
+      </figure>
+    </div>
+
+    <figure class="reach-explorer utility-explorer" id="utility-explorer" aria-labelledby="utility-explorer-title" aria-busy="true">
+      <div class="reach-explorer-head"><span class="reach-eyebrow" id="utility-explorer-title">Explore the task utility</span></div>
+      <div class="reach-toolbar">
+        <div class="reach-task-buttons" role="group" aria-label="Task">
+          <button type="button" data-utility-task="libero-long" aria-pressed="true">LIBERO-Long</button>
+          <button type="button" data-utility-task="pusht" aria-pressed="false">PushT</button>
+          <button type="button" data-utility-task="language-table" aria-pressed="false">Language Table</button>
+          <button type="button" data-utility-task="square" aria-pressed="false">Square</button>
+        </div>
+        <label class="reach-trajectory-label" for="utility-trajectory"><span id="utility-trajectory-label">Task</span><select id="utility-trajectory" disabled><option>Loading trajectories…</option></select></label>
+      </div>
+      <p class="reach-instruction">Language Instruction: <span id="utility-task-instruction"></span></p>
+      <p id="utility-load-status" class="reach-load-status" role="status" aria-live="polite">Loading task utility data…</p>
+      <button type="button" id="utility-retry" class="reach-retry" hidden>Retry loading</button>
+      <div class="reach-workspace" id="utility-workspace" hidden>
+        <div class="reach-frames-pane">
+          <div class="reach-pane-heading"><h4>Trajectory frames</h4><span id="utility-frame-count"></span></div>
+          <div class="reach-frame-toolbar"><span class="utility-selection-label">Select a frame</span><button type="button" id="utility-reset">Reset</button></div>
+          <p class="reach-frame-hint">Click a frame or use the slider to inspect its utility.</p>
+          <div id="utility-frame-grid" class="reach-frame-grid" role="group" aria-label="Evenly sampled trajectory frames"></div>
+          <div class="reach-sliders">
+            <label for="utility-frame-range"><span>Frame t <output id="utility-frame-index" for="utility-frame-range">0</output></span><input type="range" id="utility-frame-range" min="0" max="1" value="0" step="1"></label>
+          </div>
+        </div>
+        <div class="reach-curves-pane">
+          <div class="reach-pane-heading"><h4>Task utility curve</h4><span><math><mi>U</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mn>1</mn><mo>]</mo></math></span></div>
+          <div class="reach-chart-wrap utility-chart-wrap">
+            <svg id="utility-chart" viewBox="0 0 600 400" role="img" aria-labelledby="utility-chart-title utility-chart-description"><title id="utility-chart-title">Task utility across trajectory frames</title><desc id="utility-chart-description">Choose a frame to inspect its task utility.</desc></svg>
+            <div class="reach-chart-tooltip" id="utility-chart-tooltip" hidden></div>
+          </div>
+        </div>
+      </div>
+      <noscript><p>Enable JavaScript to select trajectories and explore task utility.</p></noscript>
+    </figure>
+  </div>
+  <div class="method-panel" id="method-panel-search" role="tabpanel" aria-labelledby="method-tab-search" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Input</dt><dd>Robot videos, reachability values, and task utility values.</dd></div>
+      <div><dt>Output</dt><dd>Discovered sparse keyframe sequence.</dd></div>
+    </dl>
+    <div class="reach-method-layout dp-method-layout">
+      <div class="reach-method-copy method-readable-copy"><h4 class="method-copy-heading">Balance three needs</h4><p>A good subgoal sequence should balance feasible transitions with meaningful task progress.</p><ul class="method-points"><li><strong>Reachability R:</strong> favor transitions the robot can make.</li><li><strong>Task utility U:</strong> reward progress toward the instruction.</li><li><strong>Spacing Ω:</strong> discourage clustered, redundant keyframes.</li></ul><p>From frames <math><msub><mi>s</mi><mn>0</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>s</mi><mi>T</mi></msub></math>, select <math><mi>K</mi></math> ordered keyframes to maximize:</p><div class="reach-math"><math display="block" class="dp-sequence-objective"><mtable displaystyle="true" columnalign="right" rowspacing=".35em"><mtr><mtd><mrow><munder><mo>max</mo><msub><mi>t</mi><mrow><mn>1</mn><mo>:</mo><mi>K</mi></mrow></msub></munder><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><mo>[</mo><msub><mi>ω</mi><mi>R</mi></msub><mi mathvariant="normal">log</mi><mi>R</mi><mo>(</mo><msub><mi>s</mi><msub><mi>t</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><msub><mi>t</mi><mi>k</mi></msub></msub><mo>)</mo><mo>−</mo><msub><mi>ω</mi><mi>s</mi></msub><msub><mi>Ω</mi><mrow><mi>K</mi><mo>−</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>(</mo><msub><mi>t</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>t</mi><mi>k</mi></msub><mo>)</mo><mo>]</mo></mrow></mtd></mtr><mtr><mtd><mrow><mo>+</mo><msub><mi>ω</mi><mi>U</mi></msub><mi>U</mi><mo>(</mo><msub><mi>s</mi><msub><mi>t</mi><mi>K</mi></msub></msub><mo>)</mo></mrow></mtd></mtr></mtable></math></div><details class="method-details"><summary>Spacing term & weights</summary><div class="method-details-body"><p>The weights control feasibility, progress and spacing. For <math><mi>m</mi></math> remaining subgoals, the spacing penalty compares the next gap with a reference gap:</p><div class="reach-math dp-spacing-math"><math display="block"><mrow><msub><mi>Ω</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>j</mi><mo>)</mo><mo>=</mo><msup><mrow><mo>(</mo><mfrac><mrow><mi>j</mi><mo>−</mo><mi>i</mi></mrow><mrow><msub><mi>μ</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo>)</mo></mrow></mfrac><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mspace width=".5em"/><msub><mi>μ</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>i</mi></mrow><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow></math></div></div></details><h4 class="method-copy-heading">Optimize the whole sequence</h4><p>A locally attractive frame may leave poor choices later. Dynamic programming scores each next frame together with its best continuation, reusing results for the remaining sequence.</p><p><math><msub><mi>J</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo>)</mo></math> is the best future score from frame <math><mi>i</mi></math> with <math><mi>m</mi></math> keyframes left:</p><div class="reach-math"><math display="block"><mrow><msub><mi>J</mi><mn>0</mn></msub><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><msub><mi>ω</mi><mi>U</mi></msub><mi>U</mi><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>)</mo></mrow></math><math display="block"><mrow><msub><mi>J</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo>)</mo><mo>=</mo><munder><mo>max</mo><mrow><mi>j</mi><mo>&gt;</mo><mi>i</mi></mrow></munder><mo>[</mo><msub><mi>ω</mi><mi>R</mi></msub><mi mathvariant="normal">log</mi><mi>R</mi><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo><mo>−</mo><msub><mi>ω</mi><mi>s</mi></msub><msub><mi>Ω</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>j</mi><mo>)</mo><mo>+</mo><msub><mi>J</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>(</mo><mi>j</mi><mo>)</mo><mo>]</mo></mrow></math></div><p><strong>Recover the plan.</strong> Start at <math><msub><mi>J</mi><mi>K</mi></msub><mo>(</mo><mn>0</mn><mo>)</mo></math> and follow the maximizing next frame at each step to obtain all <math><mi>K</mi></math> keyframes.</p></div>
+      <div class="dp-method-example" id="dp-example" aria-busy="true">
+        <figure class="dp-example-video"><figcaption>Put the yellow and white mug in the microwave and close it.</figcaption>
+          <div class="dp-example-frame-pair">
+            <div class="dp-example-preview"><div class="dp-example-image" id="dp-example-source-image" role="img" aria-label="Initial frame"></div><span id="dp-example-source-caption">Initial frame</span></div>
+            <div class="dp-example-preview"><div class="dp-example-image" id="dp-example-candidate-image" role="img" aria-label="Next subgoal frame"></div><span id="dp-example-candidate-caption">Next subgoal</span></div>
+          </div>
+        </figure>
+        <figure class="dp-example-process">
+          <div class="dp-example-toolbar"><span>Subgoal</span><div class="dp-example-stage-buttons" id="dp-example-stages" role="group" aria-label="Select subgoal"></div></div>
+          <p class="dp-example-step" id="dp-example-step"></p>
+          <div class="dp-example-chart"><div class="dp-example-score-title"><math display="block" aria-label="Omega R log R of state i and state j, minus omega s Omega m of i and j, plus J m minus one of j"><mrow><msub><mi>ω</mi><mi>R</mi></msub><mi mathvariant="normal">log</mi><mi>R</mi><mo>(</mo><msub><mi>s</mi><mi>i</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>s</mi><mi>j</mi></msub><mo>)</mo><mo>−</mo><msub><mi>ω</mi><mi>s</mi></msub><msub><mi>Ω</mi><mi>m</mi></msub><mo>(</mo><mi>i</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>j</mi><mo>)</mo><mo>+</mo><msub><mi>J</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>(</mo><mi>j</mi><mo>)</mo></mrow></math></div><svg id="dp-example-chart" role="img" tabindex="0" aria-label="DP selection score over candidate frames; move across the curve to highlight a frame" viewBox="0 0 520 290"></svg></div>
+          <p class="dp-example-readout" id="dp-example-readout" aria-live="off"></p>
+          <p class="dp-example-status" id="dp-example-status" role="status">Loading the training trajectory…</p>
+          <button type="button" class="reach-retry" id="dp-example-retry" hidden>Retry loading</button>
+        </figure>
+      </div>
+    </div>
+    <figure class="reach-explorer dp-explorer" id="dp-explorer" aria-labelledby="dp-explorer-title" aria-busy="true">
+      <div class="reach-explorer-head"><span class="reach-eyebrow" id="dp-explorer-title">Explore subgoal selection</span></div>
+      <div class="reach-toolbar">
+        <div class="reach-task-buttons" role="group" aria-label="Task">
+          <button type="button" data-dp-task="libero-long" aria-pressed="true">LIBERO-Long</button>
+          <button type="button" data-dp-task="pusht" aria-pressed="false">PushT</button>
+          <button type="button" data-dp-task="language-table" aria-pressed="false">Language Table</button>
+          <button type="button" data-dp-task="square" aria-pressed="false">Square</button>
+        </div>
+        <label class="reach-trajectory-label" for="dp-trajectory"><span>Trajectory</span><select id="dp-trajectory" disabled><option>Loading trajectories…</option></select></label>
+      </div>
+      <p class="reach-instruction">Language Instruction: <span id="dp-instruction"></span></p>
+      <p class="reach-load-status" id="dp-load-status" role="status" aria-live="polite">Open this tab to explore subgoal selection.</p>
+      <button type="button" class="reach-retry" id="dp-retry" hidden>Retry loading</button>
+      <div id="dp-workspace" hidden>
+        <div class="dp-plan-heading"><h4>Full demonstration</h4><span id="dp-frame-count"></span></div>
+        <div class="dp-full-sequence" id="dp-frame-grid" tabindex="0" role="group" aria-label="Complete demonstration frame sequence; scroll horizontally to view all frames"></div>
+        <label class="dp-k-control" for="dp-k"><span>Number of subgoals <math><mi>K</mi></math><output id="dp-k-output" for="dp-k">4</output></span><input id="dp-k" type="range" min="1" max="10" value="4" step="1"></label>
+        <div class="dp-plan-heading"><h4>Selected keyframe sequence</h4><span id="dp-plan-count" role="status" aria-live="polite"></span></div>
+        <div class="dp-plan" id="dp-plan" role="group" aria-label="Selected subgoal sequence"></div>
+      </div>
+      <noscript><p>Enable JavaScript to choose the number of subgoals.</p></noscript>
+    </figure>
+  </div>
+  <div class="method-panel" id="method-panel-language" role="tabpanel" aria-labelledby="method-tab-language" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Input</dt><dd>Discovered sparse visual subgoal sequences and the pretrained WAN 2.2 TI2V-5B model.</dd></div>
+      <div><dt>Output</dt><dd>A fine-tuned video generation model for visual subgoal planning.</dd></div>
+    </dl>
+    <div class="method-wan-intro method-readable-copy"><p class="wan-method-copy">DreamCan adapts Wan2.2-TI2V-5B to generate a sparse visual plan from the current observation and instruction.</p>
+    <ol class="method-training-steps">
+      <li><h4 class="method-copy-heading">Align sparse targets</h4><p>Repeat each target four times to match the VAE’s temporal compression: one latent slot per subgoal, plus one for the observation.</p></li>
+      <li><h4 class="method-copy-heading">Keep the prefix clean</h4><p>Keep the observation and an optional prefix of <math><mi>P</mi></math> subgoals clean; add noise only to future slots. <math><mi>P</mi><mo>=</mo><mn>0</mn></math> is ordinary image-to-video conditioning.</p></li>
+      <li><h4 class="method-copy-heading">Train only LoRA</h4><p>Pair sampled observations with later annotated targets. Freeze the VAE, text encoder and base DiT; train LoRA with a flow-matching loss on future slots.</p></li>
+    </ol><div class="wan-packing-equation"><math display="block"><mrow><mo>[</mo><msub><mi>o</mi><mi>t</mi></msub><mo class="math-comma" lspace="0em" rspace="0.15em">,</mo><munder><mrow><msub><mi>g</mi><mn>1</mn></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mo>…</mo><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>g</mi><mn>1</mn></msub></mrow><mtext>4 copies</mtext></munder><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mo>…</mo><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><munder><mrow><msub><mi>g</mi><mi>N</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mo>…</mo><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>g</mi><mi>N</mi></msub></mrow><mtext>4 copies</mtext></munder><mo>]</mo><mover><mo>⟶</mo><mtext>VAE</mtext></mover><mo>[</mo><msub><mi>z</mi><msub><mi>o</mi><mi>t</mi></msub></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>z</mi><msub><mi>g</mi><mn>1</mn></msub></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mo>…</mo><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><msub><mi>z</mi><msub><mi>g</mi><mi>N</mi></msub></msub><mo>]</mo></mrow></math></div><details class="method-details"><summary>Flow-matching objective & prefix conditioning</summary><div class="method-details-body"><p>The loss averages prediction error over future slots only. Here <math><mi>σ</mi></math> is the noise level, <math><mi>ε</mi></math> the sampled noise, and <math><mi>w</mi><mo>(</mo><mi>σ</mi><mo>)</mo></math> the scheduler weight.</p><div class="wan-loss-equation"><math display="block"><mrow><msub><mi>ℒ</mi><mtext>FM</mtext></msub><mo>=</mo><msub><mi mathvariant="double-struck">E</mi><mrow><mi>σ</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>ε</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>P</mi></mrow></msub><mo>[</mo><mfrac><mrow><mi>w</mi><mo>(</mo><mi>σ</mi><mo>)</mo></mrow><mrow><mi>N</mi><mo>−</mo><mi>P</mi></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mi>P</mi><mo>+</mo><mn>1</mn></mrow><mi>N</mi></munderover><msup><mrow><mo>‖</mo><msub><mrow><msub><mi>v</mi><mi>θ</mi></msub><mo>(</mo><msub><mi>z</mi><mi>σ</mi></msub><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>σ</mi><mo class="math-comma" mathvariant="normal" lspace="0em" rspace="0.15em" stretchy="false">,</mo><mi>ℓ</mi><mo>)</mo></mrow><mi>k</mi></msub><mo>−</mo><mo>(</mo><msub><mi>ε</mi><mi>k</mi></msub><mo>−</mo><msub><mi>z</mi><msub><mi>g</mi><mi>k</mi></msub></msub><mo>)</mo><mo>‖</mo></mrow><mn>2</mn></msup><mo>]</mo></mrow></math></div><p>During search, a longer clean prefix retains accepted subgoals while regenerating the rest.</p></div></details></div>
+    <figure class="wan-training-diagram">
+      <div class="wan-training-diagram-scroll" tabindex="0" role="group" aria-label="Horizontal Wan fine-tuning architecture diagram; scroll horizontally on small screens"><img src="assets/method/wan-finetune/wan-finetune.svg?v=20261011-cardinal-blue" width="1450" height="630" alt="Sparse subgoal images are repeated four times and encoded by a frozen causal 3D VAE into aligned latent slots. Clean observation or prefix latents and noisy future slots, together with frozen text features, enter the Wan DiT. Only LoRA adapters are trained with a masked flow-matching loss on future slots."></div>
+    </figure>
+
+  </div>
+</section>
+
+<!-- Experimental Results: six selectable result categories. -->
+<section class="container sec method experiments" id="experiments" aria-label="Experimental Results">
+  <h2 class="part-head">Experimental Results</h2>
+
+  <p class="method-instruction">Select an option to explore the experiments.</p>
+  <div class="method-tabs" role="tablist" aria-label="Explore DreamCan experiments">
+    <button type="button" id="experiments-tab-long-horizon" role="tab" aria-selected="true" aria-controls="experiments-panel-long-horizon" tabindex="0"><span class="method-number" aria-hidden="true">1</span><span>Long-Horizon Task Planning</span></button>
+    <button type="button" id="experiments-tab-suboptimal" role="tab" aria-selected="false" aria-controls="experiments-panel-suboptimal" tabindex="-1"><span class="method-number" aria-hidden="true">2</span><span>Learning from Sub-optimal Data</span></button>
+    <button type="button" id="experiments-tab-search-steering" role="tab" aria-selected="false" aria-controls="experiments-panel-search-steering" tabindex="-1"><span class="method-number" aria-hidden="true">3</span><span>Test-Time Search &amp; Language Steering</span></button>
+    <button type="button" id="experiments-tab-low-level" role="tab" aria-selected="false" aria-controls="experiments-panel-low-level" tabindex="-1"><span class="method-number" aria-hidden="true">4</span><span>Goal-Conditioned Low-Level Policy</span></button>
+    <button type="button" id="experiments-tab-real-world" role="tab" aria-selected="false" aria-controls="experiments-panel-real-world" tabindex="-1"><span class="method-number" aria-hidden="true">5</span><span>Real-World Tasks</span></button>
+    <button type="button" id="experiments-tab-ablation" role="tab" aria-selected="false" aria-controls="experiments-panel-ablation" tabindex="-1"><span class="method-number" aria-hidden="true">6</span><span>Ablation Studies</span></button>
+  </div>
+
+  <div class="method-navigation">
+    <p id="experiments-progress" role="status" aria-live="polite" aria-atomic="true">Experiment Suite 1 of 6</p>
+    <div>
+      <button type="button" id="experiments-previous" disabled>Previous</button>
+      <button type="button" id="experiments-next">Next: Learning from Sub-optimal Data →</button>
+    </div>
+  </div>
+
+  <div class="method-panel" id="experiments-panel-long-horizon" role="tabpanel" aria-labelledby="experiments-tab-long-horizon" tabindex="0">
+    <dl class="stage-io">
+      <div><dt>Dataset</dt><dd>Three long-horizon tasks from the Language-Table dataset: <strong>Make a line</strong>, <strong>All to region</strong>, and <strong>Canonical shape</strong>.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>We train on <strong>1,424</strong>, <strong>1,303</strong>, and <strong>1,378</strong> videos for Make a line, All to region, and Canonical shape, respectively, and evaluate on <strong>100 videos per task</strong>. Planning success requires reaching the instructed goal, preserving all blocks, and maintaining valid transitions.</dd></div>
+    </dl>
+    <div class="planning-explorer" id="planning-explorer" aria-busy="true">
+      <div class="planning-task-tabs" role="tablist" aria-label="Long-horizon planning task">
+        <button type="button" id="planning-tab-line" role="tab" aria-selected="true" aria-controls="planning-task-panel" tabindex="0" data-planning-task="line">Make a line</button>
+        <button type="button" id="planning-tab-all_to_region" role="tab" aria-selected="false" aria-controls="planning-task-panel" tabindex="-1" data-planning-task="all_to_region">All to region</button>
+        <button type="button" id="planning-tab-canonical_shape" role="tab" aria-selected="false" aria-controls="planning-task-panel" tabindex="-1" data-planning-task="canonical_shape">Canonical shape</button>
+      </div>
+      <div id="planning-task-panel" role="tabpanel" aria-labelledby="planning-tab-line" tabindex="0">
+        <div class="planning-example-bar">
+          <div class="planning-examples" role="group" aria-label="Representative planning examples">
+            <button type="button" data-planning-example="0" aria-pressed="true">Example 1</button>
+            <button type="button" data-planning-example="1" aria-pressed="false">Example 2</button>
+            <button type="button" data-planning-example="2" aria-pressed="false">Example 3</button>
+          </div>
+          <p class="planning-instruction"><span>Language Instruction:</span> <span id="planning-instruction" aria-live="polite">Loading planning examples…</span></p>
+        </div>
+        <div class="planning-comparison">
+          <div class="planning-main">
+            <div class="planning-results">
+              <table>
+                <caption>Planning success rate ↑</caption>
+                <thead><tr><th scope="col">Method</th><th scope="col">Success rate</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Dense planning</th><td id="planning-result-dense">71%</td></tr>
+                  <tr><th scope="row">Uniform planning</th><td id="planning-result-uniform">69%</td></tr>
+                  <tr><th scope="row">VLP</th><td id="planning-result-vlp">56%</td></tr>
+                  <tr class="planning-result-ours"><th scope="row">Ours</th><td id="planning-result-ours">86%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="planning-video-card planning-video-ours" data-planning-method="ours">
+              <figcaption><strong>DreamCan (Ours)</strong></figcaption>
+              <video id="planning-video-ours" muted autoplay loop playsinline controls preload="none" aria-label="Ours sparse DP planning result"></video>
+              <div class="planning-video-empty" hidden>Video to be added</div>
+            </figure>
+          </div>
+          <div class="planning-baselines">
+            <div class="planning-baseline-stack">
+            <h3 class="planning-baselines-title">Baselines</h3>
+            <figure class="planning-video-card" data-planning-method="dense">
+              <figcaption><strong>Dense planning</strong></figcaption>
+              <video id="planning-video-dense" muted autoplay loop playsinline controls preload="none" aria-label="Dense planning result"></video>
+              <div class="planning-video-empty" hidden>Video to be added</div>
+            </figure>
+            <figure class="planning-video-card" data-planning-method="uniform">
+              <figcaption><strong>Uniform planning</strong></figcaption>
+              <video id="planning-video-uniform" muted autoplay loop playsinline controls preload="none" aria-label="Uniform planning result"></video>
+              <div class="planning-video-empty" hidden>Video to be added</div>
+            </figure>
+            <figure class="planning-video-card" data-planning-method="vlp">
+              <figcaption><strong>VLP</strong></figcaption>
+              <video id="planning-video-vlp" muted autoplay loop playsinline controls preload="none" aria-label="VLP planning result" hidden></video>
+              <div class="planning-video-empty">Video to be added</div>
+            </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="method-panel" id="experiments-panel-suboptimal" role="tabpanel" aria-labelledby="experiments-tab-suboptimal" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Dataset</dt><dd>RoboMimic-MH Square: <strong>300 demonstrations</strong>, comprising 100 proficient and 200 suboptimal demonstrations.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>The planner comparison below uses nested planner datasets of 5, 10, 20, 40, 80, 120, 160, and 200 suboptimal videos, and the shared low-level policy is trained on 100 proficient demonstrations.</dd></div>
+    </dl>
+    <div class="exp-content">
+      <div class="exp-grid suboptimal-layout">
+        <figure class="exp-figure exp-chart suboptimal-plot">
+          <a href="assets/experiments/suite/figures/suboptimal-figure5.svg?v=20261012-unified" target="_blank" rel="noopener" aria-label="Open the full-size Figure 5 chart">
+            <img src="assets/experiments/suite/figures/suboptimal-figure5.svg?v=20261012-unified" width="1224" height="1368" alt="Figure 5: Square task success across 5, 10, 20, 40, 80, 120, 160 and 200 suboptimal videos. DreamCan rises from 51.6% to 68.0%; Uniform and Dense show fluctuating results." loading="lazy">
+          </a>
+        </figure>
+        <div class="suboptimal-context">
+          <div class="suboptimal-examples" aria-label="Proficient and suboptimal Square demonstrations">
+            <figure class="exp-figure">
+              <h4>Better demo</h4>
+              <video class="exp-video exp-video-square" data-exp-video data-exp-asset="square-better-0" data-exp-src="assets/experiments/suite/videos/square-better-0.mp4" poster="assets/experiments/suite/images/square-better-0.webp" muted autoplay loop playsinline controls preload="none" aria-label="Proficient Square demonstration: pick up the square nut and place it on the square peg"></video>
+            </figure>
+            <figure class="exp-figure">
+              <h4>Worse demo</h4>
+              <video class="exp-video exp-video-square" data-exp-video data-exp-asset="square-suboptimal-56" data-exp-src="assets/experiments/suite/videos/square-suboptimal-56.mp4" poster="assets/experiments/suite/images/square-suboptimal-56.webp" muted autoplay loop playsinline controls preload="none" aria-label="Suboptimal Square demonstration with repeated actions and detours"></video>
+            </figure>
+          </div>
+          <div class="exp-copy suboptimal-summary">
+            <h3>Findings</h3>
+            <ul>
+              <li><strong>DreamCan can scale with suboptimal datasets.</strong> DreamCan improves from 51.6% to 68.0% with 5–200 videos (+16.4 points). This shows that our keyframe discovery method can jump over sub-optimal parts in demonstrations.</li>
+              <li><strong>Dense planning and uniform subgoal planning cannot scale with suboptimal datasets.</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="method-panel" id="experiments-panel-search-steering" role="tabpanel" aria-labelledby="experiments-tab-search-steering" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Dataset</dt><dd>Language-Table <strong>Make a line</strong> and the real-world <strong>Box Packing</strong> task.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>We use 1,424 training videos for Language-Table make a line task, and 100 videos for evaluation; we use 550 demonstrations for the real-world box packing task and 95 cases for testing.</dd></div>
+    </dl>
+    <div class="exp-content">
+      <div class="exp-tabs" role="tablist" aria-label="Search and steering results" data-exp-tabs>
+        <button type="button" id="exp-search-tab" role="tab" aria-selected="true" aria-controls="exp-search-panel" tabindex="0">Test-time search</button><button type="button" id="exp-steering-tab" role="tab" aria-selected="false" aria-controls="exp-steering-panel" tabindex="-1">Language steering</button>
+      </div>
+      <div id="exp-search-panel" role="tabpanel" aria-labelledby="exp-search-tab" tabindex="0">
+        <div class="exp-grid">
+          <figure class="exp-figure exp-chart"><img src="assets/experiments/suite/figures/search-figure7.svg?v=20261012-unified" width="1672" height="1496" alt="Figure 7 reproduced: final task progress versus generator calls per episode for subgoal best-of-N, anchored search, Dense video and Uniform subgoal, with mean plus or minus SEM." loading="lazy"></figure>
+          <div class="exp-copy"><div class="exp-axis-description"><h4>What does the y-axis measure?</h4><ul><li><strong>Final task progress ∈ [0, 1]:</strong> a continuous score for how well eight detected blocks align with the instructed line and remain separated. Higher is better.</li><li><strong>Mean ± SEM:</strong> average the last two evaluated frames of each plan, then average across cases. Error bars show the standard error of this mean.</li></ul></div><section class="exp-reading-block"><h3>Two ways of test-time search</h3><ol><li><strong>Whole-sequence best-of-N:</strong> generate N complete plans and keep the one with the highest task-progress score.</li><li><strong>Anchored search:</strong> keep the best subgoal prefix as clean latents and regenerate the remaining sequence.</li></ol></section><section class="exp-reading-block"><h4>Findings</h4><ol><li>DreamCan can benefit from test-time search compute, especially from anchored search.</li><li>Dense planning can also improve with extra compute, but its final task progress remains below DreamCan's initial result.</li><li>Uniform subgoal planning cannot benefit from test-time compute.</li></ol></section></div>
+        </div>
+        <div class="exp-section exp-search-plans">
+          <h3>Generated plans at different budgets</h3>
+          <section class="exp-tts-trajectory" aria-labelledby="exp-tts-traj-0">
+            <h4 id="exp-tts-traj-0">Trajectory 0</h4>
+            <p class="exp-instruction"><strong>Language Instruction:</strong> put the blocks in a diagonal line from the top right to bottom left</p>
+            <div class="exp-search-video-grid">
+              <figure class="exp-figure"><div class="exp-media-head"><strong>1 generator call · no search</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-0-calls-1" data-exp-src="assets/experiments/tts/bad_0_annotated.mp4?v=20261012-hallucinations-v2" poster="assets/experiments/tts/bad_0.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 0, 1 generator call · no search, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>4 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-0-calls-4" data-exp-src="videos/tts/middle_0.mp4" poster="assets/experiments/tts/middle_0.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 0, 4 generator calls, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>8 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-0-calls-8" data-exp-src="videos/tts/good_0.mp4" poster="assets/experiments/tts/good_0.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 0, 8 generator calls, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+            </div>
+          </section>
+          <section class="exp-tts-trajectory" aria-labelledby="exp-tts-traj-1">
+            <h4 id="exp-tts-traj-1">Trajectory 1</h4>
+            <p class="exp-instruction"><strong>Language Instruction:</strong> put the blocks in a diagonal line from the top right to bottom left</p>
+            <div class="exp-search-video-grid">
+              <figure class="exp-figure"><div class="exp-media-head"><strong>1 generator call · no search</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-1-calls-1" data-exp-src="assets/experiments/tts/bad_1_annotated.mp4?v=20261012-hallucinations-v2" poster="assets/experiments/tts/bad_1.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 1, 1 generator call · no search, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>4 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-1-calls-4" data-exp-src="videos/tts/middle_1.mp4" poster="assets/experiments/tts/middle_1.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 1, 4 generator calls, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>8 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-1-calls-8" data-exp-src="videos/tts/good_1.mp4" poster="assets/experiments/tts/good_1.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 1, 8 generator calls, put the blocks in a diagonal line from the top right to bottom left"></video></figure>
+            </div>
+          </section>
+          <section class="exp-tts-trajectory" aria-labelledby="exp-tts-traj-2">
+            <h4 id="exp-tts-traj-2">Trajectory 2</h4>
+            <p class="exp-instruction"><strong>Language Instruction:</strong> put all the blocks in a vertical line on the center of the board</p>
+            <div class="exp-search-video-grid">
+              <figure class="exp-figure"><div class="exp-media-head"><strong>1 generator call · no search</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-2-calls-1" data-exp-src="assets/experiments/tts/bad_2_hold.mp4?v=20261012-hold-3s" poster="assets/experiments/tts/bad_2.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 2, 1 generator call · no search, put all the blocks in a vertical line on the center of the board"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>4 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-2-calls-4" data-exp-src="videos/tts/middle_2.mp4?v=20261012-correct-budget" poster="assets/experiments/tts/middle_2.webp?v=20261012-correct-budget" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 2, 4 generator calls, put all the blocks in a vertical line on the center of the board"></video></figure>
+              <figure class="exp-figure"><div class="exp-media-head"><strong>8 generator calls</strong></div><video class="exp-video" data-exp-video data-exp-asset="tts-traj-2-calls-8" data-exp-src="videos/tts/good_2.mp4?v=20261012-correct-budget" poster="assets/experiments/tts/good_2.webp?v=20261012-correct-budget" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Trajectory 2, 8 generator calls, put all the blocks in a vertical line on the center of the board"></video></figure>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div id="exp-steering-panel" role="tabpanel" aria-labelledby="exp-steering-tab" tabindex="0" hidden>
+        <div class="exp-steering-group">
+          <h3>Language Table: change the target arrangement</h3><p>The same initial observation supports different line arrangements.</p>
+          <div class="exp-steering-video-grid">
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="language-table-steer-25" data-exp-src="assets/experiments/suite/videos/language-table-steer-25.mp4" poster="assets/experiments/suite/images/language-table-steer-25.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Make a vertical line at the center of the board."></video><figcaption><strong>Language Instruction:</strong> Make a vertical line at the center of the board.</figcaption></figure>
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="language-table-steer-26" data-exp-src="assets/experiments/suite/videos/language-table-steer-26.mp4" poster="assets/experiments/suite/images/language-table-steer-26.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Make a vertical line at the right of the board."></video><figcaption><strong>Language Instruction:</strong> Make a vertical line at the right of the board.</figcaption></figure>
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="language-table-steer-27" data-exp-src="assets/experiments/suite/videos/language-table-steer-27.mp4" poster="assets/experiments/suite/images/language-table-steer-27.webp" style="aspect-ratio:320 / 192" muted autoplay loop playsinline controls preload="none" aria-label="Make a diagonal line from the top right to bottom left."></video><figcaption><strong>Language Instruction:</strong> Make a diagonal line from the top right to bottom left.</figcaption></figure>
+          </div>
+        </div>
+        <div class="exp-section exp-steering-group">
+          <h3>Box Packing: steer spatial preferences</h3><p class="exp-instruction"><strong>Planner Instruction:</strong> Pack the bread, blue cube, and the bear into the box.</p>
+          <p>A VLM turns each spatial preference into a task-progress criterion. Search keeps a matching subgoal prefix and regenerates the rest of the plan.</p>
+          <div class="exp-steering-video-grid">
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="packing-steer-left" data-exp-src="assets/experiments/suite/videos/packing-steer-left.mp4" poster="assets/experiments/suite/images/packing-steer-left.webp" style="aspect-ratio:1024 / 574" muted autoplay loop playsinline controls preload="none" aria-label="Bread down, blue cube top left, and the bear top right."></video><figcaption><strong>VLM Steering Instruction:</strong> Bread down, blue cube top left, and the bear top right.</figcaption></figure>
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="packing-steer-up" data-exp-src="assets/experiments/suite/videos/packing-steer-up.mp4" poster="assets/experiments/suite/images/packing-steer-up.webp" style="aspect-ratio:1024 / 574" muted autoplay loop playsinline controls preload="none" aria-label="Bread up, blue cube down left, and the bear down right."></video><figcaption><strong>VLM Steering Instruction:</strong> Bread up, blue cube down left, and the bear down right.</figcaption></figure>
+            <figure class="exp-figure"><video class="exp-video" data-exp-video data-exp-asset="packing-steer-right" data-exp-src="assets/experiments/suite/videos/packing-steer-right.mp4" poster="assets/experiments/suite/images/packing-steer-right.webp" style="aspect-ratio:1024 / 574" muted autoplay loop playsinline controls preload="none" aria-label="Bread down, bear top left, and the blue cube top right."></video><figcaption><strong>VLM Steering Instruction:</strong> Bread down, bear top left, and the blue cube top right.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="method-panel" id="experiments-panel-low-level" role="tabpanel" aria-labelledby="experiments-tab-low-level" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Dataset</dt><dd>PushT and LIBERO-Long.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>We use 206 demonstrations for PushT, and 379 demonstrations for 10 tasks in LIBERO-Long. We use the same low-level policy architecture across different baselines. We use 50 episodes for evaluation per task.</dd></div>
+    </dl>
+    <p>A goal-conditioned flow-matching policy converts visual subgoals into robot actions. The planner and controller have no shared features or gradients.</p>
+    <div class="exp-content">
+      <figure class="exp-figure exp-policy-architecture">
+        <h3>Goal-conditioned low-level policy architecture</h3>
+        <div class="exp-policy-diagram-scroll" tabindex="0" role="region" aria-label="Horizontal policy architecture diagram">
+          <a href="assets/experiments/suite/architecture/low-level-policy.svg?v=20261012-blue-subgoals" target="_blank" rel="noopener" aria-label="Open the full-size policy architecture diagram"><img src="assets/experiments/suite/architecture/low-level-policy.svg?v=20261012-blue-subgoals" width="1500" height="610" alt="Observation history, generated visual subgoals, language and robot state form a condition prefix for a flow-matching Transformer; iterative velocity integration generates a 16-step action chunk." loading="lazy"></a>
+        </div>
+      </figure>
+      <div class="exp-policy-results" aria-label="PushT and LIBERO-Long results">
+        <section class="exp-policy-task" aria-label="PushT results">
+          <h3>PushT</h3>
+          <figure class="exp-figure exp-policy-scatter"><a href="assets/experiments/suite/figures/policy-pusht-scaling.svg?v=20261012-unified" target="_blank" rel="noopener" aria-label="Open the full-size PushT scatter plot"><img src="assets/experiments/suite/figures/policy-pusht-scaling.svg?v=20261012-unified" width="1152" height="810" alt="PushT success versus trainable policy parameters. DreamCan uses a 0.1B low-level policy and achieves 86 percent success; comparison models range from 0.3B to 5.3B." loading="lazy"></a></figure>
+          <div class="exp-table-wrap"><table class="exp-policy-result-table"><caption class="sr-only">PushT planning method comparison</caption><thead><tr><th scope="col">Method</th><th scope="col">Success rate</th></tr></thead><tbody>
+            <tr><th scope="row">E2E</th><td>58.0%</td></tr>
+            <tr><th scope="row">Dense</th><td>70.0%</td></tr>
+            <tr><th scope="row">Uniform</th><td>72.0%</td></tr>
+            <tr class="exp-policy-ours"><th scope="row">DreamCan (Ours)</th><td>86.0%</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="exp-policy-task" aria-label="LIBERO-Long results">
+          <h3>LIBERO-Long</h3>
+          <figure class="exp-figure exp-policy-scatter"><a href="assets/experiments/suite/figures/policy-libero-long-scaling.svg?v=20261012-unified" target="_blank" rel="noopener" aria-label="Open the full-size LIBERO-Long scatter plot"><img src="assets/experiments/suite/figures/policy-libero-long-scaling.svg?v=20261012-unified" width="1152" height="810" alt="LIBERO-Long success versus trainable policy parameters. DreamCan uses a 0.1B low-level policy and achieves 91.2 percent success; comparison models range from 0.3B to 5.3B." loading="lazy"></a></figure>
+          <div class="exp-table-wrap"><table class="exp-policy-result-table"><caption class="sr-only">LIBERO-Long planning method comparison</caption><thead><tr><th scope="col">Method</th><th scope="col">Success rate</th></tr></thead><tbody>
+            <tr><th scope="row">E2E</th><td>79.2%</td></tr>
+            <tr><th scope="row">Dense</th><td>84.0%</td></tr>
+            <tr><th scope="row">Uniform</th><td>82.4%</td></tr>
+            <tr class="exp-policy-ours"><th scope="row">DreamCan (Ours)</th><td>91.2%</td></tr>
+          </tbody></table></div>
+        </section>
+      </div>
+      <div class="exp-policy-simulation" data-policy-simulation>
+        <h3>Planning and execution in simulation</h3>
+        <section class="sim-task-row sim-pusht" data-sim-group="pusht" aria-label="PushT planning and execution">
+          <div class="sim-task-head"><h4>PushT</h4><div class="exp-choices sim-choices" role="group" aria-label="PushT trajectories">
+            <button type="button" data-sim-choice="0" aria-pressed="true" data-execution-src="assets/experiments/suite/simulation/videos/sim-pusht-1-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-pusht-1-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-pusht-1-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-pusht-1-planner.webp" data-instruction="Push the T-shaped block into the target region." data-result="success" title="Push the T-shaped block into the target region.">Trajectory 1</button>
+            <button type="button" data-sim-choice="1" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-pusht-2-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-pusht-2-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-pusht-2-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-pusht-2-planner.webp" data-instruction="Push the T-shaped block into the target region." data-result="success" title="Push the T-shaped block into the target region.">Trajectory 2</button>
+            <button type="button" data-sim-choice="2" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-pusht-3-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-pusht-3-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-pusht-3-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-pusht-3-planner.webp" data-instruction="Push the T-shaped block into the target region." data-result="success" title="Push the T-shaped block into the target region.">Trajectory 3</button>
+          </div></div>
+          <div class="sim-instruction"><p data-sim-instruction>Push the T-shaped block into the target region.</p><span class="sim-outcome" data-sim-outcome data-result="success">Completed</span></div>
+          <div class="sim-media-pair">
+            <figure class="exp-figure sim-execution"><h5>Execution</h5>
+              <video class="exp-video" data-exp-video data-sim-execution data-exp-src="assets/experiments/suite/simulation/videos/sim-pusht-1-execution.mp4" poster="assets/experiments/suite/simulation/images/sim-pusht-1-execution.webp" style="aspect-ratio:224 / 224" muted autoplay loop playsinline controls preload="none" aria-label="PushT execution"></video>
+            </figure>
+            <figure class="exp-figure sim-planner"><h5>Planner output</h5>
+              <div class="sim-planner-scroll" tabindex="0" role="region" aria-label="PushT generated subgoal sequence"><div class="sim-planner-strip">
+              <video class="exp-video" data-exp-video data-sim-planner data-exp-src="assets/experiments/suite/simulation/videos/sim-pusht-1-planner.mp4" poster="assets/experiments/suite/simulation/images/sim-pusht-1-planner.webp" style="aspect-ratio:672 / 224" muted autoplay loop playsinline preload="none" aria-label="PushT planner output"></video>
+                <div class="sim-subgoal-labels" style="--subgoal-count:3" aria-hidden="true"><span>1</span><span>2</span><span>3</span></div>
+              </div></div>
+            </figure>
+          </div>
+        </section>
+        <section class="sim-task-row sim-libero" data-sim-group="libero" aria-label="LIBERO-Long planning and execution">
+          <div class="sim-task-head"><h4>LIBERO-Long</h4><div class="exp-choices sim-choices" role="group" aria-label="LIBERO-Long trajectories">
+            <button type="button" data-sim-choice="0" aria-pressed="true" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-1-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-1-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-1-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-1-planner.webp" data-instruction="Put both the alphabet soup and the tomato sauce in the basket." data-result="success" title="Put both the alphabet soup and the tomato sauce in the basket.">Task 1</button>
+            <button type="button" data-sim-choice="1" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-2-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-2-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-2-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-2-planner.webp" data-instruction="Put both the cream cheese box and the butter in the basket." data-result="success" title="Put both the cream cheese box and the butter in the basket.">Task 2</button>
+            <button type="button" data-sim-choice="2" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-3-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-3-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-3-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-3-planner.webp" data-instruction="Turn on the stove and put the moka pot on it." data-result="success" title="Turn on the stove and put the moka pot on it.">Task 3</button>
+            <button type="button" data-sim-choice="3" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-4-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-4-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-4-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-4-planner.webp" data-instruction="Put the black bowl in the bottom drawer of the cabinet and close it." data-result="success" title="Put the black bowl in the bottom drawer of the cabinet and close it.">Task 4</button>
+            <button type="button" data-sim-choice="4" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-5-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-5-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-5-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-5-planner.webp" data-instruction="Put the white mug on the left plate and put the yellow and white mug on the right plate." data-result="success" title="Put the white mug on the left plate and put the yellow and white mug on the right plate.">Task 5</button>
+            <button type="button" data-sim-choice="5" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-6-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-6-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-6-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-6-planner.webp" data-instruction="Pick up the book and place it in the back compartment of the caddy." data-result="success" title="Pick up the book and place it in the back compartment of the caddy.">Task 6</button>
+            <button type="button" data-sim-choice="6" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-7-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-7-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-7-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-7-planner.webp" data-instruction="Put the white mug on the plate and put the chocolate pudding to the right of the plate." data-result="success" title="Put the white mug on the plate and put the chocolate pudding to the right of the plate.">Task 7</button>
+            <button type="button" data-sim-choice="7" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-8-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-8-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-8-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-8-planner.webp" data-instruction="Put both the alphabet soup and the cream cheese box in the basket." data-result="success" title="Put both the alphabet soup and the cream cheese box in the basket.">Task 8</button>
+            <button type="button" data-sim-choice="8" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-9-archived-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-9-archived-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-9-archived-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-9-archived-planner.webp" data-instruction="Put both moka pots on the stove." data-result="success" title="Put both moka pots on the stove.">Task 9</button>
+            <button type="button" data-sim-choice="9" aria-pressed="false" data-execution-src="assets/experiments/suite/simulation/videos/sim-libero-10-execution.mp4" data-planner-src="assets/experiments/suite/simulation/videos/sim-libero-10-planner.mp4" data-execution-poster="assets/experiments/suite/simulation/images/sim-libero-10-execution.webp" data-planner-poster="assets/experiments/suite/simulation/images/sim-libero-10-planner.webp" data-instruction="Put the yellow and white mug in the microwave and close it." data-result="success" title="Put the yellow and white mug in the microwave and close it.">Task 10</button>
+          </div></div>
+          <div class="sim-instruction"><p data-sim-instruction>Put both the alphabet soup and the tomato sauce in the basket.</p><span class="sim-outcome" data-sim-outcome data-result="success">Completed</span></div>
+          <div class="sim-media-pair">
+            <figure class="exp-figure sim-execution"><h5>Execution</h5>
+              <video class="exp-video" data-exp-video data-sim-execution data-exp-src="assets/experiments/suite/simulation/videos/sim-libero-1-execution.mp4" poster="assets/experiments/suite/simulation/images/sim-libero-1-execution.webp" style="aspect-ratio:256 / 256" muted autoplay loop playsinline controls preload="none" aria-label="LIBERO-Long execution"></video>
+            </figure>
+            <figure class="exp-figure sim-planner"><h5>Planner output</h5>
+              <div class="sim-planner-scroll" tabindex="0" role="region" aria-label="LIBERO-Long generated subgoal sequence"><div class="sim-planner-strip">
+              <video class="exp-video" data-exp-video data-sim-planner data-exp-src="assets/experiments/suite/simulation/videos/sim-libero-1-planner.mp4" poster="assets/experiments/suite/simulation/images/sim-libero-1-planner.webp" style="aspect-ratio:2560 / 256" muted autoplay loop playsinline preload="none" aria-label="LIBERO-Long planner output"></video>
+                <div class="sim-subgoal-labels" style="--subgoal-count:10" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+              </div></div>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="method-panel" id="experiments-panel-real-world" role="tabpanel" aria-labelledby="experiments-tab-real-world" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Dataset</dt><dd>Three dual-arm YAM robot tasks: <strong>Cardboard Box Folding</strong>, <strong>Box Packing</strong>, and <strong>Make a Line</strong>.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>We collect 100 demonstrations for the cardboard box folding task, 550 demonstrations (110 combinations × 5) for the box packing task, and 90 (3 variations × 30) demonstrations for the real-world make a line task. Each task is evaluated over 20 episodes; packing holds out 95 unseen object combinations.</dd></div>
+    </dl>
+    <div class="exp-content exp-real-results">
+      <section class="exp-real-task" aria-labelledby="exp-real-folding-title">
+        <h3 id="exp-real-folding-title">Cardboard Box Folding (Contact rich task)</h3>
+        <div class="exp-real-results-grid">
+          <div class="exp-real-video-grid">
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 1</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-folding-1" data-exp-src="assets/experiments/real-world/folding-1.mp4" poster="assets/experiments/real-world/folding-1.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Cardboard Box Folding, successful real-robot trajectory 1"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 15</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.73333333" data-subgoal-frame="22" aria-current="step" aria-label="Subgoal 1, frame 22, 0.73 seconds" title="Subgoal 1 · 0.73 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.40000000" data-subgoal-frame="42" aria-current="false" aria-label="Subgoal 2, frame 42, 1.40 seconds" title="Subgoal 2 · 1.40 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.90000000" data-subgoal-frame="57" aria-current="false" aria-label="Subgoal 3, frame 57, 1.90 seconds" title="Subgoal 3 · 1.90 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.40000000" data-subgoal-frame="72" aria-current="false" aria-label="Subgoal 4, frame 72, 2.40 seconds" title="Subgoal 4 · 2.40 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.03333333" data-subgoal-frame="91" aria-current="false" aria-label="Subgoal 5, frame 91, 3.03 seconds" title="Subgoal 5 · 3.03 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.60000000" data-subgoal-frame="108" aria-current="false" aria-label="Subgoal 6, frame 108, 3.60 seconds" title="Subgoal 6 · 3.60 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.23333333" data-subgoal-frame="127" aria-current="false" aria-label="Subgoal 7, frame 127, 4.23 seconds" title="Subgoal 7 · 4.23 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.80000000" data-subgoal-frame="144" aria-current="false" aria-label="Subgoal 8, frame 144, 4.80 seconds" title="Subgoal 8 · 4.80 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.33333333" data-subgoal-frame="160" aria-current="false" aria-label="Subgoal 9, frame 160, 5.33 seconds" title="Subgoal 9 · 5.33 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.96666667" data-subgoal-frame="179" aria-current="false" aria-label="Subgoal 10, frame 179, 5.97 seconds" title="Subgoal 10 · 5.97 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.46666667" data-subgoal-frame="194" aria-current="false" aria-label="Subgoal 11, frame 194, 6.47 seconds" title="Subgoal 11 · 6.47 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.00000000" data-subgoal-frame="210" aria-current="false" aria-label="Subgoal 12, frame 210, 7.00 seconds" title="Subgoal 12 · 7.00 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.70000000" data-subgoal-frame="231" aria-current="false" aria-label="Subgoal 13, frame 231, 7.70 seconds" title="Subgoal 13 · 7.70 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.30000000" data-subgoal-frame="249" aria-current="false" aria-label="Subgoal 14, frame 249, 8.30 seconds" title="Subgoal 14 · 8.30 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.20000000" data-subgoal-frame="276" aria-current="false" aria-label="Subgoal 15, frame 276, 9.20 seconds" title="Subgoal 15 · 9.20 s"><img src="assets/experiments/real-world/subgoals/folding-1/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button></div></div></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 2</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-folding-2" data-exp-src="assets/experiments/real-world/folding-2.mp4" poster="assets/experiments/real-world/folding-2.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Cardboard Box Folding, successful real-robot trajectory 2"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 15</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.66666667" data-subgoal-frame="20" aria-current="step" aria-label="Subgoal 1, frame 20, 0.67 seconds" title="Subgoal 1 · 0.67 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.26666667" data-subgoal-frame="38" aria-current="false" aria-label="Subgoal 2, frame 38, 1.27 seconds" title="Subgoal 2 · 1.27 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.90000000" data-subgoal-frame="57" aria-current="false" aria-label="Subgoal 3, frame 57, 1.90 seconds" title="Subgoal 3 · 1.90 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.40000000" data-subgoal-frame="72" aria-current="false" aria-label="Subgoal 4, frame 72, 2.40 seconds" title="Subgoal 4 · 2.40 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.93333333" data-subgoal-frame="88" aria-current="false" aria-label="Subgoal 5, frame 88, 2.93 seconds" title="Subgoal 5 · 2.93 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.50000000" data-subgoal-frame="105" aria-current="false" aria-label="Subgoal 6, frame 105, 3.50 seconds" title="Subgoal 6 · 3.50 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.06666667" data-subgoal-frame="122" aria-current="false" aria-label="Subgoal 7, frame 122, 4.07 seconds" title="Subgoal 7 · 4.07 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.60000000" data-subgoal-frame="138" aria-current="false" aria-label="Subgoal 8, frame 138, 4.60 seconds" title="Subgoal 8 · 4.60 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.13333333" data-subgoal-frame="154" aria-current="false" aria-label="Subgoal 9, frame 154, 5.13 seconds" title="Subgoal 9 · 5.13 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.56666667" data-subgoal-frame="167" aria-current="false" aria-label="Subgoal 10, frame 167, 5.57 seconds" title="Subgoal 10 · 5.57 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.13333333" data-subgoal-frame="184" aria-current="false" aria-label="Subgoal 11, frame 184, 6.13 seconds" title="Subgoal 11 · 6.13 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.70000000" data-subgoal-frame="201" aria-current="false" aria-label="Subgoal 12, frame 201, 6.70 seconds" title="Subgoal 12 · 6.70 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.23333333" data-subgoal-frame="217" aria-current="false" aria-label="Subgoal 13, frame 217, 7.23 seconds" title="Subgoal 13 · 7.23 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.80000000" data-subgoal-frame="234" aria-current="false" aria-label="Subgoal 14, frame 234, 7.80 seconds" title="Subgoal 14 · 7.80 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.33333333" data-subgoal-frame="250" aria-current="false" aria-label="Subgoal 15, frame 250, 8.33 seconds" title="Subgoal 15 · 8.33 s"><img src="assets/experiments/real-world/subgoals/folding-2/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button></div></div></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 3</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-folding-3" data-exp-src="assets/experiments/real-world/folding-3.mp4" poster="assets/experiments/real-world/folding-3.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Cardboard Box Folding, successful real-robot trajectory 3"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 15</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="1.00000000" data-subgoal-frame="30" aria-current="step" aria-label="Subgoal 1, frame 30, 1.00 seconds" title="Subgoal 1 · 1.00 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.60000000" data-subgoal-frame="48" aria-current="false" aria-label="Subgoal 2, frame 48, 1.60 seconds" title="Subgoal 2 · 1.60 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.30000000" data-subgoal-frame="69" aria-current="false" aria-label="Subgoal 3, frame 69, 2.30 seconds" title="Subgoal 3 · 2.30 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.70000000" data-subgoal-frame="81" aria-current="false" aria-label="Subgoal 4, frame 81, 2.70 seconds" title="Subgoal 4 · 2.70 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.26666667" data-subgoal-frame="98" aria-current="false" aria-label="Subgoal 5, frame 98, 3.27 seconds" title="Subgoal 5 · 3.27 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.66666667" data-subgoal-frame="110" aria-current="false" aria-label="Subgoal 6, frame 110, 3.67 seconds" title="Subgoal 6 · 3.67 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.53333333" data-subgoal-frame="136" aria-current="false" aria-label="Subgoal 7, frame 136, 4.53 seconds" title="Subgoal 7 · 4.53 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.10000000" data-subgoal-frame="153" aria-current="false" aria-label="Subgoal 8, frame 153, 5.10 seconds" title="Subgoal 8 · 5.10 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.26666667" data-subgoal-frame="158" aria-current="false" aria-label="Subgoal 9, frame 158, 5.27 seconds" title="Subgoal 9 · 5.27 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.40000000" data-subgoal-frame="162" aria-current="false" aria-label="Subgoal 10, frame 162, 5.40 seconds" title="Subgoal 10 · 5.40 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.53333333" data-subgoal-frame="166" aria-current="false" aria-label="Subgoal 11, frame 166, 5.53 seconds" title="Subgoal 11 · 5.53 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.76666667" data-subgoal-frame="173" aria-current="false" aria-label="Subgoal 12, frame 173, 5.77 seconds" title="Subgoal 12 · 5.77 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.20000000" data-subgoal-frame="186" aria-current="false" aria-label="Subgoal 13, frame 186, 6.20 seconds" title="Subgoal 13 · 6.20 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.76666667" data-subgoal-frame="263" aria-current="false" aria-label="Subgoal 14, frame 263, 8.77 seconds" title="Subgoal 14 · 8.77 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.30000000" data-subgoal-frame="279" aria-current="false" aria-label="Subgoal 15, frame 279, 9.30 seconds" title="Subgoal 15 · 9.30 s"><img src="assets/experiments/real-world/subgoals/folding-3/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button></div></div></figure>
+          </div>
+          <div class="exp-real-success"><table class="exp-real-success-table"><caption>Task success rate</caption><thead><tr><th scope="col">Method</th><th scope="col">Success</th></tr></thead><tbody><tr><th scope="row">End-to-end policy</th><td>5%</td></tr><tr><th scope="row">Dense video planning</th><td>0%</td></tr><tr><th scope="row">Uniform subgoal planning</th><td>10%</td></tr><tr class="exp-real-ours"><th scope="row">DreamCan</th><td>40%</td></tr></tbody></table></div>
+        </div>
+      </section>
+      <section class="exp-real-task" aria-labelledby="exp-real-packing-title">
+        <h3 id="exp-real-packing-title">Box Packing (Combinatorial generalization task)</h3>
+        <div class="exp-real-results-grid">
+          <div class="exp-real-video-grid">
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 1</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-packing-1" data-exp-src="assets/experiments/real-world/packing-1.mp4" poster="assets/experiments/real-world/packing-1.webp" style="aspect-ratio:640 / 360" muted autoplay loop playsinline controls preload="none" aria-label="Box Packing, successful real-robot trajectory 1"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 9</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.40000000" data-subgoal-frame="4" aria-current="step" aria-label="Subgoal 1, frame 4, 0.40 seconds" title="Subgoal 1 · 0.40 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.20000000" data-subgoal-frame="12" aria-current="false" aria-label="Subgoal 2, frame 12, 1.20 seconds" title="Subgoal 2 · 1.20 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.10000000" data-subgoal-frame="21" aria-current="false" aria-label="Subgoal 3, frame 21, 2.10 seconds" title="Subgoal 3 · 2.10 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.90000000" data-subgoal-frame="29" aria-current="false" aria-label="Subgoal 4, frame 29, 2.90 seconds" title="Subgoal 4 · 2.90 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.80000000" data-subgoal-frame="38" aria-current="false" aria-label="Subgoal 5, frame 38, 3.80 seconds" title="Subgoal 5 · 3.80 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.50000000" data-subgoal-frame="45" aria-current="false" aria-label="Subgoal 6, frame 45, 4.50 seconds" title="Subgoal 6 · 4.50 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.10000000" data-subgoal-frame="71" aria-current="false" aria-label="Subgoal 7, frame 71, 7.10 seconds" title="Subgoal 7 · 7.10 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.60000000" data-subgoal-frame="76" aria-current="false" aria-label="Subgoal 8, frame 76, 7.60 seconds" title="Subgoal 8 · 7.60 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.90000000" data-subgoal-frame="79" aria-current="false" aria-label="Subgoal 9, frame 79, 7.90 seconds" title="Subgoal 9 · 7.90 s"><img src="assets/experiments/real-world/subgoals/packing-1/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button></div></div></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 2</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-packing-2" data-exp-src="assets/experiments/real-world/packing-2.mp4" poster="assets/experiments/real-world/packing-2.webp" style="aspect-ratio:640 / 360" muted autoplay loop playsinline controls preload="none" aria-label="Box Packing, successful real-robot trajectory 2"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 12</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.70000000" data-subgoal-frame="7" aria-current="step" aria-label="Subgoal 1, frame 7, 0.70 seconds" title="Subgoal 1 · 0.70 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.60000000" data-subgoal-frame="16" aria-current="false" aria-label="Subgoal 2, frame 16, 1.60 seconds" title="Subgoal 2 · 1.60 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.50000000" data-subgoal-frame="25" aria-current="false" aria-label="Subgoal 3, frame 25, 2.50 seconds" title="Subgoal 3 · 2.50 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.40000000" data-subgoal-frame="34" aria-current="false" aria-label="Subgoal 4, frame 34, 3.40 seconds" title="Subgoal 4 · 3.40 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.20000000" data-subgoal-frame="42" aria-current="false" aria-label="Subgoal 5, frame 42, 4.20 seconds" title="Subgoal 5 · 4.20 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.10000000" data-subgoal-frame="51" aria-current="false" aria-label="Subgoal 6, frame 51, 5.10 seconds" title="Subgoal 6 · 5.10 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.90000000" data-subgoal-frame="59" aria-current="false" aria-label="Subgoal 7, frame 59, 5.90 seconds" title="Subgoal 7 · 5.90 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.70000000" data-subgoal-frame="67" aria-current="false" aria-label="Subgoal 8, frame 67, 6.70 seconds" title="Subgoal 8 · 6.70 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.40000000" data-subgoal-frame="74" aria-current="false" aria-label="Subgoal 9, frame 74, 7.40 seconds" title="Subgoal 9 · 7.40 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.10000000" data-subgoal-frame="81" aria-current="false" aria-label="Subgoal 10, frame 81, 8.10 seconds" title="Subgoal 10 · 8.10 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.60000000" data-subgoal-frame="86" aria-current="false" aria-label="Subgoal 11, frame 86, 8.60 seconds" title="Subgoal 11 · 8.60 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.10000000" data-subgoal-frame="91" aria-current="false" aria-label="Subgoal 12, frame 91, 9.10 seconds" title="Subgoal 12 · 9.10 s"><img src="assets/experiments/real-world/subgoals/packing-2/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button></div></div></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 3</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-packing-3" data-exp-src="assets/experiments/real-world/packing-3.mp4" poster="assets/experiments/real-world/packing-3.webp" style="aspect-ratio:640 / 360" muted autoplay loop playsinline controls preload="none" aria-label="Box Packing, successful real-robot trajectory 3"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 12</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.50000000" data-subgoal-frame="5" aria-current="step" aria-label="Subgoal 1, frame 5, 0.50 seconds" title="Subgoal 1 · 0.50 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.10000000" data-subgoal-frame="11" aria-current="false" aria-label="Subgoal 2, frame 11, 1.10 seconds" title="Subgoal 2 · 1.10 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.60000000" data-subgoal-frame="16" aria-current="false" aria-label="Subgoal 3, frame 16, 1.60 seconds" title="Subgoal 3 · 1.60 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.10000000" data-subgoal-frame="21" aria-current="false" aria-label="Subgoal 4, frame 21, 2.10 seconds" title="Subgoal 4 · 2.10 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.60000000" data-subgoal-frame="26" aria-current="false" aria-label="Subgoal 5, frame 26, 2.60 seconds" title="Subgoal 5 · 2.60 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.10000000" data-subgoal-frame="31" aria-current="false" aria-label="Subgoal 6, frame 31, 3.10 seconds" title="Subgoal 6 · 3.10 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.80000000" data-subgoal-frame="38" aria-current="false" aria-label="Subgoal 7, frame 38, 3.80 seconds" title="Subgoal 7 · 3.80 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.50000000" data-subgoal-frame="45" aria-current="false" aria-label="Subgoal 8, frame 45, 4.50 seconds" title="Subgoal 8 · 4.50 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.00000000" data-subgoal-frame="50" aria-current="false" aria-label="Subgoal 9, frame 50, 5.00 seconds" title="Subgoal 9 · 5.00 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.50000000" data-subgoal-frame="55" aria-current="false" aria-label="Subgoal 10, frame 55, 5.50 seconds" title="Subgoal 10 · 5.50 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.10000000" data-subgoal-frame="61" aria-current="false" aria-label="Subgoal 11, frame 61, 6.10 seconds" title="Subgoal 11 · 6.10 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.60000000" data-subgoal-frame="66" aria-current="false" aria-label="Subgoal 12, frame 66, 6.60 seconds" title="Subgoal 12 · 6.60 s"><img src="assets/experiments/real-world/subgoals/packing-3/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button></div></div></figure>
+          </div>
+          <div class="exp-real-success"><table class="exp-real-success-table"><caption>Task success rate</caption><thead><tr><th scope="col">Method</th><th scope="col">Success</th></tr></thead><tbody><tr><th scope="row">End-to-end policy</th><td>0%</td></tr><tr><th scope="row">Dense video planning</th><td>5%</td></tr><tr><th scope="row">Uniform subgoal planning</th><td>20%</td></tr><tr class="exp-real-ours"><th scope="row">DreamCan</th><td>65%</td></tr></tbody></table></div>
+        </div>
+      </section>
+      <section class="exp-real-task" aria-labelledby="exp-real-line-title">
+        <h3 id="exp-real-line-title">Make a Line (Long-horizon symbolic planning task)</h3>
+        <div class="exp-real-results-grid">
+          <div class="exp-real-video-grid">
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 1</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-line-1" data-exp-src="assets/experiments/real-world/line-1.mp4" poster="assets/experiments/real-world/line-1.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Make a Line, successful real-robot trajectory 1"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 18</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.43333333" data-subgoal-frame="13" aria-current="step" aria-label="Subgoal 1, frame 13, 0.43 seconds" title="Subgoal 1 · 0.43 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="0.83333333" data-subgoal-frame="25" aria-current="false" aria-label="Subgoal 2, frame 25, 0.83 seconds" title="Subgoal 2 · 0.83 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.33333333" data-subgoal-frame="40" aria-current="false" aria-label="Subgoal 3, frame 40, 1.33 seconds" title="Subgoal 3 · 1.33 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.93333333" data-subgoal-frame="58" aria-current="false" aria-label="Subgoal 4, frame 58, 1.93 seconds" title="Subgoal 4 · 1.93 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.43333333" data-subgoal-frame="73" aria-current="false" aria-label="Subgoal 5, frame 73, 2.43 seconds" title="Subgoal 5 · 2.43 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.86666667" data-subgoal-frame="86" aria-current="false" aria-label="Subgoal 6, frame 86, 2.87 seconds" title="Subgoal 6 · 2.87 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.20000000" data-subgoal-frame="96" aria-current="false" aria-label="Subgoal 7, frame 96, 3.20 seconds" title="Subgoal 7 · 3.20 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.50000000" data-subgoal-frame="105" aria-current="false" aria-label="Subgoal 8, frame 105, 3.50 seconds" title="Subgoal 8 · 3.50 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.80000000" data-subgoal-frame="114" aria-current="false" aria-label="Subgoal 9, frame 114, 3.80 seconds" title="Subgoal 9 · 3.80 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.30000000" data-subgoal-frame="129" aria-current="false" aria-label="Subgoal 10, frame 129, 4.30 seconds" title="Subgoal 10 · 4.30 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.73333333" data-subgoal-frame="142" aria-current="false" aria-label="Subgoal 11, frame 142, 4.73 seconds" title="Subgoal 11 · 4.73 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.16666667" data-subgoal-frame="155" aria-current="false" aria-label="Subgoal 12, frame 155, 5.17 seconds" title="Subgoal 12 · 5.17 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.46666667" data-subgoal-frame="164" aria-current="false" aria-label="Subgoal 13, frame 164, 5.47 seconds" title="Subgoal 13 · 5.47 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.10000000" data-subgoal-frame="183" aria-current="false" aria-label="Subgoal 14, frame 183, 6.10 seconds" title="Subgoal 14 · 6.10 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.73333333" data-subgoal-frame="202" aria-current="false" aria-label="Subgoal 15, frame 202, 6.73 seconds" title="Subgoal 15 · 6.73 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.40000000" data-subgoal-frame="222" aria-current="false" aria-label="Subgoal 16, frame 222, 7.40 seconds" title="Subgoal 16 · 7.40 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-16.webp" width="256" height="144" loading="lazy" alt="Subgoal 16"><span>16</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.76666667" data-subgoal-frame="233" aria-current="false" aria-label="Subgoal 17, frame 233, 7.77 seconds" title="Subgoal 17 · 7.77 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-17.webp" width="256" height="144" loading="lazy" alt="Subgoal 17"><span>17</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.10000000" data-subgoal-frame="243" aria-current="false" aria-label="Subgoal 18, frame 243, 8.10 seconds" title="Subgoal 18 · 8.10 s"><img src="assets/experiments/real-world/subgoals/line-1/subgoal-18.webp" width="256" height="144" loading="lazy" alt="Subgoal 18"><span>18</span></button></div></div><figcaption>Make a horizontal line at the top of the desk.</figcaption></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 2</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-line-2" data-exp-src="assets/experiments/real-world/line-2.mp4" poster="assets/experiments/real-world/line-2.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Make a Line, successful real-robot trajectory 2"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 18</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.33333333" data-subgoal-frame="10" aria-current="step" aria-label="Subgoal 1, frame 10, 0.33 seconds" title="Subgoal 1 · 0.33 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="0.56666667" data-subgoal-frame="17" aria-current="false" aria-label="Subgoal 2, frame 17, 0.57 seconds" title="Subgoal 2 · 0.57 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="0.96666667" data-subgoal-frame="29" aria-current="false" aria-label="Subgoal 3, frame 29, 0.97 seconds" title="Subgoal 3 · 0.97 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.53333333" data-subgoal-frame="46" aria-current="false" aria-label="Subgoal 4, frame 46, 1.53 seconds" title="Subgoal 4 · 1.53 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.13333333" data-subgoal-frame="64" aria-current="false" aria-label="Subgoal 5, frame 64, 2.13 seconds" title="Subgoal 5 · 2.13 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.00000000" data-subgoal-frame="90" aria-current="false" aria-label="Subgoal 6, frame 90, 3.00 seconds" title="Subgoal 6 · 3.00 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.60000000" data-subgoal-frame="108" aria-current="false" aria-label="Subgoal 7, frame 108, 3.60 seconds" title="Subgoal 7 · 3.60 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.26666667" data-subgoal-frame="128" aria-current="false" aria-label="Subgoal 8, frame 128, 4.27 seconds" title="Subgoal 8 · 4.27 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.76666667" data-subgoal-frame="143" aria-current="false" aria-label="Subgoal 9, frame 143, 4.77 seconds" title="Subgoal 9 · 4.77 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.16666667" data-subgoal-frame="155" aria-current="false" aria-label="Subgoal 10, frame 155, 5.17 seconds" title="Subgoal 10 · 5.17 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.53333333" data-subgoal-frame="166" aria-current="false" aria-label="Subgoal 11, frame 166, 5.53 seconds" title="Subgoal 11 · 5.53 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.93333333" data-subgoal-frame="178" aria-current="false" aria-label="Subgoal 12, frame 178, 5.93 seconds" title="Subgoal 12 · 5.93 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.16666667" data-subgoal-frame="185" aria-current="false" aria-label="Subgoal 13, frame 185, 6.17 seconds" title="Subgoal 13 · 6.17 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.56666667" data-subgoal-frame="227" aria-current="false" aria-label="Subgoal 14, frame 227, 7.57 seconds" title="Subgoal 14 · 7.57 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.23333333" data-subgoal-frame="247" aria-current="false" aria-label="Subgoal 15, frame 247, 8.23 seconds" title="Subgoal 15 · 8.23 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.80000000" data-subgoal-frame="264" aria-current="false" aria-label="Subgoal 16, frame 264, 8.80 seconds" title="Subgoal 16 · 8.80 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-16.webp" width="256" height="144" loading="lazy" alt="Subgoal 16"><span>16</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.36666667" data-subgoal-frame="281" aria-current="false" aria-label="Subgoal 17, frame 281, 9.37 seconds" title="Subgoal 17 · 9.37 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-17.webp" width="256" height="144" loading="lazy" alt="Subgoal 17"><span>17</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.83333333" data-subgoal-frame="295" aria-current="false" aria-label="Subgoal 18, frame 295, 9.83 seconds" title="Subgoal 18 · 9.83 s"><img src="assets/experiments/real-world/subgoals/line-2/subgoal-18.webp" width="256" height="144" loading="lazy" alt="Subgoal 18"><span>18</span></button></div></div><figcaption>Make a vertical line.</figcaption></figure>
+              <figure class="exp-figure" data-real-subgoals><div class="exp-media-head"><strong>Trajectory 3</strong></div><video class="exp-video exp-video-real" data-exp-video data-exp-asset="real-line-3" data-exp-src="assets/experiments/real-world/line-3.mp4" poster="assets/experiments/real-world/line-3.webp" style="aspect-ratio:1920 / 1080" muted autoplay loop playsinline controls preload="none" aria-label="Make a Line, successful real-robot trajectory 3"></video><div class="real-subgoal-sequence"><div class="real-subgoal-header"><strong>Subgoal sequence</strong><span data-subgoal-status>Subgoal 1 / 18</span></div><div class="real-subgoal-strip" role="group" aria-label="DP-selected subgoal sequence"><button type="button" class="real-subgoal-frame" data-subgoal-time="0.63333333" data-subgoal-frame="19" aria-current="step" aria-label="Subgoal 1, frame 19, 0.63 seconds" title="Subgoal 1 · 0.63 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-01.webp" width="256" height="144" loading="lazy" alt="Subgoal 1"><span>1</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.23333333" data-subgoal-frame="37" aria-current="false" aria-label="Subgoal 2, frame 37, 1.23 seconds" title="Subgoal 2 · 1.23 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-02.webp" width="256" height="144" loading="lazy" alt="Subgoal 2"><span>2</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="1.66666667" data-subgoal-frame="50" aria-current="false" aria-label="Subgoal 3, frame 50, 1.67 seconds" title="Subgoal 3 · 1.67 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-03.webp" width="256" height="144" loading="lazy" alt="Subgoal 3"><span>3</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.06666667" data-subgoal-frame="62" aria-current="false" aria-label="Subgoal 4, frame 62, 2.07 seconds" title="Subgoal 4 · 2.07 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-04.webp" width="256" height="144" loading="lazy" alt="Subgoal 4"><span>4</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="2.53333333" data-subgoal-frame="76" aria-current="false" aria-label="Subgoal 5, frame 76, 2.53 seconds" title="Subgoal 5 · 2.53 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-05.webp" width="256" height="144" loading="lazy" alt="Subgoal 5"><span>5</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.06666667" data-subgoal-frame="92" aria-current="false" aria-label="Subgoal 6, frame 92, 3.07 seconds" title="Subgoal 6 · 3.07 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-06.webp" width="256" height="144" loading="lazy" alt="Subgoal 6"><span>6</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="3.60000000" data-subgoal-frame="108" aria-current="false" aria-label="Subgoal 7, frame 108, 3.60 seconds" title="Subgoal 7 · 3.60 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-07.webp" width="256" height="144" loading="lazy" alt="Subgoal 7"><span>7</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.03333333" data-subgoal-frame="121" aria-current="false" aria-label="Subgoal 8, frame 121, 4.03 seconds" title="Subgoal 8 · 4.03 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-08.webp" width="256" height="144" loading="lazy" alt="Subgoal 8"><span>8</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="4.50000000" data-subgoal-frame="135" aria-current="false" aria-label="Subgoal 9, frame 135, 4.50 seconds" title="Subgoal 9 · 4.50 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-09.webp" width="256" height="144" loading="lazy" alt="Subgoal 9"><span>9</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.16666667" data-subgoal-frame="155" aria-current="false" aria-label="Subgoal 10, frame 155, 5.17 seconds" title="Subgoal 10 · 5.17 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-10.webp" width="256" height="144" loading="lazy" alt="Subgoal 10"><span>10</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="5.66666667" data-subgoal-frame="170" aria-current="false" aria-label="Subgoal 11, frame 170, 5.67 seconds" title="Subgoal 11 · 5.67 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-11.webp" width="256" height="144" loading="lazy" alt="Subgoal 11"><span>11</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.13333333" data-subgoal-frame="184" aria-current="false" aria-label="Subgoal 12, frame 184, 6.13 seconds" title="Subgoal 12 · 6.13 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-12.webp" width="256" height="144" loading="lazy" alt="Subgoal 12"><span>12</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="6.56666667" data-subgoal-frame="197" aria-current="false" aria-label="Subgoal 13, frame 197, 6.57 seconds" title="Subgoal 13 · 6.57 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-13.webp" width="256" height="144" loading="lazy" alt="Subgoal 13"><span>13</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.16666667" data-subgoal-frame="215" aria-current="false" aria-label="Subgoal 14, frame 215, 7.17 seconds" title="Subgoal 14 · 7.17 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-14.webp" width="256" height="144" loading="lazy" alt="Subgoal 14"><span>14</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="7.63333333" data-subgoal-frame="229" aria-current="false" aria-label="Subgoal 15, frame 229, 7.63 seconds" title="Subgoal 15 · 7.63 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-15.webp" width="256" height="144" loading="lazy" alt="Subgoal 15"><span>15</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.10000000" data-subgoal-frame="243" aria-current="false" aria-label="Subgoal 16, frame 243, 8.10 seconds" title="Subgoal 16 · 8.10 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-16.webp" width="256" height="144" loading="lazy" alt="Subgoal 16"><span>16</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="8.60000000" data-subgoal-frame="258" aria-current="false" aria-label="Subgoal 17, frame 258, 8.60 seconds" title="Subgoal 17 · 8.60 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-17.webp" width="256" height="144" loading="lazy" alt="Subgoal 17"><span>17</span></button><button type="button" class="real-subgoal-frame" data-subgoal-time="9.06666667" data-subgoal-frame="272" aria-current="false" aria-label="Subgoal 18, frame 272, 9.07 seconds" title="Subgoal 18 · 9.07 s"><img src="assets/experiments/real-world/subgoals/line-3/subgoal-18.webp" width="256" height="144" loading="lazy" alt="Subgoal 18"><span>18</span></button></div></div><figcaption>Make a horizontal line at the bottom of the desk.</figcaption></figure>
+          </div>
+          <div class="exp-real-success"><table class="exp-real-success-table"><caption>Task success rate</caption><thead><tr><th scope="col">Method</th><th scope="col">Success</th></tr></thead><tbody><tr><th scope="row">End-to-end policy</th><td>10%</td></tr><tr><th scope="row">Dense video planning</th><td>0%</td></tr><tr><th scope="row">Uniform subgoal planning</th><td>25%</td></tr><tr class="exp-real-ours"><th scope="row">DreamCan</th><td>55%</td></tr></tbody></table></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="method-panel" id="experiments-panel-ablation" role="tabpanel" aria-labelledby="experiments-tab-ablation" tabindex="0" hidden>
+    <dl class="stage-io">
+      <div><dt>Targets</dt><dd>We evaluate learned subgoal reachability and the effectiveness of the different dynamic-programming terms.</dd></div>
+      <div><dt>Train &amp; Eval</dt><dd>For the reachability study, we use LIBERO-Long and RoboMimic Square; for the DP-term ablation, we use LIBERO-Long tasks.</dd></div>
+    </dl>
+    
+    <div class="exp-content">
+      <div class="exp-tabs" role="tablist" aria-label="Reachability studies" data-exp-tabs><button type="button" id="exp-reach-tab" role="tab" aria-selected="true" aria-controls="exp-reach-panel" tabindex="0">Subgoal reachability</button><button type="button" id="exp-terms-tab" role="tab" aria-selected="false" aria-controls="exp-terms-panel" tabindex="-1">DP-term ablation</button><button type="button" id="exp-detour-tab" role="tab" aria-selected="false" aria-controls="exp-detour-panel" tabindex="-1">Reachability after a failed grasp</button></div>
+      <div id="exp-reach-panel" role="tabpanel" aria-labelledby="exp-reach-tab" tabindex="0">
+        <div class="exp-grid exp-reach-study-grid">
+          <figure class="exp-figure exp-chart"><img src="assets/experiments/suite/figures/reachability-figure8.svg?v=20261012-unified" width="1936" height="1672" alt="Figure 8: two stacked violin plots show the distribution of segment success rates across subgoal stages for ten LIBERO-Long tasks. DreamCan has mean 0.98; Uniform subgoal planning has mean 0.88." loading="lazy"></figure>
+          <div class="exp-copy">
+            <h3>Experimental setting</h3>
+            <ul>
+              <li><strong>Ten LIBERO-Long tasks.</strong> Evaluate consecutive subgoal pairs with the trained goal-conditioned policy.</li>
+              <li><strong>Reset, replay, then execute.</strong> Replay to the first subgoal, then test whether the policy reaches the next state within 5 cm. Run 50 trials per segment.</li>
+              <li><strong>Read the distributions.</strong> Dots show stage success rates; diamonds show task means. Violins show within-task variation, and dashed lines show the mean across ten tasks.</li>
+            </ul>
+            <p class="exp-reach-criterion">Figure 8 uses object-only success for DreamCan and object-plus-end-effector success for Uniform subgoal planning.</p>
+            <h3 class="exp-reach-findings-title">Findings</h3>
+            <ol>
+              <li><strong>DreamCan’s subgoals are highly reachable.</strong> Its mean segment success rate is 0.98, with task means between 0.91 and 1.00.</li>
+              <li><strong>Uniform subgoals show larger variation.</strong> Their reported mean is 0.88, and several tasks contain stages with substantially lower success.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div id="exp-terms-panel" role="tabpanel" aria-labelledby="exp-terms-tab" tabindex="0" hidden><h3>Which terms guide subgoal discovery?</h3><p><strong>R</strong> rewards reachable transitions, <strong>U</strong> rewards task progress, and <strong>S</strong> controls temporal spacing. The manuscript compares five discovery objectives with the planner and policy trained under the same stated protocol.</p><div class="exp-table-wrap" style="margin-top:1.5rem"><table class="exp-table"><caption>LIBERO-Long task success · manuscript Table IV</caption><thead><tr><th scope="col">DP terms</th><th scope="col">R</th><th scope="col">U</th><th scope="col">S</th><th scope="col">Task success</th></tr></thead><tbody><tr><th scope="row">Spacing only (S)</th><td class="exp-term">—</td><td class="exp-term">—</td><td class="exp-term">✓</td><td>81.8%</td></tr><tr><th scope="row">Reachability + spacing (RS)</th><td class="exp-term">✓</td><td class="exp-term">—</td><td class="exp-term">✓</td><td>74.2%</td></tr><tr><th scope="row">Utility + spacing (US)</th><td class="exp-term">—</td><td class="exp-term">✓</td><td class="exp-term">✓</td><td>78.0%</td></tr><tr><th scope="row">Reachability + utility (RU)</th><td class="exp-term">✓</td><td class="exp-term">✓</td><td class="exp-term">—</td><td>83.8%</td></tr><tr class="exp-ours"><th scope="row">Ours (RUS)</th><td class="exp-term">✓</td><td class="exp-term">✓</td><td class="exp-term">✓</td><td>91.2%</td></tr></tbody></table></div></div>
+      <div id="exp-detour-panel" role="tabpanel" aria-labelledby="exp-detour-tab" tabindex="0" hidden>
+        <p>In Square episode 103, the nut is grasped at frame 101, dropped at 107, and returns near the anchor state at frame 208. Learned reachability rebounds even though elapsed time continues to increase.</p>
+        <div class="exp-grid"><figure class="exp-figure exp-gallery" data-exp-gallery="regrasp" aria-busy="true"><div class="exp-media-head"><strong data-exp-title>Square · failed grasp and regrasp</strong><span data-exp-meta>Source frame numbers retained</span></div><video class="exp-video exp-video-square" data-exp-video muted autoplay loop playsinline controls preload="none" aria-label="Square demonstration showing a failed grasp and later regrasp"></video><figcaption data-exp-caption></figcaption></figure><figure class="exp-figure exp-chart"><img src="assets/experiments/suite/figures/regrasp-recorded.svg?v=20261012-unified" width="1408" height="1474" alt="Original learned reachability and gamma time decay anchored at frame 101. At frame 208 they are 0.804 and 0.0041 respectively." loading="lazy"><figcaption>Original cached predictions; no smoothing or display offsets. <a href="assets/experiments/suite/data/square_reach_skip_ep000103_raw.json">View the frame-level values.</a></figcaption></figure></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container sec" id="interactive-demo" aria-label="Interactive Demo">
+  <h2 class="part-head">Interactive Demo</h2>
+</section>
+
+<!-- =====================================================================
+     run it
+     ================================================================== -->
+<!-- the run instructions, off for now
+<div class="container grid">
+  <section class="rail sec" id="run">
+    <h2>Run the benchmark</h2>
+    <p>A typical run consists of two main stages. First, the agent reconstructs the input
+      video's scene into code within an isolated container, which holds nothing from the case
+      except that video. Second, the generated output is evaluated against the reference in a
+      separate scoring container.</p>
+    <p>For configuration formats, agent credentials, and a complete list of options, please
+      refer to the <a class="a-body" href="https://github.com/4DCodeBench/4DCodeBench">README</a>.</p>
+
+    <h3>1. Setup</h3>
+    <p>Download the data and the checkpoints, and build the three images:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>git clone https://github.com/4DCodeBench/4DCodeBench && cd 4DCodeBench
+python scripts/download_data.py     # benchmark videos, masks and reference worlds
+scripts/download_checkpoints.sh     # the models the scorer measures with
+docker build -t 4dcb/sim-base:dev -f harness/base/Dockerfile .
+docker build -t 4dcb/agent:dev    -f harness/agent/Dockerfile .
+docker build -t 4dcb/scorer:dev   -f harness/scorer/Dockerfile .</code></pre>
+    </div>
+    <p class="note">Without Docker, for example on a cluster, Apptainer or SingularityCE
+      works too: convert each image to a SIF file and set <code>backend = "sif"</code> in
+      the runtime file. Agents always run in a container, but scoring can also run directly
+      in the conda environment.</p>
+
+    <h3>2. Run an agent</h3>
+    <p>Choose the cases, the agent and the model in the jobs file, and set paths, images
+      and credentials in the runtime file:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>mkdir -p .local
+cp harness/runtime/templates/jobs.example.toml    .local/jobs.toml      # cases, agent, model
+cp harness/runtime/templates/runtime.example.toml .local/runtime.toml   # paths, images, credentials
+python harness/runtime/infer.py --jobs .local/jobs.toml --runtime .local/runtime.toml</code></pre>
+    </div>
+    <ul class="note">
+      <li>Claude, GPT and Gemini models run through their own CLIs, signed in with a credential
+        file in <code>.auth/</code>. Any other model with an OpenAI-compatible endpoint runs
+        through Artificial Analysis' Stirrup harness, with the endpoint's URL and key set in
+        the runtime file.</li>
+      <li>Each run has a wall-clock limit of six hours by default.</li>
+    </ul>
+
+    <h3>3. Score</h3>
+    <p>Score what the agent delivered against the reference:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>python harness/runtime/score.py --jobs .local/jobs.toml --runtime .local/runtime.toml --stage prepare,score</code></pre>
+    </div>
+    <ul class="note">
+      <li><code>prepare</code> computes each case's reference estimates, once per case.</li>
+      <li><code>score</code> computes the metrics of each run and writes them to the run's
+        <code>results/</code>.</li>
+    </ul>
+
+    <h3>4. VLM judge</h3>
+    <p>Two judged evaluations complement the metrics: VQA, which asks questions about one
+      agent's renders, and a pairwise preference between two agents, fitted to an Elo
+      rating. Both need an OpenRouter key.</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>export OPENROUTER_API_KEY=...
+python vlm_judge/judge.py vqa   --system &lt;agent&gt;-&lt;model&gt;-&lt;effort&gt; --out answers.jsonl
+python vlm_judge/judge.py score answers.jsonl</code></pre>
+    </div>
+    <p>To rate a new agent against the agents in the paper, place their renders under
+      <code>runs/</code> first:</p>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bash</span></div>
+<pre><code>hf download 4DCodeBench/Results --repo-type dataset --local-dir results
+python scripts/place_renders.py results
+python vlm_judge/judge.py pairwise --out pairs.jsonl
+python vlm_judge/judge.py elo      pairs.jsonl</code></pre>
+    </div>
+  </section>
+</div> -->
+
+<!-- FAQ rewritten from DreamCan_ICRA.pdf. -->
+<div class="container grid">
+  <section class="rail sec" id="faq">
+    <h2 class="part-head">FAQ</h2>
+    <!-- Paper: Abstract; Sections I and III-A. -->
+    <details class="qa">
+      <summary>What is DreamCan?</summary>
+      <div class="qa-body">
+        <p>DreamCan is a hierarchical robot manipulation system with a high-level sparse visual planner and an independently trained, goal-conditioned low-level policy. Given the current image observation and a language instruction, the planner predicts a short sequence of visual subgoals. The policy turns these subgoals into robot actions, and the planner is periodically called again using the latest observation for closed-loop replanning.</p>
+      </div>
+    </details>
+
+    <!-- Paper: Section III-B. -->
+    <details class="qa">
+      <summary>Why plan with sparse visual subgoals instead of language or dense videos?</summary>
+      <div class="qa-body">
+        <p>Language plans can leave contact locations, geometric relationships, and intermediate object configurations ambiguous. Dense video plans are expensive to generate and can accumulate prediction errors or overconstrain the controller. Uniformly spaced keyframes can include redundant motion, regressions, or transitions that are difficult to execute. DreamCan selects sparse subgoals that balance reachability with useful task progress.</p>
+      </div>
+    </details>
+
+
+    <!-- Paper: Section IV-A; Section V-E; Figure 10. -->
+    <details class="qa">
+      <summary>What does the reachability value function measure?</summary>
+      <div class="qa-body">
+        <p>The normalized reachability score estimates how quickly and reliably one visual state can be reached from another. It is a discounted first-hitting-time value, rather than a success probability within a fixed horizon. The model uses action-free, goal-conditioned expectile learning with frozen RADIO visual features.</p>
+        <p>The learned score is a proxy for dataset-supported reachability, assuming a downstream controller whose capabilities are broadly compatible with the recorded behavior. It is not simply a penalty for elapsed video time: the paper evaluates demonstrations with detours and repeated states to distinguish the two.</p>
+      </div>
+    </details>
+
+
+
+
+    <!-- Paper: Sections III-A and IV-E. -->
+    <details class="qa">
+      <summary>How do the planner and low-level policy communicate?</summary>
+      <div class="qa-body">
+        <p>Their interface is the generated subgoal images; the planner and policy do not share gradients or hidden representations. The low-level controller is a 0.1B-parameter goal-conditioned flow-matching Transformer. It uses current visual observations, proprioceptive state, the language instruction, and several future subgoals to produce an action chunk.</p>
+        <p>The 0.1B parameter count refers only to the low-level policy. The high-level planner is adapted from a 5B-parameter pretrained video model.</p>
+      </div>
+    </details>
+
+
+    <!-- Paper: Sections IV-D and V-D; Figures 7 and 9. -->
+    <details class="qa">
+      <summary>How do test-time search and language steering work?</summary>
+      <div class="qa-body">
+        <p>The paper evaluates whole-sequence best-of-N search and anchored search. Anchored search samples candidate continuations, commits a selected prefix as clean latents, and regenerates the remaining subgoals. Candidate plans are evaluated with task-progress scores, and additional generator calls improve planning progress in the evaluated settings.</p>
+        <p>The planner is conditioned on language instructions. For test-time steering, the paper also uses a vision-language model to write instruction-specific task-progress functions that select plans matching the requested outcome. Examples include different line arrangements in Language-Table and preferred object placements during box packing.</p>
+      </div>
+    </details>
+
+
+
+
+  </section>
+</div>
+
+<!-- =====================================================================
+     citation
+     ================================================================== -->
+<div class="container grid">
+  <section class="rail sec" id="cite">
+    <h2 class="part-head">Citation</h2>
+    <div class="code">
+      <div class="code-head"><span class="code-lang">bibtex</span></div>
+<pre><code id="bib">@article{gao2026dreamcan,
+  title={Dream What I Can: Sparse Visual Planning for Long-Horizon Robot Manipulation},
+  author={Gao, Chongkai and Huang, Wenlong and Chen, Haonan and Shao, Lin and Du, Yilun and Wu, Jiajun and Zhang, Ruohan and Li, Fei-Fei},
+  journal={},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="container fbottom">
+  <span>&copy; 2026 The DreamCan authors</span>
+</footer>
+
+<!-- where the reader is, down the left edge; each stop scrolls to its section -->
+<nav class="pnav" id="pnav" aria-label="Sections">
+  <span class="pnav-track"><i class="pnav-fill"></i></span>
+  <a href="#top" data-sec="top"><b></b><span>Overview</span></a>
+  <a href="#top-demo" data-sec="top-demo"><b></b><span>Video</span></a>
+  <a href="#takeaways" data-sec="takeaways"><b></b><span>Key Results</span></a>
+  <a href="#method" data-sec="method"><b></b><span>Method</span></a>
+  <a href="#experiments" data-sec="experiments"><b></b><span>Experimental Results</span></a>
+  <a href="#interactive-demo" data-sec="interactive-demo"><b></b><span>Interactive Demo</span></a>
+  <!-- <a href="#run" data-sec="run"><b></b><span>Run the benchmark</span></a> -->
+  <a href="#faq" data-sec="faq"><b></b><span>FAQ</span></a>
+  <a href="#cite" data-sec="cite"><b></b><span>Citation</span></a>
+</nav>
+
+
+<script>window.__BUILD="1790625233";</script>
+<script src="method.js?v=20261010-full-experiments"></script>
+<script src="planning.js?v=20261011-vlp-caption"></script>
+<script src="policy-simulation.js?v=20261012-paired-rollouts"></script>
+<script src="experiments.js?v=20261012-reachability-figure8"></script>
+<script src="reachability.js?v=20261012-thicker-curves"></script>
+<script src="utility.js?v=20261012-thicker-curves"></script>
+<script src="dp.js?v=20261011-task-k-limits"></script>
+<script src="dp-example.js?v=20261011-task03-terminal-curve"></script>
+<script src="release.js?v=20261009-dreamcan-faq"></script>
+<script src="app.js?v=20261009-removed-sections"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"6c80dc98aaa24005a1863d3d7edabb3f","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script src="real-world-subgoals.js?v=20261012-dp"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+/* Reading hierarchy and optional technical detail, confined to Method. */
+#method .method-readable-copy{justify-content:flex-start;gap:0;min-width:0;font-family:var(--text-sans);color:var(--front-ink)}
+#method .method-readable-copy p,#method .method-points{font-family:var(--text-sans);font-size:1rem;line-height:1.55;max-width:none;margin:0 0 .65rem;color:var(--front-ink)}
+#method .method-readable-copy .reach-method-intro{font-size:1.0625rem;margin-bottom:1rem}
+#method .method-copy-heading{font-family:var(--text-sans);font-size:1rem;line-height:1.4;font-weight:600;color:var(--front-blue);margin:.55rem 0 .5rem;letter-spacing:0;text-transform:none}
+#method .method-points{padding-left:1.1rem;list-style:disc}
+#method .method-points li{padding-left:.15rem;margin:0 0 .45rem}
+#method .method-points li::marker{color:var(--front-blue)}
+#method .method-readable-copy strong{font-family:inherit;font-weight:600}
+#method .method-readable-copy .reach-math{padding:.25rem 0 .65rem;gap:.4rem;flex:none}
+#method .method-readable-copy .reach-math math{font-size:1.375rem}
+#method .method-details{margin:.2rem 0 .75rem;border-top:1px solid var(--front-border);border-bottom:1px solid var(--front-border);min-width:0}
+#method .method-details summary{font-family:var(--text-sans);font-size:.875rem;line-height:1.5;font-weight:500;color:var(--front-blue);padding:.65rem 0;cursor:pointer;list-style:disclosure-closed}
+#method .method-details[open] summary{list-style:disclosure-open}
+#method .method-details summary:focus-visible{outline:2px solid var(--front-blue);outline-offset:3px}
+#method .method-details-body{padding:.25rem 0 .55rem;min-width:0}
+#method .method-details-body p{font-size:.9375rem;line-height:1.55}
+#method .method-training-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;padding:0;list-style:none;counter-reset:training-step;margin:1rem 0 .6rem}
+#method .method-training-steps>li{counter-increment:training-step;min-width:0;border-top:2px solid var(--front-blue);padding:.65rem 0 0}
+#method .method-training-steps .method-copy-heading{margin:0 0 .5rem;display:flex;gap:.5rem;align-items:baseline}
+#method .method-training-steps .method-copy-heading::before{content:counter(training-step) ".";color:var(--front-red);font-variant-numeric:tabular-nums}
+#method .method-wan-intro>.method-details{margin:.5rem 0 1rem}
+#method .method-wan-intro>.wan-packing-equation{padding:.35rem 0 .5rem}
+@media(max-width:800px){#method .method-training-steps{grid-template-columns:1fr;gap:.65rem}#method .method-readable-copy .reach-math math{font-size:1.25rem}}

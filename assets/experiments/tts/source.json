@@ -1,0 +1,115 @@
+{
+  "source": "User-provided videos/tts files; budget and language mappings supplied by user.",
+  "records": [
+    {
+      "trajectory": 0,
+      "calls": 1,
+      "quality": "bad",
+      "video": "videos/tts/bad_0.mp4",
+      "poster": "assets/experiments/tts/bad_0.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "f3c14378830a32cbc6b9fa4d2b3136827e18ed719c783b81ff76baeea369f503"
+    },
+    {
+      "trajectory": 0,
+      "calls": 4,
+      "quality": "middle",
+      "video": "videos/tts/middle_0.mp4",
+      "poster": "assets/experiments/tts/middle_0.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "c41831666c51ecce5c3d5f676cc78ae33c8636a21b9ec23c1ac48a3fd8cc9e5d"
+    },
+    {
+      "trajectory": 0,
+      "calls": 8,
+      "quality": "good",
+      "video": "videos/tts/good_0.mp4",
+      "poster": "assets/experiments/tts/good_0.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "17f9320f8646e72df089dc2c3c3e916f5bf057ac80fdb273a495bfd6b53142a8"
+    },
+    {
+      "trajectory": 1,
+      "calls": 1,
+      "quality": "bad",
+      "video": "videos/tts/bad_1.mp4",
+      "poster": "assets/experiments/tts/bad_1.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "d385cc477042439768f36ab09f9f2a42d96e5f3f0e5be4ba762ed09392925c7c"
+    },
+    {
+      "trajectory": 1,
+      "calls": 4,
+      "quality": "middle",
+      "video": "videos/tts/middle_1.mp4",
+      "poster": "assets/experiments/tts/middle_1.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "69c512c46d8e3ecc5364250e7757552bffbf1f9e9f917565e4588ee1c43d7382"
+    },
+    {
+      "trajectory": 1,
+      "calls": 8,
+      "quality": "good",
+      "video": "videos/tts/good_1.mp4",
+      "poster": "assets/experiments/tts/good_1.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+      "sha256": "9cc2a2791d03b95b8953d6147ce960049d8461bdd7d2bdafda963bfd40a2f768"
+    },
+    {
+      "trajectory": 2,
+      "calls": 1,
+      "quality": "bad",
+      "video": "videos/tts/bad_2.mp4",
+      "poster": "assets/experiments/tts/bad_2.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put all the blocks in a vertical line on the center of the board",
+      "sha256": "1401f50fca7e1fef300c1e8235748e83bb80d58e73b308533525bb8829ad160d"
+    },
+    {
+      "trajectory": 2,
+      "calls": 4,
+      "quality": "middle",
+      "video": "videos/tts/middle_2.mp4",
+      "poster": "assets/experiments/tts/middle_2.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put all the blocks in a vertical line on the center of the board",
+      "sha256": "72d5e63c2cd51609e30faf665eb1719b2a19e42ad601e729ed61f8405aa57c61",
+      "mapping_note": "User corrected reversed trajectory-2 results; original middle_2.mp4 and good_2.mp4 filenames exchanged."
+    },
+    {
+      "trajectory": 2,
+      "calls": 8,
+      "quality": "good",
+      "video": "videos/tts/good_2.mp4",
+      "poster": "assets/experiments/tts/good_2.webp",
+      "width": 320,
+      "height": 192,
+      "duration": 4.25,
+      "instruction": "put all the blocks in a vertical line on the center of the board",
+      "sha256": "08f38d75adfb2251c8020f9994a3ef973a3893f43e69fb54aa3837b3425b70a3",
+      "mapping_note": "User corrected reversed trajectory-2 results; original middle_2.mp4 and good_2.mp4 filenames exchanged."
+    }
+  ]
+}

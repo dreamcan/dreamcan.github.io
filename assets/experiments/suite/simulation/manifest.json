@@ -1,0 +1,699 @@
+{
+  "sourceHost": "lyg2080",
+  "groups": {
+    "pusht": [
+      {
+        "id": "pusht-1",
+        "label": "Trajectory 1",
+        "trial": 0,
+        "instruction": "Push the T-shaped block into the target region.",
+        "success": true,
+        "numSubgoals": 3,
+        "execution": {
+          "width": 224,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 198,
+          "duration": 19.8,
+          "video": "videos/sim-pusht-1-execution.mp4",
+          "poster": "images/sim-pusht-1-execution.webp",
+          "sha256": "bc1a1aba9837520a460768dd8c7b23ac3e9924097f67a6e43375b2940a46da88",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial000_success_peak0.91_final0.91.mp4",
+          "sourceSha256": "16621f11abf1dcb91dc56d471fda5f837e3f6b500a1722ce89c2210dd6870de9",
+          "transform": "crop=226:224:0:0,scale=224:224"
+        },
+        "planner": {
+          "width": 672,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 198,
+          "duration": 19.8,
+          "video": "videos/sim-pusht-1-planner.mp4",
+          "poster": "images/sim-pusht-1-planner.webp",
+          "sha256": "3ef5f52f3aa67acacfcbe1427f8468560eec5a6edb3f33ff3340c8eece2ccc85",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial000_success_peak0.91_final0.91.mp4",
+          "sourceSha256": "16621f11abf1dcb91dc56d471fda5f837e3f6b500a1722ce89c2210dd6870de9",
+          "transform": "crop=684:224:228:0,scale=672:224"
+        },
+        "provenance": {
+          "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial000_success_peak0.91_final0.91.mp4",
+          "evaluationRun": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_pusht_wan_dp3_k4_v2a.yaml",
+          "notes": [
+            "Three actual generated subgoals consumed by the policy.",
+            "Source encoding resizes the composite width to a multiple of 16; crop widths account for this rescale.",
+            "Archived run aggregate is 84%; webpage table reports manuscript 86%."
+          ]
+        }
+      },
+      {
+        "id": "pusht-2",
+        "label": "Trajectory 2",
+        "trial": 1,
+        "instruction": "Push the T-shaped block into the target region.",
+        "success": true,
+        "numSubgoals": 3,
+        "execution": {
+          "width": 224,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 67,
+          "duration": 6.7,
+          "video": "videos/sim-pusht-2-execution.mp4",
+          "poster": "images/sim-pusht-2-execution.webp",
+          "sha256": "e75119ca656f25dd07ac67891260e418a54ad836fde4a14a8f43e3d7c1b86d5a",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial001_success_peak0.88_final0.88.mp4",
+          "sourceSha256": "e1318e9f0d703b21bc7ee2727f20b87a03a4b63fd9efec1858657c0b787be5eb",
+          "transform": "crop=226:224:0:0,scale=224:224"
+        },
+        "planner": {
+          "width": 672,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 67,
+          "duration": 6.7,
+          "video": "videos/sim-pusht-2-planner.mp4",
+          "poster": "images/sim-pusht-2-planner.webp",
+          "sha256": "35b1289936aac8cbc60cb29e1cf1d21ff858c9c45e9bee9411527cbe743a3f69",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial001_success_peak0.88_final0.88.mp4",
+          "sourceSha256": "e1318e9f0d703b21bc7ee2727f20b87a03a4b63fd9efec1858657c0b787be5eb",
+          "transform": "crop=684:224:228:0,scale=672:224"
+        },
+        "provenance": {
+          "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial001_success_peak0.88_final0.88.mp4",
+          "evaluationRun": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_pusht_wan_dp3_k4_v2a.yaml",
+          "notes": [
+            "Three actual generated subgoals consumed by the policy.",
+            "Source encoding resizes the composite width to a multiple of 16; crop widths account for this rescale.",
+            "Archived run aggregate is 84%; webpage table reports manuscript 86%."
+          ]
+        }
+      },
+      {
+        "id": "pusht-3",
+        "label": "Trajectory 3",
+        "trial": 2,
+        "instruction": "Push the T-shaped block into the target region.",
+        "success": true,
+        "numSubgoals": 3,
+        "execution": {
+          "width": 224,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 99,
+          "duration": 9.9,
+          "video": "videos/sim-pusht-3-execution.mp4",
+          "poster": "images/sim-pusht-3-execution.webp",
+          "sha256": "0572f568153b4ef14192ff34964e8bd7df4e4e0d95388b4f1ae945a2d06864c8",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial002_success_peak0.86_final0.86.mp4",
+          "sourceSha256": "2174e173be38701764534bc2ed84811cc922aa374a275979d6a60c6c7c9b9c2e",
+          "transform": "crop=226:224:0:0,scale=224:224"
+        },
+        "planner": {
+          "width": 672,
+          "height": 224,
+          "fps": 10.0,
+          "frameCount": 99,
+          "duration": 9.9,
+          "video": "videos/sim-pusht-3-planner.mp4",
+          "poster": "images/sim-pusht-3-planner.webp",
+          "sha256": "3c9d0e7fd77d0b8b6a4d4ac69118f65bb480e91bc71b7e20afdbe883b3f2455f",
+          "remoteSource": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial002_success_peak0.86_final0.86.mp4",
+          "sourceSha256": "2174e173be38701764534bc2ed84811cc922aa374a275979d6a60c6c7c9b9c2e",
+          "transform": "crop=684:224:228:0,scale=672:224"
+        },
+        "provenance": {
+          "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354/trial002_success_peak0.86_final0.86.mp4",
+          "evaluationRun": "/data/gck/svl_project/eval/flow_goal_radio_wan_pusht/goal_step_200000_resume_20260907_075324_20260907_131354",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_pusht_wan_dp3_k4_v2a.yaml",
+          "notes": [
+            "Three actual generated subgoals consumed by the policy.",
+            "Source encoding resizes the composite width to a multiple of 16; crop widths account for this rescale.",
+            "Archived run aggregate is 84%; webpage table reports manuscript 86%."
+          ]
+        }
+      }
+    ],
+    "libero": [
+      {
+        "id": "libero-1",
+        "label": "Task 1",
+        "taskId": 0,
+        "trial": 0,
+        "instruction": "Put both the alphabet soup and the tomato sauce in the basket.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 264,
+          "duration": 26.4,
+          "video": "videos/sim-libero-1-execution.mp4",
+          "poster": "images/sim-libero-1-execution.webp",
+          "sha256": "a242165ebb1ac85473d35869fd68e06e11f7206b2bc2815bb9138f0612a19995",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task00_LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_trial0_success_agentview.mp4",
+          "sourceSha256": "49d334d09be3328a589f836e4393e8379a92fb725691d74f926ff51c9838c5a1",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 264,
+          "duration": 26.4,
+          "video": "videos/sim-libero-1-planner.mp4",
+          "poster": "images/sim-libero-1-planner.webp",
+          "sha256": "fc04325525b6280a07383039bbdbe079150d1eb0b5e4fb227ff449f35730442f",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task00_LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "333c16df7b557b238d0fef7286f5616c551e6b1acba11bd45f15c81c99d2eba8",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task00_LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-2",
+        "label": "Task 2",
+        "taskId": 1,
+        "trial": 0,
+        "instruction": "Put both the cream cheese box and the butter in the basket.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 239,
+          "duration": 23.9,
+          "video": "videos/sim-libero-2-execution.mp4",
+          "poster": "images/sim-libero-2-execution.webp",
+          "sha256": "836c642eb22b4afe0cdff07cbb375128dcd6e041b75ea7c3081b8eca65118537",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task01_LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_trial0_success_agentview.mp4",
+          "sourceSha256": "38a98b0347d245ac130f2145fbbec2f2a94dde931264cca81f031863b00665e7",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 239,
+          "duration": 23.9,
+          "video": "videos/sim-libero-2-planner.mp4",
+          "poster": "images/sim-libero-2-planner.webp",
+          "sha256": "b987d6bcff3b0c98177e3898b0203355728bb5a55c5715ea22024803c8a54e55",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task01_LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "51145edf31a6f061f56cdbc92a9d0d3783d80e5e47f1afa9496888738fd057f5",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task01_LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-3",
+        "label": "Task 3",
+        "taskId": 2,
+        "trial": 0,
+        "instruction": "Turn on the stove and put the moka pot on it.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 246,
+          "duration": 24.6,
+          "video": "videos/sim-libero-3-execution.mp4",
+          "poster": "images/sim-libero-3-execution.webp",
+          "sha256": "842544e8c6c258d62cc63275a5f87ad0d07eaca3167c6b306e08e2fb81ba1941",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task02_KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success_agentview.mp4",
+          "sourceSha256": "356e5504abb673569846680fc345496c72a73d9d320f55a7c679158bfaa47789",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 246,
+          "duration": 24.6,
+          "video": "videos/sim-libero-3-planner.mp4",
+          "poster": "images/sim-libero-3-planner.webp",
+          "sha256": "8b1f5137e65dc7ea0b7dba1b2e93bfdf219e15c72085fa21c91f57aed6b19b13",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task02_KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "0daf3bb3777ff24c8b245ca83d1feb7e3521b9c608f2db37a96169d87f075307",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task02_KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-4",
+        "label": "Task 4",
+        "taskId": 3,
+        "trial": 0,
+        "instruction": "Put the black bowl in the bottom drawer of the cabinet and close it.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 221,
+          "duration": 22.1,
+          "video": "videos/sim-libero-4-execution.mp4",
+          "poster": "images/sim-libero-4-execution.webp",
+          "sha256": "be3a480b4621c54ecf8f11683590a09bdd7fec5203e34069bda85b5dd762daa2",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task03_KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close__trial0_success_agentview.mp4",
+          "sourceSha256": "0fd7095f85f27534dbc8e7202a53d7f4c3fa7e8632cdbf101a3702140b7f7a05",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 221,
+          "duration": 22.1,
+          "video": "videos/sim-libero-4-planner.mp4",
+          "poster": "images/sim-libero-4-planner.webp",
+          "sha256": "2b1238ff0cea8cbeaf69fcfb0e49c505bc54c19d067d931386e3f8d27794aa9c",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task03_KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close__trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "fad79941cec61e4c35d79c80d23b1a215818f0673faa9980f0ffc9ce53502fa3",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task03_KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close__trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-5",
+        "label": "Task 5",
+        "taskId": 4,
+        "trial": 0,
+        "instruction": "Put the white mug on the left plate and put the yellow and white mug on the right plate.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 228,
+          "duration": 22.8,
+          "video": "videos/sim-libero-5-execution.mp4",
+          "poster": "images/sim-libero-5-execution.webp",
+          "sha256": "b4d09f2cae11fac4d0e3874413845c925a1dcb76d57d591938a63a17f9812cf7",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task04_LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_wh_trial0_success_agentview.mp4",
+          "sourceSha256": "13524805847402fc37739f9877d54422293897b5ae9d8a2248a82d1995ffee13",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 228,
+          "duration": 22.8,
+          "video": "videos/sim-libero-5-planner.mp4",
+          "poster": "images/sim-libero-5-planner.webp",
+          "sha256": "cb8de383ff5f84c409aa2b97028431e39f47d9b22733c1ec5bf37eb61ca29b58",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task04_LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_wh_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "c72788e237f649ff455c03f2b7b3a4435942ca6b9efc9b9e8b645f17d0793106",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu6/videos/task04_LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_wh_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-6",
+        "label": "Task 6",
+        "taskId": 5,
+        "trial": 0,
+        "instruction": "Pick up the book and place it in the back compartment of the caddy.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 177,
+          "duration": 17.7,
+          "video": "videos/sim-libero-6-execution.mp4",
+          "poster": "images/sim-libero-6-execution.webp",
+          "sha256": "5e99d8f1f123e9f49c52d769b368aecf42f958582a2ec441c8153b60ca974a6a",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_agentview.mp4",
+          "sourceSha256": "29d2969b4965432564aea64c4a9f96e1943e0a213d617138907c2a43581c0b76",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 177,
+          "duration": 17.7,
+          "video": "videos/sim-libero-6-planner.mp4",
+          "poster": "images/sim-libero-6-planner.webp",
+          "sha256": "b03f66397518a7ce7cafc3aefa94a832c5a50b3847b87c6ef6d57ecee9d0675b",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "cb78701178d608cdd7159708c8120b95b95afd4d066c1643c3f98bdb9525e01d",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-7",
+        "label": "Task 7",
+        "taskId": 6,
+        "trial": 0,
+        "instruction": "Put the white mug on the plate and put the chocolate pudding to the right of the plate.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 202,
+          "duration": 20.2,
+          "video": "videos/sim-libero-7-execution.mp4",
+          "poster": "images/sim-libero-7-execution.webp",
+          "sha256": "8f170f9fe4e90fe1ca2a1ba85c3e7fbb474851752251e08446e477cedfcfadd6",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_agentview.mp4",
+          "sourceSha256": "7e90efae53bf48e4a3bc4057b18d0e1a0032cad224c5e9b126eef68f6e850c43",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 202,
+          "duration": 20.2,
+          "video": "videos/sim-libero-7-planner.mp4",
+          "poster": "images/sim-libero-7-planner.webp",
+          "sha256": "5d019ffbe66a83d77bbcaf1887161caf9c4724357213f1157ea0c381c49cc058",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "2f4e1b0ecdd59fc57bc090f9d7ab784c352109b518ade06584355dff781f5c87",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-8",
+        "label": "Task 8",
+        "taskId": 7,
+        "trial": 0,
+        "instruction": "Put both the alphabet soup and the cream cheese box in the basket.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 263,
+          "duration": 26.3,
+          "video": "videos/sim-libero-8-execution.mp4",
+          "poster": "images/sim-libero-8-execution.webp",
+          "sha256": "da9faabe5d926bf01ab38d065d9f28ee32fa8672b951cd088dbc78b6c0b58ce0",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_agentview.mp4",
+          "sourceSha256": "e9075963487169af1f0934f603ecd9de608bbd3175d56c5eada65aca5a370952",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 263,
+          "duration": 26.3,
+          "video": "videos/sim-libero-8-planner.mp4",
+          "poster": "images/sim-libero-8-planner.webp",
+          "sha256": "a766c8de54a8ab4274a3e5e0b75efd5bc978dca4d555d1481f209036e4d15a47",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "3b5721edc1496b446cf511f74bcf7c1c80eb2afededc174f6c9f609968db47ed",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      },
+      {
+        "id": "libero-9",
+        "label": "Task 9",
+        "taskId": 8,
+        "trial": 0,
+        "instruction": "Put both moka pots on the stove.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 453,
+          "duration": 45.3,
+          "video": "videos/sim-libero-9-archived-execution.mp4",
+          "poster": "images/sim-libero-9-archived-execution.webp",
+          "sha256": "cb99d45bf2ae5758db6063048da829d59276d5891dd717e3252f4f69ac765c64",
+          "remoteSource": "/data/gck/svl_project/eval/hiprec/t8_videos_v3/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_success_agentview.mp4",
+          "sourceSha256": "062d96a63254f012e4fce1882c1cd79f75f60adc7bd31f879f0cb72c5834882c",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 1280,
+          "height": 128,
+          "fps": 10.0,
+          "frameCount": 453,
+          "duration": 45.3,
+          "video": "videos/sim-libero-9-archived-planner.mp4",
+          "poster": "images/sim-libero-9-archived-planner.webp",
+          "sha256": "738f0ee681d611f8a237c6410029b69f74b8217b39e7c302ee51933eaf3e8a87",
+          "remoteSource": "/data/gck/svl_project/eval/hiprec/t8_videos_v3/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "719753ec35d2953692831df34edfdc4d936601b511474dfc7caaaef9f8c2b9d3",
+          "transform": "split=2[top][bottom];[top]crop=640:128:256:0[a];[bottom]crop=640:128:256:128[b];[a][b]hstack=inputs=2"
+        },
+        "provenance": {
+          "source": "/data/gck/svl_project/eval/hiprec/t8_videos_v3/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": null,
+          "policyFamily": "Archived v3 goal-conditioned policy",
+          "recording": "Original 2 × 5 grid of actual generated subgoals retiled to a 1 × 10 strip.",
+          "notes": [
+            "Uses the matching original agentview recording; retains all 453 frames at 10 fps.",
+            "Nine other tasks use the newly recorded EXP-A policy. This archived success replaces the two uncompleted new task-8 attempts for the representative gallery.",
+            "Exact archive checkpoint has not been verified from the video directory; do not infer it from the table aggregate."
+          ]
+        }
+      },
+      {
+        "id": "libero-10",
+        "label": "Task 10",
+        "taskId": 9,
+        "trial": 0,
+        "instruction": "Put the yellow and white mug in the microwave and close it.",
+        "success": true,
+        "numSubgoals": 10,
+        "execution": {
+          "width": 256,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 239,
+          "duration": 23.9,
+          "video": "videos/sim-libero-10-execution.mp4",
+          "poster": "images/sim-libero-10-execution.webp",
+          "sha256": "3cced58519850b4ea654ea197d5fa40dec1d3e3580a9dd3291f17da092b8461a",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_agentview.mp4",
+          "sourceSha256": "689a7185a7f6794455835e96b737fe5aeb70d0020adae5bdda01e1d13c231141",
+          "transform": "stream-copy with faststart"
+        },
+        "planner": {
+          "width": 2560,
+          "height": 256,
+          "fps": 10.0,
+          "frameCount": 239,
+          "duration": 23.9,
+          "video": "videos/sim-libero-10-planner.mp4",
+          "poster": "images/sim-libero-10-planner.webp",
+          "sha256": "82aae46a1f9a789e0d1e7a4d3be6d6ddb1fdabb16d287fa98b1b3000a65e15ad",
+          "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_obs_plus_wan_subgoals.mp4",
+          "sourceSha256": "363545b2e2084b2d6ff010be2b6a9f4282913564a56823d629a2e0f0f61545c2",
+          "transform": "crop=2560:256:256:0"
+        },
+        "provenance": {
+          "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_obs_plus_wan_subgoals.mp4",
+          "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+          "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+          "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+          "settings": {
+            "seed": 0,
+            "wanInferenceSteps": 30,
+            "flowSteps": 20,
+            "maxSteps": 600,
+            "executeChunkSteps": 8,
+            "numSubgoals": 10,
+            "recording": "10 columns × 1 row, each tile 256 × 256"
+          }
+        }
+      }
+    ]
+  },
+  "notes": [
+    "Paired views come from the same recorded rollout frames and retain original playback timing.",
+    "These representative videos do not replace Table III aggregate success rates.",
+    "LIBERO representatives: nine newly recorded EXP-A successes and one existing task-8 v3 success; original attempt reports retained."
+  ],
+  "liberoRuntime": {
+    "originalConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+    "originalConfigSha256": "51dccef1cff940c4452cd96abd7228087279b50c2991dd1b3d8e93287f4b295f",
+    "originalStats": "/mnt/gck/libero_data/libero_hdf5/norm_stats/LIBERO_Long_stats.json",
+    "statsSha256": "01c0ff74732d127fd8ab5ba5834e5ebd5568480ba0d551284e1806bbe20f24bb",
+    "onlyConfigChange": "data.stats_dir points to the verified byte-identical local copy to avoid a stalled shared mount"
+  },
+  "liberoInitialTask8Representative": {
+    "id": "libero-9",
+    "label": "Task 9",
+    "taskId": 8,
+    "trial": 0,
+    "instruction": "Put both moka pots on the stove.",
+    "success": false,
+    "numSubgoals": 10,
+    "execution": {
+      "width": 256,
+      "height": 256,
+      "fps": 10.0,
+      "frameCount": 605,
+      "duration": 60.5,
+      "video": "videos/sim-libero-9-execution.mp4",
+      "poster": "images/sim-libero-9-execution.webp",
+      "sha256": "4900a972bbd75972533c47b8b3e278b98e133ec3e9cdbdcb6cbb26fe47a21755",
+      "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_agentview.mp4",
+      "sourceSha256": "529861e1b113c99ad6a6c36f7b491ffd74595acd2e73e4cec16a643aa3869c85",
+      "transform": "stream-copy with faststart"
+    },
+    "planner": {
+      "width": 2560,
+      "height": 256,
+      "fps": 10.0,
+      "frameCount": 605,
+      "duration": 60.5,
+      "video": "videos/sim-libero-9-planner.mp4",
+      "poster": "images/sim-libero-9-planner.webp",
+      "sha256": "7dbdfe48b8355955c5825f069f2d910aa75346c06477561346f7c2d482cd4e48",
+      "remoteSource": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_obs_plus_wan_subgoals.mp4",
+      "sourceSha256": "b86d20412efc734cd56c37f6e816c4ba558a53ae76b51c2bb6ad248eda087d27",
+      "transform": "crop=2560:256:256:0"
+    },
+    "provenance": {
+      "source": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_obs_plus_wan_subgoals.mp4",
+      "checkpoint": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+      "policyConfig": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+      "plannerCheckpoint": "/mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors",
+      "settings": {
+        "seed": 0,
+        "wanInferenceSteps": 30,
+        "flowSteps": 20,
+        "maxSteps": 600,
+        "executeChunkSteps": 8,
+        "numSubgoals": 10,
+        "recording": "10 columns × 1 row, each tile 256 × 256"
+      }
+    }
+  }
+}

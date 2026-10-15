@@ -1,0 +1,132 @@
+{
+  "source": "DreamCan_ICRA.pdf, Figure 5 (published curves)",
+  "sourceScript": "/data/gck/svl_project/docs/paper/fig_square_scaling.py",
+  "sourceScriptSha256": "93675bca90cc8177cd53335e257a5cb3ab03d60add3317b75b8241e3cf296386",
+  "numSuboptimalVideos": [
+    5,
+    10,
+    20,
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "series": [
+    {
+      "method": "DreamCan (Ours)",
+      "figureRatesPercent": [
+        51.6,
+        57.99999999999999,
+        63.0,
+        64.8,
+        64.2,
+        65.5,
+        67.0,
+        68.0
+      ],
+      "figureErrorPercent": [
+        2.2349228174592515,
+        2.207260745811423,
+        2.1591665058535896,
+        2.135865164283551,
+        2.1439962686534693,
+        2.1259115691862633,
+        2.1028552018624582,
+        2.0861447696648474
+      ],
+      "scriptRates": [
+        0.516,
+        0.58,
+        0.63,
+        0.648,
+        0.642,
+        0.655,
+        0.67,
+        0.68
+      ],
+      "scriptAdjustment": 0.0,
+      "trialsPerPointInScript": 500,
+      "color": "#8C1515",
+      "marker": "o",
+      "line": "-"
+    },
+    {
+      "method": "Uniform",
+      "figureRatesPercent": [
+        51.0,
+        56.49999999999999,
+        58.8,
+        51.0,
+        51.99999999999999,
+        52.99999999999999,
+        55.99999999999999,
+        47.5
+      ],
+      "figureErrorPercent": [
+        7.019971509913697,
+        6.881496930174423,
+        6.796410817483005,
+        7.019971509913697,
+        7.001428425685718,
+        6.979971346646059,
+        6.897825744392214,
+        7.0622234459127675
+      ],
+      "scriptRates": [
+        0.56,
+        0.615,
+        0.638,
+        0.56,
+        0.57,
+        0.58,
+        0.61,
+        0.525
+      ],
+      "scriptAdjustment": -0.05,
+      "trialsPerPointInScript": 50,
+      "color": "#6C8067",
+      "marker": "^",
+      "line": "--"
+    },
+    {
+      "method": "Dense",
+      "figureRatesPercent": [
+        56.49999999999999,
+        51.0,
+        51.5,
+        50.0,
+        47.5,
+        54.50000000000001,
+        52.5,
+        56.49999999999999
+      ],
+      "figureErrorPercent": [
+        4.957569969249047,
+        4.998999899979995,
+        4.997749493522059,
+        5.0,
+        4.993746088859544,
+        4.979708826829135,
+        4.993746088859544,
+        4.957569969249047
+      ],
+      "scriptRates": [
+        0.565,
+        0.51,
+        0.515,
+        0.5,
+        0.475,
+        0.545,
+        0.525,
+        0.565
+      ],
+      "scriptAdjustment": 0.0,
+      "trialsPerPointInScript": 100,
+      "color": "#1565C0",
+      "marker": "s",
+      "line": "-."
+    }
+  ],
+  "provenanceNote": "Reproduces Figure 5 as published. The source script subtracts 0.05 from Uniform centres, retaining its original binomial standard errors. The source script also records distinct controller training sets for DP and the two baselines. This figure is not the unadjusted common-controller evaluation previously shown."
+}

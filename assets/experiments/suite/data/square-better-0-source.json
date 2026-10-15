@@ -1,0 +1,24 @@
+{
+  "id": "square-better-0",
+  "remote_host": "lyg2080",
+  "remote_path": "/mnt2/gck/newwebsite_suboptimal_panel_20261011/videos/square-better-0.mp4",
+  "type": "proficient simulation demonstration",
+  "quality": "better",
+  "instruction": "pick up the square nut and place it on the square peg",
+  "episode": "ep_000000",
+  "sourceDemo": "demo_0",
+  "video": "videos/square-better-0.mp4",
+  "poster": "images/square-better-0.webp",
+  "width": 256,
+  "height": 256,
+  "fps": 20,
+  "frameCount": 127,
+  "duration": 6.35,
+  "sha256": "8f4d6226cb46942f6a7c77a0c0aea55d03d7d9cc1d82a0a1a875ac50fc6c1e10",
+  "sourcePixelsSha256": "41a15d3268325825e62995b3a66ac288179339506019f22e41773f51cfa230c0",
+  "notes": [
+    "Source operator_quality is better; preserves all frames.",
+    "20 fps matches the existing worse demonstration presentation."
+  ],
+  "sourceFrames": "/data/gck/svl_project/robomimic/hdf5/Square.h5::episodes/ep_000000/image"
+}

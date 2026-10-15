@@ -1,0 +1,15 @@
+/* Fonts copied from the downloaded I3L reference's Google Fonts stylesheet. */
+@font-face {
+  font-family: "Google Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/google-sans.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/noto-sans.ttf") format("truetype");
+}

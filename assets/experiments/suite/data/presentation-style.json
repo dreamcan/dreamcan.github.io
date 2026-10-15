@@ -1,0 +1,25 @@
+{
+  "base_colors": {
+    "stanford_red": "#8c1515",
+    "abstract_blue": "#1565c0",
+    "ink": "#202020",
+    "white": "#ffffff"
+  },
+  "neutral_shades": "Derived grayscale for ticks, grids and secondary series.",
+  "figure_style": "White background, thin axes, subtle horizontal grid, no legend frame, consistent sans-serif labels, distinct line/point markers.",
+  "numerical_inputs": "All pre-existing experimental/source JSON files preserved byte-for-byte.",
+  "builders": [
+    "scripts/style_experiment_figures.py",
+    "scripts/build_search_figure7.py",
+    "scripts/build_reachability_figure8.py",
+    "scripts/draw_low_level_policy.py"
+  ],
+  "assetSha256": {
+    "suboptimal-figure5.svg": "f01edd25f3872790f85deb3f9143788b7bf2145b22017be6d140b73302ff3ab3",
+    "search-figure7.svg": "2c4cbce53aac3fd919e9c8beaedf95c8692d8d9da90f3e87d5cace883f8e3fc7",
+    "reachability-figure8.svg": "e4d750f8b256a5e751ad4290a07666b93ac5be4fa328183576bded4b08ff7cad",
+    "policy-pusht-scaling.svg": "6efac7eba286719d6f333225225618249c80e0d44a4d17d5e7b29241464a64b4",
+    "policy-libero-long-scaling.svg": "27efe19319813e23c2f3a6437cd2c524106d1a5e491a3840ecf57ccc047e7e2d",
+    "regrasp-recorded.svg": "5b15289bbe1f995fe7a1a7b5771f3552bdda36738777ce0e66d3ec906eb45cc5"
+  }
+}

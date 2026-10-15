@@ -1,0 +1,22 @@
+{
+  "stanford": {
+    "file": "stanford.svg",
+    "source": "https://4dcodebench.com/logos/stanford.svg",
+    "note": "Existing local asset."
+  },
+  "nus": {
+    "file": "nus.svg",
+    "source": "https://logotyp.us/file/nus.svg",
+    "reference": "https://nus.edu.sg/identity/elements-of-the-nus-logo",
+    "note": "Whitespace cropped via SVG viewBox; mark unchanged."
+  },
+  "harvard": {
+    "file": "harvard.svg",
+    "source": "https://www.harvard.edu/wp-content/themes/core/assets/css/dist/theme/master.min.css",
+    "note": "Official light-background header SVG extracted from CSS data URL."
+  },
+  "northwestern": {
+    "file": "northwestern.svg",
+    "source": "https://common.northwestern.edu/v9/css/images/northwestern.svg"
+  }
+}

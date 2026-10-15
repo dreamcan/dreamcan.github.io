@@ -1,0 +1,5432 @@
+{
+ "real/abc_130k_01_dual_arm_robotic": {
+  "id": "abc_130k_01_dual_arm_robotic",
+  "kind": "real",
+  "description": "Robot folds cloth pulled from a basket",
+  "note": "Two robot arms pull a pink cloth from a basket, lift it and fold it into a stack.",
+  "source": "ABC-130K",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 10.46,
+  "frames": 251,
+  "w": 640,
+  "h": 480
+ },
+ "real/abc_130k_02_robot_arm_uses": {
+  "id": "abc_130k_02_robot_arm_uses",
+  "kind": "real",
+  "description": "Robot scoops clumps from cat litter",
+  "note": "Robot arm drags a rigid slotted scoop through litter, sifting clumps and tipping them into a bin.",
+  "source": "ABC-130K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.12,
+  "frames": 195,
+  "w": 640,
+  "h": 480
+ },
+ "real/abc_130k_04_dual_arm_robot": {
+  "id": "abc_130k_04_dual_arm_robot",
+  "kind": "real",
+  "description": "Robot folds a cardboard blank into a tray",
+  "note": "Two robot arms drag, rotate and fold a flat cardboard blank into an open tray.",
+  "source": "ABC-130K",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 11.25,
+  "frames": 270,
+  "w": 640,
+  "h": 480
+ },
+ "real/abc_130k_05_dual_robotic_arms": {
+  "id": "abc_130k_05_dual_robotic_arms",
+  "kind": "real",
+  "description": "Robot unfolds a folded cloth sheet",
+  "note": "Two robot arms pinch and unfold a folded cloth sheet, then drag its top layer back over.",
+  "source": "ABC-130K",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.37,
+  "frames": 251,
+  "w": 640,
+  "h": 480
+ },
+ "real/abc_130k_06_dual_robot_grippers": {
+  "id": "abc_130k_06_dual_robot_grippers",
+  "kind": "real",
+  "description": "Robot crumples a plastic bag of fruit",
+  "note": "Two robot arms lift a thin plastic bag holding fruit, crumple it, then stretch its handles taut.",
+  "source": "ABC-130K",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.5,
+  "frames": 204,
+  "w": 640,
+  "h": 480
+ },
+ "real/agi_bot_world_02_dual_arm_robot": {
+  "id": "agi_bot_world_02_dual_arm_robot",
+  "kind": "real",
+  "description": "Robot slots a book into a shelf",
+  "note": "Two robot grippers push books aside and slot a held book into the shelf row.",
+  "source": "AgiBotWorld",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.25,
+  "frames": 174,
+  "w": 640,
+  "h": 480
+ },
+ "real/agi_bot_world_04_dual_arm_robot": {
+  "id": "agi_bot_world_04_dual_arm_robot",
+  "kind": "real",
+  "description": "Robot empties a cup and refills it",
+  "note": "Robot grippers tip a cup to pour liquid into the sink, then fill it under the faucet.",
+  "source": "AgiBotWorld",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 10.04,
+  "frames": 241,
+  "w": 640,
+  "h": 480
+ },
+ "real/aloha_unleashed_01_tying_shoelace_bow": {
+  "id": "aloha_unleashed_01_tying_shoelace_bow",
+  "kind": "real",
+  "description": "Robot ties a shoelace bow",
+  "note": "Two robot grippers lift, loop and tighten shoelaces into a bow on a sneaker.",
+  "source": "ALOHA-unleashed",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 11.5,
+  "frames": 276,
+  "w": 640,
+  "h": 480
+ },
+ "real/internet_01_purple_granular_sand": {
+  "id": "internet_01_purple_granular_sand",
+  "kind": "real",
+  "description": "Sand drains through an hourglass",
+  "note": "Purple sand drains through an hourglass neck, emptying the upper bulb and building a cone below.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.5,
+  "frames": 156,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_06_extruding_piping_pink": {
+  "id": "internet_06_extruding_piping_pink",
+  "kind": "real",
+  "description": "Nozzle pipes frosting into a swirl",
+  "note": "A rigid nozzle circles upward, extruding frosting that stacks into a swirl holding its shape.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_07_spreading_viscous_chocolate": {
+  "id": "internet_07_spreading_viscous_chocolate",
+  "kind": "real",
+  "description": "Knife smears chocolate spread on bread",
+  "note": "A hand-held knife smears a mound of chocolate spread into a thin layer on bread.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 10.0,
+  "frames": 300,
+  "w": 1070,
+  "h": 618
+ },
+ "real/internet_08_coffee_beans_falling": {
+  "id": "internet_08_coffee_beans_falling",
+  "kind": "real",
+  "description": "Coffee beans rain into a grinder",
+  "note": "Coffee beans rain into a grinder bowl, bouncing and settling onto the growing bean heap.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 644
+ },
+ "real/internet_09_soccer_ball_thrown": {
+  "id": "internet_09_soccer_ball_thrown",
+  "kind": "real",
+  "description": "Ball splashes into a pool and floats",
+  "note": "A ball splashes into a pool, floats and drifts while ripples spread across the water.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_11_fabric_flag_flapping": {
+  "id": "internet_11_fabric_flag_flapping",
+  "kind": "real",
+  "description": "Flag ripples and curls in wind",
+  "note": "Wind-driven flag pinned to a pole ripples, whips and curls back on itself.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Shell"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 10.0,
+  "frames": 300,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_12_straight_rigid_rod": {
+  "id": "internet_12_straight_rigid_rod",
+  "kind": "real",
+  "description": "Rod slides through slots on a turning platform",
+  "note": "A rotating platform carries a rigid rod's end, sliding it through the X-frame slots.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.67,
+  "frames": 184,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_14_heavy_bowling_ball": {
+  "id": "internet_14_heavy_bowling_ball",
+  "kind": "real",
+  "description": "Bowling ball scatters the pins",
+  "note": "A rigid bowling ball strikes the pin deck, knocking pins over in a fast chain.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 8.0,
+  "frames": 200,
+  "w": 928,
+  "h": 500
+ },
+ "real/internet_15_dry_rice_grains": {
+  "id": "internet_15_dry_rice_grains",
+  "kind": "real",
+  "description": "Rice pours into a conical pile",
+  "note": "A stream of rice grains falls from above and builds a growing conical pile on the table.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 10.0,
+  "frames": 300,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_17_oscillating_tapping_handheld": {
+  "id": "internet_17_oscillating_tapping_handheld",
+  "kind": "real",
+  "description": "Hand sifts flour through a sieve",
+  "note": "Hand shakes a rigid sieve; flour sifts through and builds a conical mound below.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 11.67,
+  "frames": 280,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_18_thin_sheet_dough": {
+  "id": "internet_18_thin_sheet_dough",
+  "kind": "real",
+  "description": "Rod unrolls a dough sheet onto a griddle",
+  "note": "A hand-swept rod unrolls a thin dough sheet flat onto a griddle.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 6.3,
+  "frames": 189,
+  "w": 1080,
+  "h": 1000
+ },
+ "real/internet_19_fabric_laundry_tumbles": {
+  "id": "internet_19_fabric_laundry_tumbles",
+  "kind": "real",
+  "description": "Laundry tumbles in a dryer drum",
+  "note": "Rotating dryer drum tumbles blue laundry, lifting and dropping folding sheets.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 25.0,
+  "seconds": 9.64,
+  "frames": 241,
+  "w": 1280,
+  "h": 676
+ },
+ "real/internet_20_red_shovel_cuts": {
+  "id": "internet_20_red_shovel_cuts",
+  "kind": "real",
+  "description": "Shovel cuts and throws a block of snow",
+  "note": "A hand-driven red shovel cuts, lifts and throws a crumbling block of snow.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 4.52,
+  "frames": 113,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_21_green_plastic_toy": {
+  "id": "internet_21_green_plastic_toy",
+  "kind": "real",
+  "description": "Toy shovel drags through damp sand",
+  "note": "A hand-driven rigid toy shovel drags through damp sand, piling and lifting crumbly clods.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 2.8,
+  "frames": 84,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_22_viscous_honey_dripping": {
+  "id": "internet_22_viscous_honey_dripping",
+  "kind": "real",
+  "description": "Honey drips in a thread into tea",
+  "note": "Honey drips from a hand-held dipper as a thin thread into tea and pools on the bottom.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.96,
+  "frames": 239,
+  "w": 1016,
+  "h": 1280
+ },
+ "real/internet_24_fresh_pasta_strands": {
+  "id": "internet_24_fresh_pasta_strands",
+  "kind": "real",
+  "description": "Pasta ribbons coil into a tangled pile",
+  "note": "Pasta ribbons feed down from the machine, buckling and coiling into a tangled pile.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.12,
+  "frames": 219,
+  "w": 1280,
+  "h": 960
+ },
+ "real/internet_25_transparent_rectangular_block": {
+  "id": "internet_25_transparent_rectangular_block",
+  "kind": "real",
+  "description": "Gel block bounces and jiggles on impact",
+  "note": "A gel block drops, bends hard on a corner impact, bounces and jiggles back to shape.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.4,
+  "frames": 222,
+  "w": 1280,
+  "h": 864
+ },
+ "real/internet_26_multi_needle_rigid": {
+  "id": "internet_26_multi_needle_rigid",
+  "kind": "real",
+  "description": "Needle comb punches holes in kinetic sand",
+  "note": "Rigid needle comb repeatedly plunges into a kinetic-sand mound, leaving rows of permanent holes.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.5,
+  "frames": 180,
+  "w": 1072,
+  "h": 1080
+ },
+ "real/internet_27_wooden_mallet_forcefully": {
+  "id": "internet_27_wooden_mallet_forcefully",
+  "kind": "real",
+  "description": "Mallet collapses a kinetic-sand block",
+  "note": "A wooden mallet presses into a kinetic-sand block, which cracks, bulges and collapses into loose sand.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 3.04,
+  "frames": 73,
+  "w": 1072,
+  "h": 1080
+ },
+ "real/internet_28_plastic_blade_cuts": {
+  "id": "internet_28_plastic_blade_cuts",
+  "kind": "real",
+  "description": "Blade slices a sand dome into strips",
+  "note": "A hand-held blade slices a moldable sand dome into strips that keep their shape.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.83,
+  "frames": 175,
+  "w": 1200,
+  "h": 880
+ },
+ "real/internet_30_rigid_kitchen_utensils": {
+  "id": "internet_30_rigid_kitchen_utensils",
+  "kind": "real",
+  "description": "Tongs lower a spaghetti nest into a bowl",
+  "note": "Tongs lower a coiled spaghetti nest into a bowl; strands bend against the wall and settle.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 3.96,
+  "frames": 99,
+  "w": 864,
+  "h": 1280
+ },
+ "real/internet_31_liquid_egg_yolk": {
+  "id": "internet_31_liquid_egg_yolk",
+  "kind": "real",
+  "description": "Egg drops into flour and spreads",
+  "note": "Egg yolk and white drop into flour, dent a hollow and spread into a pool.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 3.4,
+  "frames": 85,
+  "w": 1280,
+  "h": 1126
+ },
+ "real/internet_32_spinning_top_precessing": {
+  "id": "internet_32_spinning_top_precessing",
+  "kind": "real",
+  "description": "Spinning top precesses on its tip",
+  "note": "A metal top spins upright on its tip, drifting slowly and starting to precess.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 8.0,
+  "frames": 200,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_33_bridge_traffic_flowing": {
+  "id": "internet_33_bridge_traffic_flowing",
+  "kind": "real",
+  "description": "Traffic crosses a bridge over rippling water",
+  "note": "Cars stream steadily across the bridge deck while the bay water ripples below.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 10.0,
+  "frames": 300,
+  "w": 1080,
+  "h": 1084
+ },
+ "real/internet_34_dart_striking_board": {
+  "id": "internet_34_dart_striking_board",
+  "kind": "real",
+  "description": "Dart sticks in a board and its tail swings",
+  "note": "A thrown dart sticks in the board and its tail swings before settling.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_35_prayer_flags_flapping": {
+  "id": "internet_35_prayer_flags_flapping",
+  "kind": "real",
+  "description": "Prayer flags billow on strings",
+  "note": "Many cloth prayer flags on strings flap, fold and billow in the wind.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/internet_36_ball_through_hoop": {
+  "id": "internet_36_ball_through_hoop",
+  "kind": "real",
+  "description": "Basketball drops through a net",
+  "note": "A basketball drops through the rim, dragging the net, which whips back and damps out.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 3.8,
+  "frames": 95,
+  "w": 1280,
+  "h": 676
+ },
+ "real/internet_37_putt_rolling_in": {
+  "id": "internet_37_putt_rolling_in",
+  "kind": "real",
+  "description": "Putter rolls a ball into the cup",
+  "note": "Putter pushes a rigid ball, which rolls toward the camera and drops into the cup.",
+  "source": "Internet",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.5,
+  "frames": 165,
+  "w": 1280,
+  "h": 720
+ },
+ "real/manip_arena_02_robotic_arm_tilting": {
+  "id": "manip_arena_02_robotic_arm_tilting",
+  "kind": "real",
+  "description": "Robot tilts a pitcher and pours water",
+  "note": "A robot gripper lifts and tilts a rigid pitcher, pouring water into a cup.",
+  "source": "ManipArena",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 20.0,
+  "seconds": 8.5,
+  "frames": 170,
+  "w": 720,
+  "h": 720
+ },
+ "real/phys101_01_solid_object_dropped": {
+  "id": "phys101_01_solid_object_dropped",
+  "kind": "real",
+  "description": "Object sinks in a water tank",
+  "note": "A hand releases a rigid object into a water tank; it sinks, trailing bubbles.",
+  "source": "Phys101",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 1.27,
+  "frames": 38,
+  "w": 1280,
+  "h": 720
+ },
+ "real/phys101_03_soft_dough_slides": {
+  "id": "phys101_03_soft_dough_slides",
+  "kind": "real",
+  "description": "Dough lump slides down an incline",
+  "note": "A dough lump slides down an incline, hits a slider and pushes it into a block.",
+  "source": "Phys101",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 1.57,
+  "frames": 47,
+  "w": 1280,
+  "h": 720
+ },
+ "real/phys101_04_suspended_spring_mass": {
+  "id": "phys101_04_suspended_spring_mass",
+  "kind": "real",
+  "description": "Cube bounces on a coil spring",
+  "note": "Rigid cube bounces vertically on a coil spring that stretches and bows each cycle.",
+  "source": "Phys101",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.73,
+  "frames": 112,
+  "w": 1280,
+  "h": 720
+ },
+ "real/phys_ad_01_rigid_mechanical_gripper": {
+  "id": "phys_ad_01_rigid_mechanical_gripper",
+  "kind": "real",
+  "description": "Gripper squashes a rubber ball",
+  "note": "A gripper presses down on a rubber ball, squashing it, then lifts so it springs back.",
+  "source": "Phys-AD",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/phys_ad_03_mechanical_arm_rotating": {
+  "id": "phys_ad_03_mechanical_arm_rotating",
+  "kind": "real",
+  "description": "Arm rotates a part-filled water bottle",
+  "note": "Arm-held gripper rotates a water bottle; the water and air pocket resettle under gravity.",
+  "source": "Phys-AD",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.0,
+  "frames": 90,
+  "w": 1280,
+  "h": 720
+ },
+ "real/phys_ad_04_meshing_gears_rotating": {
+  "id": "phys_ad_04_meshing_gears_rotating",
+  "kind": "real",
+  "description": "Meshed gears turn on fixed axles",
+  "note": "A motor hub drives a train of meshed gears turning on fixed axles.",
+  "source": "Phys-AD",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_01_ball_wooden_block": {
+  "id": "physics_iq_benchmark_01_ball_wooden_block",
+  "kind": "real",
+  "description": "Ball and block dent soft pillows",
+  "note": "Clamps release a ball and block that drop onto soft pillows, denting them slightly.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_02_domino_effect_row": {
+  "id": "physics_iq_benchmark_02_domino_effect_row",
+  "kind": "real",
+  "description": "Dominoes topple in a row",
+  "note": "A stick on a rotating disc knocks the first domino, toppling the row in a chain.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_03_rolling_ball_collides": {
+  "id": "physics_iq_benchmark_03_rolling_ball_collides",
+  "kind": "real",
+  "description": "Rolling ball transfers momentum to a pair",
+  "note": "Launched ball hits a resting pair; momentum transfers and the orange ball rolls off.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_05_continuous_stream_viscous": {
+  "id": "physics_iq_benchmark_05_continuous_stream_viscous",
+  "kind": "real",
+  "description": "Viscous stream pours over a rubber duck",
+  "note": "A viscous red stream pours onto a rubber duck and spreads into a lobed puddle.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_06_pouring_liquid_cup": {
+  "id": "physics_iq_benchmark_06_pouring_liquid_cup",
+  "kind": "real",
+  "description": "Liquid overflows a cup onto a tray",
+  "note": "Red liquid fills a cup, overflows down its side and spreads slowly across a tray.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_07_ball_rolls_down": {
+  "id": "physics_iq_benchmark_07_ball_rolls_down",
+  "kind": "real",
+  "description": "Ball drops down a zigzag of ramps",
+  "note": "A yellow ball rolls and drops down a zigzag of fixed ramps into a catcher.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_08_silk_cloth_thrown": {
+  "id": "physics_iq_benchmark_08_silk_cloth_thrown",
+  "kind": "real",
+  "description": "Silk cloth drapes over a teapot",
+  "note": "A silk cloth is thrown forward and drapes over a static teapot, settling in folds.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Shell"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_10_rolling_ball_collides": {
+  "id": "physics_iq_benchmark_10_rolling_ball_collides",
+  "kind": "real",
+  "description": "Ball glances off a rubber duck",
+  "note": "Launched ball glances off a rubber duck, which slides slightly; ball deflects and stops.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_11_small_ball_rolling": {
+  "id": "physics_iq_benchmark_11_small_ball_rolling",
+  "kind": "real",
+  "description": "Ball rolls up an incline and back",
+  "note": "A ball rolls across the table, partway up an incline, and rolls back off the edge.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_12_overhead_clamp_releases": {
+  "id": "physics_iq_benchmark_12_overhead_clamp_releases",
+  "kind": "real",
+  "description": "Strip drops into a mug and splashes",
+  "note": "Clamp opens, dropping a strip into a mug of liquid that splashes and settles.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_13_magnet_attracting_pulling": {
+  "id": "physics_iq_benchmark_13_magnet_attracting_pulling",
+  "kind": "real",
+  "description": "Wrench jumps onto a magnet",
+  "note": "A turntable carries a wrench until it jumps off and snaps onto a magnet.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/physics_iq_benchmark_14_unstable_stack_wooden": {
+  "id": "physics_iq_benchmark_14_unstable_stack_wooden",
+  "kind": "real",
+  "description": "Released block topples a balanced bar",
+  "note": "A gripper releases a block; it and a balanced bar topple off the support.",
+  "source": "physics-IQ-benchmark",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "real/robo360_02_robotic_arm_gathering": {
+  "id": "robo360_02_robotic_arm_gathering",
+  "kind": "real",
+  "description": "Robot lifts rope bunches into a basket",
+  "note": "A robot gripper lifts sagging bunches of yellow rope from a pile and drops them in a basket.",
+  "source": "Robo360",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 8.5,
+  "frames": 255,
+  "w": 1280,
+  "h": 960
+ },
+ "real/robo360_03_robotic_arm_tilting": {
+  "id": "robo360_03_robotic_arm_tilting",
+  "kind": "real",
+  "description": "Robot tilts a cup and pours granules",
+  "note": "Robot arm lifts and tilts a cup, pouring granules into a pile on a plate.",
+  "source": "Robo360",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.58,
+  "frames": 230,
+  "w": 1280,
+  "h": 960
+ },
+ "real/robo360_05_robotic_arm_driving": {
+  "id": "robo360_05_robotic_arm_driving",
+  "kind": "real",
+  "description": "Robot spears cucumber with a fork",
+  "note": "A robot arm with a fork spears cucumber pieces and stacks them on the plate.",
+  "source": "Robo360",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 960
+ },
+ "real/robo_cook_01_robotic_spatula_scrapes": {
+  "id": "robo_cook_01_robotic_spatula_scrapes",
+  "kind": "real",
+  "description": "Robot spatula drags dough into a lump",
+  "note": "Robot-held spatula drags cut dough scrap into a stretched ribbon, then shoves it into a lump.",
+  "source": "RoboCook",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.5,
+  "frames": 225,
+  "w": 1280,
+  "h": 720
+ },
+ "real/robo_cook_04_rigid_robotic_roller": {
+  "id": "robo_cook_04_rigid_robotic_roller",
+  "kind": "real",
+  "description": "Robot roller flattens dough into an oval",
+  "note": "A robot-held roller flattens a dough lump into a thin oval over two passes.",
+  "source": "RoboCook",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 5.0,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "real/robo_craft_02_robotic_gripper_presses": {
+  "id": "robo_craft_02_robotic_gripper_presses",
+  "kind": "real",
+  "description": "Robot gripper pinches notches into clay",
+  "note": "A robot gripper repeatedly pinches clay, leaving permanent notches that form a cross shape.",
+  "source": "RoboCraft",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.38,
+  "frames": 225,
+  "w": 1280,
+  "h": 720
+ },
+ "real/robo_craft_03_rigid_robotic_arm": {
+  "id": "robo_craft_03_rigid_robotic_arm",
+  "kind": "real",
+  "description": "Robot drapes a dough sheet over a ring",
+  "note": "A robot arm scoops a soft dough sheet on a plate and drapes it over a metal ring.",
+  "source": "RoboCraft",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Elastoplastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.75,
+  "frames": 210,
+  "w": 1280,
+  "h": 720
+ },
+ "real/t_rex_01_bimanual_robotic_hands": {
+  "id": "t_rex_01_bimanual_robotic_hands",
+  "kind": "real",
+  "description": "Robot unfolds aluminium foil",
+  "note": "Two robot hands grab a crumpled foil sheet and pull it open into a crinkled sheet.",
+  "source": "T-REX",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 8.38,
+  "frames": 201,
+  "w": 640,
+  "h": 360
+ },
+ "real/t_rex_02_dexterous_bimanual_robotic": {
+  "id": "t_rex_02_dexterous_bimanual_robotic",
+  "kind": "real",
+  "description": "Robot folds a blanket over itself",
+  "note": "Two robot hands lift a crumpled plaid blanket's edge and fold it over itself.",
+  "source": "T-REX",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 640,
+  "h": 360
+ },
+ "real/t_rex_03_dexterous_robot_hands": {
+  "id": "t_rex_03_dexterous_robot_hands",
+  "kind": "real",
+  "description": "Robot folds a booklet page over",
+  "note": "Two robot hands fold a paper booklet's left page over onto the right page.",
+  "source": "T-REX",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 20,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.07,
+  "frames": 212,
+  "w": 640,
+  "h": 360
+ },
+ "real/t_rex_04_dexterous_robotic_hands": {
+  "id": "t_rex_04_dexterous_robotic_hands",
+  "kind": "real",
+  "description": "Robot flips a booklet closed",
+  "note": "Two robot hands pin and flip one half of a paper booklet to close it.",
+  "source": "T-REX",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 640,
+  "h": 360
+ },
+ "real/task_level_ilc_01_robot_swinging_rope": {
+  "id": "task_level_ilc_01_robot_swinging_rope",
+  "kind": "real",
+  "description": "Robot whips a rope into a knot",
+  "note": "A robot arm whips a hanging rope overhead, flinging it into a tied overhand knot.",
+  "source": "TaskLevel-ILC",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.8,
+  "frames": 234,
+  "w": 722,
+  "h": 876
+ },
+ "real/wisa_80k_01_domino_chain_reaction": {
+  "id": "wisa_80k_01_domino_chain_reaction",
+  "kind": "real",
+  "description": "Toppling blocks launch a ball off a lever",
+  "note": "Growing blocks topple in a chain, slam a lever plank, which launches a ball away.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_02_brachistochrone_curve_experiment": {
+  "id": "wisa_80k_02_brachistochrone_curve_experiment",
+  "kind": "real",
+  "description": "Three balls race down differently curved tracks",
+  "note": "Three balls released together race down curved, straight and arched tracks at different speeds.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.27,
+  "frames": 98,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_04_marble_rolling_along": {
+  "id": "wisa_80k_04_marble_rolling_along",
+  "kind": "real",
+  "description": "Marble rolls along a wavy groove",
+  "note": "A hand-tipped cup releases a marble that rolls along a wavy groove into a bowl.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 6.47,
+  "frames": 194,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_05_cue_stick_hitting": {
+  "id": "wisa_80k_05_cue_stick_hitting",
+  "kind": "real",
+  "description": "Cue break triggers a domino chain",
+  "note": "Cue strikes ball, triggering a domino chain that tips paddles and knocks balls into pockets.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.97,
+  "frames": 119,
+  "w": 1280,
+  "h": 630
+ },
+ "real/wisa_80k_06_pouring_red_wine": {
+  "id": "wisa_80k_06_pouring_red_wine",
+  "kind": "real",
+  "description": "Wine pours and sloshes into a glass",
+  "note": "A red wine stream pours into a glass, churning and sloshing up the wall.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.1,
+  "frames": 243,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_07_rocking_tank_wave": {
+  "id": "wisa_80k_07_rocking_tank_wave",
+  "kind": "real",
+  "description": "Rocking tank sends breaking waves",
+  "note": "A driven pivoting tank rocks back and forth, sending breaking water waves along it.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.13,
+  "frames": 244,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_08_large_domino_pyramid": {
+  "id": "wisa_80k_08_large_domino_pyramid",
+  "kind": "real",
+  "description": "Domino pyramid collapses into a pile",
+  "note": "A domino track topples into a domino pyramid, which collapses into a spread pile.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.23,
+  "frames": 127,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_09_playground_swing_suspended": {
+  "id": "wisa_80k_09_playground_swing_suspended",
+  "kind": "real",
+  "description": "Swing seat oscillates on chains",
+  "note": "Rigid swing seat on chains oscillates back and forth as a pendulum.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 9.8,
+  "frames": 245,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_11_two_strands_magnetic": {
+  "id": "wisa_80k_11_two_strands_magnetic",
+  "kind": "real",
+  "description": "Magnetic ball strands zip together",
+  "note": "Two hand-held magnetic ball strands zip together ball by ball into a double row.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.4,
+  "frames": 102,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_12_marble_rolling_along": {
+  "id": "wisa_80k_12_marble_rolling_along",
+  "kind": "real",
+  "description": "Marble knocks a pivoting lever aside",
+  "note": "Marble rolls down ramps and knocks a pivoting taped lever board aside.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.7,
+  "frames": 261,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_14_conveyor_belt_moving": {
+  "id": "wisa_80k_14_conveyor_belt_moving",
+  "kind": "real",
+  "description": "Conveyor carries foam cubes along guides",
+  "note": "A moving belt carries foam cubes that slide and turn along angled guides.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 3.44,
+  "frames": 86,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_18_s_shaped_domino": {
+  "id": "wisa_80k_18_s_shaped_domino",
+  "kind": "real",
+  "description": "Dominoes topple along an S-shaped track",
+  "note": "Rigid dominoes along an S-shaped track topple in a chain, dropping elevated tops.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.33,
+  "frames": 160,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_19_domino_line_triggers": {
+  "id": "wisa_80k_19_domino_line_triggers",
+  "kind": "real",
+  "description": "Domino lines flip blocks down stair lanes",
+  "note": "Domino lines trigger blocks that flip down stair lanes, knocking a panel onto more dominoes.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 3.13,
+  "frames": 94,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_21_car_tire_running": {
+  "id": "wisa_80k_21_car_tire_running",
+  "kind": "real",
+  "description": "Tyre flattens gel toys and one splits",
+  "note": "Car tire rolls over gel squishies, flattening them; they spring back, one splits open.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_23_dominoes_toppling_along": {
+  "id": "wisa_80k_23_dominoes_toppling_along",
+  "kind": "real",
+  "description": "Domino chain topples floor loops",
+  "note": "A stick starts a domino chain that slides down a track and topples floor loops.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.53,
+  "frames": 166,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_27_mousetrap_snapping_shut": {
+  "id": "wisa_80k_27_mousetrap_snapping_shut",
+  "kind": "real",
+  "description": "Mousetrap snaps shut on a smaller trap",
+  "note": "Dropped small trap trips a larger mousetrap whose spring bar snaps over onto it.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 16,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_29_milk_pouring_bowl": {
+  "id": "wisa_80k_29_milk_pouring_bowl",
+  "kind": "real",
+  "description": "Milk pours onto cornflakes",
+  "note": "A milk stream pours onto cornflakes, splashing droplets and pooling between the flakes.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 5.1,
+  "frames": 153,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_31_continuous_water_stream": {
+  "id": "wisa_80k_31_continuous_water_stream",
+  "kind": "real",
+  "description": "Water spills over a brim-full bucket",
+  "note": "A water stream pours into a brim-full bucket, churning the surface and spilling over.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.21,
+  "frames": 245,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_32_hydraulic_press_squashing": {
+  "id": "wisa_80k_32_hydraulic_press_squashing",
+  "kind": "real",
+  "description": "Press flattens a rubber ball into a disc",
+  "note": "A hydraulic press plate descends and flattens a rubber ball into a thin disc.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 6.8,
+  "frames": 170,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_33_domino_line_triggering": {
+  "id": "wisa_80k_33_domino_line_triggering",
+  "kind": "real",
+  "description": "Domino wave collapses a grid of sticks",
+  "note": "Domino chain wave topples supports, collapsing a grid of sticks onto the floor.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 9.07,
+  "frames": 272,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_34_marbles_rolling_down": {
+  "id": "wisa_80k_34_marbles_rolling_down",
+  "kind": "real",
+  "description": "Marbles spiral through a zigzag feeder",
+  "note": "Many marbles roll through a zigzag feeder and spiral lanes, dropping through the center hole.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 14,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.23,
+  "frames": 157,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_35_thick_melted_chocolate": {
+  "id": "wisa_80k_35_thick_melted_chocolate",
+  "kind": "real",
+  "description": "Melted chocolate coils into a mould",
+  "note": "Thick melted chocolate pours as a rope from a bowl, coiling into a spreading pool in a mold.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.23,
+  "frames": 217,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_36_hydraulic_press_compressing": {
+  "id": "wisa_80k_36_hydraulic_press_compressing",
+  "kind": "real",
+  "description": "Ram compresses a coil spring shut",
+  "note": "A hydraulic ram descends and compresses a coil spring until its coils close.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.13,
+  "frames": 244,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_41_tennis_balls_bouncing": {
+  "id": "wisa_80k_41_tennis_balls_bouncing",
+  "kind": "real",
+  "description": "Tennis balls bounce off racket strings",
+  "note": "Tennis balls bounce onto the court and a racket's strings, rolling apart to rest.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.13,
+  "frames": 244,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_42_hydraulic_press_crushing": {
+  "id": "wisa_80k_42_hydraulic_press_crushing",
+  "kind": "real",
+  "description": "Press crushes a duck on rubber rings",
+  "note": "A press ram crushes a rubber duck atop a stack of rubber rings, which squash and slide.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 7.27,
+  "frames": 218,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_43_viscous_maple_syrup": {
+  "id": "wisa_80k_43_viscous_maple_syrup",
+  "kind": "real",
+  "description": "Syrup runs down a stack of pancakes",
+  "note": "Thin syrup stream pours onto pancakes, pooling and running viscously down the stack sides.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Flowing"
+  ],
+  "materials": [
+   "Elastoplastic",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 16,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 6.13,
+  "frames": 184,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_44_metal_spoon_splitting": {
+  "id": "wisa_80k_44_metal_spoon_splitting",
+  "kind": "real",
+  "description": "Spoon cracks a lava cake open",
+  "note": "A spoon pries a lava cake open; the crust cracks and molten filling flows out.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Deformable",
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.13,
+  "frames": 244,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_45_sugar_cubes_falling": {
+  "id": "wisa_80k_45_sugar_cubes_falling",
+  "kind": "real",
+  "description": "Sugar cubes spray grains off a heap",
+  "note": "Sugar cubes drop onto a granular sugar heap, spraying grains and tumbling down its slope.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.83,
+  "frames": 116,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_46_wooden_pestle_crushing": {
+  "id": "wisa_80k_46_wooden_pestle_crushing",
+  "kind": "real",
+  "description": "Pestle crushes sugar sticks to powder",
+  "note": "A pestle repeatedly crushes brittle sugar sticks into a compacted granular bed.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 4.7,
+  "frames": 141,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_47_lego_pneumatic_engine": {
+  "id": "wisa_80k_47_lego_pneumatic_engine",
+  "kind": "real",
+  "description": "Pneumatic engine spins a crankshaft",
+  "note": "A Lego pneumatic engine's connecting rods pump and spin the crankshaft.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 6.0,
+  "frames": 180,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_48_bullet_shattering_glass": {
+  "id": "wisa_80k_48_bullet_shattering_glass",
+  "kind": "real",
+  "description": "Fragments shatter successive glass panes",
+  "note": "A bullet's fragment cloud punches holes through successive upright glass panes, spraying shards.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "fracture",
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 9.92,
+  "frames": 248,
+  "w": 1280,
+  "h": 734
+ },
+ "real/wisa_80k_49_cylinder_driving_flywheel": {
+  "id": "wisa_80k_49_cylinder_driving_flywheel",
+  "kind": "real",
+  "description": "Cylinder drives a flywheel through gears",
+  "note": "Pneumatic cylinder drives a crank linkage that spins a flywheel through gears.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "one",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 3.77,
+  "frames": 113,
+  "w": 1280,
+  "h": 720
+ },
+ "real/wisa_80k_50_bottle_geyser_erupting": {
+  "id": "wisa_80k_50_bottle_geyser_erupting",
+  "kind": "real",
+  "description": "Cola bottle erupts in a foam jet",
+  "note": "A cola bottle erupts, the cap flies off tumbling and a foam jet shoots up.",
+  "source": "WISA-80K",
+  "simulator": null,
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 10.38,
+  "frames": 249,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_01": {
+  "id": "Z_01",
+  "kind": "synthetic",
+  "description": "Handle stretches and tears a steak",
+  "note": "A scripted handle lifts one end of a steak, stretching and tearing a piece off.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 3.04,
+  "frames": 73,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/Z_02": {
+  "id": "Z_02",
+  "kind": "synthetic",
+  "description": "Platen splits a tube lengthwise",
+  "note": "A descending platen splits a fibrous tube lengthwise; the two halves tip onto the plate.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.88,
+  "frames": 141,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/HM_01": {
+  "id": "HM_01",
+  "kind": "synthetic",
+  "description": "Gold cat statue and armadillo drop onto a trampoline",
+  "note": "A rigid statue and soft armadillo drop onto a trampoline mat that stretches and bounces them.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 4.21,
+  "frames": 101,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/HM_02": {
+  "id": "HM_02",
+  "kind": "synthetic",
+  "description": "Elastoplastic stream coils onto bending boards",
+  "note": "An elasto-plastic stream coils onto bending boards, slides off, and crumbles into a granular heap.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Deformable",
+   "Flowing"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Elastoplastic",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 6.04,
+  "frames": 145,
+  "w": 1280,
+  "h": 960
+ },
+ "synthetic/HM_03": {
+  "id": "HM_03",
+  "kind": "synthetic",
+  "description": "Clamp twists and releases a figurine",
+  "note": "Clamp twists and stretches a soft figurine, then releases it to unwind oscillating.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.38,
+  "frames": 81,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/HM_04": {
+  "id": "HM_04",
+  "kind": "synthetic",
+  "description": "Nozzle drapes sauce over a turkey",
+  "note": "A moving nozzle drapes thick sauce ropes over a turkey, which creep down and pool.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.71,
+  "frames": 185,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/HM_05": {
+  "id": "HM_05",
+  "kind": "synthetic",
+  "description": "Press crushes an alloy wheel flat",
+  "note": "Press ram descends and crushes an alloy wheel into a permanently squashed shape.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 2.04,
+  "frames": 49,
+  "w": 1280,
+  "h": 960
+ },
+ "synthetic/G_01": {
+  "id": "G_01",
+  "kind": "synthetic",
+  "description": "Spool winds a chain to haul an anchor",
+  "note": "A spool winds up a link chain, hauling a swinging rigid anchor upward.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.04,
+  "frames": 217,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_01": {
+  "id": "B_01",
+  "kind": "synthetic",
+  "description": "Marble knocks out a tower's base",
+  "note": "A rolling marble knocks out a block tower's base and the tower collapses into a heap.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.38,
+  "frames": 105,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_03": {
+  "id": "Z_03",
+  "kind": "synthetic",
+  "description": "Four grippers tear an armadillo's limbs off",
+  "note": "Four grippers pull an elastic armadillo's limbs outward until hands and legs tear off.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 5.04,
+  "frames": 121,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/TM_01": {
+  "id": "TM_01",
+  "kind": "synthetic",
+  "description": "knife cuts a banana",
+  "note": "Scripted cleaver chops a soft banana twice, pushing the cut slices across the board.",
+  "source": null,
+  "simulator": "taichi_mpm",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.12,
+  "frames": 195,
+  "w": 1280,
+  "h": 1280
+ },
+ "synthetic/B_02": {
+  "id": "B_02",
+  "kind": "synthetic",
+  "description": "Bottle pours wine into a glass",
+  "note": "A keyframed bottle tips and pours wine into a glass, which fills and settles.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_03": {
+  "id": "B_03",
+  "kind": "synthetic",
+  "description": "Bowling ball scatters ten pins",
+  "note": "Kinematically launched bowling ball ploughs through ten rigid pins, scattering them into the pit.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.42,
+  "frames": 130,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_04": {
+  "id": "Z_04",
+  "kind": "synthetic",
+  "description": "Tongs tear a loaf in two",
+  "note": "Tongs pull a loaf apart until it stretches and tears into two pieces.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 2.96,
+  "frames": 71,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/B_04": {
+  "id": "B_04",
+  "kind": "synthetic",
+  "description": "Ball knocks bricks off a lattice",
+  "note": "A ball rolls down a ramp and knocks bricks off a lattice block.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_01": {
+  "id": "CK_01",
+  "kind": "synthetic",
+  "description": "Bullet embeds in a cube",
+  "note": "A brass bullet flies into a cube and embeds itself, leaving a small dented hole.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_02": {
+  "id": "CK_02",
+  "kind": "synthetic",
+  "description": "Ball thrown at a sand castle",
+  "note": "Metal ball rams a sand castle, which slumps and collapses into a spreading heap.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 15.0,
+  "frames": 360,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_02": {
+  "id": "G_02",
+  "kind": "synthetic",
+  "description": "Ball falls onto a chain-ring net",
+  "note": "A ball sinks into an edge-anchored chain-ring net, which sags into a funnel pocket.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.92,
+  "frames": 94,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_03": {
+  "id": "CK_03",
+  "kind": "synthetic",
+  "description": "Ball bounces out of a hollow tube",
+  "note": "Metal ball falls into a hollow column, bounces out above the rim and settles.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_01": {
+  "id": "LI_01",
+  "kind": "synthetic",
+  "description": "Armadillo drops onto a net of rods",
+  "note": "A soft armadillo drops onto a pinned rod net, which sags and bows around it.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.33,
+  "frames": 200,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_03": {
+  "id": "G_03",
+  "kind": "synthetic",
+  "description": "Robotic hand presses a metal bar against a spring and clay",
+  "note": "A gripper presses a bar onto a spring and clay; the spring recovers, the clay stays squashed.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Hyperelastic",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.12,
+  "frames": 219,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_05": {
+  "id": "B_05",
+  "kind": "synthetic",
+  "description": "Curtains draw open into pleats",
+  "note": "Two cloth curtain panels are drawn open into pleats, then pulled closed again.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.33,
+  "frames": 200,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_06": {
+  "id": "B_06",
+  "kind": "synthetic",
+  "description": "Ribbon buckles into a fanfold stack",
+  "note": "Ribbon fed downward buckles into a fanfold stack, which then slumps into loose loops.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Co-dimensional"
+  ],
+  "materials": [
+   "Shell"
+  ],
+  "bodies": "one",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 16,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 10.83,
+  "frames": 260,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_07": {
+  "id": "B_07",
+  "kind": "synthetic",
+  "description": "Satin sheet drapes over a sphere and cube",
+  "note": "A thrown satin sheet drapes over a sphere, cube and table, then slides off one side.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_05": {
+  "id": "Z_05",
+  "kind": "synthetic",
+  "description": "Sand column collapses over the table",
+  "note": "Tube lifts away and a sand column collapses into a wide low cone.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular"
+  ],
+  "bodies": "one",
+  "driven": true,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.04,
+  "frames": 121,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/B_08": {
+  "id": "B_08",
+  "kind": "synthetic",
+  "description": "Conveyor drops screws and nuts into a bin",
+  "note": "A conveyor drops screws, bolts, nuts and washers that tumble and scatter in a bin.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.88,
+  "frames": 165,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_04": {
+  "id": "G_04",
+  "kind": "synthetic",
+  "description": "Sand pours onto spinning paddle wheels",
+  "note": "A sweeping feeder pours sand onto free paddle wheels that spin and fling it across the floor.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 21.0,
+  "seconds": 8.57,
+  "frames": 180,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_05": {
+  "id": "G_05",
+  "kind": "synthetic",
+  "description": "Liquid drains down a spiral chute",
+  "note": "Green liquid drains from an upper cup down a glass spiral chute into a lower cup.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.92,
+  "frames": 166,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_06": {
+  "id": "G_06",
+  "kind": "synthetic",
+  "description": "Rigid cube plunges into sloshing water",
+  "note": "Water block collapses and sloshes violently; a falling cube plunges under and floats.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.25,
+  "frames": 126,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_09": {
+  "id": "B_09",
+  "kind": "synthetic",
+  "description": "Water column collapses past pillars",
+  "note": "A water column collapses, surges past pillars and splashes up the far tank wall.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.42,
+  "frames": 130,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_06": {
+  "id": "Z_06",
+  "kind": "synthetic",
+  "description": "Dam break pushes a floating jello ball",
+  "note": "Dam-break water surges and splashes, pushing a floating jello ball back and forth.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Flowing"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_10": {
+  "id": "B_10",
+  "kind": "synthetic",
+  "description": "Dial sweeps balls through a slot",
+  "note": "A kinematic dial arm sweeps loose balls around a dish and out through a slot.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.42,
+  "frames": 250,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_07": {
+  "id": "Z_07",
+  "kind": "synthetic",
+  "description": "Bullet fractures a gelatin dinosaur",
+  "note": "A scripted bullet tears through a gelatin dinosaur, which shreds and slumps to the floor.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.88,
+  "frames": 93,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/Z_08": {
+  "id": "Z_08",
+  "kind": "synthetic",
+  "description": "Chopsticks peel skin off a pork block",
+  "note": "Chopsticks peel the top skin layer off a pork block; it delaminates and hangs as a sheet.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.04,
+  "frames": 241,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/B_11": {
+  "id": "B_11",
+  "kind": "synthetic",
+  "description": "Drop throws a crown splash and jet",
+  "note": "A drop hits a pool, throwing up a crown splash and then a Worthington jet.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.83,
+  "frames": 140,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_02": {
+  "id": "LI_02",
+  "kind": "synthetic",
+  "description": "Ball rolls through twelve hanging sheets",
+  "note": "Rolling ball pushes through twelve hanging cloth sheets that drape over it and swing back.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 7.54,
+  "frames": 181,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_03": {
+  "id": "LI_03",
+  "kind": "synthetic",
+  "description": "Spiral of dominoes topples inward",
+  "note": "A spiral of dominoes topples in a chain reaction from the outer end inward.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.46,
+  "frames": 251,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_01": {
+  "id": "PF_01",
+  "kind": "synthetic",
+  "description": "Cushions and elastic monkey heads fall into a wooden bowl",
+  "note": "Flat sheets inflate into cushions in a bowl, jostling soft figures into a pile.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.04,
+  "frames": 121,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_02": {
+  "id": "PF_02",
+  "kind": "synthetic",
+  "description": "Ball bounces off a stack of cloth sheets",
+  "note": "A robot gripper drops a ball onto a stack of cloth sheets; it bounces and settles.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 16,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_12": {
+  "id": "B_12",
+  "kind": "synthetic",
+  "description": "Racket strikes a hanging tennis ball",
+  "note": "Scripted racket swing strikes a hanging ball, compressing it before it springs off.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.38,
+  "frames": 81,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_13": {
+  "id": "B_13",
+  "kind": "synthetic",
+  "description": "Liquid ball bursts inside a glass sphere",
+  "note": "A liquid ball collapses inside a glass sphere, bursts up the shell and sloshes down.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.5,
+  "frames": 180,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_14": {
+  "id": "B_14",
+  "kind": "synthetic",
+  "description": "Fountain overflows a tiered bowl",
+  "note": "Fountain jet fills an upper bowl that overflows in sheets and streams into the basin.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_09": {
+  "id": "Z_09",
+  "kind": "synthetic",
+  "description": "Twist elastic and yielding bars",
+  "note": "Collars twist an elastic bar and a yielding metal bar; one oscillates back, one stays twisted.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/G_08": {
+  "id": "G_08",
+  "kind": "synthetic",
+  "description": "Nozzle pipes frosting onto a cupcake",
+  "note": "A scripted nozzle spirals upward, piping frosting into a tapering swirl on a cupcake.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 13.04,
+  "frames": 313,
+  "w": 960,
+  "h": 540
+ },
+ "synthetic/B_15": {
+  "id": "B_15",
+  "kind": "synthetic",
+  "description": "Ball topples a tower of cubes",
+  "note": "A ball rolls down a chute into a tower of small cubes, which collapses into a heap.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 4.58,
+  "frames": 110,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/TM_02": {
+  "id": "TM_02",
+  "kind": "synthetic",
+  "description": "Cubes leave craters in goo block",
+  "note": "Three rigid cubes drop into a plastic goo block, leaving permanent craters and bulges.",
+  "source": null,
+  "simulator": "taichi_mpm",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.21,
+  "frames": 149,
+  "w": 1280,
+  "h": 1280
+ },
+ "synthetic/G_09": {
+  "id": "G_09",
+  "kind": "synthetic",
+  "description": "Press flattens a soft bunny",
+  "note": "A press platen squashes a soft bunny flat, then lifts so it springs back.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 8.79,
+  "frames": 211,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_10": {
+  "id": "G_10",
+  "kind": "synthetic",
+  "description": "Five cloth sheets drape onto a ball",
+  "note": "Five cloth sheets fall onto a ball and each other, rippling and draping into a stack.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 2.71,
+  "frames": 65,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_16": {
+  "id": "B_16",
+  "kind": "synthetic",
+  "description": "Jelly beans slump into a heap",
+  "note": "A tube lifts away, letting jelly beans slump into a wide heap and scatter.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.42,
+  "frames": 130,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/ML_01": {
+  "id": "ML_01",
+  "kind": "synthetic",
+  "description": "Water and sand jets collide",
+  "note": "A water jet and a sand jet collide; water wraps the sand and falls into a mixed puddle.",
+  "source": null,
+  "simulator": "mpm-lite",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 60.0,
+  "seconds": 2.5,
+  "frames": 150,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/B_17": {
+  "id": "B_17",
+  "kind": "synthetic",
+  "description": "Ball smashes a plank castle",
+  "note": "Rolling ball smashes a plank castle, which collapses into a spreading debris field.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_05": {
+  "id": "LI_05",
+  "kind": "synthetic",
+  "description": "Cloth wraps a flying helicopter",
+  "note": "Cloth sheet falls onto an animated helicopter, wraps it, then slides off onto the floor.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 16,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 5.0,
+  "frames": 150,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/Z_10": {
+  "id": "Z_10",
+  "kind": "synthetic",
+  "description": "Twisted figurine slowly unwinds",
+  "note": "A gripper twists and stretches a soft figurine, which slowly unwinds after release.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 12.54,
+  "frames": 301,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_19": {
+  "id": "B_19",
+  "kind": "synthetic",
+  "description": "Water jet fills and overflows a tank",
+  "note": "A water jet fills a tank, splashes over the wall, and overflows onto the floor.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 8.67,
+  "frames": 260,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_20": {
+  "id": "B_20",
+  "kind": "synthetic",
+  "description": "a falling magnet cube attracts a collection of metal balls",
+  "note": "Falling magnet block pulls a grid of balls up into a cluster that lands around it.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 20,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.0,
+  "frames": 72,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_21": {
+  "id": "B_21",
+  "kind": "synthetic",
+  "description": "drum spins and mixes a bed of marbles",
+  "note": "A kinematically spun drum tumbles a bed of balls, some spilling onto the floor.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 7.0,
+  "frames": 168,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/ML_02": {
+  "id": "ML_02",
+  "kind": "synthetic",
+  "description": "Platen crushes a porous core into grains",
+  "note": "A platen crushes a porous core that barrels, tears and sheds grains into heaps.",
+  "source": null,
+  "simulator": "mpm-lite",
+  "families": [
+   "Deformable",
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.4,
+  "frames": 132,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/B_23": {
+  "id": "B_23",
+  "kind": "synthetic",
+  "description": "Newton's cradle",
+  "note": "Newton's cradle end balls swing alternately, passing momentum through the hanging row.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.83,
+  "frames": 260,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/ML_03": {
+  "id": "ML_03",
+  "kind": "synthetic",
+  "description": "Press extrudes noodle strands",
+  "note": "A descending plunger extrudes strands from a barrel; they reach the floor and coil into a heap.",
+  "source": null,
+  "simulator": "mpm-lite",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 30.0,
+  "seconds": 4.0,
+  "frames": 120,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/PF_03": {
+  "id": "PF_03",
+  "kind": "synthetic",
+  "description": "Noodles drop into a bowl",
+  "note": "Curtain of noodle strands drops into a bowl, buckling and collapsing into a tangled pile.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 60.0,
+  "seconds": 2.5,
+  "frames": 150,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/G_11": {
+  "id": "G_11",
+  "kind": "synthetic",
+  "description": "Octopus drapes over blade edges",
+  "note": "A segmented octopus drops onto blade edges, its arms bending and hanging between blades.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 16,
+  "geometry": false,
+  "fps": 60.0,
+  "seconds": 5.0,
+  "frames": 300,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/CK_04": {
+  "id": "CK_04",
+  "kind": "synthetic",
+  "description": "Dropped Oreo snaps in two",
+  "note": "Dropped Oreo lands on edge and snaps into two halves, exposing sticky cream and crumbs.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "fracture",
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_12": {
+  "id": "G_12",
+  "kind": "synthetic",
+  "description": "Paper press folds two sheets and one stays creased",
+  "note": "A hinged leaf folds two sheets shut; one stays creased, the other springs back open.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Hyperelastic",
+   "Elastoplastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.96,
+  "frames": 95,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/G_13": {
+  "id": "G_13",
+  "kind": "synthetic",
+  "description": "Four pastes drain through funnels",
+  "note": "Four viscous pastes drain from funnels, coiling and spreading into piles on the bench.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.29,
+  "frames": 151,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_24": {
+  "id": "B_24",
+  "kind": "synthetic",
+  "description": "Cue ball breaks the rack",
+  "note": "A cue strikes the cue ball, which breaks the rack; balls scatter and some fall off the table.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.33,
+  "frames": 200,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_04": {
+  "id": "PF_04",
+  "kind": "synthetic",
+  "description": "Ball collapses a house of cards",
+  "note": "Rolling ball strikes a house of cards, collapsing its left flank as cards slide.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 7.54,
+  "frames": 181,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_05": {
+  "id": "PF_05",
+  "kind": "synthetic",
+  "description": "Armadillos tumble on taut cables",
+  "note": "Three soft armadillos drop onto taut cables, flexing and tumbling as the cables sag.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 10.04,
+  "frames": 241,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_06": {
+  "id": "PF_06",
+  "kind": "synthetic",
+  "description": "pulley tightens a strap knot",
+  "note": "Puller tightens a strap knot through a wall ring while the free strap twists into ripples.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 15.67,
+  "frames": 376,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_07": {
+  "id": "PF_07",
+  "kind": "synthetic",
+  "description": "Soft figures slide at different frictions",
+  "note": "Four soft figures land on a slope; lower-friction ones slide down, higher-friction ones stick.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 9.42,
+  "frames": 226,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_08": {
+  "id": "PF_08",
+  "kind": "synthetic",
+  "description": "Ball bounces off cloth draped on a cone",
+  "note": "Cloths drape over a cone tip; a robot then drops a ball that bounces off the tent.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Hyperelastic",
+   "Shell"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.04,
+  "frames": 121,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/PF_09": {
+  "id": "PF_09",
+  "kind": "synthetic",
+  "description": "Knotted tube is pinched through rollers",
+  "note": "A soft knotted tube is pulled down between rollers, pinched thin, then drops and recovers its shape.",
+  "source": null,
+  "simulator": "PPF",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 7.54,
+  "frames": 181,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/HM_06": {
+  "id": "HM_06",
+  "kind": "synthetic",
+  "description": "Spindles wind soft chain links into a braid",
+  "note": "Spindles counter-rotate a chain's end rings, winding soft links into braids around rigid rings.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.88,
+  "frames": 165,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/HM_07": {
+  "id": "HM_07",
+  "kind": "synthetic",
+  "description": "Foam pillars twisted into a braid until they fracture",
+  "note": "A rotating disc twists foam pillars with embedded balls into a braid until they tear.",
+  "source": null,
+  "simulator": "HOT",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.5,
+  "frames": 132,
+  "w": 1280,
+  "h": 960
+ },
+ "synthetic/CK_05": {
+  "id": "CK_05",
+  "kind": "synthetic",
+  "description": "Pumpkin falls on top of another pumpkin, fracturing both",
+  "note": "Pumpkin drops onto another; both shells squash and tear open on impact.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "fracture",
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_14": {
+  "id": "G_14",
+  "kind": "synthetic",
+  "description": "Ribbon extrudes into pleats on a belt",
+  "note": "A ribbon extrudes onto a moving belt and buckles into regular pleats carried away.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Shell",
+   "Viscoplastic fluid"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 12.04,
+  "frames": 289,
+  "w": 960,
+  "h": 540
+ },
+ "synthetic/B_25": {
+  "id": "B_25",
+  "kind": "synthetic",
+  "description": "Rope winds around a a metal bar",
+  "note": "A rope with a brass ball swings down and winds around a steel peg.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Co-dimensional",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.0,
+  "frames": 96,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_06": {
+  "id": "CK_06",
+  "kind": "synthetic",
+  "description": "Two sand armadillos collide",
+  "note": "Two sand armadillos collide mid-air, fuse, fall, and slump into a flat patch.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/TM_03": {
+  "id": "TM_03",
+  "kind": "synthetic",
+  "description": "Blade stirs sand into ridges",
+  "note": "Spinning blade stirs sand in a bowl into ridges while a pipe pours more sand.",
+  "source": null,
+  "simulator": "taichi_mpm",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 12.5,
+  "frames": 300,
+  "w": 1280,
+  "h": 1280
+ },
+ "synthetic/CK_07": {
+  "id": "CK_07",
+  "kind": "synthetic",
+  "description": "Sand armadillo hits an elastic one",
+  "note": "A sand armadillo hits an elastic armadillo mid-air and collapses into a grain pile.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable",
+   "Flowing"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 4.17,
+  "frames": 100,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_26": {
+  "id": "B_26",
+  "kind": "synthetic",
+  "description": "Seesaw launches a ball",
+  "note": "Falling chrome sphere tips a seesaw plank, launching a smiley ball out of its cup.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.04,
+  "frames": 73,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_15": {
+  "id": "G_15",
+  "kind": "synthetic",
+  "description": "Shaving cream coils into a mound",
+  "note": "A shaving-cream thread coils from a nozzle and piles into a tangled mound.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Viscoplastic fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.25,
+  "frames": 198,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_11": {
+  "id": "Z_11",
+  "kind": "synthetic",
+  "description": "Stretched silicon disc creeps back",
+  "note": "Clamps stretch a rubber disc into an oval, release it, and it creeps back round.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Viscoelastic"
+  ],
+  "bodies": "one",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 16,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 16.71,
+  "frames": 401,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/B_27": {
+  "id": "B_27",
+  "kind": "synthetic",
+  "description": "Sink fills through a faucet and drains",
+  "note": "Tap water fills a sink basin into a sloshing pool, then drains after the tap closes.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_28": {
+  "id": "B_28",
+  "kind": "synthetic",
+  "description": "Thick liquid floods a spillway basin",
+  "note": "Thick liquid pours from a slit, surges around obstacles and floods the basin.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Viscoplastic fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 60.0,
+  "seconds": 5.03,
+  "frames": 302,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/ML_04": {
+  "id": "ML_04",
+  "kind": "synthetic",
+  "description": "Snowball rolls down an incline, hitting a snowman",
+  "note": "A snow lump tumbles down a snowy ramp, scraping a furrow, and stops against a snowman.",
+  "source": null,
+  "simulator": "mpm-lite",
+  "families": [
+   "Deformable",
+   "Flowing"
+  ],
+  "materials": [
+   "Elastoplastic",
+   "Granular"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "fracture"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.53,
+  "frames": 136,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/B_29": {
+  "id": "B_29",
+  "kind": "synthetic",
+  "description": "Soft shapes fall through a pinned chute",
+  "note": "Twenty-five soft rubber shapes fall through a pinned chute, bouncing off plates into heaps.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 5.83,
+  "frames": 140,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_30": {
+  "id": "B_30",
+  "kind": "synthetic",
+  "description": "Soft tyre rolls down stairs",
+  "note": "A soft rubber tyre hops down each stair step, flexing slightly, then rolls away.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 2.42,
+  "frames": 58,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/S_01": {
+  "id": "S_01",
+  "kind": "synthetic",
+  "description": "Cereal rings splash into water",
+  "note": "Rigid cereal rings slide off a chute into water, splash and spread into a floating layer.",
+  "source": null,
+  "simulator": "SPlisHSPlasH",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 5.03,
+  "frames": 151,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/S_02": {
+  "id": "S_02",
+  "kind": "synthetic",
+  "description": "Dam break sweeps floating ducks",
+  "note": "A water column collapses into a surge that sweeps floating ducks against the wall and back.",
+  "source": null,
+  "simulator": "SPlisHSPlasH",
+  "families": [
+   "Flowing",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Newtonian fluid"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 30.0,
+  "seconds": 4.53,
+  "frames": 136,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/S_03": {
+  "id": "S_03",
+  "kind": "synthetic",
+  "description": "Colliding jets form a water bell",
+  "note": "Two colliding water jets form a disc that closes into a steady bell.",
+  "source": null,
+  "simulator": "SPlisHSPlasH",
+  "families": [
+   "Flowing"
+  ],
+  "materials": [
+   "Newtonian fluid"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 25.0,
+  "seconds": 2.52,
+  "frames": 63,
+  "w": 1920,
+  "h": 1080
+ },
+ "synthetic/B_31": {
+  "id": "B_31",
+  "kind": "synthetic",
+  "description": "Tipped jug pours marbles into a bucket",
+  "note": "A kinematically tipped glass jug pours marbles into a bucket, where they heap.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [],
+  "n_models": 16,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 13.33,
+  "frames": 320,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_08": {
+  "id": "CK_08",
+  "kind": "synthetic",
+  "description": "Twisted bar tears in the middle",
+  "note": "Counter-rotating clamps twist an elastic bar until it tears, the middle piece falling.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "fracture",
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.0,
+  "frames": 240,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/G_16": {
+  "id": "G_16",
+  "kind": "synthetic",
+  "description": "Robot arms flatten dough with a plate",
+  "note": "Two robot arms push a plate down, flattening a dough ball into a disc.",
+  "source": null,
+  "simulator": "Genesis",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.83,
+  "frames": 212,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/CK_09": {
+  "id": "CK_09",
+  "kind": "synthetic",
+  "description": "Elastic and plastic dragons collide",
+  "note": "Elastic green and plastic orange dragons collide; orange ones tear into a lump and shards.",
+  "source": null,
+  "simulator": "CK-MPM",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Elastoplastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "fracture",
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.58,
+  "frames": 158,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_07": {
+  "id": "LI_07",
+  "kind": "synthetic",
+  "description": "Armadillo squeezes between rollers",
+  "note": "A soft armadillo falls onto counter-rotating rollers and gets squeezed down through the gap.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 17,
+  "geometry": true,
+  "fps": 24.0,
+  "seconds": 5.0,
+  "frames": 120,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_08": {
+  "id": "LI_08",
+  "kind": "synthetic",
+  "description": "Ten-link chain drops and hangs",
+  "note": "Ten-link chain drops from a bunched start under the ceiling and hangs still.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Articulated body",
+   "Hyperelastic"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 6.25,
+  "frames": 150,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/LI_09": {
+  "id": "LI_09",
+  "kind": "synthetic",
+  "description": "Four rods twist into a helical rope",
+  "note": "Rotating end mounts twist four pinned rods into a tight helical rope.",
+  "source": null,
+  "simulator": "libuipc",
+  "families": [
+   "Co-dimensional",
+   "Deformable",
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Hyperelastic",
+   "Rod"
+  ],
+  "bodies": "several",
+  "driven": true,
+  "flags": [
+   "large_deformation"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 25.0,
+  "frames": 600,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/B_32": {
+  "id": "B_32",
+  "kind": "synthetic",
+  "description": "Ball cascades down zigzag plates",
+  "note": "Gold ball rolls down five zigzag wall plates and drops into a bin.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [],
+  "n_models": 17,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 8.33,
+  "frames": 200,
+  "w": 1280,
+  "h": 720
+ },
+ "synthetic/Z_12": {
+  "id": "Z_12",
+  "kind": "synthetic",
+  "description": "Falling watermelon bursts open",
+  "note": "A falling watermelon squashes and bursts, rind shattering and flesh spraying across the ground.",
+  "source": null,
+  "simulator": "Ziran",
+  "families": [
+   "Deformable"
+  ],
+  "materials": [
+   "Hyperelastic",
+   "Elastoplastic"
+  ],
+  "bodies": "one",
+  "driven": false,
+  "flags": [
+   "fracture",
+   "transient",
+   "large_deformation"
+  ],
+  "n_models": 19,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 3.38,
+  "frames": 81,
+  "w": 1600,
+  "h": 900
+ },
+ "synthetic/B_33": {
+  "id": "B_33",
+  "kind": "synthetic",
+  "description": "Wrecking ball scatters a cube stack",
+  "note": "A chain-hung wrecking ball swings through a cube stack, scattering the blocks.",
+  "source": null,
+  "simulator": "Blender",
+  "families": [
+   "Rigid / articulated"
+  ],
+  "materials": [
+   "Rigid body",
+   "Articulated body"
+  ],
+  "bodies": "several",
+  "driven": false,
+  "flags": [
+   "transient"
+  ],
+  "n_models": 18,
+  "geometry": false,
+  "fps": 24.0,
+  "seconds": 10.42,
+  "frames": 250,
+  "w": 1280,
+  "h": 720
+ }
+}

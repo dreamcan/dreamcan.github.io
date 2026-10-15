@@ -1,0 +1,12 @@
+{
+  "episode": "ep_000062",
+  "frameCount": 251,
+  "width": 160,
+  "height": 160,
+  "atlasColumns": 8,
+  "atlasRows": 32,
+  "source": "/mnt/gck/libero_data/libero_hdf5/LIBERO_Long.h5::episodes/ep_000062/image",
+  "atlas": "frames.webp",
+  "atlasSha256": "e7c3ffa9069068854a0d85e0f90866f7e9adede11aa5cd020097c6de80f486a2",
+  "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate"
+}

@@ -1,0 +1,205 @@
+{
+ "families": [
+  {
+   "key": "rigidfam",
+   "label": "Rigid and articulated",
+   "definition": "Bodies that hold their shape, so the motion is a rigid transform.",
+   "materials": [
+    "rigid",
+    "articulated"
+   ]
+  },
+  {
+   "key": "softfam",
+   "label": "Deformable solid",
+   "definition": "Matter with an elastic stress response that keeps a mesh.",
+   "materials": [
+    "hyperelastic",
+    "viscoelastic",
+    "elastoplastic"
+   ]
+  },
+  {
+   "key": "codimfam",
+   "label": "Co-dimensional",
+   "definition": "Thin structures, where bending rather than stretching carries the motion.",
+   "materials": [
+    "shell",
+    "rod"
+   ]
+  },
+  {
+   "key": "flowfam",
+   "label": "Flowing",
+   "definition": "Matter with no rest configuration, where correspondence is per particle.",
+   "materials": [
+    "granular",
+    "newtonian",
+    "viscoplastic"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "key": "rigid",
+   "label": "Rigid body",
+   "family": "rigidfam"
+  },
+  {
+   "key": "articulated",
+   "label": "Articulated body",
+   "family": "rigidfam"
+  },
+  {
+   "key": "hyperelastic",
+   "label": "Hyperelastic",
+   "family": "softfam"
+  },
+  {
+   "key": "viscoelastic",
+   "label": "Viscoelastic",
+   "family": "softfam"
+  },
+  {
+   "key": "elastoplastic",
+   "label": "Elastoplastic",
+   "family": "softfam"
+  },
+  {
+   "key": "shell",
+   "label": "Shell",
+   "family": "codimfam"
+  },
+  {
+   "key": "rod",
+   "label": "Rod",
+   "family": "codimfam"
+  },
+  {
+   "key": "granular",
+   "label": "Granular",
+   "family": "flowfam"
+  },
+  {
+   "key": "newtonian",
+   "label": "Newtonian fluid",
+   "family": "flowfam"
+  },
+  {
+   "key": "viscoplastic",
+   "label": "Viscoplastic fluid",
+   "family": "flowfam"
+  }
+ ],
+ "splits": {
+  "all": {
+   "n_scenes": 200,
+   "families": {
+    "rigidfam": 158,
+    "softfam": 78,
+    "codimfam": 39,
+    "flowfam": 54
+   },
+   "materials": {
+    "rigid": 137,
+    "articulated": 48,
+    "hyperelastic": 50,
+    "viscoelastic": 2,
+    "elastoplastic": 26,
+    "shell": 28,
+    "rod": 12,
+    "granular": 20,
+    "newtonian": 28,
+    "viscoplastic": 16
+   }
+  },
+  "real": {
+   "n_scenes": 100,
+   "families": {
+    "rigidfam": 88,
+    "softfam": 23,
+    "codimfam": 20,
+    "flowfam": 29
+   },
+   "materials": {
+    "rigid": 72,
+    "articulated": 33,
+    "hyperelastic": 8,
+    "viscoelastic": 0,
+    "elastoplastic": 13,
+    "shell": 15,
+    "rod": 6,
+    "granular": 11,
+    "newtonian": 14,
+    "viscoplastic": 7
+   }
+  },
+  "synthetic": {
+   "n_scenes": 100,
+   "families": {
+    "rigidfam": 70,
+    "softfam": 55,
+    "codimfam": 19,
+    "flowfam": 25
+   },
+   "materials": {
+    "rigid": 65,
+    "articulated": 15,
+    "hyperelastic": 42,
+    "viscoelastic": 2,
+    "elastoplastic": 13,
+    "shell": 13,
+    "rod": 6,
+    "granular": 9,
+    "newtonian": 14,
+    "viscoplastic": 9
+   }
+  }
+ },
+ "factors": [
+  {
+   "key": "multi_matter",
+   "label": "Several matter types",
+   "counts": {
+    "real": 64,
+    "synthetic": 68
+   }
+  },
+  {
+   "key": "multi_body",
+   "label": "Several bodies",
+   "counts": {
+    "real": 82,
+    "synthetic": 84
+   }
+  },
+  {
+   "key": "driven",
+   "label": "Externally driven",
+   "counts": {
+    "real": 59,
+    "synthetic": 45
+   }
+  },
+  {
+   "key": "fracture",
+   "label": "Fracture or separation",
+   "counts": {
+    "real": 7,
+    "synthetic": 15
+   }
+  },
+  {
+   "key": "large_deformation",
+   "label": "Large deformation",
+   "counts": {
+    "real": 49,
+    "synthetic": 65
+   }
+  }
+ ],
+ "notes": {
+  "multi_label": "A scene carries every matter type it contains, so the material counts sum past the number of scenes.",
+  "families": "Families come from the coarse annotator tags. Nine scenes resolve to a leaf in a different family, mostly ones tagged plastic whose material is viscoplastic."
+ }
+}

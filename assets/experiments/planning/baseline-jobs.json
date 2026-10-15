@@ -1,0 +1,86 @@
+{
+  "purpose": "Fill only previously missing baseline slots with the actual corresponding models.",
+  "jobs": [
+    {
+      "id": "all_to_region_uniform",
+      "task": "all_to_region",
+      "method": "uniform",
+      "checkpoint": "/mnt2/gck/lt_campaign_20260920/a2r_evenly/checkpoints/wan_language_table_all_to_region_evenly_subgoal_lora/lora_step_0508000_final.safetensors",
+      "stages": 2,
+      "examples": [
+        {
+          "episode": "w14_e0",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/instruction.txt",
+          "sourceInstruction": "put all the blocks in the bottom left corner"
+        },
+        {
+          "episode": "w39_e34",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/instruction.txt",
+          "sourceInstruction": "put all the blocks in the bottom right corner"
+        },
+        {
+          "episode": "w188_e43",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/instruction.txt",
+          "sourceInstruction": "put all the blocks in the top left corner"
+        }
+      ]
+    },
+    {
+      "id": "canonical_shape_dense",
+      "task": "canonical_shape",
+      "method": "dense",
+      "checkpoint": "/mnt2/gck/lt_campaign_20260920/cs_dense_uniform/checkpoints/wan_language_table_canonical_shape_dense_lora/lora_step_0500000_final.safetensors",
+      "stages": 1,
+      "examples": [
+        {
+          "episode": "w321_e18",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/instruction.txt",
+          "sourceInstruction": "make a \"N\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w158_e15",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/instruction.txt",
+          "sourceInstruction": "make a \"square\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w306_e5",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/instruction.txt",
+          "sourceInstruction": "make a \"diamond\"\" shape out of all the blocks"
+        }
+      ]
+    },
+    {
+      "id": "canonical_shape_uniform",
+      "task": "canonical_shape",
+      "method": "uniform",
+      "checkpoint": "/mnt2/gck/lt_campaign_20260920/cs_evenly_multianchor/checkpoints/wan_language_table_canonical_shape_evenly_subgoal_multianchor_lora/lora_step_0638400_final.safetensors",
+      "stages": 1,
+      "examples": [
+        {
+          "episode": "w321_e18",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/instruction.txt",
+          "sourceInstruction": "make a \"N\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w158_e15",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/instruction.txt",
+          "sourceInstruction": "make a \"square\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w306_e5",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/instruction.txt",
+          "sourceInstruction": "make a \"diamond\"\" shape out of all the blocks"
+        }
+      ]
+    }
+  ]
+}

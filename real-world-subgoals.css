@@ -1,0 +1,11 @@
+#experiments-panel-real-world [data-real-subgoals]{min-width:0}
+#experiments-panel-real-world .real-subgoal-header{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin:.65rem 0 .4rem;font-family:var(--text-sans);font-size:.7rem;line-height:1.4;color:var(--ink)}
+#experiments-panel-real-world .real-subgoal-header strong{font-weight:500}
+#experiments-panel-real-world [data-subgoal-status]{color:#8c1515;font-variant-numeric:tabular-nums;white-space:nowrap}
+#experiments-panel-real-world .real-subgoal-strip{position:relative;display:flex;gap:.35rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:0 0 .4rem;max-width:100%}
+#experiments-panel-real-world .real-subgoal-frame{flex:0 0 88px;display:block;appearance:none;background:transparent;border:1px solid var(--ink-12);border-radius:3px;padding:2px;color:var(--ink);font-family:var(--text-sans);font-size:.65rem;line-height:1.4;text-align:center;cursor:pointer}
+#experiments-panel-real-world .real-subgoal-frame img{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0;border-radius:1px;object-fit:cover;margin:0}
+#experiments-panel-real-world .real-subgoal-frame span{display:block;margin-top:2px;font-variant-numeric:tabular-nums}
+#experiments-panel-real-world .real-subgoal-frame[aria-current="step"]{border-color:#8c1515;color:#8c1515;background:rgba(140,21,21,.045)}
+#experiments-panel-real-world .real-subgoal-frame:focus-visible{outline:2px solid #8c1515;outline-offset:2px}
+@media(max-width:580px){#experiments-panel-real-world .real-subgoal-frame{flex-basis:104px}#experiments-panel-real-world .real-subgoal-header{font-size:.8rem}}

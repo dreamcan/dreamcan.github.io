@@ -1,0 +1,462 @@
+{
+  "0": {
+    "task": "put both the alphabet soup and the tomato sauce in the basket",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.98
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.96
+      }
+    }
+  },
+  "1": {
+    "task": "put both the cream cheese box and the butter in the basket",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.82
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.98
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.8
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      }
+    }
+  },
+  "2": {
+    "task": "turn on the stove and put the moka pot on it",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.8
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.92
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 0.9,
+        "objects+eef": 0.9
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.88
+      }
+    }
+  },
+  "3": {
+    "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.96
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.86
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.78
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.98
+      }
+    }
+  },
+  "4": {
+    "task": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      }
+    }
+  },
+  "5": {
+    "task": "pick up the book and place it in the back compartment of the caddy",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 0.72,
+        "objects+eef": 0.64
+      }
+    }
+  },
+  "6": {
+    "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.8
+      }
+    }
+  },
+  "7": {
+    "task": "put both the alphabet soup and the cream cheese box in the basket",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.8
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 0.8,
+        "objects+eef": 0.8
+      }
+    }
+  },
+  "8": {
+    "task": "put both moka pots on the stove",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.98
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 0.86,
+        "objects+eef": 0.84
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.8
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "8": {
+        "trials": 50,
+        "objects_only": 0.98,
+        "objects+eef": 0.98
+      },
+      "9": {
+        "trials": 50,
+        "objects_only": 0.8,
+        "objects+eef": 0.8
+      }
+    }
+  },
+  "9": {
+    "task": "put the yellow and white mug in the microwave and close it",
+    "stages": {
+      "1": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.86
+      },
+      "2": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 1.0
+      },
+      "3": {
+        "trials": 50,
+        "objects_only": 1.0,
+        "objects+eef": 0.82
+      },
+      "4": {
+        "trials": 50,
+        "objects_only": 0.92,
+        "objects+eef": 0.72
+      },
+      "5": {
+        "trials": 50,
+        "objects_only": 0.84,
+        "objects+eef": 0.54
+      },
+      "6": {
+        "trials": 50,
+        "objects_only": 0.74,
+        "objects+eef": 0.14
+      },
+      "7": {
+        "trials": 50,
+        "objects_only": 0.84,
+        "objects+eef": 0.44
+      }
+    }
+  }
+}

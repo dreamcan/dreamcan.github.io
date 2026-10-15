@@ -1,0 +1,145 @@
+experiment:
+  seed: 0
+  device: cuda:0
+  dist_backend: nccl
+  dist_timeout_minutes: 360
+wandb:
+  enabled: true
+  project: svl_project
+  entity: heegergao-national-university-of-singapore
+  name: flow_goal_resnet_radio_libero_long_wan_full10_dit_final
+  tags:
+  - flow
+  - goal
+  - radio
+  - resnet34-film
+  - perceiver-goal
+  - libero-long
+  - wan2.2-ti2v-5b
+  - full-subgoal-sequence
+  - cond-fix
+  - lang-layernorm
+  - no-wd-language
+  - dual-drop
+  - cond-probe
+  - augment
+  - 8gpu
+  notes: 'v3: fixes the conditioning collapse of v1 (language_swap 0.01%, goal_drop
+    0.39% at 250k). LayerNorm on language/state tokens, language encoder exempt from
+    weight decay, independent language/goal dropout that never drops both, conditioning-sensitivity
+    probe logged every 2k steps, mild RandomResizedCrop on the ResNet branch. v3 adds
+    frozen DecisionNCE-T instruction embeddings in place of the byte-GRU and a task-classification
+    auxiliary loss on the projected language token.'
+data:
+  backend: hdf5
+  demo_root: /mnt/gck/libero_data/libero_hdf5
+  radio_feature_hdf5: /mnt/gck/libero_data/libero_hdf5/LIBERO_Long_radio_c-radio_v3-h_224.h5
+  generated_goal_radio_dir: /mnt/gck/svl_data/wan_subgoal_radio_sequences/libero_long_wan_full10_radio_h_224
+  skip_pixel_obs_when_radio: false
+  load_radio_to_memory: false
+  load_generated_goal_radio_to_memory: false
+  task_suite: LIBERO-Long
+  history_len: 2
+  action_chunk_len: 16
+  goal_sequence_len: 10
+  goal_radio_view_index: 0
+  image_size:
+  - 224
+  - 224
+  batch_size: 16
+  num_workers: 16
+  persistent_workers: true
+  prefetch_factor: 4
+  pin_memory: true
+  shuffle: true
+  drop_last: true
+  load_all_to_memory: true
+  stats_dir: /mnt2/gck/newwebsite_policy_rollouts_20261012_v2/runtime_stats
+  recompute_norm_stats: false
+  max_episodes: null
+  goal_image_key: image
+  random_resized_crop_prob: 0.8
+  random_resized_crop_scale:
+  - 0.7
+  - 1.0
+  crop_radio_features: true
+  state_noise_std: 0.02
+model:
+  policy_type: goal_resnet_radio_dit
+  use_state: true
+  use_language: true
+  lang_max_chars: 256
+  language_encoder_type: decisionnce
+  decisionnce_cache: data/decisionnce_text/libero_long_decisionnce_t.npz
+  task_aux_loss_weight: 0.05
+  lang_embed_dim: 128
+  lang_hidden_size: 256
+  lang_num_layers: 1
+  state_dim: 15
+  action_dim: 7
+  d_model: 512
+  nhead: 8
+  num_layers: 10
+  num_encoder_layers: 5
+  num_decoder_layers: 5
+  dim_feedforward: 2048
+  dropout: 0.1
+  patch_size: 16
+  in_channels: 3
+  radio_version: c-radio_v3-h
+  radio_microbatch: 8
+  radio_summary_dim: 3840
+  radio_local_dim: 1280
+  radio_patch_tokens: 196
+  freeze_radio: true
+  load_radio_backbone: false
+  goal_sequence_len: 10
+  goal_latent_tokens: 4
+  goal_perceiver_layers: 2
+  goal_drop_prob: 0.3
+  language_drop_prob: 0.3
+  keep_one_conditioning: true
+  normalize_cond_tokens: true
+  resnet_pretrained: true
+  ddp_find_unused_parameters: false
+train:
+  resume_checkpoint: null
+  epochs: 1000000
+  max_steps: 500000
+  lr: 0.0003
+  lr_schedule: cosine
+  warmup_steps: 2000
+  min_lr: 0.0
+  weight_decay: 0.01
+  no_weight_decay_keywords:
+  - language_encoder
+  - task_head
+  grad_clip_norm: 1.0
+  log_interval: 20
+  tqdm_batches: true
+  cond_probe_every_steps: 2000
+  cond_probe_warn_pct: 5.0
+  save_every_epochs: 0
+  save_every_steps: 50000
+  keep_last_checkpoints: 0
+  amp_dtype: bfloat16
+  timestep_sampling: uniform
+  checkpoint_subdir: /mnt/gck/svl_ckpt/final_retrain
+wan_planner:
+  lora_checkpoint: /mnt2/gck/checkpoints/wan_libero_long_subgoal_lora/lora_step_0220500.safetensors
+  model_root: /mnt2/gck/models/Wan2.2-TI2V-5B
+  num_subgoals_generated: 10
+  num_inference_steps: 30
+  vae_time_compression: 4
+  gen_resolution:
+  - 256
+  - 256
+  saved_subgoals: 10
+evaluate:
+  enabled: false
+  external_process: false
+  external_async: false
+  start_epoch: 1000000
+  every_epochs: 1
+  start_step: 1000000
+  every_steps: 0

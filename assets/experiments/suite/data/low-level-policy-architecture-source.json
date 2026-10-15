@@ -1,0 +1,58 @@
+{
+  "remoteHost": "lyg2080",
+  "figure": "architecture/low-level-policy.svg",
+  "scope": "Verified final LIBERO-Long implementation; not a claim that all historical PushT/LIBERO policies have identical encoders.",
+  "sources": [
+    {
+      "path": "/data/gck/svl_project/planning/model/flow_matching_goal_resnet_radio_dit.py",
+      "sha256": "0e33591468f8f7f67d39308592f87e6432ba8a98edcc396dc842d8c627ef914c"
+    },
+    {
+      "path": "/data/gck/svl_project/planning/model/flow_matching_goal_radio_transformer.py",
+      "sha256": "f1ab2e10cbd5973ba0664ccd9606ae5c4a5020d41689607f1228de39125f968e"
+    },
+    {
+      "path": "/data/gck/svl_project/configs/flow_goal_resnet_radio_libero_long_wan_full10_dit_final.yaml",
+      "sha256": "51dccef1cff940c4452cd96abd7228087279b50c2991dd1b3d8e93287f4b295f"
+    },
+    {
+      "path": "/data/gck/svl_project/configs/flow_goal_radio_pusht_wan_dp3_k4_scratch.yaml",
+      "sha256": "e17fc95a83d13bbd0032d4afcefdc1a93b4cccadcd528eec9453a16e02b6150b"
+    }
+  ],
+  "paper": "DreamCan_ICRA.pdf section IV-E",
+  "architecture": {
+    "observationHistory": 2,
+    "observationViews": 2,
+    "observationEncoding": "Frozen RADIO local patch tokens plus trainable language-FiLM ResNet34 global tokens",
+    "subgoalEncoding": "Frozen RADIO local/global features, shared two-layer Perceiver, four latent tokens per goal",
+    "maxSubgoals": 10,
+    "languageEncoding": "Frozen DecisionNCE-T embeddings with trainable projection and normalization",
+    "stateEncoding": "15-dimensional proprioception, MLP and normalization",
+    "prefixOrder": [
+      "observation",
+      "goal",
+      "state",
+      "language"
+    ],
+    "actionTrunk": {
+      "type": "single-tower flow-matching Transformer",
+      "layers": 10,
+      "width": 512,
+      "heads": 8,
+      "timeConditioning": "adaLN-Zero",
+      "attention": "prefix attends to prefix only; actions attend to prefix and action tokens",
+      "output": "linear velocity head"
+    },
+    "actionChunkLength": 16,
+    "actionDimensions": 7
+  },
+  "taskSpecificVariants": {
+    "inspectedPushTConfig": "goal_radio, four encoder/four decoder layers, width 512, three goal frames, eight RADIO latents per frame, byte-GRU language, no proprioception input, 16-step two-dimensional actions"
+  },
+  "notes": [
+    "Figure details show the final LIBERO-Long model rather than combining incompatible historical variants.",
+    "Planner provides subgoal images and is independent of the policy gradients.",
+    "The 91.2% archived result is reported for medoid ensembling of existing checkpoints; the diagram describes the individual policy architecture."
+  ]
+}

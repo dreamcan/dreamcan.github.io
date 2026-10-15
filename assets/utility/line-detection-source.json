@@ -1,0 +1,12 @@
+{
+  "sourceVideo": "/mnt/gck/paper_materials/video_materials/04_lt_line_sam_detection/07_w248_e12_sam2_overlay.mp4",
+  "sha256": "7ec9cad3e5904cecca12d2347b74aa7b9449f49a81813702a742fed0fb63341e",
+  "renderSource": "/data/gck/svl_project/scripts/render_line_sam2_utility_video_materials.py",
+  "detectionSource": "/data/gck/svl_project/outputs/language_table_line_sam2_detections_v7_nodrift_all/line/07_w248_e12_line_sam2_detections.json",
+  "rawVideoSource": "/data/gck/svl_project/vlp_dataset/line/07_w248_e12.mp4",
+  "instruction": "put the blocks in a diagonal line from the top right to bottom left",
+  "originalFrames": 266,
+  "fps": 10.0,
+  "finalHoldFrames": 10,
+  "displayedScore": "5-frame smoothed raw spatial progress, before annotation normalization"
+}

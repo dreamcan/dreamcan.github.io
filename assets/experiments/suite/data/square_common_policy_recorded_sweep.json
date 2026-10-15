@@ -1,0 +1,1489 @@
+{
+  "cohort": "recorded common optimal-100 demonstration lower policy; separate from manuscript Fig5",
+  "lower_checkpoint": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+  "N": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "methods": {
+    "dp": [
+      {
+        "N": 40,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dp_subgoal_lora_subopt40/lora_step_0225500.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 100,
+          "successes": 72,
+          "success_rate": 0.72,
+          "mean_episode_length": 242.89,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial000_success_len164.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 164,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial001_success_len367.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 367,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial002_success_len146.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 146,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial003_success_len136.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 136,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial004_success_len129.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 129,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial005_success_len186.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 186,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial006_success_len160.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 160,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos/trial007_success_len173.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 173,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt40_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 80,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dp_subgoal_lora_subopt80/lora_step_0229000.safetensors",
+          "eval_device": "cuda:6",
+          "total_episodes": 100,
+          "successes": 73,
+          "success_rate": 0.73,
+          "mean_episode_length": 241.43,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial000_success_len184.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 184,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial001_fail_len400.mp4",
+              "trial": 1,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial002_success_len179.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 179,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial003_success_len142.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 142,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial004_fail_len400.mp4",
+              "trial": 4,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial005_success_len195.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 195,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial006_success_len136.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 136,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos/trial007_success_len206.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 206,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt80_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 120,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dp_subgoal_lora_subopt120/lora_step_0338500.safetensors",
+          "eval_device": "cuda:7",
+          "total_episodes": 100,
+          "successes": 66,
+          "success_rate": 0.66,
+          "mean_episode_length": 260.72,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial000_fail_len400.mp4",
+              "trial": 0,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial001_success_len221.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 221,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial002_success_len155.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 155,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial003_success_len139.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 139,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial004_success_len211.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 211,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial005_success_len156.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 156,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial006_success_len158.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 158,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos/trial007_success_len168.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 168,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt120_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 160,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_checkpoints/wan_robomimic_square_dp_subgoal_lora_subopt160/lora_step_0354000.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 100,
+          "successes": 71,
+          "success_rate": 0.71,
+          "mean_episode_length": 251.29,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial000_success_len202.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 202,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial001_success_len236.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 236,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial002_fail_len400.mp4",
+              "trial": 2,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial003_success_len160.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 160,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial004_success_len162.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 162,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial005_success_len169.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 169,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos/trial007_success_len180.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 180,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_subopt160_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 200,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dp_subgoal_lora/lora_step_0208000.safetensors",
+          "eval_device": "cuda:6",
+          "total_episodes": 100,
+          "successes": 63,
+          "success_rate": 0.63,
+          "mean_episode_length": 263.27,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial000_success_len168.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 168,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial001_success_len349.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 349,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial002_fail_len400.mp4",
+              "trial": 2,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial003_success_len282.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 282,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial004_success_len159.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 159,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial005_success_len171.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 171,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos/trial007_success_len164.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 164,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dp_full_videos",
+          "save_videos": true
+        }
+      }
+    ],
+    "evenly": [
+      {
+        "N": 40,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_evenly_ablation/wan_robomimic_square_evenly_subgoal_lora_subopt40/lora_step_0142000.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 50,
+          "successes": 34,
+          "success_rate": 0.68,
+          "mean_episode_length": 249.9,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 4,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial000_success_len171.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 171,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial001_fail_len400.mp4",
+              "trial": 1,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial002_success_len153.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 153,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial003_success_len135.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 135,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial004_success_len145.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 145,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial005_fail_len400.mp4",
+              "trial": 5,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial006_success_len151.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 151,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos/trial007_success_len171.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 171,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt40_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 80,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_evenly_ablation/wan_robomimic_square_evenly_subgoal_lora_subopt80/lora_step_0141000.safetensors",
+          "eval_device": "cuda:6",
+          "total_episodes": 50,
+          "successes": 37,
+          "success_rate": 0.74,
+          "mean_episode_length": 244.16,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 4,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial000_success_len213.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 213,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial001_fail_len400.mp4",
+              "trial": 1,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial002_success_len141.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 141,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial003_success_len218.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 218,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial004_success_len130.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 130,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial005_success_len163.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 163,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial006_success_len144.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 144,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos/trial007_success_len215.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 215,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt80_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 120,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_evenly_ablation2/wan_robomimic_square_evenly_subgoal_lora_subopt120/lora_step_0159000.safetensors",
+          "eval_device": "cuda:7",
+          "total_episodes": 50,
+          "successes": 37,
+          "success_rate": 0.74,
+          "mean_episode_length": 240.96,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 4,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial000_success_len202.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 202,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial001_success_len280.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 280,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial002_success_len137.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 137,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial003_fail_len400.mp4",
+              "trial": 3,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial004_success_len150.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 150,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial005_success_len175.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 175,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial006_success_len148.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 148,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos/trial007_success_len171.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 171,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt120_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 160,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_evenly_ablation2/wan_robomimic_square_evenly_subgoal_lora_subopt160/lora_step_0165500.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 50,
+          "successes": 35,
+          "success_rate": 0.7,
+          "mean_episode_length": 239.18,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 4,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial000_success_len189.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 189,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial001_success_len244.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 244,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial002_success_len141.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 141,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial003_success_len142.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 142,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial004_success_len120.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 120,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial005_success_len155.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 155,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial006_success_len163.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 163,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos/trial007_success_len172.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 172,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_subopt160_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 200,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_evenly_subgoal_lora/lora_step_0884000.safetensors",
+          "eval_device": "cuda:6",
+          "total_episodes": 100,
+          "successes": 72,
+          "success_rate": 0.72,
+          "mean_episode_length": 241.25,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 4,
+          "generation_mode": "subgoal",
+          "dense_num_frames": null,
+          "goal_frame_index": 4,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial000_success_len197.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 197,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial001_success_len359.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 359,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial002_success_len138.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 138,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial003_fail_len400.mp4",
+              "trial": 3,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial004_success_len128.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 128,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial005_success_len162.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 162,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial006_success_len152.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 152,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos/trial007_success_len184.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 184,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/evenly_full_videos",
+          "save_videos": true
+        }
+      }
+    ],
+    "dense": [
+      {
+        "N": 40,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dense_lora_subopt40/lora_step_0300500.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 100,
+          "successes": 70,
+          "success_rate": 0.7,
+          "mean_episode_length": 251.18,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "dense",
+          "dense_num_frames": 41,
+          "goal_frame_index": 1,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial000_success_len214.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 214,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial001_fail_len400.mp4",
+              "trial": 1,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial002_success_len138.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 138,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial003_success_len314.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 314,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial004_success_len147.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 147,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial005_success_len243.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 243,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos/trial007_success_len177.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 177,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt40_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 80,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_dense_ablation/wan_robomimic_square_dense_lora_subopt80/lora_step_0190000.safetensors",
+          "eval_device": "cuda:6",
+          "total_episodes": 100,
+          "successes": 73,
+          "success_rate": 0.73,
+          "mean_episode_length": 245.13,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "dense",
+          "dense_num_frames": 41,
+          "goal_frame_index": 1,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial000_success_len180.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 180,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial001_success_len281.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 281,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial002_success_len151.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 151,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial003_success_len151.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 151,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial004_success_len126.mp4",
+              "trial": 4,
+              "success": true,
+              "episode_length": 126,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial005_success_len153.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 153,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos/trial007_success_len205.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 205,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt80_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 120,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_ckpts/wan_robomimic_square_dense_lora_subopt120/lora_step_0280500.safetensors",
+          "eval_device": "cuda:7",
+          "total_episodes": 100,
+          "successes": 69,
+          "success_rate": 0.69,
+          "mean_episode_length": 254.93,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "dense",
+          "dense_num_frames": 41,
+          "goal_frame_index": 1,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial000_success_len174.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 174,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial001_success_len346.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 346,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial002_success_len145.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 145,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial003_success_len141.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 141,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial004_fail_len400.mp4",
+              "trial": 4,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial005_success_len209.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 209,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos/trial007_success_len181.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 181,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt120_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 160,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt4/gck_dense_ablation/wan_robomimic_square_dense_lora_subopt160/lora_step_0191500.safetensors",
+          "eval_device": "cuda:5",
+          "total_episodes": 100,
+          "successes": 66,
+          "success_rate": 0.66,
+          "mean_episode_length": 259.18,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "dense",
+          "dense_num_frames": 41,
+          "goal_frame_index": 1,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial000_success_len202.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 202,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial001_success_len208.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 208,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial002_success_len151.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 151,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial003_success_len209.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 209,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial004_fail_len400.mp4",
+              "trial": 4,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial005_success_len152.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 152,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial006_fail_len400.mp4",
+              "trial": 6,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos/trial007_success_len200.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 200,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_subopt160_videos",
+          "save_videos": true
+        }
+      },
+      {
+        "N": 200,
+        "source": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_results.json",
+        "raw_report": {
+          "task_suite": "Square",
+          "checkpoint_path": "/data/gck/svl_project/checkpoints/flow_goal_radio_square_opt100_hindsight_25m_300k/goal_step_300000.pt",
+          "model_name": "goal_step_300000",
+          "wan_lora_checkpoint": "/mnt2/gck/checkpoints/wan_robomimic_square_dense_lora/lora_step_0710000.safetensors",
+          "eval_device": "cuda:7",
+          "total_episodes": 100,
+          "successes": 69,
+          "success_rate": 0.69,
+          "mean_episode_length": 248.27,
+          "max_steps": 400,
+          "subgoal_replan_every": 16,
+          "execute_chunk_steps": 8,
+          "action_chunk_len": 16,
+          "n_flow_steps": 10,
+          "wan_inference_steps": 30,
+          "num_subgoals_generated": 5,
+          "generation_mode": "dense",
+          "dense_num_frames": 41,
+          "goal_frame_index": 1,
+          "guidance_scale": 1.0,
+          "goal_sequence_len": 1,
+          "radio_resize": 224,
+          "seed": 100000,
+          "videos": [
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial000_success_len208.mp4",
+              "trial": 0,
+              "success": true,
+              "episode_length": 208,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial001_success_len306.mp4",
+              "trial": 1,
+              "success": true,
+              "episode_length": 306,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial002_success_len151.mp4",
+              "trial": 2,
+              "success": true,
+              "episode_length": 151,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial003_success_len135.mp4",
+              "trial": 3,
+              "success": true,
+              "episode_length": 135,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial004_fail_len400.mp4",
+              "trial": 4,
+              "success": false,
+              "episode_length": 400,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial005_success_len160.mp4",
+              "trial": 5,
+              "success": true,
+              "episode_length": 160,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial006_success_len160.mp4",
+              "trial": 6,
+              "success": true,
+              "episode_length": 160,
+              "task": "Square",
+              "task_id": 0
+            },
+            {
+              "path": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos/trial007_success_len215.mp4",
+              "trial": 7,
+              "success": true,
+              "episode_length": 215,
+              "task": "Square",
+              "task_id": 0
+            }
+          ],
+          "video_fps": 15.0,
+          "video_dir": "/data/gck/svl_project/eval/flow_goal_radio_wan_square/dense_full_videos",
+          "save_videos": true
+        }
+      }
+    ]
+  }
+}

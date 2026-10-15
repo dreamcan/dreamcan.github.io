@@ -1,0 +1,242 @@
+{
+  "benchmark": "libero_10",
+  "task_suite": "LIBERO-Long",
+  "per_episode": [
+    {
+      "task_id": 5,
+      "task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "trial": 0,
+      "init_state_index": 0,
+      "success": true,
+      "steps": 177
+    },
+    {
+      "task_id": 6,
+      "task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "trial": 0,
+      "init_state_index": 0,
+      "success": true,
+      "steps": 202
+    },
+    {
+      "task_id": 7,
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "trial": 0,
+      "init_state_index": 0,
+      "success": true,
+      "steps": 263
+    },
+    {
+      "task_id": 8,
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "trial": 0,
+      "init_state_index": 0,
+      "success": false,
+      "steps": 605
+    },
+    {
+      "task_id": 9,
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "trial": 0,
+      "init_state_index": 0,
+      "success": true,
+      "steps": 239
+    }
+  ],
+  "eval_task_ids": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "eval_task_begin": 0,
+  "eval_task_end": 10,
+  "eval_trial_begin": 0,
+  "eval_trial_end": 1,
+  "n_tasks_in_benchmark": 10,
+  "max_steps": 600,
+  "num_steps_wait": 5,
+  "flow_samples": 1,
+  "action_ensemble": 0,
+  "action_ensemble_temp": 0.01,
+  "stall_probe_chunks": 0,
+  "stall_noise_scale": 0.3,
+  "execute_chunk_steps": 8,
+  "action_chunk_len": 16,
+  "mujoco_gl": "egl",
+  "eval_device": "cuda:0",
+  "model_parameter_device": "cuda:0",
+  "model_name": "goal_step_250000",
+  "checkpoint_path": "/mnt2/gck/svl_ckpt/expA_robust/goal_step_250000.pt",
+  "total_episodes": 5,
+  "successes": 4,
+  "success_rate": 0.8,
+  "per_task": [
+    {
+      "task_id": 5,
+      "task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "successes": 1,
+      "episodes": 1,
+      "rate": 1.0
+    },
+    {
+      "task_id": 6,
+      "task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "successes": 1,
+      "episodes": 1,
+      "rate": 1.0
+    },
+    {
+      "task_id": 7,
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "successes": 1,
+      "episodes": 1,
+      "rate": 1.0
+    },
+    {
+      "task_id": 8,
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "successes": 0,
+      "episodes": 1,
+      "rate": 0.0
+    },
+    {
+      "task_id": 9,
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "successes": 1,
+      "episodes": 1,
+      "rate": 1.0
+    }
+  ],
+  "videos": [
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_agentview.mp4",
+      "camera": "agentview",
+      "task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "task_id": 5,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_eye_in_hand.mp4",
+      "camera": "eye_in_hand",
+      "task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "task_id": 5,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task05_STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success_obs_plus_wan_subgoals.mp4",
+      "camera": "agentview+wan_subgoals",
+      "task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "task_id": 5,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_agentview.mp4",
+      "camera": "agentview",
+      "task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "task_id": 6,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_eye_in_hand.mp4",
+      "camera": "eye_in_hand",
+      "task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "task_id": 6,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task06_LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding__trial0_success_obs_plus_wan_subgoals.mp4",
+      "camera": "agentview+wan_subgoals",
+      "task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "task_id": 6,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_agentview.mp4",
+      "camera": "agentview",
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "task_id": 7,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_eye_in_hand.mp4",
+      "camera": "eye_in_hand",
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "task_id": 7,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task07_LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_ba_trial0_success_obs_plus_wan_subgoals.mp4",
+      "camera": "agentview+wan_subgoals",
+      "task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "task_id": 7,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_agentview.mp4",
+      "camera": "agentview",
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "task_id": 8,
+      "trial": 0,
+      "success": false
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_eye_in_hand.mp4",
+      "camera": "eye_in_hand",
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "task_id": 8,
+      "trial": 0,
+      "success": false
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task08_KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_trial0_fail_obs_plus_wan_subgoals.mp4",
+      "camera": "agentview+wan_subgoals",
+      "task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "task_id": 8,
+      "trial": 0,
+      "success": false
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_agentview.mp4",
+      "camera": "agentview",
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "task_id": 9,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_eye_in_hand.mp4",
+      "camera": "eye_in_hand",
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "task_id": 9,
+      "trial": 0,
+      "success": true
+    },
+    {
+      "path": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos/task09_KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_trial0_success_obs_plus_wan_subgoals.mp4",
+      "camera": "agentview+wan_subgoals",
+      "task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "task_id": 9,
+      "trial": 0,
+      "success": true
+    }
+  ],
+  "video_fps": 10.0,
+  "video_dir": "/mnt2/gck/newwebsite_policy_rollouts_20261012_v2/gpu7/videos",
+  "save_videos": true,
+  "goal_mode": "wan_subgoal_radio_sequence_chunk_style_eval",
+  "goal_sequence_len": 10,
+  "guidance_scale": 1.0,
+  "wan_num_inference_steps": 30,
+  "wan_num_subgoals_gen": 10
+}

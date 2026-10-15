@@ -1,0 +1,111 @@
+{
+  "criterion": "objects_only",
+  "threshold_cm": 5,
+  "trials_per_stage": 50,
+  "tasks": [
+    {
+      "id": 1,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "ours": 0.9955555555555556,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.9466666666666667,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 2,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "ours": 1.0,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.948888888888889,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 3,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "ours": 0.985,
+      "oursStages": 8,
+      "oursTrials": 400,
+      "uniform": 0.9622222222222222,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 4,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "ours": 0.9942857142857144,
+      "oursStages": 7,
+      "oursTrials": 350,
+      "uniform": 0.9771428571428571,
+      "uniformStages": 7,
+      "uniformTrials": 350
+    },
+    {
+      "id": 5,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "ours": 1.0,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.9733333333333333,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 6,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "ours": 0.9533333333333333,
+      "oursStages": 6,
+      "oursTrials": 300,
+      "uniform": 0.9700000000000001,
+      "uniformStages": 6,
+      "uniformTrials": 300
+    },
+    {
+      "id": 7,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "ours": 1.0,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.9711111111111111,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 8,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "ours": 0.9777777777777779,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.8888888888888888,
+      "uniformStages": 9,
+      "uniformTrials": 450
+    },
+    {
+      "id": 9,
+      "instruction": "put both moka pots on the stove",
+      "ours": 0.9600000000000001,
+      "oursStages": 9,
+      "oursTrials": 450,
+      "uniform": 0.9480000000000001,
+      "uniformStages": 5,
+      "uniformTrials": 250
+    },
+    {
+      "id": 10,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "ours": 0.9057142857142857,
+      "oursStages": 7,
+      "oursTrials": 350,
+      "uniform": 0.8885714285714286,
+      "uniformStages": 7,
+      "uniformTrials": 350
+    }
+  ],
+  "oursMean": 0.9771666666666668,
+  "uniformMean": 0.9474825396825397,
+  "oursTrials": 4100,
+  "uniformTrials": 3950
+}

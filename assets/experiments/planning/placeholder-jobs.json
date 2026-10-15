@@ -1,0 +1,80 @@
+{
+  "purpose": "Temporary Dense checkpoint videos in the VLP website slots; not VLP results.",
+  "tasks": [
+    {
+      "id": "line",
+      "checkpoint": "/mnt2/gck/checkpoints/wan_language_table_line_dense_ar_lora/lora_step_0054000.safetensors",
+      "rounds": 3,
+      "examples": [
+        {
+          "episode": "w100_e43",
+          "condition": "/mnt4/gck_line_success/gen100/ours/w100_e43/condition.png",
+          "instructionFile": "/mnt4/gck_line_success/gen100/ours/w100_e43/instruction.txt",
+          "sourceInstruction": "put all the blocks in a vertical line on the right of the board"
+        },
+        {
+          "episode": "w131_e11",
+          "condition": "/mnt4/gck_line_success/gen100/ours/w131_e11/condition.png",
+          "instructionFile": "/mnt4/gck_line_success/gen100/ours/w131_e11/instruction.txt",
+          "sourceInstruction": "put all the blocks in a horizontal line on the bottom of the board"
+        },
+        {
+          "episode": "w205_e30",
+          "condition": "/mnt4/gck_line_success/gen100/ours/w205_e30/condition.png",
+          "instructionFile": "/mnt4/gck_line_success/gen100/ours/w205_e30/instruction.txt",
+          "sourceInstruction": "put the blocks in a diagonal line from the top left to bottom right"
+        }
+      ]
+    },
+    {
+      "id": "all_to_region",
+      "checkpoint": "/mnt2/gck/gck_wan_all_to_region_dense_ar/checkpoints/wan_language_table_all_to_region_dense_ar_lora/lora_step_0042000.safetensors",
+      "rounds": 6,
+      "examples": [
+        {
+          "episode": "w14_e0",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/00_w14_e0/instruction.txt",
+          "sourceInstruction": "put all the blocks in the bottom left corner"
+        },
+        {
+          "episode": "w39_e34",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/01_w39_e34/instruction.txt",
+          "sourceInstruction": "put all the blocks in the bottom right corner"
+        },
+        {
+          "episode": "w188_e43",
+          "condition": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/wan_a2r_value_search_n4/baseline/02_w188_e43/instruction.txt",
+          "sourceInstruction": "put all the blocks in the top left corner"
+        }
+      ]
+    },
+    {
+      "id": "canonical_shape",
+      "checkpoint": "/mnt2/gck/lt_campaign_20260920/cs_dense_uniform/checkpoints/wan_language_table_canonical_shape_dense_lora/lora_step_0250000.safetensors",
+      "rounds": 1,
+      "examples": [
+        {
+          "episode": "w321_e18",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/01_w321_e18/instruction.txt",
+          "sourceInstruction": "make a \"N\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w158_e15",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/02_w158_e15/instruction.txt",
+          "sourceInstruction": "make a \"square\"\" shape out of all the blocks"
+        },
+        {
+          "episode": "w306_e5",
+          "condition": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/condition.png",
+          "instructionFile": "/data/gck/svl_project/eval/ppt_item7_canonical_shape_dp_subgoal_gen/task1_original/03_w306_e5/instruction.txt",
+          "sourceInstruction": "make a \"diamond\"\" shape out of all the blocks"
+        }
+      ]
+    }
+  ]
+}

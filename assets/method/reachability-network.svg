@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="590" viewBox="0 0 640 590" role="img" aria-labelledby="network-title network-desc">
+  <title id="network-title">Reachability value network between frames i and j</title>
+  <desc id="network-desc">Observation history ending at frame i and frame j share a frozen RADIO visual encoder. A trainable temporal Transformer summarizes history, a frame MLP encodes frame j, and a language encoder provides context. Pairwise features are fused by a value MLP and the value is normalized to R of state i and state j.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 7 3.5 0 7Z" fill="#1565c0"/></marker>
+    <marker id="arrow-output" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 7 3.5 0 7Z" fill="#8c1515"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#202020;text-anchor:middle}
+      .label{font-size:18px;font-weight:600;fill:#202020}.detail{font-size:16px;fill:#585858}.math{font-family:"Times New Roman","STIX Two Math",serif;font-size:21px}
+      .wire{fill:none;stroke:#1565c0;stroke-width:1.15;marker-end:url(#arrow)}
+      .wire-output{stroke:#8c1515;marker-end:url(#arrow-output)}.output-label{fill:#202020}
+      .input{fill:#fff;stroke:#909090;stroke-width:1.1}.learned{fill:#E8F0F9;stroke:#737373;stroke-width:1.1}.frozen{fill:#ffffff;stroke:#737373;stroke-width:1.1;stroke-dasharray:5 3}
+    </style>
+  </defs>
+
+  <!-- The two visual inputs share the frozen visual backbone. -->
+  <rect class="input" x="20" y="15" width="190" height="78" rx="1"/>
+  <text class="label" x="115" y="44">Frame i + history</text>
+  <text class="math" x="115" y="74">oᵢ₋ₕ₊₁ … oᵢ</text>
+  <rect class="input" x="246" y="15" width="160" height="78" rx="1"/>
+  <text class="label" x="326" y="44">Frame j</text>
+  <text class="math" x="326" y="74">oⱼ</text>
+  <rect class="input" x="450" y="15" width="170" height="78" rx="1"/>
+  <text class="label" x="535" y="44">Language</text>
+  <text class="math" x="535" y="74">ℓ</text>
+
+  <path class="wire" d="M115 93V124"/>
+  <path class="wire" d="M326 93V124"/>
+  <rect class="frozen" x="20" y="125" width="386" height="68" rx="1"/>
+  <text class="label" x="213" y="152">Frozen RADIO encoder</text>
+  <text class="detail" x="213" y="177">Shared visual features f(o)</text>
+
+  <!-- Trainable branches preserve the history/second-frame asymmetry. -->
+  <path class="wire" d="M115 193V230"/>
+  <path class="wire" d="M326 193V230"/>
+  <path class="wire" d="M535 93V230"/>
+  <rect class="learned" x="20" y="231" width="190" height="68" rx="1"/>
+  <text class="label" x="115" y="258">Temporal</text>
+  <text class="label" x="115" y="283">Transformer</text>
+  <rect class="learned" x="246" y="231" width="160" height="68" rx="1"/>
+  <text class="label" x="326" y="272">Frame MLP</text>
+  <rect class="learned" x="450" y="231" width="170" height="68" rx="1"/>
+  <text class="label" x="535" y="258">Language</text>
+  <text class="label" x="535" y="283">encoder</text>
+
+  <path class="wire" d="M115 299V368"/>
+  <path class="wire" d="M326 299V368"/>
+  <path class="wire" d="M535 299V368"/>
+  <rect x="97" y="316" width="36" height="27" rx="1" fill="#ffffff"/>
+  <rect x="308" y="316" width="36" height="27" rx="1" fill="#ffffff"/>
+  <rect x="517" y="316" width="36" height="27" rx="1" fill="#ffffff"/>
+  <text class="math" x="115" y="337">hᵢ</text>
+  <text class="math" x="326" y="337">hⱼ</text>
+  <text class="math" x="535" y="337">hℓ</text>
+
+  <rect class="learned" x="20" y="369" width="600" height="68" rx="1"/>
+  <text class="label" x="320" y="396">Pairwise feature fusion</text>
+  <text class="math" x="320" y="424">[hᵢ, hⱼ, hⱼ − hᵢ, hᵢ ⊙ hⱼ, hℓ]</text>
+  <path class="wire" d="M212 437V475"/>
+
+  <rect class="learned" x="20" y="476" width="386" height="68" rx="1"/>
+  <text class="label" x="213" y="503">Value MLP</text>
+  <text class="math" x="213" y="531">V<tspan baseline-shift="sub" font-size="14">R</tspan><tspan baseline-shift="super" font-size="14">θ</tspan><tspan baseline-shift="baseline">(sᵢ, sⱼ)</tspan></text>
+  <path class="wire wire-output" d="M406 510H449"/>
+  <rect x="450" y="476" width="170" height="68" rx="1" fill="#F6ECEC" stroke="#8c1515" stroke-width="1.2"/>
+  <text class="label output-label" x="535" y="503">Reachability</text>
+  <text class="math output-label" x="535" y="531">R(sᵢ, sⱼ)</text>
+
+</svg>

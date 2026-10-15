@@ -1,0 +1,144 @@
+{
+  "style": "White-underlaid Stanford-red boxes and timed block-count labels. Display derivatives; original videos remain unchanged.",
+  "frame_numbering": "Zero-based; frame 0 is the conditioning observation.",
+  "records": [
+    {
+      "trajectory": 0,
+      "labels": [
+        {
+          "text": "Blue blocks: 2 → 1",
+          "first_frame": 14,
+          "last_frame": 16,
+          "y": 118
+        }
+      ],
+      "boxes": [
+        {
+          "x": 192,
+          "y": 20,
+          "w": 29,
+          "h": 32,
+          "first_frame": 14,
+          "last_frame": 16
+        }
+      ],
+      "source": "videos/tts/bad_0.mp4",
+      "output": "assets/experiments/tts/bad_0_annotated.mp4",
+      "source_sha256": "f3c14378830a32cbc6b9fa4d2b3136827e18ed719c783b81ff76baeea369f503",
+      "output_sha256": "5944fc3bd27ea67eb8bfe878fca7b2aa7389d317ed0334b6bd4d78e79b66ca42",
+      "fps": 4,
+      "frame_count": 17,
+      "duration_seconds": 4.25
+    },
+    {
+      "trajectory": 1,
+      "labels": [
+        {
+          "text": "Blue blocks: 2 → 3",
+          "first_frame": 14,
+          "last_frame": 16,
+          "y": 118
+        }
+      ],
+      "boxes": [
+        {
+          "x": 128,
+          "y": 22,
+          "w": 21,
+          "h": 25,
+          "first_frame": 14,
+          "last_frame": 14
+        },
+        {
+          "x": 140,
+          "y": 44,
+          "w": 20,
+          "h": 25,
+          "first_frame": 15,
+          "last_frame": 15
+        },
+        {
+          "x": 195,
+          "y": 27,
+          "w": 25,
+          "h": 29,
+          "first_frame": 14,
+          "last_frame": 16
+        },
+        {
+          "x": 221,
+          "y": 11,
+          "w": 25,
+          "h": 30,
+          "first_frame": 14,
+          "last_frame": 16
+        }
+      ],
+      "source": "videos/tts/bad_1.mp4",
+      "output": "assets/experiments/tts/bad_1_annotated.mp4",
+      "source_sha256": "d385cc477042439768f36ab09f9f2a42d96e5f3f0e5be4ba762ed09392925c7c",
+      "output_sha256": "83743e5e623db389f801407c1c019b00c2e657780d937faf83a931c4cfe3484e",
+      "fps": 4,
+      "frame_count": 17,
+      "duration_seconds": 4.25
+    },
+    {
+      "trajectory": 2,
+      "labels": [
+        {
+          "text": "Blue blocks: 2 → 1",
+          "first_frame": 1,
+          "last_frame": 16,
+          "y": 108
+        },
+        {
+          "text": "Yellow blocks: 2 → 3",
+          "first_frame": 1,
+          "last_frame": 16,
+          "y": 130
+        }
+      ],
+      "boxes": [
+        {
+          "x": 155,
+          "y": 10,
+          "w": 30,
+          "h": 31,
+          "first_frame": 1,
+          "last_frame": 16
+        },
+        {
+          "x": 176,
+          "y": 18,
+          "w": 61,
+          "h": 38,
+          "first_frame": 1,
+          "last_frame": 1
+        },
+        {
+          "x": 145,
+          "y": 30,
+          "w": 38,
+          "h": 38,
+          "first_frame": 2,
+          "last_frame": 2
+        },
+        {
+          "x": 154,
+          "y": 30,
+          "w": 33,
+          "h": 48,
+          "first_frame": 3,
+          "last_frame": 16
+        }
+      ],
+      "source": "videos/tts/bad_2.mp4",
+      "output": "assets/experiments/tts/bad_2_annotated.mp4",
+      "source_sha256": "1401f50fca7e1fef300c1e8235748e83bb80d58e73b308533525bb8829ad160d",
+      "output_sha256": "124780fec1308c8cbfbf85acd3f6e8969b738c75b8500b7797bb96da4b9a5f73",
+      "fps": 4,
+      "frame_count": 17,
+      "duration_seconds": 4.25
+    }
+  ]
+}

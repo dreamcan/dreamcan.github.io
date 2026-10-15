@@ -1,0 +1,81 @@
+/* Four base colors, scoped to the opening sections and Method. */
+.release-hero,#top-demo,#takeaways,#method{
+  --front-red:#8c1515;--front-blue:#1565c0;--front-ink:#202020;--front-white:#fff;
+  --front-muted:color-mix(in srgb,var(--front-ink) 75%,var(--front-white));
+  --front-border:color-mix(in srgb,var(--front-ink) 20%,var(--front-white));
+  --front-axis:color-mix(in srgb,var(--front-ink) 50%,var(--front-white));
+  --front-blue-tint:color-mix(in srgb,var(--front-blue) 10%,var(--front-white));
+  --front-red-tint:color-mix(in srgb,var(--front-red) 8%,var(--front-white));
+  --front-neutral-tint:color-mix(in srgb,var(--front-ink) 4%,var(--front-white));
+  --ink:var(--front-ink);--paper:var(--front-white);--text-muted:var(--front-muted);
+  --ink-60:var(--front-muted);--ink-44:var(--front-muted);--ink-read:var(--front-ink);
+  --ink-12:var(--front-border);--ink-4:var(--front-neutral-tint);
+  --peri:var(--front-blue);--peri-ink:var(--front-blue);
+  --orange:var(--front-red);--orange-ink:var(--front-red);--accent:var(--front-red);
+}
+.release-hero .title,.release-hero .title .wordmark,.release-hero .title .tsub{color:var(--front-red);background:none;-webkit-text-fill-color:var(--front-red)}
+.release-hero .hero-body .intro-brand{color:var(--front-red)}
+.release-hero .hero-body .intro-concept{color:var(--front-blue)}
+.release-hero .lede{color:var(--front-ink)}
+#top-demo .part-head,#takeaways .part-head,#method .part-head{color:var(--front-red)}
+#takeaways li,#takeaways li b{color:var(--front-ink)}
+#takeaways li::before{color:var(--front-blue)}
+#method .method-tabs button{box-shadow:none}
+#method .method-tabs button[aria-selected=true]{background:var(--front-blue);border-color:var(--front-blue);color:var(--front-white);box-shadow:none}
+#method .method-tabs button:hover{border-color:var(--front-blue);box-shadow:none}
+#method .method-tabs button .method-number{background:var(--front-blue-tint);color:var(--front-blue)}
+#method .method-tabs button[aria-selected=true] .method-number{background:var(--front-white);color:var(--front-blue)}
+#method .stage-io dt{color:var(--front-blue)}
+#method .stage-io>div:last-child dt{color:var(--front-red)}
+#method .stage-io dd,#method .method-lede{color:var(--front-ink)}
+#method a{color:var(--front-blue)}
+#method :focus-visible{outline-color:var(--front-blue)}
+#method .reach-explorer{--reach-initial:var(--front-blue);--reach-goal:var(--front-red);--reach-subtle:var(--front-neutral-tint);--reach-line:var(--front-border)}
+#method .utility-explorer{--reach-initial:var(--front-red);--reach-goal:var(--front-red)}
+#method .reach-task-buttons button[aria-pressed=true]{background:var(--front-blue);border-color:var(--front-blue);color:var(--front-white)}
+#method .reach-thumb.is-initial .reach-thumb-caption{background:var(--front-blue-tint)}
+#method .reach-thumb.is-goal .reach-thumb-caption,#method .utility-explorer .reach-thumb.is-initial .reach-thumb-caption,#method .utility-selection-label{background:var(--front-red-tint)}
+#method .reach-chart-wrap{background:var(--front-white)}
+#method #reach-chart text,#method #utility-chart text{fill:var(--front-muted)}
+#method .reach-chart-tooltip{box-shadow:none}
+#method .utility-visual-card{background:var(--front-white)}
+#method .utility-visual-card video{background:var(--front-ink)}
+#method .dp-example-stage-buttons button:hover{border-color:var(--front-blue)}
+#method .dp-example-stage-buttons button[aria-pressed=true]{background:var(--front-blue);border-color:var(--front-blue);color:var(--front-white)}
+#method .dp-example-axis{stroke:var(--front-axis)}
+#method .dp-example-curve,#method .dp-example-focus-line{stroke:var(--front-blue)}
+#method .dp-example-focus-dot{fill:var(--front-blue)}
+#method .dp-example-star{fill:var(--front-red)}
+#method .dp-atlas-frame,#method .dp-example-image{background-color:var(--front-neutral-tint)}
+/* The section rail and browser scrollbar use this palette only while viewing
+   the opening sections; later-section navigation retains its existing colors. */
+#pnav a:is([data-sec=top],[data-sec=top-demo],[data-sec=takeaways],[data-sec=method]){--c:#1565c0!important}
+body:has(#pnav a.on:is([data-sec=top],[data-sec=top-demo],[data-sec=takeaways],[data-sec=method])) #pnav .pnav-fill{background:#1565c0}
+html:has(#pnav a.on:is([data-sec=top],[data-sec=top-demo],[data-sec=takeaways],[data-sec=method])){scrollbar-color:#1565c0 #f3f3f3}
+html:has(#pnav a.on:is([data-sec=top],[data-sec=top-demo],[data-sec=takeaways],[data-sec=method]))::-webkit-scrollbar-thumb{background:#1565c0}
+html:has(#pnav a.on:is([data-sec=top],[data-sec=top-demo],[data-sec=takeaways],[data-sec=method]))::-webkit-scrollbar-thumb:hover{background:#8c1515}
+
+/* Centered author lockup, with institution numbers matching the author superscripts. */
+.release-hero .authors{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem 1.35rem;max-width:66rem;font-size:1.0625rem;line-height:1.85;color:var(--front-ink);text-wrap:balance}
+.release-hero .authors .au{margin:0;white-space:nowrap}
+.release-hero .authors sup{color:var(--front-blue);margin-left:.12em}
+.release-hero .orgs{gap:.7rem 1.8rem;margin-top:1.1rem;margin-bottom:.5rem}
+.release-hero .org-text{height:auto;font-size:.9375rem;line-height:1.5;font-weight:400;color:var(--front-muted);white-space:nowrap}
+.release-hero .orgnum{font-size:.7rem;line-height:1.4;color:var(--front-blue);margin-right:.3rem}
+@media(max-width:600px){
+  .release-hero .authors{gap:.3rem 1rem;font-size:1rem}
+  .release-hero .orgs{gap:.5rem 1.25rem}
+  .release-hero .org-text{font-size:.8125rem}
+}
+
+/* Institution names and their marks share four aligned columns. */
+.release-hero .orgs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;max-width:65rem;gap:1rem 1.5rem;margin-top:1.25rem}
+.release-hero .org{display:flex;flex-direction:column;align-items:center;height:auto;min-width:0;gap:.7rem}
+.release-hero .org-text{display:block;min-height:2.8rem;white-space:normal;text-wrap:balance}
+.release-hero .org-logo{display:flex;align-items:center;justify-content:center;width:100%;height:4rem}
+.release-hero .org-logo img{display:block;width:auto;height:auto;max-height:4rem;max-width:min(100%,11rem);object-fit:contain}
+@media(max-width:700px){.release-hero .orgs{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem 1rem;max-width:32rem}}
+@media(max-width:400px){.release-hero .org-logo{height:3.4rem}.release-hero .org-logo img{max-height:3.4rem;max-width:100%}}
+
+.release-hero .org-logo .orgnum{flex:none;align-self:flex-start;margin:.15rem .4rem 0 0}
+.release-hero .org-logo img{min-width:0;max-width:calc(100% - 1.1rem)}

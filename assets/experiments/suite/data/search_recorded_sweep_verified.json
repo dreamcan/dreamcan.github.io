@@ -1,0 +1,307 @@
+{
+  "source": "/data/gck/svl_project/outputs/line_value_search_summary/figures/tts_single_window_data.json",
+  "metric": "mean raw_progress of last two per-frame detection scores, then mean/SEM over videos",
+  "cohort_note": "existing 10-observation sweep, separate from 100-episode manuscript figure",
+  "series": {
+    "seq": {
+      "label": "Ours: whole-sequence best-of-N",
+      "points": [
+        {
+          "calls": 1,
+          "N": 1,
+          "final_pf_mean": 0.8252130389089454,
+          "final_pf_sem": 0.026882014839601856,
+          "final_mean": 0.8130704939365387,
+          "final_sem": 0.028821701385055104,
+          "pers_mean": 0.7625,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8252130389089454,
+          "recomputed_final_pf_sem": 0.026882014839601856,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n1/best_of_n",
+          "missing_score_files": []
+        },
+        {
+          "calls": 2,
+          "N": 2,
+          "final_pf_mean": 0.8273510988401819,
+          "final_pf_sem": 0.02653703302038701,
+          "final_mean": 0.8138396382331848,
+          "final_sem": 0.027709764440404707,
+          "pers_mean": 0.77109375,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8273510988401819,
+          "recomputed_final_pf_sem": 0.02653703302038701,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n2/best_of_n",
+          "missing_score_files": []
+        },
+        {
+          "calls": 4,
+          "N": 4,
+          "final_pf_mean": 0.8280531161421244,
+          "final_pf_sem": 0.02594202276030717,
+          "final_mean": 0.8160656452178955,
+          "final_sem": 0.02830468290671431,
+          "pers_mean": 0.775,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8280531161421244,
+          "recomputed_final_pf_sem": 0.02594202276030717,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n4/best_of_n",
+          "missing_score_files": []
+        },
+        {
+          "calls": 8,
+          "N": 8,
+          "final_pf_mean": 0.8309899445968633,
+          "final_pf_sem": 0.027146083764896595,
+          "final_mean": 0.8318186044692993,
+          "final_sem": 0.029347587153162734,
+          "pers_mean": 0.7875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8309899445968633,
+          "recomputed_final_pf_sem": 0.027146083764896592,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n8/best_of_n",
+          "missing_score_files": []
+        },
+        {
+          "calls": 16,
+          "N": 16,
+          "final_pf_mean": 0.8327138806931815,
+          "final_pf_sem": 0.027621569021368853,
+          "final_mean": 0.8132870197296143,
+          "final_sem": 0.02971807796463492,
+          "pers_mean": 0.7765625,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8327138806931815,
+          "recomputed_final_pf_sem": 0.027621569021368853,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n16/best_of_n",
+          "missing_score_files": []
+        },
+        {
+          "calls": 32,
+          "N": 32,
+          "final_pf_mean": 0.8353599591884956,
+          "final_pf_sem": 0.028101484845436096,
+          "final_mean": 0.8175034642219543,
+          "final_sem": 0.02877730135776373,
+          "pers_mean": 0.778125,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8353599591884957,
+          "recomputed_final_pf_sem": 0.028101484845436096,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/seq_n32/best_of_n",
+          "missing_score_files": []
+        }
+      ]
+    },
+    "subL8": {
+      "label": "Ours: anchored search, commit 8 per iteration",
+      "points": [
+        {
+          "calls": 2,
+          "N": 1,
+          "final_pf_mean": 0.8188091508066861,
+          "final_pf_sem": 0.026758493400128393,
+          "final_mean": 0.8076718151569366,
+          "final_sem": 0.028268299945899612,
+          "pers_mean": 0.76484375,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.818809150806686,
+          "recomputed_final_pf_sem": 0.026758493400128393,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/subL8_n1/substage_bon_clean",
+          "missing_score_files": []
+        },
+        {
+          "calls": 4,
+          "N": 2,
+          "final_pf_mean": 0.8347702651007815,
+          "final_pf_sem": 0.02767012113308143,
+          "final_mean": 0.8241227924823761,
+          "final_sem": 0.027107259457628707,
+          "pers_mean": 0.77109375,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8347702651007816,
+          "recomputed_final_pf_sem": 0.02767012113308143,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/subL8_n2/substage_bon_clean",
+          "missing_score_files": []
+        },
+        {
+          "calls": 8,
+          "N": 4,
+          "final_pf_mean": 0.8476657860366945,
+          "final_pf_sem": 0.025492866558464992,
+          "final_mean": 0.8311269044876098,
+          "final_sem": 0.027745179741389504,
+          "pers_mean": 0.77578125,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8476657860366945,
+          "recomputed_final_pf_sem": 0.025492866558464996,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/subL8_n4/substage_bon_clean",
+          "missing_score_files": []
+        },
+        {
+          "calls": 16,
+          "N": 8,
+          "final_pf_mean": 0.8376545209652569,
+          "final_pf_sem": 0.028014175293250135,
+          "final_mean": 0.8231571972370147,
+          "final_sem": 0.03081986724607015,
+          "pers_mean": 0.7796875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8376545209652568,
+          "recomputed_final_pf_sem": 0.028014175293250135,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/subL8_n8/substage_bon_clean",
+          "missing_score_files": []
+        }
+      ]
+    },
+    "dense": {
+      "label": "Dense video: best-of-N, one window (64 frames)",
+      "points": [
+        {
+          "calls": 1,
+          "N": 1,
+          "final_pf_mean": 0.5626202206690967,
+          "final_pf_sem": 0.042830990835094826,
+          "final_mean": 0.5632792532444,
+          "final_sem": 0.04067474447935546,
+          "pers_mean": 0.77421875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.5626202206690967,
+          "recomputed_final_pf_sem": 0.042830990835094826,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense_n1/dense_bon_n1",
+          "missing_score_files": []
+        },
+        {
+          "calls": 2,
+          "N": 2,
+          "final_pf_mean": 0.6466034167202007,
+          "final_pf_sem": 0.04439135204783086,
+          "final_mean": 0.6417175471782685,
+          "final_sem": 0.03839459128555968,
+          "pers_mean": 0.79921875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.6466034167202007,
+          "recomputed_final_pf_sem": 0.04439135204783085,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense_n2/dense_bon_n2",
+          "missing_score_files": []
+        },
+        {
+          "calls": 4,
+          "N": 4,
+          "final_pf_mean": 0.6631057774878577,
+          "final_pf_sem": 0.03862781525479772,
+          "final_mean": 0.6500621467828751,
+          "final_sem": 0.03484395363092817,
+          "pers_mean": 0.79921875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.6631057774878577,
+          "recomputed_final_pf_sem": 0.03862781525479772,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense_n4/dense_bon_n4",
+          "missing_score_files": []
+        },
+        {
+          "calls": 8,
+          "N": 8,
+          "final_pf_mean": 0.6828030437881843,
+          "final_pf_sem": 0.03498893313576088,
+          "final_mean": 0.6608198881149292,
+          "final_sem": 0.03171174471780396,
+          "pers_mean": 0.7828125,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.6828030437881843,
+          "recomputed_final_pf_sem": 0.03498893313576089,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense_n8/dense_bon_n8",
+          "missing_score_files": []
+        },
+        {
+          "calls": 16,
+          "N": 16,
+          "final_pf_mean": 0.7188275516758413,
+          "final_pf_sem": 0.03955581874016215,
+          "final_mean": 0.6934619188308716,
+          "final_sem": 0.033716510785841265,
+          "pers_mean": 0.8046875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.7188275516758413,
+          "recomputed_final_pf_sem": 0.03955581874016215,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense_n16/dense_bon_n16",
+          "missing_score_files": []
+        }
+      ]
+    },
+    "dense3": {
+      "label": "Dense video: best-of-N, three chained windows (192 frames)",
+      "points": [
+        {
+          "calls": 3,
+          "N": 1,
+          "final_pf_mean": 0.7466195408756938,
+          "final_pf_sem": 0.03906868077550739,
+          "final_mean": 0.7457267701625824,
+          "final_sem": 0.03950087321524237,
+          "pers_mean": 0.7890625,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.7466195408756938,
+          "recomputed_final_pf_sem": 0.03906868077550739,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense3_n1/dense_bon_n1",
+          "missing_score_files": []
+        },
+        {
+          "calls": 6,
+          "N": 2,
+          "final_pf_mean": 0.7687986502956193,
+          "final_pf_sem": 0.03231635404054045,
+          "final_mean": 0.7702136754989624,
+          "final_sem": 0.02914256202254568,
+          "pers_mean": 0.79140625,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.7687986502956193,
+          "recomputed_final_pf_sem": 0.03231635404054045,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense3_n2/dense_bon_n2",
+          "missing_score_files": []
+        },
+        {
+          "calls": 12,
+          "N": 4,
+          "final_pf_mean": 0.8154162134881249,
+          "final_pf_sem": 0.03629298738253358,
+          "final_mean": 0.8020013511180878,
+          "final_sem": 0.03636363554864012,
+          "pers_mean": 0.8171875,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8154162134881248,
+          "recomputed_final_pf_sem": 0.03629298738253358,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense3_n4/dense_bon_n4",
+          "missing_score_files": []
+        },
+        {
+          "calls": 24,
+          "N": 8,
+          "final_pf_mean": 0.8182915329702805,
+          "final_pf_sem": 0.023813669342307123,
+          "final_mean": 0.8074999392032624,
+          "final_sem": 0.024792908329046234,
+          "pers_mean": 0.803125,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8182915329702806,
+          "recomputed_final_pf_sem": 0.02381366934230712,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense3_n8/dense_bon_n8",
+          "missing_score_files": []
+        },
+        {
+          "calls": 48,
+          "N": 16,
+          "final_pf_mean": 0.811294410374645,
+          "final_pf_sem": 0.033276661315999635,
+          "final_mean": 0.7992689549922943,
+          "final_sem": 0.03651824727353553,
+          "pers_mean": 0.82734375,
+          "sample_count": 10,
+          "recomputed_final_pf_mean": 0.8112944103746449,
+          "recomputed_final_pf_sem": 0.033276661315999635,
+          "score_source_dir": "/data/gck/svl_project/eval/wan_line_tts_single/dense3_n16/dense_bon_n16",
+          "missing_score_files": []
+        }
+      ]
+    }
+  }
+}

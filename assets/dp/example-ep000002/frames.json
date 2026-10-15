@@ -1,0 +1,12 @@
+{
+  "episode": "ep_000002",
+  "instruction": "put the yellow and white mug in the microwave and close it",
+  "frameCount": 345,
+  "width": 192,
+  "height": 192,
+  "atlasColumns": 8,
+  "atlasRows": 44,
+  "source": "/mnt/gck/libero_data/libero_hdf5/LIBERO_Long.h5::episodes/ep_000002/image",
+  "atlas": "frames.webp",
+  "atlasSha256": "b5546bcbc4b2016cca0cf989962f344be21800225aad0548129b94bf12cfcd0f"
+}

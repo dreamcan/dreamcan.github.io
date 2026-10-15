@@ -1,0 +1,64 @@
+{
+  "source": "DreamCan_ICRA.pdf, Table III",
+  "plotFormat": "Figure 1 top-right: success rate vs trainable policy parameters on a logarithmic axis",
+  "parameterScope": "DreamCan uses the reported 0.1B low-level policy size; excludes its pretrained video planner and frozen encoders. Other parameter sizes reproduce Table III.",
+  "evaluationSource": "PushT VLA/WAM results were evaluated by the authors; LIBERO-Long VLA/WAM rates are cited from their original papers in Table III.",
+  "methods": [
+    {
+      "name": "DreamCan (Ours)",
+      "paramsB": 0.1,
+      "PushT": 86.0,
+      "LIBERO-Long": 91.2,
+      "category": "Ours"
+    },
+    {
+      "name": "VLA-OS",
+      "paramsB": 0.9,
+      "PushT": 72.0,
+      "LIBERO-Long": 76.0,
+      "category": "Hierarchical visual planner"
+    },
+    {
+      "name": "SEER",
+      "paramsB": 0.3,
+      "PushT": 68.0,
+      "LIBERO-Long": 87.7,
+      "category": "World-action model"
+    },
+    {
+      "name": "π0",
+      "paramsB": 3.3,
+      "PushT": 76.0,
+      "LIBERO-Long": 85.2,
+      "category": "End-to-end VLA"
+    },
+    {
+      "name": "π0.5",
+      "paramsB": 3.3,
+      "PushT": 86.0,
+      "LIBERO-Long": 92.4,
+      "category": "End-to-end VLA"
+    },
+    {
+      "name": "Lingbot-VA",
+      "paramsB": 5.3,
+      "PushT": 89.0,
+      "LIBERO-Long": 98.5,
+      "category": "World-action model"
+    }
+  ],
+  "planningTables": {
+    "PushT": {
+      "E2E": 58.0,
+      "Dense": 70.0,
+      "Uniform": 72.0,
+      "DreamCan (Ours)": 86.0
+    },
+    "LIBERO-Long": {
+      "E2E": 79.2,
+      "Dense": 84.0,
+      "Uniform": 82.4,
+      "DreamCan (Ours)": 91.2
+    }
+  }
+}
