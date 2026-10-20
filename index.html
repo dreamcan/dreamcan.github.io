@@ -638,22 +638,6 @@
   </div>
 </section>
 
-<section class="container sec" id="interactive-demo" aria-label="Interactive Demo">
-  <h2 class="part-head">Interactive Demo</h2>
-  <p class="sub">Drag the eight Language-Table blocks into any layout, pick a make-a-line instruction, and the DreamCan
-    planner (Wan 2.2 TI2V-5B at 640×384 with our subgoal LoRA) generates the 16-step visual plan from that start frame.
-    Every plan runs anchored test-time search with a detection-based block guard: each accepted subgoal is checked against
-    the previous one and hallucinated blocks are removed before the next step.</p>
-  <ul class="notes demo-notes">
-    <li><b>Cold start.</b> The GPU container starts on demand; the first visit after an idle period takes about two minutes to load the model.</li>
-    <li><b>Planning time.</b> One plan is 30-60 generator calls, roughly 8-14 minutes on an A100; the page shows the queue position and progress. Set candidates to 1 for a faster, less careful plan.</li>
-    <li><b>Shuffle</b> draws a layout from real episode start frames (the training distribution); the demo works best when blocks are clustered like that.</li>
-  </ul>
-  <div class="demo-embed">
-    <iframe id="interactive-demo-frame" src="https://heegergao--dreamcan-demo-demo-web.us-east.modal.run" title="DreamCan interactive planner" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer"></iframe>
-  </div>
-  <p class="sub"><a class="btn btn-solid" href="https://heegergao--dreamcan-demo-demo-web.us-east.modal.run" target="_blank" rel="noopener">Open the demo in a new tab</a></p>
-</section>
 
 <!-- =====================================================================
      run it
@@ -827,7 +811,6 @@ python vlm_judge/judge.py elo      pairs.jsonl</code></pre>
   <a href="#takeaways" data-sec="takeaways"><b></b><span>Key Results</span></a>
   <a href="#method" data-sec="method"><b></b><span>Method</span></a>
   <a href="#experiments" data-sec="experiments"><b></b><span>Experimental Results</span></a>
-  <a href="#interactive-demo" data-sec="interactive-demo"><b></b><span>Interactive Demo</span></a>
   <!-- <a href="#run" data-sec="run"><b></b><span>Run the benchmark</span></a> -->
   <a href="#faq" data-sec="faq"><b></b><span>FAQ</span></a>
   <a href="#cite" data-sec="cite"><b></b><span>Citation</span></a>
