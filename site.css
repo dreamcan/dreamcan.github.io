@@ -481,3 +481,10 @@ h2.title{font-size:var(--t-h1);line-height:1.2;letter-spacing:-.03em;font-weight
 
 /* Use compact Latin punctuation in MathML formulas. */
 math .math-comma{font-family:"Times New Roman","Liberation Serif",serif;font-style:normal}
+
+/* interactive demo embed (2026-10-20) */
+.demo-notes{margin-top:1rem;max-width:48rem}
+.demo-notes li{display:block}
+.demo-embed{margin-top:1.5rem;border:1px solid var(--ink-12);border-radius:var(--r-md);overflow:hidden;background:var(--ink-4)}
+.demo-embed iframe{display:block;width:100%;height:min(1500px,180vh);border:0;background:#fff}
+@media (max-width:600px){.demo-embed iframe{height:200vh}}

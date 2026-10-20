@@ -640,6 +640,19 @@
 
 <section class="container sec" id="interactive-demo" aria-label="Interactive Demo">
   <h2 class="part-head">Interactive Demo</h2>
+  <p class="sub">Drag the eight Language-Table blocks into any layout, pick an instruction, and the DreamCan planner
+    (Wan 2.2 TI2V-5B with our subgoal LoRA) generates the 16-step visual plan from that start frame. Plans use anchored
+    test-time search with a detection-based block guard: each accepted subgoal is checked against the previous one and
+    hallucinated blocks are removed before the next step. A Push-T tab plans from a simulator state.</p>
+  <ul class="notes demo-notes">
+    <li><b>Cold start.</b> The GPU container starts on demand; the first visit after an idle period takes about two minutes to load the model.</li>
+    <li><b>Planning time.</b> One plan is 30-60 generator calls, roughly 8-14 minutes on an A100; the page shows the queue position and progress. Set candidates to 1 for a faster, less careful plan.</li>
+    <li><b>Shuffle</b> draws a layout from real episode start frames (the training distribution); the demo works best when blocks are clustered like that.</li>
+  </ul>
+  <div class="demo-embed">
+    <iframe id="interactive-demo-frame" src="https://heegergao--dreamcan-demo-demo-web.us-east.modal.run" title="DreamCan interactive planner" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer"></iframe>
+  </div>
+  <p class="sub"><a class="btn btn-solid" href="https://heegergao--dreamcan-demo-demo-web.us-east.modal.run" target="_blank" rel="noopener">Open the demo in a new tab</a></p>
 </section>
 
 <!-- =====================================================================
