@@ -481,3 +481,4 @@ h2.title{font-size:var(--t-h1);line-height:1.2;letter-spacing:-.03em;font-weight
 
 /* Use compact Latin punctuation in MathML formulas. */
 math .math-comma{font-family:"Times New Roman","Liberation Serif",serif;font-style:normal}
+.hero-links{margin:1.25rem 0 0;display:flex;gap:.75rem;flex-wrap:wrap}
