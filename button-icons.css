@@ -1,0 +1,103 @@
+/* Decorative masks keep button names, event targets and dynamic text intact. */
+:where(button, a.btn, [role="button"]) {
+  --button-icon: url("assets/ui-icons/cursor.svg");
+}
+:where(button, a.btn, [role="button"])::before,
+.method-tabs button > span:last-child::before {
+  content: "";
+  display: inline-block;
+  inline-size: 1.1em;
+  block-size: 1.1em;
+  flex: none;
+  margin-inline-end: .4em;
+  vertical-align: -.16em;
+  background-color: currentColor;
+  -webkit-mask: var(--button-icon) center / contain no-repeat;
+  mask: var(--button-icon) center / contain no-repeat;
+  pointer-events: none;
+}
+/* Number badges stay in place; the icon belongs to the tab's text label. */
+.method-tabs button::before { content: none; }
+:where(button, a.btn, [role="button"]):has(> svg)::before { content: none; }
+
+#method-tab-planning, #experiments-tab-long-horizon, #exp-reach-tab {
+  --button-icon: url("assets/ui-icons/route.svg");
+}
+#method-tab-learning, #experiments-tab-suboptimal {
+  --button-icon: url("assets/ui-icons/chart.svg");
+}
+#method-tab-search, .dp-example-stage-buttons button {
+  --button-icon: url("assets/ui-icons/nodes.svg");
+}
+#method-tab-language { --button-icon: url("assets/ui-icons/film.svg"); }
+#experiments-tab-search-steering, #exp-search-tab {
+  --button-icon: url("assets/ui-icons/search.svg");
+}
+#exp-steering-tab { --button-icon: url("assets/ui-icons/message.svg"); }
+#experiments-tab-low-level, #experiments-tab-ablation, #exp-terms-tab {
+  --button-icon: url("assets/ui-icons/sliders.svg");
+}
+#experiments-tab-real-world,
+[data-reach-task="libero-long"], [data-utility-task="libero-long"], [data-dp-task="libero-long"] {
+  --button-icon: url("assets/ui-icons/robot.svg");
+}
+[data-reach-task="pusht"], [data-utility-task="pusht"], [data-dp-task="pusht"] {
+  --button-icon: url("assets/ui-icons/push-t.svg");
+}
+[data-reach-task="language-table"], [data-utility-task="language-table"], [data-dp-task="language-table"] {
+  --button-icon: url("assets/ui-icons/grid.svg");
+}
+[data-reach-task="square"], [data-utility-task="square"], [data-dp-task="square"] {
+  --button-icon: url("assets/ui-icons/square.svg");
+}
+[data-reach-mode="goal"] { --button-icon: url("assets/ui-icons/target.svg"); }
+#reach-reset, #utility-reset, #exp-detour-tab { --button-icon: url("assets/ui-icons/reset.svg"); }
+.reach-retry { --button-icon: url("assets/ui-icons/refresh.svg"); }
+#method-previous, #experiments-previous { --button-icon: url("assets/ui-icons/arrow-left.svg"); }
+#method-next, #experiments-next { --button-icon: url("assets/ui-icons/arrow-right.svg"); }
+[data-planning-task="line"] { --button-icon: url("assets/ui-icons/line.svg"); }
+[data-planning-task="all_to_region"] { --button-icon: url("assets/ui-icons/region.svg"); }
+[data-planning-task="canonical_shape"] { --button-icon: url("assets/ui-icons/shape.svg"); }
+[data-planning-example], .exp-bars button { --button-icon: url("assets/ui-icons/layers.svg"); }
+[data-sim-choice], .exp-choices button { --button-icon: url("assets/ui-icons/play.svg"); }
+
+/* Compact step buttons remain usable when a sequence has many subgoals. */
+.dp-example-stage-buttons button::before {
+  display: block;
+  inline-size: .9em;
+  block-size: .9em;
+  margin: 0 auto .2em;
+}
+/* Frame selectors get a small corner badge without changing image geometry. */
+.real-subgoal-frame, .reach-thumb, .thumb {
+  position: relative;
+  --button-icon: url("assets/ui-icons/image.svg");
+}
+:is(.real-subgoal-frame, .reach-thumb, .thumb)::before {
+  position: absolute;
+  inset-block-start: 7px;
+  inset-inline-end: 7px;
+  inline-size: 12px;
+  block-size: 12px;
+  margin: 0;
+  z-index: 2;
+}
+:is(.real-subgoal-frame, .reach-thumb, .thumb)::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 4px;
+  inset-inline-end: 4px;
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: 3px;
+  background: var(--paper);
+  opacity: .94;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Public resource buttons in the current release header. */
+.hero-links a[href*="arxiv.org/"] { --button-icon: url("assets/ui-icons/paper.svg"); }
+.hero-links a[href*="github.com/"] { --button-icon: url("assets/ui-icons/code.svg"); }
+.hero-links a[href*="huggingface.co/"] { --button-icon: url("assets/ui-icons/model.svg"); }
+.hero-links a[href*="huggingface.co/datasets/"] { --button-icon: url("assets/ui-icons/data.svg"); }

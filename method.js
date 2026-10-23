@@ -32,8 +32,8 @@
         : 'Experiment Suite ' + (selectedIndex + 1) + ' of ' + tabs.length;
       previous.disabled = selectedIndex === 0;
       next.disabled = selectedIndex === tabs.length - 1;
-      previous.textContent = selectedIndex > 0 ? '← ' + names[selectedIndex - 1] : 'Previous';
-      next.textContent = selectedIndex < tabs.length - 1 ? 'Next: ' + names[selectedIndex + 1] + ' →' : 'Final option';
+      previous.textContent = selectedIndex > 0 ? 'Previous: ' + names[selectedIndex - 1] : 'Previous';
+      next.textContent = selectedIndex < tabs.length - 1 ? 'Next: ' + names[selectedIndex + 1] : 'Final option';
       if (focus) tab.focus();
     }
 
